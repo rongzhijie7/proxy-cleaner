@@ -2,7 +2,38 @@ import yaml
 import requests
 import time
 import subprocess
+import re
 
+# ======================
+# YAML类型规范化
+# ======================
+
+def normalize_value(v):
+
+    if isinstance(v, str):
+
+        if v.lower() == "true":
+            return True
+
+        if v.lower() == "false":
+            return False
+
+        if re.fullmatch(r"\d+", v):
+            return int(v)
+
+    return v
+
+
+
+def normalize_proxy(proxy):
+
+    new_proxy = {}
+
+    for key, value in proxy.items():
+
+        new_proxy[key] = normalize_value(value)
+
+    return new_proxy
 
 # ======================
 # 地区关键词
