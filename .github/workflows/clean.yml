@@ -1,10 +1,11 @@
-name: Proxy Cleaner Test
+name: Proxy Cleaner
 
 on:
   workflow_dispatch:
 
 jobs:
-  test:
+
+  clean:
 
     runs-on: ubuntu-latest
 
@@ -13,7 +14,23 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v5
 
-    - name: Show system
+
+    - name: Download subscription
+
       run: |
-        echo "GitHub Actions OK"
-        uname -a
+        wget "${{ secrets.GIST_URL }}" -O source.yaml
+        ls -lh source.yaml
+
+
+    - name: Show proxy count
+
+      run: |
+        python3 - <<EOF
+        import yaml
+
+        with open("source.yaml","r",encoding="utf-8") as f:
+            data=yaml.safe_load(f)
+
+        print("节点数量:")
+        print(len(data.get("proxies",[])))
+        EOF
