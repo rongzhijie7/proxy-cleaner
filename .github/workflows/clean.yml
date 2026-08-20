@@ -38,7 +38,7 @@ jobs:
 
     - name: Install Python
       run: |
-        pip install pyyaml
+        pip install pyyaml requests
 
 
     - name: Count nodes
@@ -52,3 +52,8 @@ jobs:
         print("当前节点:")
         print(len(data["proxies"]))
         EOF
+
+        
+    - name: Test nodes
+      run: |
+        python cleaner.py
