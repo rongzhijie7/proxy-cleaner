@@ -16,14 +16,24 @@ jobs:
 
 
     - name: Download subscription
-
       run: |
         wget "${{ secrets.GIST_URL }}" -O source.yaml
         ls -lh source.yaml
 
 
-    - name: Show proxy count
+    - name: Install Mihomo
+      run: |
+        wget https://github.com/MetaCubeX/mihomo/releases/latest/download/mihomo-linux-amd64 -O mihomo
+        chmod +x mihomo
+        ./mihomo -v
 
+
+    - name: Install Python
+      run: |
+        pip install pyyaml
+
+
+    - name: Count nodes
       run: |
         python3 - <<EOF
         import yaml
@@ -31,6 +41,6 @@ jobs:
         with open("source.yaml","r",encoding="utf-8") as f:
             data=yaml.safe_load(f)
 
-        print("节点数量:")
-        print(len(data.get("proxies",[])))
+        print("当前节点:")
+        print(len(data["proxies"]))
         EOF
