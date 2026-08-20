@@ -15,6 +15,19 @@ with open("source.yaml","r",encoding="utf-8") as f:
 proxies=config["proxies"]
 
 
+# 处理重复节点名称
+name_count={}
+
+for p in proxies:
+    name=p["name"]
+
+    if name in name_count:
+        name_count[name]+=1
+        p["name"]=f"{name}-{name_count[name]}"
+    else:
+        name_count[name]=1
+
+
 names=[]
 
 for p in proxies:
