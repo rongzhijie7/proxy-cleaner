@@ -205,6 +205,21 @@ proxies:
     headers:
       Host: lx-us2.777078.xyz
   servername: lx-us2.777078.xyz
+- name: 韩国-1
+  type: vless
+  server: aws-link27.lxyun.xyz
+  port: 443
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  reality-opts:
+    public-key: a9I2uA3NNZA6uBAe3Tui9vZ8CG5MrMaYOifWrAdc0zg
+    short-id: a8609be8
+  network: tcp
+  servername: download-porter.hoyoverse.com
 - name: 台湾-1
   type: vless
   server: aws-link28.lxyun.xyz
@@ -220,246 +235,6 @@ proxies:
     short-id: b8fe57fe
   network: tcp
   servername: download-porter.hoyoverse.com
-- name: 香港-8
-  type: vless
-  server: cdn.nullcity.pp.ua
-  port: 443
-  uuid: f266a7e9-bc23-44c7-9d6b-dd9d40766a87
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ahk-01.992982.xyz
-  servername: ahk-01.992982.xyz
-- name: 香港-9
-  type: vless
-  server: cdn.nullcity.pp.ua
-  port: 443
-  uuid: f266a7e9-bc23-44c7-9d6b-dd9d40766a87
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ahk-02.992982.xyz
-  servername: ahk-02.992982.xyz
-- name: 香港-10
-  type: vless
-  server: cdn.nullcity.pp.ua
-  port: 443
-  uuid: f266a7e9-bc23-44c7-9d6b-dd9d40766a87
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ahk-03.992982.xyz
-  servername: ahk-03.992982.xyz
-- name: 澳门-1
-  type: vless
-  server: cdn.nullcity.pp.ua
-  port: 443
-  uuid: f266a7e9-bc23-44c7-9d6b-dd9d40766a87
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: mo-01.992982.xyz
-  servername: mo-01.992982.xyz
-- name: 澳门-2
-  type: vless
-  server: cdn.nullcity.pp.ua
-  port: 443
-  uuid: f266a7e9-bc23-44c7-9d6b-dd9d40766a87
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: mo-02.992982.xyz
-  servername: mo-02.992982.xyz
-- name: 澳门-3
-  type: vless
-  server: cdn.nullcity.pp.ua
-  port: 443
-  uuid: f266a7e9-bc23-44c7-9d6b-dd9d40766a87
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: mo-03.992982.xyz
-  servername: mo-03.992982.xyz
-- name: 台湾-3
-  type: vless
-  server: cdn.nullcity.pp.ua
-  port: 443
-  uuid: f266a7e9-bc23-44c7-9d6b-dd9d40766a87
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: tw-01.992982.xyz
-  servername: tw-01.992982.xyz
-- name: 日本-5
-  type: vless
-  server: cdn.nullcity.pp.ua
-  port: 443
-  uuid: f266a7e9-bc23-44c7-9d6b-dd9d40766a87
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: jp-01.992982.xyz
-  servername: jp-01.992982.xyz
-- name: 日本-6
-  type: vless
-  server: cdn.nullcity.pp.ua
-  port: 443
-  uuid: f266a7e9-bc23-44c7-9d6b-dd9d40766a87
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: jp-02.992982.xyz
-  servername: jp-02.992982.xyz
-- name: 日本-7
-  type: vless
-  server: cdn.nullcity.pp.ua
-  port: 443
-  uuid: f266a7e9-bc23-44c7-9d6b-dd9d40766a87
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: jp-03.992982.xyz
-  servername: jp-03.992982.xyz
-- name: 美国-4
-  type: vless
-  server: cdn.nullcity.pp.ua
-  port: 443
-  uuid: f266a7e9-bc23-44c7-9d6b-dd9d40766a87
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: us-02.992982.xyz
-  servername: us-02.992982.xyz
-- name: 美国-5
-  type: vless
-  server: cdn.nullcity.pp.ua
-  port: 443
-  uuid: f266a7e9-bc23-44c7-9d6b-dd9d40766a87
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: us-01.992982.xyz
-  servername: us-01.992982.xyz
-- name: 英国-1
-  type: vless
-  server: cdn.nullcity.pp.ua
-  port: 443
-  uuid: f266a7e9-bc23-44c7-9d6b-dd9d40766a87
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: gb-01.992982.xyz
-  servername: gb-01.992982.xyz
-- name: 新加坡-5
-  type: vless
-  server: cdnsg.nullcity.pp.ua
-  port: 443
-  uuid: f266a7e9-bc23-44c7-9d6b-dd9d40766a87
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: sg-01.992982.xyz
-  servername: sg-01.992982.xyz
-- name: 新加坡-6
-  type: vless
-  server: cdnsg.nullcity.pp.ua
-  port: 443
-  uuid: f266a7e9-bc23-44c7-9d6b-dd9d40766a87
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: sg-02.992982.xyz
-  servername: sg-02.992982.xyz
 - name: 韩国-2
   type: anytls
   server: alicdn-kr01.xn--9kqp42aims.top
