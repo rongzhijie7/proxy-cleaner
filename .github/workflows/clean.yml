@@ -23,7 +23,7 @@ jobs:
 
     - name: Install Mihomo
       run: |
-        wget https://github.com/MetaCubeX/mihomo/releases/latest/download/mihomo-linux-amd64 -O mihomo
+        wget https://github.com/MetaCubeX/mihomo/releases/latest/download/mihomo-linux-amd64-compatible -O mihomo
         chmod +x mihomo
         ./mihomo -v
 
