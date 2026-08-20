@@ -22,18 +22,18 @@ jobs:
 
 
     - name: Install Mihomo
-  run: |
-    VERSION=$(curl -s https://api.github.com/repos/MetaCubeX/mihomo/releases/latest | grep tag_name | cut -d '"' -f4)
+      run: |
+        VERSION=$(curl -s https://api.github.com/repos/MetaCubeX/mihomo/releases/latest | grep tag_name | cut -d '"' -f4)
 
-    echo "Mihomo version: $VERSION"
+        echo "Mihomo version: $VERSION"
 
-    wget https://github.com/MetaCubeX/mihomo/releases/download/${VERSION}/mihomo-linux-amd64-${VERSION}.gz -O mihomo.gz
+        wget https://github.com/MetaCubeX/mihomo/releases/download/${VERSION}/mihomo-linux-amd64-${VERSION}.gz -O mihomo.gz
 
-    gunzip mihomo.gz
+        gunzip mihomo.gz
 
-    chmod +x mihomo
+        chmod +x mihomo
 
-    ./mihomo -v
+        ./mihomo -v
 
 
     - name: Install Python
