@@ -1,4 +1,17 @@
 proxies:
+- name: 香港-1
+  type: vless
+  server: aws-link1.lxyun.xyz
+  port: 36458
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  fingerprint: d5c39647e414c144b719bc49cb41c4b8f46f09f4cf26c863cae15c01d4a7b96a
+  network: tcp
+  servername: iosapps.itunes.apple.com
 - name: 香港-2
   type: vless
   server: aws-link2.lxyun.xyz
@@ -192,6 +205,21 @@ proxies:
     headers:
       Host: lx-us2.777078.xyz
   servername: lx-us2.777078.xyz
+- name: 韩国-1
+  type: vless
+  server: aws-link27.lxyun.xyz
+  port: 443
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  reality-opts:
+    public-key: a9I2uA3NNZA6uBAe3Tui9vZ8CG5MrMaYOifWrAdc0zg
+    short-id: a8609be8
+  network: tcp
+  servername: download-porter.hoyoverse.com
 - name: 台湾-1
   type: vless
   server: aws-link28.lxyun.xyz
