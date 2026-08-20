@@ -78,19 +78,54 @@ process=subprocess.Popen(
 time.sleep(8)
 
 
-print("读取测速结果")
+print("开始逐节点测速")
 
 
-r=requests.get(
-    "http://127.0.0.1:9090/proxies/TEST/delay",
-    params={
-        "timeout":5000,
-        "url":"https://www.gstatic.com/generate_204"
-    }
+alive=[]
+
+for name in names:
+
+    try:
+
+        r=requests.get(
+            f"http://127.0.0.1:9090/proxies/{name}/delay",
+            params={
+                "timeout":5000,
+                "url":"https://www.gstatic.com/generate_204"
+            },
+            timeout=8
+        )
+
+        result=r.json()
+
+        if "delay" in result:
+
+            print(
+                name,
+                result["delay"],
+                "ms"
+            )
+
+            alive.append(name)
+
+        else:
+            print(
+                name,
+                "FAIL"
+            )
+
+    except Exception as e:
+
+        print(
+            name,
+            "ERROR"
+        )
+
+
+print(
+    "可用节点:",
+    len(alive)
 )
-
-
-print(r.text)
 
 
 process.kill()
