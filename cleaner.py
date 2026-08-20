@@ -97,11 +97,33 @@ proxies = []
 
 for p in raw_proxies:
 
+    # ======================
+    # 修复节点字段类型
+    # ======================
+
+    p = normalize_proxy(p)
+
+
     old_name = p.get(
         "name",
         ""
     )
 
+
+    # ======================
+    # 删除无效节点
+    # ======================
+
+    if not old_name:
+        continue
+
+
+    if not p.get("server"):
+        continue
+
+
+    if not p.get("type"):
+        continue
 
     region = None
 
