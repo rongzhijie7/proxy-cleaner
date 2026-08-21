@@ -85,6 +85,66 @@ proxies:
     headers:
       Host: lx-hk3.7770008.xyz
   servername: lx-hk3.7770008.xyz
+- name: 新加坡-1
+  type: vless
+  server: aws-link7.lxyun.xyz
+  port: 48574
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: ios
+  reality-opts:
+    public-key: lmxSayN8tUg2Dag2MPXrdqZ2SQK9K3OjlaKk8wVCRnc
+    short-id: f8f18902
+  network: tcp
+  servername: www.lamer.com.sg
+- name: 新加坡-2
+  type: vless
+  server: aws-link8.lxyun.xyz
+  port: 39645
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: ios
+  reality-opts:
+    public-key: x7VqpFP7_PrY4ebNw8hi8Ec5Tm5Upmt5JOdrN1M9VnQ
+    short-id: 2b3b0b93
+  network: tcp
+  servername: iosapps.itunes.apple.com
+- name: 新加坡-3
+  type: vless
+  server: aws-link9.lxyun.xyz
+  port: 23587
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: ios
+  reality-opts:
+    public-key: H66PLLf6HkZwHk4oFqisfTawIvw2cxkEwk8Ue8sHZgA
+    short-id: 19b580ae
+  network: tcp
+  servername: iosapps.itunes.apple.com
+- name: 日本-1
+  type: vless
+  server: aws-link13.lxyun.xyz
+  port: 36574
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  reality-opts:
+    public-key: sDG-KQk1BF7V83-xnmrWDouXxpPd_ZSxKcHrJJzbols
+    short-id: 32a3650d
+  network: tcp
+  servername: www.apple.com.cn
 - name: 日本-2
   type: vless
   server: aws-link14.lxyun.xyz
@@ -145,6 +205,21 @@ proxies:
     headers:
       Host: lx-us2.777078.xyz
   servername: lx-us2.777078.xyz
+- name: 韩国-1
+  type: vless
+  server: aws-link27.lxyun.xyz
+  port: 443
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  reality-opts:
+    public-key: a9I2uA3NNZA6uBAe3Tui9vZ8CG5MrMaYOifWrAdc0zg
+    short-id: a8609be8
+  network: tcp
+  servername: download-porter.hoyoverse.com
 - name: 台湾-1
   type: vless
   server: aws-link28.lxyun.xyz
@@ -160,214 +235,6 @@ proxies:
     short-id: b8fe57fe
   network: tcp
   servername: download-porter.hoyoverse.com
-- name: 香港-8
-  type: vless
-  server: cdn.nullcity.pp.ua
-  port: 443
-  uuid: f266a7e9-bc23-44c7-9d6b-dd9d40766a87
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ahk-01.992982.xyz
-  servername: ahk-01.992982.xyz
-- name: 香港-9
-  type: vless
-  server: cdn.nullcity.pp.ua
-  port: 443
-  uuid: f266a7e9-bc23-44c7-9d6b-dd9d40766a87
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ahk-02.992982.xyz
-  servername: ahk-02.992982.xyz
-- name: 香港-10
-  type: vless
-  server: cdn.nullcity.pp.ua
-  port: 443
-  uuid: f266a7e9-bc23-44c7-9d6b-dd9d40766a87
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ahk-03.992982.xyz
-  servername: ahk-03.992982.xyz
-- name: 澳门-1
-  type: vless
-  server: cdn.nullcity.pp.ua
-  port: 443
-  uuid: f266a7e9-bc23-44c7-9d6b-dd9d40766a87
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: mo-01.992982.xyz
-  servername: mo-01.992982.xyz
-- name: 澳门-2
-  type: vless
-  server: cdn.nullcity.pp.ua
-  port: 443
-  uuid: f266a7e9-bc23-44c7-9d6b-dd9d40766a87
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: mo-02.992982.xyz
-  servername: mo-02.992982.xyz
-- name: 澳门-3
-  type: vless
-  server: cdn.nullcity.pp.ua
-  port: 443
-  uuid: f266a7e9-bc23-44c7-9d6b-dd9d40766a87
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: mo-03.992982.xyz
-  servername: mo-03.992982.xyz
-- name: 台湾-3
-  type: vless
-  server: cdn.nullcity.pp.ua
-  port: 443
-  uuid: f266a7e9-bc23-44c7-9d6b-dd9d40766a87
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: tw-01.992982.xyz
-  servername: tw-01.992982.xyz
-- name: 日本-5
-  type: vless
-  server: cdn.nullcity.pp.ua
-  port: 443
-  uuid: f266a7e9-bc23-44c7-9d6b-dd9d40766a87
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: jp-01.992982.xyz
-  servername: jp-01.992982.xyz
-- name: 日本-6
-  type: vless
-  server: cdn.nullcity.pp.ua
-  port: 443
-  uuid: f266a7e9-bc23-44c7-9d6b-dd9d40766a87
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: jp-02.992982.xyz
-  servername: jp-02.992982.xyz
-- name: 日本-7
-  type: vless
-  server: cdn.nullcity.pp.ua
-  port: 443
-  uuid: f266a7e9-bc23-44c7-9d6b-dd9d40766a87
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: jp-03.992982.xyz
-  servername: jp-03.992982.xyz
-- name: 美国-4
-  type: vless
-  server: cdn.nullcity.pp.ua
-  port: 443
-  uuid: f266a7e9-bc23-44c7-9d6b-dd9d40766a87
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: us-02.992982.xyz
-  servername: us-02.992982.xyz
-- name: 美国-5
-  type: vless
-  server: cdn.nullcity.pp.ua
-  port: 443
-  uuid: f266a7e9-bc23-44c7-9d6b-dd9d40766a87
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: us-01.992982.xyz
-  servername: us-01.992982.xyz
-- name: 英国-1
-  type: vless
-  server: cdn.nullcity.pp.ua
-  port: 443
-  uuid: f266a7e9-bc23-44c7-9d6b-dd9d40766a87
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: gb-01.992982.xyz
-  servername: gb-01.992982.xyz
 - name: 新加坡-5
   type: vless
   server: cdnsg.nullcity.pp.ua
@@ -384,22 +251,6 @@ proxies:
     headers:
       Host: sg-01.992982.xyz
   servername: sg-01.992982.xyz
-- name: 新加坡-6
-  type: vless
-  server: cdnsg.nullcity.pp.ua
-  port: 443
-  uuid: f266a7e9-bc23-44c7-9d6b-dd9d40766a87
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: sg-02.992982.xyz
-  servername: sg-02.992982.xyz
 - name: 韩国-2
   type: anytls
   server: alicdn-kr01.xn--9kqp42aims.top
@@ -460,3 +311,402 @@ proxies:
   password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
   obfs: salamander
   obfs-password: OTA2ZjRiOGQ5MWYxNmQyZA==
+- name: 香港-12
+  type: vless
+  server: 47.242.91.132
+  port: 443
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: FDvcliic3sZ-Po1T5yElY9LpY-uqREgKC0Uql0gG6XA
+    short-id: 5eefb23f14e4
+  client-fingerprint: chrome
+  network: tcp
+  servername: updates.cdn-apple.com
+- name: 新加坡-8
+  type: vless
+  server: 35.240.135.91
+  port: 443
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: hqRkm7QhgURtnb0dNLzKDb6rRbk0FJBUlO4stkcEVgA
+    short-id: 15ddff257e
+  client-fingerprint: chrome
+  network: tcp
+  servername: updates.cdn-apple.com
+- name: 日本-9
+  type: vless
+  server: 35.189.141.20
+  port: 443
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: n2XOESIn4YLvY5OerVqiBfK66rOnOdER8ZwpemoiD10
+    short-id: 1644d58798
+  client-fingerprint: chrome
+  network: tcp
+  servername: updates.cdn-apple.com
+- name: 香港-13
+  type: vless
+  server: cf01.nekocloud.host
+  port: 443
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /nekocloud/hk01
+    headers:
+      Host: hk01.nekocloud.host
+  servername: hk01.nekocloud.host
+- name: 香港-14
+  type: vless
+  server: cf01.nekocloud.host
+  port: 443
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /nekocloud/hk02
+    headers:
+      Host: hk02.nekocloud.host
+  servername: hk02.nekocloud.host
+- name: 台湾-4
+  type: vless
+  server: cf01.nekocloud.host
+  port: 443
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /nekocloud/tw01
+    headers:
+      Host: tw01.nekocloud.host
+  servername: tw01.nekocloud.host
+- name: 新加坡-9
+  type: vless
+  server: cf01.nekocloud.host
+  port: 443
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /nekocloud/sg01
+    headers:
+      Host: sg01.nekocloud.host
+  servername: sg01.nekocloud.host
+- name: 新加坡-10
+  type: vless
+  server: cf01.nekocloud.host
+  port: 443
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /nekocloud/sg02
+    headers:
+      Host: sg02.nekocloud.host
+  servername: sg02.nekocloud.host
+- name: 日本-10
+  type: vless
+  server: cf01.nekocloud.host
+  port: 443
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /nekocloud/jp01
+    headers:
+      Host: jp01.nekocloud.host
+  servername: jp01.nekocloud.host
+- name: 日本-11
+  type: vless
+  server: cf01.nekocloud.host
+  port: 443
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /nekocloud/jp02
+    headers:
+      Host: jp02.nekocloud.host
+  servername: jp02.nekocloud.host
+- name: 美国-7
+  type: vless
+  server: cf01.nekocloud.host
+  port: 443
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /nekocloud/us01
+    headers:
+      Host: us01.nekocloud.host
+  servername: us01.nekocloud.host
+- name: 美国-8
+  type: vless
+  server: cf01.nekocloud.host
+  port: 443
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /nekocloud/us02
+    headers:
+      Host: us02.nekocloud.host
+  servername: us02.nekocloud.host
+- name: 新加坡-11
+  type: vless
+  server: sg03.ea9c2ab8-b920-4e14-a158-f1c21c866378.genshinimpact.cyou
+  port: 443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  reality-opts:
+    public-key: 6tZ4-sKZoUDDkjCPqpsJlWWo8Q5eW7IXuZUuUPPh2h8
+    short-id: 9cd7cae9
+  network: tcp
+  servername: updates.cdn-apple.com
+- name: 新加坡-12
+  type: vless
+  server: 13.215.159.83
+  port: 443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  reality-opts:
+    public-key: 6tZ4-sKZoUDDkjCPqpsJlWWo8Q5eW7IXuZUuUPPh2h8
+    short-id: 9cd7cae9
+  network: tcp
+  servername: updates.cdn-apple.com
+- name: 新加坡-15
+  type: vless
+  server: sg02.05e57c23-bae7-41a0-aeef-8e75566fc3dd.genshinimpact.cyou
+  port: 8443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+  network: tcp
+  servername: cdn-sg02.download.pikoport.com
+- name: 新加坡-16
+  type: vless
+  server: 13.215.178.54
+  port: 8443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+  network: tcp
+  servername: cdn-sg02.download.pikoport.com
+- name: 日本-12
+  type: vless
+  server: jp01.5392a812-9a56-456f-b89a-9e5b4208168a.genshinimpact.cyou
+  port: 8443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+  network: tcp
+  servername: cdn-jp01.download.pikoport.com
+- name: 日本-13
+  type: vless
+  server: 13.196.212.168
+  port: 8443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+  network: tcp
+  servername: cdn-jp01.download.pikoport.com
+- name: 日本-14
+  type: vless
+  server: jp02.cbd12403-7946-4bbc-8127-2d9e5f1d50bc.genshinimpact.cyou
+  port: 8443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+  network: tcp
+  servername: cdn-jp02.download.pikoport.com
+- name: 日本-15
+  type: vless
+  server: 35.78.231.72
+  port: 8443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+  network: tcp
+  servername: cdn-jp02.download.pikoport.com
+- name: 香港-15
+  type: vless
+  server: staticdelivery.nexusmods.com
+  port: 80
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: ak.mcdonaldshamburgergoodgoodgood.xyz
+- name: 香港-16
+  type: vless
+  server: 104.18.42.54
+  port: 80
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: ak.mcdonaldshamburgergoodgoodgood.xyz
+- name: 美国-9
+  type: vless
+  server: us01.d168f27a-5efc-4699-891d-eda6ea40be1d.genshinimpact.cyou
+  port: 443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: eN-hpk_h3mbxeGOfINunn7Ij_nsfFkgja3w5breOygg
+    short-id: 296d5815
+  network: tcp
+  servername: download.windowsupdate.com
+- name: 美国-13
+  type: vless
+  server: 104.18.42.54
+  port: 80
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: us6.mcdonaldshamburgergoodgoodgood.xyz
+- name: 美国-14
+  type: vless
+  server: staticdelivery.nexusmods.com
+  port: 80
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: us6.mcdonaldshamburgergoodgoodgood.xyz
+- name: 美国-15
+  type: vless
+  server: 104.18.42.54
+  port: 80
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: us5.mcdonaldshamburgergoodgoodgood.xyz
+- name: 美国-16
+  type: vless
+  server: www.shopify.com
+  port: 80
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: us5.mcdonaldshamburgergoodgoodgood.xyz
