@@ -235,22 +235,6 @@ proxies:
     short-id: b8fe57fe
   network: tcp
   servername: download-porter.hoyoverse.com
-- name: 新加坡-5
-  type: vless
-  server: cdnsg.nullcity.pp.ua
-  port: 443
-  uuid: f266a7e9-bc23-44c7-9d6b-dd9d40766a87
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: sg-01.992982.xyz
-  servername: sg-01.992982.xyz
 - name: 韩国-2
   type: anytls
   server: alicdn-kr01.xn--9kqp42aims.top
@@ -263,7 +247,7 @@ proxies:
   - http/1.1
   sni: alicdn-kr01.xn--9kqp42aims.top
   skip-cert-verify: false
-- name: 新加坡-7
+- name: 新加坡-5
   type: anytls
   server: sg-aws.xn--9kqp42aims.top
   port: 22712
@@ -275,7 +259,7 @@ proxies:
   - http/1.1
   sni: gw.alicdn.com
   skip-cert-verify: true
-- name: 日本-8
+- name: 日本-5
   type: anytls
   server: awsjptest.qqa456.com
   port: 45677
@@ -287,7 +271,7 @@ proxies:
   - http/1.1
   sni: gw.alicdn.com
   skip-cert-verify: true
-- name: 香港-11
+- name: 香港-8
   server: 38.6.219.47
   port: 20000
   ports: 20000-55000
@@ -299,7 +283,7 @@ proxies:
   password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
   obfs: salamander
   obfs-password: OTA2ZjRiOGQ7MWYxOmQyZA==
-- name: 美国-6
+- name: 美国-4
   server: 107.172.252.201
   port: 20000
   ports: 20000-55000
@@ -311,7 +295,7 @@ proxies:
   password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
   obfs: salamander
   obfs-password: OTA2ZjRiOGQ5MWYxNmQyZA==
-- name: 香港-12
+- name: 香港-9
   type: vless
   server: 47.242.91.132
   port: 443
@@ -329,7 +313,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: updates.cdn-apple.com
-- name: 新加坡-8
+- name: 新加坡-6
   type: vless
   server: 35.240.135.91
   port: 443
@@ -347,7 +331,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: updates.cdn-apple.com
-- name: 日本-9
+- name: 日本-6
   type: vless
   server: 35.189.141.20
   port: 443
@@ -365,7 +349,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: updates.cdn-apple.com
-- name: 香港-13
+- name: 香港-10
   type: vless
   server: cf01.nekocloud.host
   port: 443
@@ -383,7 +367,7 @@ proxies:
     headers:
       Host: hk01.nekocloud.host
   servername: hk01.nekocloud.host
-- name: 香港-14
+- name: 香港-11
   type: vless
   server: cf01.nekocloud.host
   port: 443
@@ -401,7 +385,7 @@ proxies:
     headers:
       Host: hk02.nekocloud.host
   servername: hk02.nekocloud.host
-- name: 台湾-4
+- name: 台湾-3
   type: vless
   server: cf01.nekocloud.host
   port: 443
@@ -419,7 +403,7 @@ proxies:
     headers:
       Host: tw01.nekocloud.host
   servername: tw01.nekocloud.host
-- name: 新加坡-9
+- name: 新加坡-7
   type: vless
   server: cf01.nekocloud.host
   port: 443
@@ -437,7 +421,7 @@ proxies:
     headers:
       Host: sg01.nekocloud.host
   servername: sg01.nekocloud.host
-- name: 新加坡-10
+- name: 新加坡-8
   type: vless
   server: cf01.nekocloud.host
   port: 443
@@ -455,7 +439,7 @@ proxies:
     headers:
       Host: sg02.nekocloud.host
   servername: sg02.nekocloud.host
-- name: 日本-10
+- name: 日本-7
   type: vless
   server: cf01.nekocloud.host
   port: 443
@@ -473,7 +457,7 @@ proxies:
     headers:
       Host: jp01.nekocloud.host
   servername: jp01.nekocloud.host
-- name: 日本-11
+- name: 日本-8
   type: vless
   server: cf01.nekocloud.host
   port: 443
@@ -491,7 +475,7 @@ proxies:
     headers:
       Host: jp02.nekocloud.host
   servername: jp02.nekocloud.host
-- name: 美国-7
+- name: 美国-5
   type: vless
   server: cf01.nekocloud.host
   port: 443
@@ -509,7 +493,7 @@ proxies:
     headers:
       Host: us01.nekocloud.host
   servername: us01.nekocloud.host
-- name: 美国-8
+- name: 美国-6
   type: vless
   server: cf01.nekocloud.host
   port: 443
@@ -527,7 +511,7 @@ proxies:
     headers:
       Host: us02.nekocloud.host
   servername: us02.nekocloud.host
-- name: 新加坡-11
+- name: 新加坡-9
   type: vless
   server: sg03.ea9c2ab8-b920-4e14-a158-f1c21c866378.genshinimpact.cyou
   port: 443
@@ -542,7 +526,7 @@ proxies:
     short-id: 9cd7cae9
   network: tcp
   servername: updates.cdn-apple.com
-- name: 新加坡-12
+- name: 新加坡-10
   type: vless
   server: 13.215.159.83
   port: 443
@@ -557,7 +541,7 @@ proxies:
     short-id: 9cd7cae9
   network: tcp
   servername: updates.cdn-apple.com
-- name: 新加坡-15
+- name: 新加坡-13
   type: vless
   server: sg02.05e57c23-bae7-41a0-aeef-8e75566fc3dd.genshinimpact.cyou
   port: 8443
@@ -569,7 +553,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: cdn-sg02.download.pikoport.com
-- name: 新加坡-16
+- name: 新加坡-14
   type: vless
   server: 13.215.178.54
   port: 8443
@@ -581,7 +565,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: cdn-sg02.download.pikoport.com
-- name: 日本-12
+- name: 日本-9
   type: vless
   server: jp01.5392a812-9a56-456f-b89a-9e5b4208168a.genshinimpact.cyou
   port: 8443
@@ -593,7 +577,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: cdn-jp01.download.pikoport.com
-- name: 日本-13
+- name: 日本-10
   type: vless
   server: 13.196.212.168
   port: 8443
@@ -605,7 +589,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: cdn-jp01.download.pikoport.com
-- name: 日本-14
+- name: 日本-11
   type: vless
   server: jp02.cbd12403-7946-4bbc-8127-2d9e5f1d50bc.genshinimpact.cyou
   port: 8443
@@ -617,7 +601,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: cdn-jp02.download.pikoport.com
-- name: 日本-15
+- name: 日本-12
   type: vless
   server: 35.78.231.72
   port: 8443
@@ -629,7 +613,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: cdn-jp02.download.pikoport.com
-- name: 香港-15
+- name: 香港-12
   type: vless
   server: staticdelivery.nexusmods.com
   port: 80
@@ -640,7 +624,7 @@ proxies:
     path: /
     headers:
       Host: ak.mcdonaldshamburgergoodgoodgood.xyz
-- name: 香港-16
+- name: 香港-13
   type: vless
   server: 104.18.42.54
   port: 80
@@ -651,7 +635,7 @@ proxies:
     path: /
     headers:
       Host: ak.mcdonaldshamburgergoodgoodgood.xyz
-- name: 美国-9
+- name: 美国-7
   type: vless
   server: us01.d168f27a-5efc-4699-891d-eda6ea40be1d.genshinimpact.cyou
   port: 443
@@ -666,7 +650,7 @@ proxies:
     short-id: 296d5815
   network: tcp
   servername: download.windowsupdate.com
-- name: 美国-13
+- name: 美国-11
   type: vless
   server: 104.18.42.54
   port: 80
@@ -677,7 +661,7 @@ proxies:
     path: /
     headers:
       Host: us6.mcdonaldshamburgergoodgoodgood.xyz
-- name: 美国-14
+- name: 美国-12
   type: vless
   server: staticdelivery.nexusmods.com
   port: 80
@@ -688,7 +672,7 @@ proxies:
     path: /
     headers:
       Host: us6.mcdonaldshamburgergoodgoodgood.xyz
-- name: 美国-15
+- name: 美国-13
   type: vless
   server: 104.18.42.54
   port: 80
@@ -699,7 +683,7 @@ proxies:
     path: /
     headers:
       Host: us5.mcdonaldshamburgergoodgoodgood.xyz
-- name: 美国-16
+- name: 美国-14
   type: vless
   server: www.shopify.com
   port: 80
