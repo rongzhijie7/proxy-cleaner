@@ -295,27 +295,9 @@ proxies:
   password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
   obfs: salamander
   obfs-password: OTA2ZjRiOGQ5MWYxNmQyZA==
-- name: 香港-9
-  type: vless
-  server: 47.242.91.132
-  port: 443
-  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
-  alterId: 0
-  cipher: auto
-  udp: true
-  flow: xtls-rprx-vision
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  reality-opts:
-    public-key: FDvcliic3sZ-Po1T5yElY9LpY-uqREgKC0Uql0gG6XA
-    short-id: 5eefb23f14e4
-  client-fingerprint: chrome
-  network: tcp
-  servername: updates.cdn-apple.com
 - name: 新加坡-6
   type: vless
-  server: 35.240.135.91
+  server: 34.21.239.120
   port: 443
   uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
   alterId: 0
@@ -346,6 +328,24 @@ proxies:
   reality-opts:
     public-key: n2XOESIn4YLvY5OerVqiBfK66rOnOdER8ZwpemoiD10
     short-id: 1644d58798
+  client-fingerprint: chrome
+  network: tcp
+  servername: updates.cdn-apple.com
+- name: 美国-5
+  type: vless
+  server: 34.94.216.5
+  port: 443
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: 0uPwJB59GNUGsO_gGTVMoxxcA8Nd78DHdWeKUqQzLBk
+    short-id: 7607aa298f
   client-fingerprint: chrome
   network: tcp
   servername: updates.cdn-apple.com
@@ -475,7 +475,7 @@ proxies:
     headers:
       Host: jp02.nekocloud.host
   servername: jp02.nekocloud.host
-- name: 美国-5
+- name: 美国-6
   type: vless
   server: cf01.nekocloud.host
   port: 443
@@ -493,7 +493,7 @@ proxies:
     headers:
       Host: us01.nekocloud.host
   servername: us01.nekocloud.host
-- name: 美国-6
+- name: 美国-7
   type: vless
   server: cf01.nekocloud.host
   port: 443
@@ -635,7 +635,7 @@ proxies:
     path: /
     headers:
       Host: ak.mcdonaldshamburgergoodgoodgood.xyz
-- name: 美国-7
+- name: 美国-8
   type: vless
   server: us01.d168f27a-5efc-4699-891d-eda6ea40be1d.genshinimpact.cyou
   port: 443
@@ -650,20 +650,24 @@ proxies:
     short-id: 296d5815
   network: tcp
   servername: download.windowsupdate.com
-- name: 美国-11
+- name: 美国-10
   type: vless
-  server: 104.18.42.54
-  port: 80
+  server: us02.4b214271-fd51-4e6b-9303-fe6e915f406d.genshinimpact.cyou
+  port: 443
   uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
   udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: us6.mcdonaldshamburgergoodgoodgood.xyz
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: bKG1vbvrxm4NfSqBx-0Co84M_uLLEEftv2Ql8G7rjhM
+    short-id: 157eb31c
+  network: tcp
+  servername: www.bing.com
 - name: 美国-12
   type: vless
-  server: staticdelivery.nexusmods.com
+  server: 104.18.42.54
   port: 80
   uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
   udp: true
@@ -674,6 +678,17 @@ proxies:
       Host: us6.mcdonaldshamburgergoodgoodgood.xyz
 - name: 美国-13
   type: vless
+  server: staticdelivery.nexusmods.com
+  port: 80
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: us6.mcdonaldshamburgergoodgoodgood.xyz
+- name: 美国-14
+  type: vless
   server: 104.18.42.54
   port: 80
   uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
@@ -683,7 +698,7 @@ proxies:
     path: /
     headers:
       Host: us5.mcdonaldshamburgergoodgoodgood.xyz
-- name: 美国-14
+- name: 美国-15
   type: vless
   server: www.shopify.com
   port: 80
