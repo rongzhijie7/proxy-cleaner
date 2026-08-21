@@ -85,66 +85,6 @@ proxies:
     headers:
       Host: lx-hk3.7770008.xyz
   servername: lx-hk3.7770008.xyz
-- name: 新加坡-1
-  type: vless
-  server: aws-link7.lxyun.xyz
-  port: 48574
-  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: ios
-  reality-opts:
-    public-key: lmxSayN8tUg2Dag2MPXrdqZ2SQK9K3OjlaKk8wVCRnc
-    short-id: f8f18902
-  network: tcp
-  servername: www.lamer.com.sg
-- name: 新加坡-2
-  type: vless
-  server: aws-link8.lxyun.xyz
-  port: 39645
-  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: ios
-  reality-opts:
-    public-key: x7VqpFP7_PrY4ebNw8hi8Ec5Tm5Upmt5JOdrN1M9VnQ
-    short-id: 2b3b0b93
-  network: tcp
-  servername: iosapps.itunes.apple.com
-- name: 新加坡-3
-  type: vless
-  server: aws-link9.lxyun.xyz
-  port: 23587
-  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: ios
-  reality-opts:
-    public-key: H66PLLf6HkZwHk4oFqisfTawIvw2cxkEwk8Ue8sHZgA
-    short-id: 19b580ae
-  network: tcp
-  servername: iosapps.itunes.apple.com
-- name: 日本-1
-  type: vless
-  server: aws-link13.lxyun.xyz
-  port: 36574
-  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: safari
-  reality-opts:
-    public-key: sDG-KQk1BF7V83-xnmrWDouXxpPd_ZSxKcHrJJzbols
-    short-id: 32a3650d
-  network: tcp
-  servername: www.apple.com.cn
 - name: 日本-2
   type: vless
   server: aws-link14.lxyun.xyz
@@ -205,21 +145,6 @@ proxies:
     headers:
       Host: lx-us2.777078.xyz
   servername: lx-us2.777078.xyz
-- name: 韩国-1
-  type: vless
-  server: aws-link27.lxyun.xyz
-  port: 443
-  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: safari
-  reality-opts:
-    public-key: a9I2uA3NNZA6uBAe3Tui9vZ8CG5MrMaYOifWrAdc0zg
-    short-id: a8609be8
-  network: tcp
-  servername: download-porter.hoyoverse.com
 - name: 台湾-1
   type: vless
   server: aws-link28.lxyun.xyz
