@@ -130,21 +130,6 @@ proxies:
     short-id: 19b580ae
   network: tcp
   servername: iosapps.itunes.apple.com
-- name: 日本-1
-  type: vless
-  server: aws-link13.lxyun.xyz
-  port: 36574
-  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: safari
-  reality-opts:
-    public-key: sDG-KQk1BF7V83-xnmrWDouXxpPd_ZSxKcHrJJzbols
-    short-id: 32a3650d
-  network: tcp
-  servername: www.apple.com.cn
 - name: 日本-2
   type: vless
   server: aws-link14.lxyun.xyz
