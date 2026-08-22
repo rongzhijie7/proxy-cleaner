@@ -313,6 +313,24 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: updates.cdn-apple.com
+- name: 新加坡-6
+  type: vless
+  server: 34.21.239.120
+  port: 443
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: hqRkm7QhgURtnb0dNLzKDb6rRbk0FJBUlO4stkcEVgA
+    short-id: 15ddff257e
+  client-fingerprint: chrome
+  network: tcp
+  servername: updates.cdn-apple.com
 - name: 日本-6
   type: vless
   server: 35.189.141.20
@@ -328,6 +346,24 @@ proxies:
   reality-opts:
     public-key: n2XOESIn4YLvY5OerVqiBfK66rOnOdER8ZwpemoiD10
     short-id: 1644d58798
+  client-fingerprint: chrome
+  network: tcp
+  servername: updates.cdn-apple.com
+- name: 韩国-3
+  type: vless
+  server: 43.108.19.91
+  port: 443
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: F4-2lAjo8B2SGqfSj96H184kw3HKWk5NhaGh_Utn2gE
+    short-id: 2c57a7f706e26a
   client-fingerprint: chrome
   network: tcp
   servername: updates.cdn-apple.com
@@ -526,6 +562,21 @@ proxies:
     short-id: 9cd7cae9
   network: tcp
   servername: updates.cdn-apple.com
+- name: 新加坡-10
+  type: vless
+  server: 52.77.239.182
+  port: 443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  reality-opts:
+    public-key: 6tZ4-sKZoUDDkjCPqpsJlWWo8Q5eW7IXuZUuUPPh2h8
+    short-id: 9cd7cae9
+  network: tcp
+  servername: updates.cdn-apple.com
 - name: 新加坡-13
   type: vless
   server: sg02.05e57c23-bae7-41a0-aeef-8e75566fc3dd.genshinimpact.cyou
@@ -635,6 +686,21 @@ proxies:
     short-id: 296d5815
   network: tcp
   servername: download.windowsupdate.com
+- name: 美国-10
+  type: vless
+  server: us02.4b214271-fd51-4e6b-9303-fe6e915f406d.genshinimpact.cyou
+  port: 443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: bKG1vbvrxm4NfSqBx-0Co84M_uLLEEftv2Ql8G7rjhM
+    short-id: 157eb31c
+  network: tcp
+  servername: www.bing.com
 - name: 美国-12
   type: vless
   server: 104.18.42.54
