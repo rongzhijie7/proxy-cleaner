@@ -205,36 +205,6 @@ proxies:
     headers:
       Host: lx-us2.777078.xyz
   servername: lx-us2.777078.xyz
-- name: 韩国-1
-  type: vless
-  server: aws-link27.lxyun.xyz
-  port: 443
-  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: safari
-  reality-opts:
-    public-key: a9I2uA3NNZA6uBAe3Tui9vZ8CG5MrMaYOifWrAdc0zg
-    short-id: a8609be8
-  network: tcp
-  servername: download-porter.hoyoverse.com
-- name: 台湾-1
-  type: vless
-  server: aws-link28.lxyun.xyz
-  port: 443
-  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: safari
-  reality-opts:
-    public-key: PFTc9Cn176HxLhtBCIzONGZIBVDJJodsCs4QHaTt7Sc
-    short-id: b8fe57fe
-  network: tcp
-  servername: download-porter.hoyoverse.com
 - name: 韩国-2
   type: anytls
   server: alicdn-kr01.xn--9kqp42aims.top
@@ -295,24 +265,6 @@ proxies:
   password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
   obfs: salamander
   obfs-password: OTA2ZjRiOGQ5MWYxNmQyZA==
-- name: 香港-9
-  type: vless
-  server: 47.242.91.132
-  port: 443
-  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
-  alterId: 0
-  cipher: auto
-  udp: true
-  flow: xtls-rprx-vision
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  reality-opts:
-    public-key: FDvcliic3sZ-Po1T5yElY9LpY-uqREgKC0Uql0gG6XA
-    short-id: 5eefb23f14e4
-  client-fingerprint: chrome
-  network: tcp
-  servername: updates.cdn-apple.com
 - name: 新加坡-6
   type: vless
   server: 34.21.239.120
