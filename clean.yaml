@@ -205,7 +205,7 @@ proxies:
     headers:
       Host: lx-us2.777078.xyz
   servername: lx-us2.777078.xyz
-- name: 韩国-2
+- name: 韩国-1
   type: anytls
   server: alicdn-kr01.xn--9kqp42aims.top
   port: 443
@@ -319,7 +319,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: updates.cdn-apple.com
-- name: 韩国-3
+- name: 韩国-2
   type: vless
   server: 43.108.19.91
   port: 443
@@ -391,7 +391,7 @@ proxies:
     headers:
       Host: hk02.nekocloud.host
   servername: hk02.nekocloud.host
-- name: 台湾-3
+- name: 台湾-2
   type: vless
   server: cf01.nekocloud.host
   port: 443
@@ -532,6 +532,51 @@ proxies:
     short-id: 9cd7cae9
   network: tcp
   servername: updates.cdn-apple.com
+- name: 新加坡-10
+  type: vless
+  server: 54.169.29.239
+  port: 443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  reality-opts:
+    public-key: 6tZ4-sKZoUDDkjCPqpsJlWWo8Q5eW7IXuZUuUPPh2h8
+    short-id: 9cd7cae9
+  network: tcp
+  servername: updates.cdn-apple.com
+- name: 日本-9
+  type: vless
+  server: jp03.73c01f37-d10a-4317-a43a-380fc51d0bc4.genshinimpact.cyou
+  port: 443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  reality-opts:
+    public-key: upIlaFG6DWfKE8wjn_qXYqb9ohDNavC3LRayjJ4Wp1o
+    short-id: 94d3f4df
+  network: tcp
+  servername: updates.cdn-apple.com
+- name: 日本-10
+  type: vless
+  server: 13.231.253.185
+  port: 443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  reality-opts:
+    public-key: upIlaFG6DWfKE8wjn_qXYqb9ohDNavC3LRayjJ4Wp1o
+    short-id: 94d3f4df
+  network: tcp
+  servername: updates.cdn-apple.com
 - name: 新加坡-13
   type: vless
   server: sg02.05e57c23-bae7-41a0-aeef-8e75566fc3dd.genshinimpact.cyou
@@ -556,7 +601,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: cdn-sg02.download.pikoport.com
-- name: 日本-9
+- name: 日本-11
   type: vless
   server: jp01.5392a812-9a56-456f-b89a-9e5b4208168a.genshinimpact.cyou
   port: 8443
@@ -568,7 +613,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: cdn-jp01.download.pikoport.com
-- name: 日本-10
+- name: 日本-12
   type: vless
   server: 13.196.212.168
   port: 8443
@@ -580,7 +625,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: cdn-jp01.download.pikoport.com
-- name: 日本-11
+- name: 日本-13
   type: vless
   server: jp02.cbd12403-7946-4bbc-8127-2d9e5f1d50bc.genshinimpact.cyou
   port: 8443
@@ -592,7 +637,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: cdn-jp02.download.pikoport.com
-- name: 日本-12
+- name: 日本-14
   type: vless
   server: 35.78.231.72
   port: 8443
@@ -626,22 +671,7 @@ proxies:
     path: /
     headers:
       Host: ak.mcdonaldshamburgergoodgoodgood.xyz
-- name: 美国-8
-  type: vless
-  server: us01.d168f27a-5efc-4699-891d-eda6ea40be1d.genshinimpact.cyou
-  port: 443
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: chrome
-  reality-opts:
-    public-key: eN-hpk_h3mbxeGOfINunn7Ij_nsfFkgja3w5breOygg
-    short-id: 296d5815
-  network: tcp
-  servername: download.windowsupdate.com
-- name: 美国-10
+- name: 美国-9
   type: vless
   server: us02.4b214271-fd51-4e6b-9303-fe6e915f406d.genshinimpact.cyou
   port: 443
@@ -656,7 +686,7 @@ proxies:
     short-id: 157eb31c
   network: tcp
   servername: www.bing.com
-- name: 美国-12
+- name: 美国-10
   type: vless
   server: 104.18.42.54
   port: 80
@@ -667,7 +697,7 @@ proxies:
     path: /
     headers:
       Host: us6.mcdonaldshamburgergoodgoodgood.xyz
-- name: 美国-13
+- name: 美国-11
   type: vless
   server: staticdelivery.nexusmods.com
   port: 80
@@ -678,7 +708,7 @@ proxies:
     path: /
     headers:
       Host: us6.mcdonaldshamburgergoodgoodgood.xyz
-- name: 美国-14
+- name: 美国-12
   type: vless
   server: 104.18.42.54
   port: 80
@@ -689,7 +719,7 @@ proxies:
     path: /
     headers:
       Host: us5.mcdonaldshamburgergoodgoodgood.xyz
-- name: 美国-15
+- name: 美国-13
   type: vless
   server: www.shopify.com
   port: 80
