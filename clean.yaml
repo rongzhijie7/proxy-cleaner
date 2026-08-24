@@ -40,21 +40,6 @@ proxies:
     short-id: c50db39f
   network: tcp
   servername: www.lamer.com.hk
-- name: 香港-4
-  type: vless
-  server: cfyes.777078.xyz
-  port: 443
-  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: safari
-  network: ws
-  ws-opts:
-    path: /liangxin/data/hk1
-    headers:
-      Host: lx-hk1.7770008.xyz
-  servername: lx-hk1.7770008.xyz
 - name: 香港-5
   type: vless
   server: cfyes.777078.xyz
@@ -481,7 +466,7 @@ proxies:
     headers:
       Host: jp02.nekocloud.host
   servername: jp02.nekocloud.host
-- name: 美国-6
+- name: 韩国-3
   type: vless
   server: cf01.nekocloud.host
   port: 443
@@ -495,10 +480,10 @@ proxies:
   client-fingerprint: chrome
   network: ws
   ws-opts:
-    path: /nekocloud/us01
+    path: /nekocloud/kr01
     headers:
-      Host: us01.nekocloud.host
-  servername: us01.nekocloud.host
+      Host: kr01.nekocloud.host
+  servername: kr01.nekocloud.host
 - name: 美国-7
   type: vless
   server: cf01.nekocloud.host
