@@ -301,24 +301,6 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: updates.cdn-apple.com
-- name: 日本-6
-  type: vless
-  server: 35.189.141.20
-  port: 443
-  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
-  alterId: 0
-  cipher: auto
-  udp: true
-  flow: xtls-rprx-vision
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  reality-opts:
-    public-key: n2XOESIn4YLvY5OerVqiBfK66rOnOdER8ZwpemoiD10
-    short-id: 1644d58798
-  client-fingerprint: chrome
-  network: tcp
-  servername: updates.cdn-apple.com
 - name: 韩国-2
   type: vless
   server: 43.108.19.91
