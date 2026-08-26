@@ -677,6 +677,21 @@ proxies:
     path: /
     headers:
       Host: ak.mcdonaldshamburgergoodgoodgood.xyz
+- name: 美国-8
+  type: vless
+  server: us01.d168f27a-5efc-4699-891d-eda6ea40be1d.genshinimpact.cyou
+  port: 443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: eN-hpk_h3mbxeGOfINunn7Ij_nsfFkgja3w5breOygg
+    short-id: 296d5815
+  network: tcp
+  servername: download.windowsupdate.com
 - name: 美国-9
   type: vless
   server: us02.4b214271-fd51-4e6b-9303-fe6e915f406d.genshinimpact.cyou
@@ -692,47 +707,3 @@ proxies:
     short-id: 157eb31c
   network: tcp
   servername: www.bing.com
-- name: 美国-10
-  type: vless
-  server: 104.18.42.54
-  port: 80
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: us6.mcdonaldshamburgergoodgoodgood.xyz
-- name: 美国-11
-  type: vless
-  server: staticdelivery.nexusmods.com
-  port: 80
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: us6.mcdonaldshamburgergoodgoodgood.xyz
-- name: 美国-12
-  type: vless
-  server: 104.18.42.54
-  port: 80
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: us5.mcdonaldshamburgergoodgoodgood.xyz
-- name: 美国-13
-  type: vless
-  server: www.shopify.com
-  port: 80
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: us5.mcdonaldshamburgergoodgoodgood.xyz
