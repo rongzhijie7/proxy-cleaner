@@ -145,6 +145,36 @@ proxies:
     short-id: 32a3650d
   network: tcp
   servername: www.apple.com.cn
+- name: 日本-2
+  type: vless
+  server: aws-link14.lxyun.xyz
+  port: 25485
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: ios
+  reality-opts:
+    public-key: VOFSjjWT0wIH3Q0ntyEZd8WwksrIAb5gPt_3PBnEASg
+    short-id: 9c5b8c53
+  network: tcp
+  servername: www.apple.com.cn
+- name: 日本-3
+  type: vless
+  server: aws-link19.lxyun.xyz
+  port: 8654
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  reality-opts:
+    public-key: QE5l0RUqs4OsH3j3u_xHm06-4NlILmQivZUJqiEx11o
+    short-id: 6314e825
+  network: tcp
+  servername: download-porter.hoyoverse.com
 - name: 美国-1
   type: vless
   server: cfyes.777078.xyz
@@ -262,24 +292,6 @@ proxies:
   reality-opts:
     public-key: n2XOESIn4YLvY5OerVqiBfK66rOnOdER8ZwpemoiD10
     short-id: 1644d58798
-  client-fingerprint: chrome
-  network: tcp
-  servername: updates.cdn-apple.com
-- name: 韩国-2
-  type: vless
-  server: 43.108.19.91
-  port: 443
-  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
-  alterId: 0
-  cipher: auto
-  udp: true
-  flow: xtls-rprx-vision
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  reality-opts:
-    public-key: F4-2lAjo8B2SGqfSj96H184kw3HKWk5NhaGh_Utn2gE
-    short-id: 2c57a7f706e26a
   client-fingerprint: chrome
   network: tcp
   servername: updates.cdn-apple.com
@@ -665,28 +677,6 @@ proxies:
     short-id: 157eb31c
   network: tcp
   servername: www.bing.com
-- name: 美国-10
-  type: vless
-  server: 104.18.42.54
-  port: 80
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: us6.mcdonaldshamburgergoodgoodgood.xyz
-- name: 美国-11
-  type: vless
-  server: staticdelivery.nexusmods.com
-  port: 80
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: us6.mcdonaldshamburgergoodgoodgood.xyz
 - name: 美国-12
   type: vless
   server: 104.18.42.54
