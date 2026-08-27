@@ -217,6 +217,30 @@ proxies:
   - http/1.1
   sni: alicdn-kr01.xn--9kqp42aims.top
   skip-cert-verify: false
+- name: 新加坡-5
+  type: anytls
+  server: sg-aws.xn--9kqp42aims.top
+  port: 22712
+  password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
+  client-fingerprint: chrome
+  udp: true
+  alpn:
+  - h2
+  - http/1.1
+  sni: gw.alicdn.com
+  skip-cert-verify: true
+- name: 日本-5
+  type: anytls
+  server: freeloadoss.baipiao0721-dns78655.eu
+  port: 45677
+  password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
+  client-fingerprint: chrome
+  udp: true
+  alpn:
+  - h2
+  - http/1.1
+  sni: gw.alicdn.com
+  skip-cert-verify: true
 - name: 香港-8
   server: 38.6.219.47
   port: 20000
@@ -259,7 +283,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: updates.cdn-apple.com
-- name: 新加坡-5
+- name: 新加坡-6
   type: vless
   server: 34.21.239.120
   port: 443
@@ -385,25 +409,7 @@ proxies:
     headers:
       Host: tw-01.nekocloud.pw
   servername: tw-01.nekocloud.pw
-- name: 新加坡-6
-  type: vless
-  server: cf-yes.nekocloud.host
-  port: 443
-  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
-  alterId: 0
-  cipher: auto
-  udp: true
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /nekocloud/sg-01
-    headers:
-      Host: sg-01.nekocloud.pw
-  servername: sg-01.nekocloud.pw
-- name: 新加坡-7
+- name: 新加坡-8
   type: vless
   server: cf-yes.nekocloud.host
   port: 443
@@ -511,7 +517,7 @@ proxies:
     headers:
       Host: us-02.nekocloud.pw
   servername: us-02.nekocloud.pw
-- name: 新加坡-8
+- name: 新加坡-9
   type: vless
   server: sg03.ea9c2ab8-b920-4e14-a158-f1c21c866378.genshinimpact.cyou
   port: 443
@@ -526,7 +532,7 @@ proxies:
     short-id: 9cd7cae9
   network: tcp
   servername: updates.cdn-apple.com
-- name: 新加坡-9
+- name: 新加坡-10
   type: vless
   server: 52.221.220.85
   port: 443
@@ -571,7 +577,7 @@ proxies:
     short-id: 94d3f4df
   network: tcp
   servername: updates.cdn-apple.com
-- name: 新加坡-12
+- name: 新加坡-13
   type: vless
   server: sg02.05e57c23-bae7-41a0-aeef-8e75566fc3dd.genshinimpact.cyou
   port: 8443
@@ -583,7 +589,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: cdn-sg02.download.pikoport.com
-- name: 新加坡-13
+- name: 新加坡-14
   type: vless
   server: 13.215.178.54
   port: 8443
@@ -695,25 +701,3 @@ proxies:
     short-id: 157eb31c
   network: tcp
   servername: www.bing.com
-- name: 美国-12
-  type: vless
-  server: 104.18.42.54
-  port: 80
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: us5.mcdonaldshamburgergoodgoodgood.xyz
-- name: 美国-13
-  type: vless
-  server: www.shopify.com
-  port: 80
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: us5.mcdonaldshamburgergoodgoodgood.xyz
