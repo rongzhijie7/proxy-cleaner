@@ -160,6 +160,21 @@ proxies:
     short-id: 9c5b8c53
   network: tcp
   servername: www.apple.com.cn
+- name: 日本-3
+  type: vless
+  server: aws-link19.lxyun.xyz
+  port: 8654
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  reality-opts:
+    public-key: QE5l0RUqs4OsH3j3u_xHm06-4NlILmQivZUJqiEx11o
+    short-id: 6314e825
+  network: tcp
+  servername: download-porter.hoyoverse.com
 - name: 美国-1
   type: vless
   server: cfyes.777078.xyz
@@ -190,6 +205,33 @@ proxies:
     headers:
       Host: lx-us2.777078.xyz
   servername: lx-us2.777078.xyz
+- name: 美国-4
+  type: vless
+  server: us-host.xn--9kqp42aims.top
+  port: 443
+  uuid: 7fe32c95-5838-42ca-bc0a-1608595a02ca
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: ios
+  reality-opts:
+    public-key: mboIBTDShznjYmQ_nl0AndQOHbxsTVTEVRuwnlKrzwU
+    short-id: 2509db11
+  network: tcp
+  servername: buylite.music.apple.com
+- name: 韩国-1
+  type: anytls
+  server: alicdn-kr01.xn--9kqp42aims.top
+  port: 443
+  password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
+  client-fingerprint: chrome
+  udp: true
+  alpn:
+  - h2
+  - http/1.1
+  sni: alicdn-kr01.xn--9kqp42aims.top
+  skip-cert-verify: false
 - name: 新加坡-5
   type: anytls
   server: sg.xn--9kqp42aims.top
