@@ -689,6 +689,21 @@ proxies:
     path: /
     headers:
       Host: ak.mcdonaldshamburgergoodgoodgood.xyz
+- name: 美国-9
+  type: vless
+  server: us01.d168f27a-5efc-4699-891d-eda6ea40be1d.genshinimpact.cyou
+  port: 443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: eN-hpk_h3mbxeGOfINunn7Ij_nsfFkgja3w5breOygg
+    short-id: 296d5815
+  network: tcp
+  servername: download.windowsupdate.com
 - name: 美国-10
   type: vless
   server: us02.4b214271-fd51-4e6b-9303-fe6e915f406d.genshinimpact.cyou
