@@ -370,6 +370,42 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: updates.cdn-apple.com
+- name: 香港-10
+  type: vless
+  server: cf-yes.nekocloud.host
+  port: 443
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /nekocloud/hk-01
+    headers:
+      Host: hk-01.nekocloud.pw
+  servername: hk-01.nekocloud.pw
+- name: 香港-11
+  type: vless
+  server: cf-yes.nekocloud.host
+  port: 443
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /nekocloud/hk-02
+    headers:
+      Host: hk-02.nekocloud.pw
+  servername: hk-02.nekocloud.pw
 - name: 台湾-2
   type: vless
   server: cf-yes.nekocloud.host
@@ -478,42 +514,6 @@ proxies:
     headers:
       Host: kr-01.nekocloud.pw
   servername: kr-01.nekocloud.pw
-- name: 美国-7
-  type: vless
-  server: cf-yes.nekocloud.host
-  port: 443
-  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
-  alterId: 0
-  cipher: auto
-  udp: true
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /nekocloud/us-01
-    headers:
-      Host: us-01.nekocloud.pw
-  servername: us-01.nekocloud.pw
-- name: 美国-8
-  type: vless
-  server: cf-yes.nekocloud.host
-  port: 443
-  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
-  alterId: 0
-  cipher: auto
-  udp: true
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /nekocloud/us-02
-    headers:
-      Host: us-02.nekocloud.pw
-  servername: us-02.nekocloud.pw
 - name: 新加坡-9
   type: vless
   server: sg03.ea9c2ab8-b920-4e14-a158-f1c21c866378.genshinimpact.cyou
@@ -547,21 +547,6 @@ proxies:
 - name: 日本-9
   type: vless
   server: jp03.73c01f37-d10a-4317-a43a-380fc51d0bc4.genshinimpact.cyou
-  port: 443
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: safari
-  reality-opts:
-    public-key: upIlaFG6DWfKE8wjn_qXYqb9ohDNavC3LRayjJ4Wp1o
-    short-id: 94d3f4df
-  network: tcp
-  servername: updates.cdn-apple.com
-- name: 日本-10
-  type: vless
-  server: 54.248.151.150
   port: 443
   uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
   udp: true
