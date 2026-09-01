@@ -40,51 +40,6 @@ proxies:
     short-id: c50db39f
   network: tcp
   servername: www.lamer.com.hk
-- name: 香港-4
-  type: vless
-  server: cfyes.777078.xyz
-  port: 443
-  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: safari
-  network: ws
-  ws-opts:
-    path: /liangxin/data/hk1
-    headers:
-      Host: lx-hk1.7770008.xyz
-  servername: lx-hk1.7770008.xyz
-- name: 香港-5
-  type: vless
-  server: cfyes.777078.xyz
-  port: 443
-  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: safari
-  network: ws
-  ws-opts:
-    path: /liangxin/data/hk2
-    headers:
-      Host: lx-hk2.7770008.xyz
-  servername: lx-hk2.7770008.xyz
-- name: 香港-6
-  type: vless
-  server: cfyes.777078.xyz
-  port: 443
-  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: safari
-  network: ws
-  ws-opts:
-    path: /liangxin/data/hk3
-    headers:
-      Host: lx-hk3.7770008.xyz
-  servername: lx-hk3.7770008.xyz
 - name: 新加坡-1
   type: vless
   server: aws-link7.lxyun.xyz
@@ -220,18 +175,6 @@ proxies:
     short-id: 2509db11
   network: tcp
   servername: buylite.music.apple.com
-- name: 韩国-1
-  type: anytls
-  server: alicdn-kr01.xn--9kqp42aims.top
-  port: 443
-  password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
-  client-fingerprint: chrome
-  udp: true
-  alpn:
-  - h2
-  - http/1.1
-  sni: alicdn-kr01.xn--9kqp42aims.top
-  skip-cert-verify: false
 - name: 新加坡-5
   type: anytls
   server: sg.xn--9kqp42aims.top
@@ -526,21 +469,6 @@ proxies:
     headers:
       Host: us-02.nekocloud.pw
   servername: us-02.nekocloud.pw
-- name: 新加坡-9
-  type: vless
-  server: sg03.ea9c2ab8-b920-4e14-a158-f1c21c866378.genshinimpact.cyou
-  port: 443
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: safari
-  reality-opts:
-    public-key: 6tZ4-sKZoUDDkjCPqpsJlWWo8Q5eW7IXuZUuUPPh2h8
-    short-id: 9cd7cae9
-  network: tcp
-  servername: updates.cdn-apple.com
 - name: 日本-9
   type: vless
   server: jp03.73c01f37-d10a-4317-a43a-380fc51d0bc4.genshinimpact.cyou
