@@ -550,6 +550,18 @@ proxies:
     short-id: 94d3f4df
   network: tcp
   servername: updates.cdn-apple.com
+- name: 新加坡-11
+  type: vless
+  server: sg01.ebf263c3-0b7e-4e71-87b9-26978dc121c4.genshinimpact.cyou
+  port: 8443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+  network: tcp
+  servername: cdn-sg01.download.pikoport.com
 - name: 新加坡-13
   type: vless
   server: sg02.05e57c23-bae7-41a0-aeef-8e75566fc3dd.genshinimpact.cyou
