@@ -1,4 +1,45 @@
 proxies:
+- name: 香港-1
+  type: vless
+  server: aws-link1.lxyun.xyz
+  port: 36458
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  fingerprint: d5c39647e414c144b719bc49cb41c4b8f46f09f4cf26c863cae15c01d4a7b96a
+  network: tcp
+  servername: iosapps.itunes.apple.com
+- name: 香港-2
+  type: vless
+  server: aws-link2.lxyun.xyz
+  port: 28346
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  fingerprint: af0f11574724e7ddd96f64eb77a450f71ce2de61ee5afd6f2e27ed7604a6a9b1
+  network: tcp
+  servername: www.lamer.com.hk
+- name: 香港-3
+  type: vless
+  server: aws-link3.lxyun.xyz
+  port: 27786
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: ios
+  reality-opts:
+    public-key: EYa4ic3GAxqznV61U-OOww-WKsu5wuQQptyS3fw7czM
+    short-id: c50db39f
+  network: tcp
+  servername: www.lamer.com.hk
 - name: 香港-4
   type: vless
   server: cfyes.777078.xyz
@@ -44,6 +85,96 @@ proxies:
     headers:
       Host: lx-hk3.7770008.xyz
   servername: lx-hk3.7770008.xyz
+- name: 新加坡-1
+  type: vless
+  server: aws-link7.lxyun.xyz
+  port: 48574
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: ios
+  reality-opts:
+    public-key: lmxSayN8tUg2Dag2MPXrdqZ2SQK9K3OjlaKk8wVCRnc
+    short-id: f8f18902
+  network: tcp
+  servername: www.lamer.com.sg
+- name: 新加坡-2
+  type: vless
+  server: aws-link8.lxyun.xyz
+  port: 39645
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: ios
+  reality-opts:
+    public-key: x7VqpFP7_PrY4ebNw8hi8Ec5Tm5Upmt5JOdrN1M9VnQ
+    short-id: 2b3b0b93
+  network: tcp
+  servername: iosapps.itunes.apple.com
+- name: 新加坡-3
+  type: vless
+  server: aws-link9.lxyun.xyz
+  port: 23587
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: ios
+  reality-opts:
+    public-key: H66PLLf6HkZwHk4oFqisfTawIvw2cxkEwk8Ue8sHZgA
+    short-id: 19b580ae
+  network: tcp
+  servername: iosapps.itunes.apple.com
+- name: 日本-1
+  type: vless
+  server: aws-link13.lxyun.xyz
+  port: 36574
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  reality-opts:
+    public-key: sDG-KQk1BF7V83-xnmrWDouXxpPd_ZSxKcHrJJzbols
+    short-id: 32a3650d
+  network: tcp
+  servername: www.apple.com.cn
+- name: 日本-2
+  type: vless
+  server: aws-link14.lxyun.xyz
+  port: 25485
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: ios
+  reality-opts:
+    public-key: VOFSjjWT0wIH3Q0ntyEZd8WwksrIAb5gPt_3PBnEASg
+    short-id: 9c5b8c53
+  network: tcp
+  servername: www.apple.com.cn
+- name: 日本-3
+  type: vless
+  server: aws-link19.lxyun.xyz
+  port: 8654
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  reality-opts:
+    public-key: QE5l0RUqs4OsH3j3u_xHm06-4NlILmQivZUJqiEx11o
+    short-id: 6314e825
+  network: tcp
+  servername: download-porter.hoyoverse.com
 - name: 美国-1
   type: vless
   server: cfyes.777078.xyz
@@ -89,18 +220,6 @@ proxies:
     short-id: 2509db11
   network: tcp
   servername: buylite.music.apple.com
-- name: 韩国-1
-  type: anytls
-  server: alicdn-kr01.xn--9kqp42aims.top
-  port: 443
-  password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
-  client-fingerprint: chrome
-  udp: true
-  alpn:
-  - h2
-  - http/1.1
-  sni: alicdn-kr01.xn--9kqp42aims.top
-  skip-cert-verify: false
 - name: 新加坡-5
   type: anytls
   server: sg.xn--9kqp42aims.top
@@ -113,6 +232,18 @@ proxies:
   - http/1.1
   sni: sg.xn--9kqp42aims.top
   skip-cert-verify: false
+- name: 日本-5
+  type: anytls
+  server: freeloadoss.baipiao0721-dns78655.eu
+  port: 45677
+  password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
+  client-fingerprint: chrome
+  udp: true
+  alpn:
+  - h2
+  - http/1.1
+  sni: gw.alicdn.com
+  skip-cert-verify: true
 - name: 香港-8
   server: 38.6.219.47
   port: 20000
