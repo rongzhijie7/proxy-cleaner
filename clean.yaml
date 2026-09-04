@@ -206,43 +206,46 @@ proxies:
       Host: lx-us2.777078.xyz
   servername: lx-us2.777078.xyz
 - name: 美国-4
-  server: ushost.xn--9kqp42aims.top
-  port: 20000
-  ports: 20000-55000
-  mport: 20000-55000
+  type: vless
+  server: us-host.xn--9kqp42aims.top
+  port: 443
+  uuid: 7fe32c95-5838-42ca-bc0a-1608595a02ca
   udp: true
-  skip-cert-verify: true
-  sni: gw.alicdn.com
-  type: hysteria2
+  flow: xtls-rprx-vision
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: ios
+  reality-opts:
+    public-key: mboIBTDShznjYmQ_nl0AndQOHbxsTVTEVRuwnlKrzwU
+    short-id: 2509db11
+  network: tcp
+  servername: buylite.music.apple.com
+- name: 新加坡-5
+  type: anytls
+  server: sg.xn--9kqp42aims.top
+  port: 443
   password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
-  obfs: salamander
-  obfs-password: OTA2ZjRiOGQ2MWYxNmQyZA==
+  client-fingerprint: chrome
+  udp: true
+  alpn:
+  - h2
+  - http/1.1
+  sni: sg.xn--9kqp42aims.top
+  skip-cert-verify: false
 - name: 日本-5
-  server: 45.192.203.190
-  port: 20000
-  ports: 20000-55000
-  mport: 20000-55000
-  udp: true
-  skip-cert-verify: true
-  sni: gw.alicdn.com
-  type: hysteria2
+  type: anytls
+  server: freeloadoss.baipiao0721-dns78655.eu
+  port: 45677
   password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
-  obfs: salamander
-  obfs-password: OTA4ZjRiOGQ5MWYxNmQyZA==
-- name: 日本-6
-  server: 45.192.201.94
-  port: 20000
-  ports: 20000-55000
-  mport: 20000-55000
+  client-fingerprint: chrome
   udp: true
-  skip-cert-verify: true
+  alpn:
+  - h2
+  - http/1.1
   sni: gw.alicdn.com
-  type: hysteria2
-  password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
-  obfs: salamander
-  obfs-password: OTA7ZjRiOGQ5MWYxNmQyZA==
+  skip-cert-verify: true
 - name: 香港-8
-  server: hk-alicdn.xn--9kqp42aims.top
+  server: 38.6.219.47
   port: 20000
   ports: 20000-55000
   mport: 20000-55000
@@ -253,19 +256,7 @@ proxies:
   password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
   obfs: salamander
   obfs-password: OTA2ZjRiOGQ7MWYxOmQyZA==
-- name: 香港-9
-  server: hk-alicdn.xn--9kqp42aims.top
-  port: 55001
-  ports: 55001-65535
-  mport: 55001-65535
-  udp: true
-  skip-cert-verify: true
-  sni: gw.alicdn.com
-  type: hysteria2
-  password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
-  obfs: salamander
-  obfs-password: OTA2ZjRiOGQ7MWYxNmQyZA==
-- name: 新加坡-5
+- name: 新加坡-6
   type: vless
   server: 34.21.239.120
   port: 443
@@ -283,7 +274,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: updates.cdn-apple.com
-- name: 日本-7
+- name: 日本-6
   type: vless
   server: 35.189.141.20
   port: 443
@@ -301,7 +292,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: updates.cdn-apple.com
-- name: 韩国-1
+- name: 韩国-2
   type: vless
   server: 43.108.19.91
   port: 443
@@ -337,7 +328,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: updates.cdn-apple.com
-- name: 香港-11
+- name: 香港-9
   type: vless
   server: cf-yes.nekocloud.host
   port: 443
@@ -355,7 +346,7 @@ proxies:
     headers:
       Host: hk-01.nekocloud.pw
   servername: hk-01.nekocloud.pw
-- name: 香港-12
+- name: 香港-10
   type: vless
   server: cf-yes.nekocloud.host
   port: 443
@@ -373,43 +364,7 @@ proxies:
     headers:
       Host: hk-02.nekocloud.pw
   servername: hk-02.nekocloud.pw
-- name: 台湾-2
-  type: vless
-  server: cf-yes.nekocloud.host
-  port: 443
-  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
-  alterId: 0
-  cipher: auto
-  udp: true
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /nekocloud/tw-01
-    headers:
-      Host: tw-01.nekocloud.pw
-  servername: tw-01.nekocloud.pw
-- name: 韩国-2
-  type: vless
-  server: cf-yes.nekocloud.host
-  port: 443
-  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
-  alterId: 0
-  cipher: auto
-  udp: true
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /nekocloud/kr-01
-    headers:
-      Host: kr-01.nekocloud.pw
-  servername: kr-01.nekocloud.pw
-- name: 新加坡-8
+- name: 新加坡-9
   type: vless
   server: sg03.ea9c2ab8-b920-4e14-a158-f1c21c866378.genshinimpact.cyou
   port: 443
@@ -424,7 +379,7 @@ proxies:
     short-id: 9cd7cae9
   network: tcp
   servername: updates.cdn-apple.com
-- name: 新加坡-9
+- name: 新加坡-10
   type: vless
   server: 3.0.91.193
   port: 443
@@ -439,7 +394,7 @@ proxies:
     short-id: 9cd7cae9
   network: tcp
   servername: updates.cdn-apple.com
-- name: 日本-10
+- name: 日本-9
   type: vless
   server: jp03.73c01f37-d10a-4317-a43a-380fc51d0bc4.genshinimpact.cyou
   port: 443
@@ -454,7 +409,7 @@ proxies:
     short-id: 94d3f4df
   network: tcp
   servername: updates.cdn-apple.com
-- name: 日本-11
+- name: 日本-10
   type: vless
   server: 35.77.221.153
   port: 443
@@ -469,7 +424,7 @@ proxies:
     short-id: 94d3f4df
   network: tcp
   servername: updates.cdn-apple.com
-- name: 新加坡-10
+- name: 新加坡-11
   type: vless
   server: sg01.ebf263c3-0b7e-4e71-87b9-26978dc121c4.genshinimpact.cyou
   port: 8443
@@ -481,7 +436,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: cdn-sg01.download.pikoport.com
-- name: 新加坡-11
+- name: 新加坡-12
   type: vless
   server: 13.212.231.124
   port: 8443
@@ -493,7 +448,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: cdn-sg01.download.pikoport.com
-- name: 新加坡-12
+- name: 新加坡-13
   type: vless
   server: sg02.05e57c23-bae7-41a0-aeef-8e75566fc3dd.genshinimpact.cyou
   port: 8443
@@ -505,7 +460,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: cdn-sg02.download.pikoport.com
-- name: 新加坡-13
+- name: 新加坡-14
   type: vless
   server: 13.215.178.54
   port: 8443
@@ -517,7 +472,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: cdn-sg02.download.pikoport.com
-- name: 日本-12
+- name: 日本-11
   type: vless
   server: jp01.5392a812-9a56-456f-b89a-9e5b4208168a.genshinimpact.cyou
   port: 8443
@@ -529,7 +484,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: cdn-jp01.download.pikoport.com
-- name: 日本-13
+- name: 日本-12
   type: vless
   server: 13.196.212.168
   port: 8443
@@ -541,7 +496,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: cdn-jp01.download.pikoport.com
-- name: 日本-14
+- name: 日本-13
   type: vless
   server: jp02.cbd12403-7946-4bbc-8127-2d9e5f1d50bc.genshinimpact.cyou
   port: 8443
@@ -553,7 +508,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: cdn-jp02.download.pikoport.com
-- name: 日本-15
+- name: 日本-14
   type: vless
   server: 35.78.231.72
   port: 8443
@@ -565,7 +520,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: cdn-jp02.download.pikoport.com
-- name: 香港-13
+- name: 香港-11
   type: vless
   server: staticdelivery.nexusmods.com
   port: 80
@@ -576,7 +531,7 @@ proxies:
     path: /
     headers:
       Host: ak.mcdonaldshamburgergoodgoodgood.xyz
-- name: 香港-14
+- name: 香港-12
   type: vless
   server: 104.18.42.54
   port: 80
@@ -587,6 +542,21 @@ proxies:
     path: /
     headers:
       Host: ak.mcdonaldshamburgergoodgoodgood.xyz
+- name: 美国-8
+  type: vless
+  server: us01.d168f27a-5efc-4699-891d-eda6ea40be1d.genshinimpact.cyou
+  port: 443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: eN-hpk_h3mbxeGOfINunn7Ij_nsfFkgja3w5breOygg
+    short-id: 296d5815
+  network: tcp
+  servername: download.windowsupdate.com
 - name: 美国-9
   type: vless
   server: us02.4b214271-fd51-4e6b-9303-fe6e915f406d.genshinimpact.cyou
