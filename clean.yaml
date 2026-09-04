@@ -130,6 +130,36 @@ proxies:
     short-id: 19b580ae
   network: tcp
   servername: iosapps.itunes.apple.com
+- name: 日本-1
+  type: vless
+  server: aws-link13.lxyun.xyz
+  port: 36574
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  reality-opts:
+    public-key: sDG-KQk1BF7V83-xnmrWDouXxpPd_ZSxKcHrJJzbols
+    short-id: 32a3650d
+  network: tcp
+  servername: www.apple.com.cn
+- name: 日本-2
+  type: vless
+  server: aws-link14.lxyun.xyz
+  port: 25485
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: ios
+  reality-opts:
+    public-key: VOFSjjWT0wIH3Q0ntyEZd8WwksrIAb5gPt_3PBnEASg
+    short-id: 9c5b8c53
+  network: tcp
+  servername: www.apple.com.cn
 - name: 日本-3
   type: vless
   server: aws-link19.lxyun.xyz
@@ -361,78 +391,6 @@ proxies:
     headers:
       Host: tw-01.nekocloud.pw
   servername: tw-01.nekocloud.pw
-- name: 新加坡-6
-  type: vless
-  server: cf-yes.nekocloud.host
-  port: 443
-  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
-  alterId: 0
-  cipher: auto
-  udp: true
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /nekocloud/sg-01
-    headers:
-      Host: sg-01.nekocloud.pw
-  servername: sg-01.nekocloud.pw
-- name: 新加坡-7
-  type: vless
-  server: cf-yes.nekocloud.host
-  port: 443
-  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
-  alterId: 0
-  cipher: auto
-  udp: true
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /nekocloud/sg-02
-    headers:
-      Host: sg-02.nekocloud.pw
-  servername: sg-02.nekocloud.pw
-- name: 日本-8
-  type: vless
-  server: cf-yes.nekocloud.host
-  port: 443
-  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
-  alterId: 0
-  cipher: auto
-  udp: true
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /nekocloud/jp-01
-    headers:
-      Host: jp-01.nekocloud.pw
-  servername: jp-01.nekocloud.pw
-- name: 日本-9
-  type: vless
-  server: cf-yes.nekocloud.host
-  port: 443
-  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
-  alterId: 0
-  cipher: auto
-  udp: true
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /nekocloud/jp-02
-    headers:
-      Host: jp-02.nekocloud.pw
-  servername: jp-02.nekocloud.pw
 - name: 韩国-2
   type: vless
   server: cf-yes.nekocloud.host
@@ -451,42 +409,6 @@ proxies:
     headers:
       Host: kr-01.nekocloud.pw
   servername: kr-01.nekocloud.pw
-- name: 美国-6
-  type: vless
-  server: cf-yes.nekocloud.host
-  port: 443
-  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
-  alterId: 0
-  cipher: auto
-  udp: true
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /nekocloud/us-01
-    headers:
-      Host: us-01.nekocloud.pw
-  servername: us-01.nekocloud.pw
-- name: 美国-7
-  type: vless
-  server: cf-yes.nekocloud.host
-  port: 443
-  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
-  alterId: 0
-  cipher: auto
-  udp: true
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /nekocloud/us-02
-    headers:
-      Host: us-02.nekocloud.pw
-  servername: us-02.nekocloud.pw
 - name: 新加坡-8
   type: vless
   server: sg03.ea9c2ab8-b920-4e14-a158-f1c21c866378.genshinimpact.cyou
@@ -665,21 +587,6 @@ proxies:
     path: /
     headers:
       Host: ak.mcdonaldshamburgergoodgoodgood.xyz
-- name: 美国-8
-  type: vless
-  server: us01.d168f27a-5efc-4699-891d-eda6ea40be1d.genshinimpact.cyou
-  port: 443
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: chrome
-  reality-opts:
-    public-key: eN-hpk_h3mbxeGOfINunn7Ij_nsfFkgja3w5breOygg
-    short-id: 296d5815
-  network: tcp
-  servername: download.windowsupdate.com
 - name: 美国-9
   type: vless
   server: us02.4b214271-fd51-4e6b-9303-fe6e915f406d.genshinimpact.cyou
