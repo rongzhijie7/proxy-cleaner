@@ -55,6 +55,21 @@ proxies:
     headers:
       Host: lx-hk1.7770008.xyz
   servername: lx-hk1.7770008.xyz
+- name: 香港-5
+  type: vless
+  server: cfyes.777078.xyz
+  port: 443
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /liangxin/data/hk2
+    headers:
+      Host: lx-hk2.7770008.xyz
+  servername: lx-hk2.7770008.xyz
 - name: 香港-6
   type: vless
   server: cfyes.777078.xyz
@@ -145,6 +160,21 @@ proxies:
     short-id: 9c5b8c53
   network: tcp
   servername: www.apple.com.cn
+- name: 日本-3
+  type: vless
+  server: aws-link19.lxyun.xyz
+  port: 8654
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  reality-opts:
+    public-key: QE5l0RUqs4OsH3j3u_xHm06-4NlILmQivZUJqiEx11o
+    short-id: 6314e825
+  network: tcp
+  servername: download-porter.hoyoverse.com
 - name: 美国-1
   type: vless
   server: cfyes.777078.xyz
@@ -253,24 +283,6 @@ proxies:
   reality-opts:
     public-key: hqRkm7QhgURtnb0dNLzKDb6rRbk0FJBUlO4stkcEVgA
     short-id: 15ddff257e
-  client-fingerprint: chrome
-  network: tcp
-  servername: updates.cdn-apple.com
-- name: 日本-6
-  type: vless
-  server: 35.189.141.20
-  port: 443
-  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
-  alterId: 0
-  cipher: auto
-  udp: true
-  flow: xtls-rprx-vision
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  reality-opts:
-    public-key: n2XOESIn4YLvY5OerVqiBfK66rOnOdER8ZwpemoiD10
-    short-id: 1644d58798
   client-fingerprint: chrome
   network: tcp
   servername: updates.cdn-apple.com
@@ -575,6 +587,21 @@ proxies:
     path: /
     headers:
       Host: ak.mcdonaldshamburgergoodgoodgood.xyz
+- name: 美国-8
+  type: vless
+  server: us01.d168f27a-5efc-4699-891d-eda6ea40be1d.genshinimpact.cyou
+  port: 443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: eN-hpk_h3mbxeGOfINunn7Ij_nsfFkgja3w5breOygg
+    short-id: 296d5815
+  network: tcp
+  servername: download.windowsupdate.com
 - name: 美国-9
   type: vless
   server: us02.4b214271-fd51-4e6b-9303-fe6e915f406d.genshinimpact.cyou
