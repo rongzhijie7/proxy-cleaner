@@ -55,21 +55,6 @@ proxies:
     headers:
       Host: lx-hk1.7770008.xyz
   servername: lx-hk1.7770008.xyz
-- name: 香港-5
-  type: vless
-  server: cfyes.777078.xyz
-  port: 443
-  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: safari
-  network: ws
-  ws-opts:
-    path: /liangxin/data/hk2
-    headers:
-      Host: lx-hk2.7770008.xyz
-  servername: lx-hk2.7770008.xyz
 - name: 香港-6
   type: vless
   server: cfyes.777078.xyz
@@ -160,21 +145,6 @@ proxies:
     short-id: 9c5b8c53
   network: tcp
   servername: www.apple.com.cn
-- name: 日本-3
-  type: vless
-  server: aws-link19.lxyun.xyz
-  port: 8654
-  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: safari
-  reality-opts:
-    public-key: QE5l0RUqs4OsH3j3u_xHm06-4NlILmQivZUJqiEx11o
-    short-id: 6314e825
-  network: tcp
-  servername: download-porter.hoyoverse.com
 - name: 美国-1
   type: vless
   server: cfyes.777078.xyz
@@ -286,9 +256,9 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: updates.cdn-apple.com
-- name: 韩国-2
+- name: 日本-6
   type: vless
-  server: 43.108.19.91
+  server: 35.189.141.20
   port: 443
   uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
   alterId: 0
@@ -299,8 +269,8 @@ proxies:
   tls: true
   skip-cert-verify: false
   reality-opts:
-    public-key: F4-2lAjo8B2SGqfSj96H184kw3HKWk5NhaGh_Utn2gE
-    short-id: 2c57a7f706e26a
+    public-key: n2XOESIn4YLvY5OerVqiBfK66rOnOdER8ZwpemoiD10
+    short-id: 1644d58798
   client-fingerprint: chrome
   network: tcp
   servername: updates.cdn-apple.com
@@ -322,6 +292,24 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: updates.cdn-apple.com
+- name: 香港-9
+  type: vless
+  server: cf-yes.nekocloud.host
+  port: 443
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /nekocloud/hk-01
+    headers:
+      Host: hk-01.nekocloud.pw
+  servername: hk-01.nekocloud.pw
 - name: 香港-10
   type: vless
   server: cf-yes.nekocloud.host
@@ -358,6 +346,96 @@ proxies:
     headers:
       Host: sg-01.nekocloud.pw
   servername: sg-01.nekocloud.pw
+- name: 新加坡-8
+  type: vless
+  server: cf-yes.nekocloud.host
+  port: 443
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /nekocloud/sg-02
+    headers:
+      Host: sg-02.nekocloud.pw
+  servername: sg-02.nekocloud.pw
+- name: 日本-7
+  type: vless
+  server: cf-yes.nekocloud.host
+  port: 443
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /nekocloud/jp-01
+    headers:
+      Host: jp-01.nekocloud.pw
+  servername: jp-01.nekocloud.pw
+- name: 日本-8
+  type: vless
+  server: cf-yes.nekocloud.host
+  port: 443
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /nekocloud/jp-02
+    headers:
+      Host: jp-02.nekocloud.pw
+  servername: jp-02.nekocloud.pw
+- name: 美国-6
+  type: vless
+  server: cf-yes.nekocloud.host
+  port: 443
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /nekocloud/us-01
+    headers:
+      Host: us-01.nekocloud.pw
+  servername: us-01.nekocloud.pw
+- name: 美国-7
+  type: vless
+  server: cf-yes.nekocloud.host
+  port: 443
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /nekocloud/us-02
+    headers:
+      Host: us-02.nekocloud.pw
+  servername: us-02.nekocloud.pw
 - name: 新加坡-9
   type: vless
   server: sg03.ea9c2ab8-b920-4e14-a158-f1c21c866378.genshinimpact.cyou
@@ -403,30 +481,6 @@ proxies:
     short-id: 94d3f4df
   network: tcp
   servername: updates.cdn-apple.com
-- name: 新加坡-11
-  type: vless
-  server: sg01.ebf263c3-0b7e-4e71-87b9-26978dc121c4.genshinimpact.cyou
-  port: 8443
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: chrome
-  network: tcp
-  servername: cdn-sg01.download.pikoport.com
-- name: 新加坡-12
-  type: vless
-  server: 13.212.231.124
-  port: 8443
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: chrome
-  network: tcp
-  servername: cdn-sg01.download.pikoport.com
 - name: 新加坡-13
   type: vless
   server: sg02.05e57c23-bae7-41a0-aeef-8e75566fc3dd.genshinimpact.cyou
@@ -521,21 +575,6 @@ proxies:
     path: /
     headers:
       Host: ak.mcdonaldshamburgergoodgoodgood.xyz
-- name: 美国-8
-  type: vless
-  server: us01.d168f27a-5efc-4699-891d-eda6ea40be1d.genshinimpact.cyou
-  port: 443
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: chrome
-  reality-opts:
-    public-key: eN-hpk_h3mbxeGOfINunn7Ij_nsfFkgja3w5breOygg
-    short-id: 296d5815
-  network: tcp
-  servername: download.windowsupdate.com
 - name: 美国-9
   type: vless
   server: us02.4b214271-fd51-4e6b-9303-fe6e915f406d.genshinimpact.cyou
