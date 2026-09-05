@@ -286,6 +286,24 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: updates.cdn-apple.com
+- name: 日本-6
+  type: vless
+  server: 35.189.141.20
+  port: 443
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: n2XOESIn4YLvY5OerVqiBfK66rOnOdER8ZwpemoiD10
+    short-id: 1644d58798
+  client-fingerprint: chrome
+  network: tcp
+  servername: updates.cdn-apple.com
 - name: 美国-5
   type: vless
   server: 34.94.216.5
@@ -304,150 +322,6 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: updates.cdn-apple.com
-- name: 香港-9
-  type: vless
-  server: cf-yes.nekocloud.host
-  port: 443
-  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
-  alterId: 0
-  cipher: auto
-  udp: true
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /nekocloud/hk-01
-    headers:
-      Host: hk-01.nekocloud.pw
-  servername: hk-01.nekocloud.pw
-- name: 香港-10
-  type: vless
-  server: cf-yes.nekocloud.host
-  port: 443
-  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
-  alterId: 0
-  cipher: auto
-  udp: true
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /nekocloud/hk-02
-    headers:
-      Host: hk-02.nekocloud.pw
-  servername: hk-02.nekocloud.pw
-- name: 新加坡-7
-  type: vless
-  server: cf-yes.nekocloud.host
-  port: 443
-  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
-  alterId: 0
-  cipher: auto
-  udp: true
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /nekocloud/sg-01
-    headers:
-      Host: sg-01.nekocloud.pw
-  servername: sg-01.nekocloud.pw
-- name: 新加坡-8
-  type: vless
-  server: cf-yes.nekocloud.host
-  port: 443
-  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
-  alterId: 0
-  cipher: auto
-  udp: true
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /nekocloud/sg-02
-    headers:
-      Host: sg-02.nekocloud.pw
-  servername: sg-02.nekocloud.pw
-- name: 日本-7
-  type: vless
-  server: cf-yes.nekocloud.host
-  port: 443
-  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
-  alterId: 0
-  cipher: auto
-  udp: true
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /nekocloud/jp-01
-    headers:
-      Host: jp-01.nekocloud.pw
-  servername: jp-01.nekocloud.pw
-- name: 日本-8
-  type: vless
-  server: cf-yes.nekocloud.host
-  port: 443
-  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
-  alterId: 0
-  cipher: auto
-  udp: true
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /nekocloud/jp-02
-    headers:
-      Host: jp-02.nekocloud.pw
-  servername: jp-02.nekocloud.pw
-- name: 美国-6
-  type: vless
-  server: cf-yes.nekocloud.host
-  port: 443
-  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
-  alterId: 0
-  cipher: auto
-  udp: true
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /nekocloud/us-01
-    headers:
-      Host: us-01.nekocloud.pw
-  servername: us-01.nekocloud.pw
-- name: 美国-7
-  type: vless
-  server: cf-yes.nekocloud.host
-  port: 443
-  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
-  alterId: 0
-  cipher: auto
-  udp: true
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /nekocloud/us-02
-    headers:
-      Host: us-02.nekocloud.pw
-  servername: us-02.nekocloud.pw
 - name: 新加坡-9
   type: vless
   server: sg03.ea9c2ab8-b920-4e14-a158-f1c21c866378.genshinimpact.cyou
@@ -466,21 +340,6 @@ proxies:
 - name: 日本-9
   type: vless
   server: jp03.73c01f37-d10a-4317-a43a-380fc51d0bc4.genshinimpact.cyou
-  port: 443
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: safari
-  reality-opts:
-    public-key: upIlaFG6DWfKE8wjn_qXYqb9ohDNavC3LRayjJ4Wp1o
-    short-id: 94d3f4df
-  network: tcp
-  servername: updates.cdn-apple.com
-- name: 日本-10
-  type: vless
-  server: 35.77.221.153
   port: 443
   uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
   udp: true
