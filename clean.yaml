@@ -304,6 +304,24 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: updates.cdn-apple.com
+- name: 韩国-2
+  type: vless
+  server: 43.108.19.91
+  port: 443
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: F4-2lAjo8B2SGqfSj96H184kw3HKWk5NhaGh_Utn2gE
+    short-id: 2c57a7f706e26a
+  client-fingerprint: chrome
+  network: tcp
+  servername: updates.cdn-apple.com
 - name: 美国-5
   type: vless
   server: 34.94.216.5
@@ -322,6 +340,78 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: updates.cdn-apple.com
+- name: 香港-10
+  type: vless
+  server: cf-yes.nekocloud.host
+  port: 443
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /nekocloud/hk-02
+    headers:
+      Host: hk-02.nekocloud.pw
+  servername: hk-02.nekocloud.pw
+- name: 新加坡-8
+  type: vless
+  server: cf-yes.nekocloud.host
+  port: 443
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /nekocloud/sg-02
+    headers:
+      Host: sg-02.nekocloud.pw
+  servername: sg-02.nekocloud.pw
+- name: 日本-8
+  type: vless
+  server: cf-yes.nekocloud.host
+  port: 443
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /nekocloud/jp-02
+    headers:
+      Host: jp-02.nekocloud.pw
+  servername: jp-02.nekocloud.pw
+- name: 美国-7
+  type: vless
+  server: cf-yes.nekocloud.host
+  port: 443
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /nekocloud/us-02
+    headers:
+      Host: us-02.nekocloud.pw
+  servername: us-02.nekocloud.pw
 - name: 新加坡-9
   type: vless
   server: sg03.ea9c2ab8-b920-4e14-a158-f1c21c866378.genshinimpact.cyou
