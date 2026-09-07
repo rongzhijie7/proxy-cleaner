@@ -85,21 +85,6 @@ proxies:
     headers:
       Host: lx-hk3.7770008.xyz
   servername: lx-hk3.7770008.xyz
-- name: 新加坡-1
-  type: vless
-  server: aws-link7.lxyun.xyz
-  port: 48574
-  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: ios
-  reality-opts:
-    public-key: lmxSayN8tUg2Dag2MPXrdqZ2SQK9K3OjlaKk8wVCRnc
-    short-id: f8f18902
-  network: tcp
-  servername: www.lamer.com.sg
 - name: 新加坡-2
   type: vless
   server: aws-link8.lxyun.xyz
@@ -113,21 +98,6 @@ proxies:
   reality-opts:
     public-key: x7VqpFP7_PrY4ebNw8hi8Ec5Tm5Upmt5JOdrN1M9VnQ
     short-id: 2b3b0b93
-  network: tcp
-  servername: iosapps.itunes.apple.com
-- name: 新加坡-3
-  type: vless
-  server: aws-link9.lxyun.xyz
-  port: 23587
-  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: ios
-  reality-opts:
-    public-key: H66PLLf6HkZwHk4oFqisfTawIvw2cxkEwk8Ue8sHZgA
-    short-id: 19b580ae
   network: tcp
   servername: iosapps.itunes.apple.com
 - name: 日本-1
@@ -190,6 +160,18 @@ proxies:
     short-id: 2509db11
   network: tcp
   servername: buylite.music.apple.com
+- name: 韩国-1
+  type: anytls
+  server: alicdn-kr01.xn--9kqp42aims.top
+  port: 443
+  password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
+  client-fingerprint: chrome
+  udp: true
+  alpn:
+  - h2
+  - http/1.1
+  sni: alicdn-kr01.xn--9kqp42aims.top
+  skip-cert-verify: false
 - name: 新加坡-5
   type: anytls
   server: sg.xn--9kqp42aims.top
