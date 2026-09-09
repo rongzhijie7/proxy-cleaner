@@ -155,42 +155,6 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: updates.cdn-apple.com
-- name: 日本-6
-  type: vless
-  server: 35.189.141.20
-  port: 443
-  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
-  alterId: 0
-  cipher: auto
-  udp: true
-  flow: xtls-rprx-vision
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  reality-opts:
-    public-key: n2XOESIn4YLvY5OerVqiBfK66rOnOdER8ZwpemoiD10
-    short-id: 1644d58798
-  client-fingerprint: chrome
-  network: tcp
-  servername: updates.cdn-apple.com
-- name: 韩国-2
-  type: vless
-  server: 43.108.19.91
-  port: 443
-  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
-  alterId: 0
-  cipher: auto
-  udp: true
-  flow: xtls-rprx-vision
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  reality-opts:
-    public-key: F4-2lAjo8B2SGqfSj96H184kw3HKWk5NhaGh_Utn2gE
-    short-id: 2c57a7f706e26a
-  client-fingerprint: chrome
-  network: tcp
-  servername: updates.cdn-apple.com
 - name: 美国-5
   type: vless
   server: 34.94.216.5
@@ -294,6 +258,21 @@ proxies:
   reality-opts:
     public-key: 6tZ4-sKZoUDDkjCPqpsJlWWo8Q5eW7IXuZUuUPPh2h8
     short-id: 9cd7cae9
+  network: tcp
+  servername: updates.cdn-apple.com
+- name: 日本-9
+  type: vless
+  server: jp03.73c01f37-d10a-4317-a43a-380fc51d0bc4.genshinimpact.cyou
+  port: 443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  reality-opts:
+    public-key: upIlaFG6DWfKE8wjn_qXYqb9ohDNavC3LRayjJ4Wp1o
+    short-id: 94d3f4df
   network: tcp
   servername: updates.cdn-apple.com
 - name: 日本-11
