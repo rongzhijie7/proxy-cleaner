@@ -137,42 +137,6 @@ proxies:
   password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
   obfs: salamander
   obfs-password: OTA2ZjRiOGQ7MWYxOmQyZA==
-- name: 新加坡-6
-  type: vless
-  server: 34.21.239.120
-  port: 443
-  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
-  alterId: 0
-  cipher: auto
-  udp: true
-  flow: xtls-rprx-vision
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  reality-opts:
-    public-key: hqRkm7QhgURtnb0dNLzKDb6rRbk0FJBUlO4stkcEVgA
-    short-id: 15ddff257e
-  client-fingerprint: chrome
-  network: tcp
-  servername: updates.cdn-apple.com
-- name: 日本-6
-  type: vless
-  server: 35.189.141.20
-  port: 443
-  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
-  alterId: 0
-  cipher: auto
-  udp: true
-  flow: xtls-rprx-vision
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  reality-opts:
-    public-key: n2XOESIn4YLvY5OerVqiBfK66rOnOdER8ZwpemoiD10
-    short-id: 1644d58798
-  client-fingerprint: chrome
-  network: tcp
-  servername: updates.cdn-apple.com
 - name: 韩国-2
   type: vless
   server: 43.108.19.91
@@ -188,24 +152,6 @@ proxies:
   reality-opts:
     public-key: F4-2lAjo8B2SGqfSj96H184kw3HKWk5NhaGh_Utn2gE
     short-id: 2c57a7f706e26a
-  client-fingerprint: chrome
-  network: tcp
-  servername: updates.cdn-apple.com
-- name: 美国-5
-  type: vless
-  server: 34.94.216.5
-  port: 443
-  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
-  alterId: 0
-  cipher: auto
-  udp: true
-  flow: xtls-rprx-vision
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  reality-opts:
-    public-key: 0uPwJB59GNUGsO_gGTVMoxxcA8Nd78DHdWeKUqQzLBk
-    short-id: 7607aa298f
   client-fingerprint: chrome
   network: tcp
   servername: updates.cdn-apple.com
