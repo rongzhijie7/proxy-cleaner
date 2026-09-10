@@ -89,18 +89,6 @@ proxies:
     short-id: 2509db11
   network: tcp
   servername: buylite.music.apple.com
-- name: 韩国-1
-  type: anytls
-  server: alicdn-kr01.xn--9kqp42aims.top
-  port: 443
-  password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
-  client-fingerprint: chrome
-  udp: true
-  alpn:
-  - h2
-  - http/1.1
-  sni: alicdn-kr01.xn--9kqp42aims.top
-  skip-cert-verify: false
 - name: 新加坡-5
   type: anytls
   server: sg.xn--9kqp42aims.top
@@ -137,24 +125,6 @@ proxies:
   password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
   obfs: salamander
   obfs-password: OTA2ZjRiOGQ7MWYxOmQyZA==
-- name: 韩国-2
-  type: vless
-  server: 43.108.19.91
-  port: 443
-  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
-  alterId: 0
-  cipher: auto
-  udp: true
-  flow: xtls-rprx-vision
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  reality-opts:
-    public-key: F4-2lAjo8B2SGqfSj96H184kw3HKWk5NhaGh_Utn2gE
-    short-id: 2c57a7f706e26a
-  client-fingerprint: chrome
-  network: tcp
-  servername: updates.cdn-apple.com
 - name: 香港-10
   type: vless
   server: cf-yes.nekocloud.host
