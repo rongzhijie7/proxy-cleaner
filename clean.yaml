@@ -89,6 +89,18 @@ proxies:
     short-id: 2509db11
   network: tcp
   servername: buylite.music.apple.com
+- name: 韩国-1
+  type: anytls
+  server: alicdn-kr01.xn--9kqp42aims.top
+  port: 443
+  password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
+  client-fingerprint: chrome
+  udp: true
+  alpn:
+  - h2
+  - http/1.1
+  sni: alicdn-kr01.xn--9kqp42aims.top
+  skip-cert-verify: false
 - name: 新加坡-5
   type: anytls
   server: sg.xn--9kqp42aims.top
@@ -251,52 +263,6 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: cdn-jp01.download.pikoport.com
-- name: 日本-13
-  type: vless
-  server: jp02.cbd12403-7946-4bbc-8127-2d9e5f1d50bc.genshinimpact.cyou
-  port: 8443
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: chrome
-  network: tcp
-  servername: cdn-jp02.download.pikoport.com
-- name: 日本-14
-  type: vless
-  server: 35.78.231.72
-  port: 8443
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: chrome
-  network: tcp
-  servername: cdn-jp02.download.pikoport.com
-- name: 香港-11
-  type: vless
-  server: staticdelivery.nexusmods.com
-  port: 80
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ak.mcdonaldshamburgergoodgoodgood.xyz
-- name: 香港-12
-  type: vless
-  server: 104.18.42.54
-  port: 80
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ak.mcdonaldshamburgergoodgoodgood.xyz
 - name: 美国-8
   type: vless
   server: us01.d168f27a-5efc-4699-891d-eda6ea40be1d.genshinimpact.cyou
@@ -349,3 +315,25 @@ proxies:
     path: /
     headers:
       Host: us6.mcdonaldshamburgergoodgoodgood.xyz
+- name: 美国-12
+  type: vless
+  server: 104.18.42.54
+  port: 80
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: us5.mcdonaldshamburgergoodgoodgood.xyz
+- name: 美国-13
+  type: vless
+  server: www.shopify.com
+  port: 80
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: us5.mcdonaldshamburgergoodgoodgood.xyz
