@@ -89,6 +89,18 @@ proxies:
     short-id: 2509db11
   network: tcp
   servername: buylite.music.apple.com
+- name: 韩国-1
+  type: anytls
+  server: alicdn-kr01.xn--9kqp42aims.top
+  port: 443
+  password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
+  client-fingerprint: chrome
+  udp: true
+  alpn:
+  - h2
+  - http/1.1
+  sni: alicdn-kr01.xn--9kqp42aims.top
+  skip-cert-verify: false
 - name: 新加坡-5
   type: anytls
   server: sg.xn--9kqp42aims.top
