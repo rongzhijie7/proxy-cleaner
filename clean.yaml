@@ -14,21 +14,6 @@ proxies:
     headers:
       Host: lx-hk1.7770008.xyz
   servername: lx-hk1.7770008.xyz
-- name: 香港-5
-  type: vless
-  server: cfyes.777078.xyz
-  port: 443
-  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: safari
-  network: ws
-  ws-opts:
-    path: /liangxin/data/hk2
-    headers:
-      Host: lx-hk2.7770008.xyz
-  servername: lx-hk2.7770008.xyz
 - name: 香港-6
   type: vless
   server: cfyes.777078.xyz
@@ -249,6 +234,28 @@ proxies:
     short-id: 157eb31c
   network: tcp
   servername: www.bing.com
+- name: 美国-10
+  type: vless
+  server: 104.18.42.54
+  port: 80
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: us6.mcdonaldshamburgergoodgoodgood.xyz
+- name: 美国-11
+  type: vless
+  server: staticdelivery.nexusmods.com
+  port: 80
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: us6.mcdonaldshamburgergoodgoodgood.xyz
 - name: 美国-12
   type: vless
   server: 104.18.42.54
