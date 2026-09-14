@@ -74,33 +74,6 @@ proxies:
     headers:
       Host: lx-us2.777078.xyz
   servername: lx-us2.777078.xyz
-- name: 美国-4
-  type: vless
-  server: us-host.xn--9kqp42aims.top
-  port: 443
-  uuid: 7fe32c95-5838-42ca-bc0a-1608595a02ca
-  udp: true
-  flow: xtls-rprx-vision
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: ios
-  reality-opts:
-    public-key: mboIBTDShznjYmQ_nl0AndQOHbxsTVTEVRuwnlKrzwU
-    short-id: 2509db11
-  network: tcp
-  servername: buylite.music.apple.com
-- name: 韩国-1
-  type: anytls
-  server: alicdn-kr01.xn--9kqp42aims.top
-  port: 443
-  password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
-  client-fingerprint: chrome
-  udp: true
-  alpn:
-  - h2
-  - http/1.1
-  sni: alicdn-kr01.xn--9kqp42aims.top
-  skip-cert-verify: false
 - name: 新加坡-5
   type: anytls
   server: sg.xn--9kqp42aims.top
