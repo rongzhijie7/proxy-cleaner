@@ -74,6 +74,21 @@ proxies:
     headers:
       Host: lx-us2.777078.xyz
   servername: lx-us2.777078.xyz
+- name: 美国-4
+  type: vless
+  server: us-host.xn--9kqp42aims.top
+  port: 443
+  uuid: 7fe32c95-5838-42ca-bc0a-1608595a02ca
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: ios
+  reality-opts:
+    public-key: mboIBTDShznjYmQ_nl0AndQOHbxsTVTEVRuwnlKrzwU
+    short-id: 2509db11
+  network: tcp
+  servername: buylite.music.apple.com
 - name: 新加坡-5
   type: anytls
   server: sg.xn--9kqp42aims.top
@@ -234,28 +249,6 @@ proxies:
     short-id: 157eb31c
   network: tcp
   servername: www.bing.com
-- name: 美国-10
-  type: vless
-  server: 104.18.42.54
-  port: 80
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: us6.mcdonaldshamburgergoodgoodgood.xyz
-- name: 美国-11
-  type: vless
-  server: staticdelivery.nexusmods.com
-  port: 80
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: us6.mcdonaldshamburgergoodgoodgood.xyz
 - name: 美国-12
   type: vless
   server: 104.18.42.54
