@@ -165,6 +165,14 @@ proxies:
   type: hysteria2
   password: 7067f13a-f395-4890-8dfa-99dd9c429bd3
   udp: true
+- name: 日本-5
+  server: 34.104.141.205
+  port: 443
+  sni: www.apple.com.cn
+  skip-cert-verify: true
+  type: hysteria2
+  password: 7067f13a-f395-4890-8dfa-99dd9c429bd3
+  udp: true
 - name: 美国-4
   server: 34.94.85.166
   port: 443
@@ -368,21 +376,6 @@ proxies:
     short-id: 9cd7cae9
   network: tcp
   servername: updates.cdn-apple.com
-- name: 日本-8
-  type: vless
-  server: jp03.73c01f37-d10a-4317-a43a-380fc51d0bc4.genshinimpact.cyou
-  port: 443
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: safari
-  reality-opts:
-    public-key: upIlaFG6DWfKE8wjn_qXYqb9ohDNavC3LRayjJ4Wp1o
-    short-id: 94d3f4df
-  network: tcp
-  servername: updates.cdn-apple.com
 - name: 日本-10
   type: vless
   server: jp01.5392a812-9a56-456f-b89a-9e5b4208168a.genshinimpact.cyou
@@ -429,6 +422,21 @@ proxies:
     path: /
     headers:
       Host: ak.mcdonaldshamburgergoodgoodgood.xyz
+- name: 美国-7
+  type: vless
+  server: us01.d168f27a-5efc-4699-891d-eda6ea40be1d.genshinimpact.cyou
+  port: 443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: eN-hpk_h3mbxeGOfINunn7Ij_nsfFkgja3w5breOygg
+    short-id: 296d5815
+  network: tcp
+  servername: download.windowsupdate.com
 - name: 美国-8
   type: vless
   server: us02.4b214271-fd51-4e6b-9303-fe6e915f406d.genshinimpact.cyou
