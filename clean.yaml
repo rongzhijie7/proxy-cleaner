@@ -115,21 +115,6 @@ proxies:
     short-id: 93d482c0
   network: tcp
   servername: download-porter.hoyoverse.com
-- name: 日本-3
-  type: vless
-  server: aws-link19.lxyun.xyz
-  port: 443
-  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: safari
-  reality-opts:
-    public-key: p6pNXigacmPazS1t76m66ia0DcFgAxOshOiPgzVvNGs
-    short-id: '44099498'
-  network: tcp
-  servername: download-porter.hoyoverse.com
 - name: 美国-1
   type: vless
   server: cfyes.777078.xyz
