@@ -195,14 +195,6 @@ proxies:
   type: hysteria2
   password: 7067f13a-f395-4890-8dfa-99dd9c429bd3
   udp: true
-- name: 日本-5
-  server: 34.104.141.205
-  port: 443
-  sni: www.apple.com.cn
-  skip-cert-verify: true
-  type: hysteria2
-  password: 7067f13a-f395-4890-8dfa-99dd9c429bd3
-  udp: true
 - name: 美国-4
   server: 34.94.85.166
   port: 443
