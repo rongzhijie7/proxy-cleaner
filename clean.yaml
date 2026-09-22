@@ -196,42 +196,6 @@ proxies:
   type: hysteria2
   password: 7067f13a-f395-4890-8dfa-99dd9c429bd3
   udp: true
-- name: 香港-4
-  type: vless
-  server: cf-yes.nekocloud.host
-  port: 443
-  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
-  alterId: 0
-  cipher: auto
-  udp: true
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /nekocloud/hk-01
-    headers:
-      Host: hk-01.neko-yes.com
-  servername: hk-01.neko-yes.com
-- name: 香港-5
-  type: vless
-  server: cf-yes.nekocloud.host
-  port: 443
-  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
-  alterId: 0
-  cipher: auto
-  udp: true
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /nekocloud/hk-02
-    headers:
-      Host: hk-02.neko-yes.com
-  servername: hk-02.neko-yes.com
 - name: 台湾-1
   type: vless
   server: cf-yes.nekocloud.host
@@ -322,24 +286,6 @@ proxies:
     headers:
       Host: jp-02.neko-yes.com
   servername: jp-02.neko-yes.com
-- name: 韩国-1
-  type: vless
-  server: cf-yes.nekocloud.host
-  port: 443
-  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
-  alterId: 0
-  cipher: auto
-  udp: true
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /nekocloud/kr-01
-    headers:
-      Host: kr-01.neko-yes.com
-  servername: kr-01.neko-yes.com
 - name: 美国-5
   type: vless
   server: cf-yes.nekocloud.host
@@ -430,28 +376,6 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: cdn-jp01.download.pikoport.com
-- name: 香港-6
-  type: vless
-  server: staticdelivery.nexusmods.com
-  port: 80
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ak.mcdonaldshamburgergoodgoodgood.xyz
-- name: 香港-7
-  type: vless
-  server: 104.18.42.54
-  port: 80
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ak.mcdonaldshamburgergoodgoodgood.xyz
 - name: 美国-7
   type: vless
   server: us01.d168f27a-5efc-4699-891d-eda6ea40be1d.genshinimpact.cyou
