@@ -1,491 +1,501 @@
 proxies:
-- name: 香港专线
-  server: 7d0a2gz0-7a0c.aws-agent.net
-  port: 10011
-  type: ss
-  cipher: aes-128-gcm
-  password: Sj10bnYDe7w6V29E
-  plugin: obfs
-  plugin-opts:
-    mode: http
-    host: 8c65f2f39c.m.ctrip.com
-  udp: true
-- name: 日本专线
-  server: 63182sh8-4d7b.aws-agent.net
-  port: 10021
-  type: ss
-  cipher: aes-128-gcm
-  password: Sj10bnYDe7w6V29E
-  plugin: obfs
-  plugin-opts:
-    mode: http
-    host: 8c65f2f39c.m.ctrip.com
-  udp: true
-- name: 狮城专线
-  server: 7d0a2gz0-7a0c.aws-agent.net
-  port: 10031
-  type: ss
-  cipher: aes-128-gcm
-  password: Sj10bnYDe7w6V29E
-  plugin: obfs
-  plugin-opts:
-    mode: http
-    host: 8c65f2f39c.m.ctrip.com
-  udp: true
-- name: 美国专线
-  server: 63182sh8-4d7b.aws-agent.net
-  port: 10051
-  type: ss
-  cipher: aes-128-gcm
-  password: Sj10bnYDe7w6V29E
-  plugin: obfs
-  plugin-opts:
-    mode: http
-    host: 8c65f2f39c.m.ctrip.com
-  udp: true
-- name: '[高级] 🇭🇰 香港 01'
-  type: anytls
-  server: 152.175.13.85
-  port: 57422
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: '[高级] 🇭🇰 香港 02'
-  type: anytls
-  server: 152.175.13.85
-  port: 40826
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: '[高级] 🇭🇰 香港 03'
-  type: anytls
-  server: 152.175.13.85
-  port: 52460
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: '[高级] 🇯🇵 日本 01'
-  type: anytls
-  server: 85.149.218.124
-  port: 59075
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: '[高级] 🇯🇵 日本 02'
-  type: anytls
-  server: 85.149.218.124
-  port: 44898
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: '[高级] 🇯🇵 日本 03'
-  type: anytls
-  server: 85.149.218.124
-  port: 45382
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: '[高级] 🇨🇳 台湾 01'
-  type: anytls
-  server: 152.175.13.85
-  port: 55742
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: '[高级] 🇨🇳 台湾 02'
-  type: anytls
-  server: 152.175.13.85
-  port: 53952
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: '[高级] 🇨🇳 台湾 03'
-  type: anytls
-  server: 152.175.13.85
-  port: 52878
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: '[高级] 🇸🇬 新加坡 01'
-  type: anytls
-  server: 152.175.13.85
-  port: 58925
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: '[高级] 🇸🇬 新加坡 02'
-  type: anytls
-  server: 152.175.13.85
-  port: 44736
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: '[高级] 🇸🇬 新加坡 03'
-  type: anytls
-  server: 152.175.13.85
-  port: 47575
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: '[高级] 🇺🇸 美国 01'
-  type: anytls
-  server: 85.149.218.124
-  port: 57339
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: '[高级] 🇺🇸 美国 02'
-  type: anytls
-  server: 85.149.218.124
-  port: 57224
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: '[高级] 🇺🇸 美国 03'
-  type: anytls
-  server: 85.149.218.124
-  port: 43727
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: '[高级] 🇩🇪 德国 01'
-  type: anytls
-  server: 64.118.159.151
-  port: 53451
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: '[高级] 🇮🇹 意大利 01'
-  type: anytls
-  server: 64.118.159.151
-  port: 30192
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: '[高级] 🇮🇳 印度 01'
-  type: anytls
-  server: 85.149.218.124
-  port: 26552
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: '[高级] 🇹🇭 泰国 01'
-  type: anytls
-  server: 85.149.218.124
-  port: 53212
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: '[高级] 🇦🇺 澳洲 01'
-  type: anytls
-  server: 85.149.218.124
-  port: 31389
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: '[高级] 🇲🇽 墨西哥 01'
-  type: anytls
-  server: 85.149.218.124
-  port: 39436
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: '[高级] 🇧🇷 巴西 01'
-  type: anytls
-  server: 85.149.218.124
-  port: 36401
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: '[基础] 🇭🇰 香港 01'
+- name: 香港-1
   type: vless
-  server: bestcf.030101.xyz
+  server: aws-link1.lxyun.xyz
   port: 443
-  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  fingerprint: d5c39647e414c144b719bc49cb41c4b8f46f09f4cf26c863cae15c01d4a7b96a
+  network: tcp
+  servername: iosapps.itunes.apple.com
+- name: 香港-2
+  type: vless
+  server: aws-link2.lxyun.xyz
+  port: 443
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  fingerprint: af0f11574724e7ddd96f64eb77a450f71ce2de61ee5afd6f2e27ed7604a6a9b1
+  network: tcp
+  servername: www.lamer.com.hk
+- name: 香港-3
+  type: vless
+  server: aws-link3.lxyun.xyz
+  port: 443
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: ios
+  reality-opts:
+    public-key: ux5T2jsYXnAMuf4eILTucbcX1xd1OwocOEkYetmUyAs
+    short-id: 3206e665
+  network: tcp
+  servername: www.lamer.com.hk
+- name: 新加坡-1
+  type: vless
+  server: aws-link7.lxyun.xyz
+  port: 443
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: ios
+  reality-opts:
+    public-key: w7AGIp_u4slcX3JotLyiuaT05lawuzU3f1eL88RI53c
+    short-id: 1d77a374
+  network: tcp
+  servername: fastcdn.hoyoverse.com
+- name: 新加坡-2
+  type: vless
+  server: aws-link8.lxyun.xyz
+  port: 443
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: ios
+  reality-opts:
+    public-key: vDrdqD70aoQOIU5P5UU-h2h9wCu_tEOD4pGu8NOGvzA
+    short-id: 55c73a28
+  network: tcp
+  servername: iosapps.itunes.apple.com
+- name: 新加坡-3
+  type: vless
+  server: aws-link9.lxyun.xyz
+  port: 443
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: ios
+  reality-opts:
+    public-key: ncsES25G1Nj31aY0kdaNrooqQOqqqaHLk8zbF2b4BGw
+    short-id: bef8fff6
+  network: tcp
+  servername: iosapps.itunes.apple.com
+- name: 日本-1
+  type: vless
+  server: aws-link13.lxyun.xyz
+  port: 443
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  reality-opts:
+    public-key: AYnt6YQxdEGfpWjo25H9ZvgPp_WxRbGWSkaptwTZJ3M
+    short-id: 131baaed
+  network: tcp
+  servername: download-porter.hoyoverse.com
+- name: 日本-2
+  type: vless
+  server: aws-link14.lxyun.xyz
+  port: 443
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: ios
+  reality-opts:
+    public-key: -nx1roqVG90gja9-412UcxR7tqdtdKqxuSHsSh03wm4
+    short-id: 93d482c0
+  network: tcp
+  servername: download-porter.hoyoverse.com
+- name: 日本-3
+  type: vless
+  server: aws-link19.lxyun.xyz
+  port: 443
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  reality-opts:
+    public-key: p6pNXigacmPazS1t76m66ia0DcFgAxOshOiPgzVvNGs
+    short-id: '44099498'
+  network: tcp
+  servername: download-porter.hoyoverse.com
+- name: 美国-1
+  type: vless
+  server: cfyes.777078.xyz
+  port: 443
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /liangxin/us
+    headers:
+      Host: lx-us1.777078.xyz
+  servername: lx-us1.777078.xyz
+- name: 美国-2
+  type: vless
+  server: cfyes.777078.xyz
+  port: 443
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /liangxin/us
+    headers:
+      Host: lx-us2.777078.xyz
+  servername: lx-us2.777078.xyz
+- name: 美国-3
+  server: ushost.xn--9kqp42aims.top
+  port: 20000
+  ports: 20000-55000
+  mport: 20000-55000
+  udp: true
+  skip-cert-verify: true
+  sni: gw.alicdn.com
+  type: hysteria2
+  password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
+  obfs: salamander
+  obfs-password: OTA2ZjRiOGQ2MWYxNmQyZA==
+- name: 日本-4
+  type: vless
+  server: jpsb02.xn--9kqp42aims.top
+  port: 443
+  uuid: 7fe32c95-5838-42ca-bc0a-1608595a02ca
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: ios
+  reality-opts:
+    public-key: 0Rdl40Dxlqd0oyC2KI0A60oxab7XFn3sjg-f4wD1LFs
+    short-id: b14250ed
+  network: tcp
+  servername: buylite.music.apple.com
+- name: 香港-4
+  type: vless
+  server: cf-yes.nekocloud.host
+  port: 443
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
   alterId: 0
   cipher: auto
   udp: true
   encryption: none
   tls: true
   skip-cert-verify: false
-  client-fingerprint: safari
+  client-fingerprint: chrome
   network: ws
   ws-opts:
-    path: /upload
+    path: /nekocloud/hk-01
     headers:
-      Host: now-hk-1.nowhere-backend.xyz
-  servername: now-hk-1.nowhere-backend.xyz
-- name: '[基础] 🇭🇰 香港 02'
+      Host: hk-01.neko-yes.com
+  servername: hk-01.neko-yes.com
+- name: 香港-5
   type: vless
-  server: bestcf.030101.xyz
+  server: cf-yes.nekocloud.host
   port: 443
-  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
   alterId: 0
   cipher: auto
   udp: true
   encryption: none
   tls: true
   skip-cert-verify: false
-  client-fingerprint: safari
+  client-fingerprint: chrome
   network: ws
   ws-opts:
-    path: /upload
+    path: /nekocloud/hk-02
     headers:
-      Host: now-hk-2.nowhere-backend.xyz
-  servername: now-hk-2.nowhere-backend.xyz
-- name: '[基础] 🇭🇰 香港 03'
+      Host: hk-02.neko-yes.com
+  servername: hk-02.neko-yes.com
+- name: 台湾-1
   type: vless
-  server: bestcf.030101.xyz
+  server: cf-yes.nekocloud.host
   port: 443
-  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
   alterId: 0
   cipher: auto
   udp: true
   encryption: none
   tls: true
   skip-cert-verify: false
-  client-fingerprint: safari
+  client-fingerprint: chrome
   network: ws
   ws-opts:
-    path: /upload
+    path: /nekocloud/tw-01
     headers:
-      Host: now-hk-3.nowhere-backend.xyz
-  servername: now-hk-3.nowhere-backend.xyz
-- name: '[基础] 🇯🇵 日本 01'
+      Host: tw-01.neko-yes.com
+  servername: tw-01.neko-yes.com
+- name: 新加坡-5
   type: vless
-  server: bestcf.030101.xyz
+  server: cf-yes.nekocloud.host
   port: 443
-  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
   alterId: 0
   cipher: auto
   udp: true
   encryption: none
   tls: true
   skip-cert-verify: false
-  client-fingerprint: safari
+  client-fingerprint: chrome
   network: ws
   ws-opts:
-    path: /upload
+    path: /nekocloud/sg-01
     headers:
-      Host: now-jp-1.nowhere-backend.xyz
-  servername: now-jp-1.nowhere-backend.xyz
-- name: '[基础] 🇯🇵 日本 02'
+      Host: sg-01.neko-yes.com
+  servername: sg-01.neko-yes.com
+- name: 新加坡-6
   type: vless
-  server: bestcf.030101.xyz
+  server: cf-yes.nekocloud.host
   port: 443
-  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
   alterId: 0
   cipher: auto
   udp: true
   encryption: none
   tls: true
   skip-cert-verify: false
-  client-fingerprint: safari
+  client-fingerprint: chrome
   network: ws
   ws-opts:
-    path: /upload
+    path: /nekocloud/sg-02
     headers:
-      Host: now-jp-2.nowhere-backend.xyz
-  servername: now-jp-2.nowhere-backend.xyz
-- name: '[基础] 🇯🇵 日本 03'
+      Host: sg-02.neko-yes.com
+  servername: sg-02.neko-yes.com
+- name: 日本-6
   type: vless
-  server: bestcf.030101.xyz
+  server: cf-yes.nekocloud.host
   port: 443
-  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
   alterId: 0
   cipher: auto
   udp: true
   encryption: none
   tls: true
   skip-cert-verify: false
-  client-fingerprint: safari
+  client-fingerprint: chrome
   network: ws
   ws-opts:
-    path: /upload
+    path: /nekocloud/jp-01
     headers:
-      Host: now-jp-3.nowhere-backend.xyz
-  servername: now-jp-3.nowhere-backend.xyz
-- name: '[基础] 🇨🇳 台湾 01'
+      Host: jp-01.neko-yes.com
+  servername: jp-01.neko-yes.com
+- name: 日本-7
   type: vless
-  server: bestcf.030101.xyz
+  server: cf-yes.nekocloud.host
   port: 443
-  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
   alterId: 0
   cipher: auto
   udp: true
   encryption: none
   tls: true
   skip-cert-verify: false
-  client-fingerprint: safari
+  client-fingerprint: chrome
   network: ws
   ws-opts:
-    path: /upload
+    path: /nekocloud/jp-02
     headers:
-      Host: now-tw-1.nowhere-backend.xyz
-  servername: now-tw-1.nowhere-backend.xyz
-- name: '[基础] 🇨🇳 台湾 02'
+      Host: jp-02.neko-yes.com
+  servername: jp-02.neko-yes.com
+- name: 美国-5
   type: vless
-  server: bestcf.030101.xyz
+  server: cf-yes.nekocloud.host
   port: 443
-  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
   alterId: 0
   cipher: auto
   udp: true
   encryption: none
   tls: true
   skip-cert-verify: false
-  client-fingerprint: safari
+  client-fingerprint: chrome
   network: ws
   ws-opts:
-    path: /upload
+    path: /nekocloud/us-01
     headers:
-      Host: now-tw-2.nowhere-backend.xyz
-  servername: now-tw-2.nowhere-backend.xyz
-- name: '[基础] 🇨🇳 台湾 03'
+      Host: us-01.neko-yes.com
+  servername: us-01.neko-yes.com
+- name: 美国-6
   type: vless
-  server: bestcf.030101.xyz
+  server: cf-yes.nekocloud.host
   port: 443
-  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
   alterId: 0
   cipher: auto
   udp: true
   encryption: none
   tls: true
   skip-cert-verify: false
-  client-fingerprint: safari
+  client-fingerprint: chrome
   network: ws
   ws-opts:
-    path: /upload
+    path: /nekocloud/us-02
     headers:
-      Host: now-tw-3.nowhere-backend.xyz
-  servername: now-tw-3.nowhere-backend.xyz
-- name: '[基础] 🇸🇬 新加坡 01'
+      Host: us-02.neko-yes.com
+  servername: us-02.neko-yes.com
+- name: 新加坡-7
   type: vless
-  server: bestcf.030101.xyz
+  server: sg03.ea9c2ab8-b920-4e14-a158-f1c21c866378.genshinimpact.cyou
   port: 443
-  uuid: a4adf959-f282-471e-aa6d-d02146171a74
-  alterId: 0
-  cipher: auto
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
   udp: true
-  encryption: none
   tls: true
   skip-cert-verify: false
+  flow: xtls-rprx-vision
   client-fingerprint: safari
-  network: ws
-  ws-opts:
-    path: /upload
-    headers:
-      Host: now-sg-1.nowhere-backend.xyz
-  servername: now-sg-1.nowhere-backend.xyz
-- name: '[基础] 🇸🇬 新加坡 02'
+  reality-opts:
+    public-key: 6tZ4-sKZoUDDkjCPqpsJlWWo8Q5eW7IXuZUuUPPh2h8
+    short-id: 9cd7cae9
+  network: tcp
+  servername: updates.cdn-apple.com
+- name: 日本-8
   type: vless
-  server: bestcf.030101.xyz
+  server: jp03.73c01f37-d10a-4317-a43a-380fc51d0bc4.genshinimpact.cyou
   port: 443
-  uuid: a4adf959-f282-471e-aa6d-d02146171a74
-  alterId: 0
-  cipher: auto
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
   udp: true
-  encryption: none
   tls: true
   skip-cert-verify: false
+  flow: xtls-rprx-vision
   client-fingerprint: safari
-  network: ws
-  ws-opts:
-    path: /upload
-    headers:
-      Host: now-sg-2.nowhere-backend.xyz
-  servername: now-sg-2.nowhere-backend.xyz
-- name: '[基础] 🇸🇬 新加坡 03'
+  reality-opts:
+    public-key: upIlaFG6DWfKE8wjn_qXYqb9ohDNavC3LRayjJ4Wp1o
+    short-id: 94d3f4df
+  network: tcp
+  servername: updates.cdn-apple.com
+- name: 日本-10
   type: vless
-  server: bestcf.030101.xyz
-  port: 443
-  uuid: a4adf959-f282-471e-aa6d-d02146171a74
-  alterId: 0
-  cipher: auto
+  server: jp01.5392a812-9a56-456f-b89a-9e5b4208168a.genshinimpact.cyou
+  port: 8443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
   udp: true
-  encryption: none
   tls: true
   skip-cert-verify: false
-  client-fingerprint: safari
-  network: ws
-  ws-opts:
-    path: /upload
-    headers:
-      Host: now-sg-3.nowhere-backend.xyz
-  servername: now-sg-3.nowhere-backend.xyz
-- name: '[基础] 🇺🇸 美国 01'
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+  network: tcp
+  servername: cdn-jp01.download.pikoport.com
+- name: 日本-11
   type: vless
-  server: bestcf.030101.xyz
-  port: 443
-  uuid: a4adf959-f282-471e-aa6d-d02146171a74
-  alterId: 0
-  cipher: auto
+  server: 13.196.212.168
+  port: 8443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
   udp: true
-  encryption: none
   tls: true
   skip-cert-verify: false
-  client-fingerprint: safari
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+  network: tcp
+  servername: cdn-jp01.download.pikoport.com
+- name: 香港-6
+  type: vless
+  server: staticdelivery.nexusmods.com
+  port: 80
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
   network: ws
   ws-opts:
-    path: /upload
+    path: /
     headers:
-      Host: now-us-1.nowhere-backend.xyz
-  servername: now-us-1.nowhere-backend.xyz
-- name: '[基础] 🇺🇸 美国 02'
+      Host: ak.mcdonaldshamburgergoodgoodgood.xyz
+- name: 香港-7
   type: vless
-  server: bestcf.030101.xyz
-  port: 443
-  uuid: a4adf959-f282-471e-aa6d-d02146171a74
-  alterId: 0
-  cipher: auto
+  server: 104.18.42.54
+  port: 80
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
   udp: true
-  encryption: none
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: ak.mcdonaldshamburgergoodgoodgood.xyz
+- name: 美国-7
+  type: vless
+  server: us01.d168f27a-5efc-4699-891d-eda6ea40be1d.genshinimpact.cyou
+  port: 443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
   tls: true
   skip-cert-verify: false
-  client-fingerprint: safari
-  network: ws
-  ws-opts:
-    path: /upload
-    headers:
-      Host: now-us-2.nowhere-backend.xyz
-  servername: now-us-2.nowhere-backend.xyz
-- name: '[基础] 🇺🇸 美国 03'
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: eN-hpk_h3mbxeGOfINunn7Ij_nsfFkgja3w5breOygg
+    short-id: 296d5815
+  network: tcp
+  servername: download.windowsupdate.com
+- name: 美国-8
   type: vless
-  server: bestcf.030101.xyz
+  server: us02.4b214271-fd51-4e6b-9303-fe6e915f406d.genshinimpact.cyou
   port: 443
-  uuid: a4adf959-f282-471e-aa6d-d02146171a74
-  alterId: 0
-  cipher: auto
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
   udp: true
-  encryption: none
   tls: true
   skip-cert-verify: false
-  client-fingerprint: safari
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: bKG1vbvrxm4NfSqBx-0Co84M_uLLEEftv2Ql8G7rjhM
+    short-id: 157eb31c
+  network: tcp
+  servername: www.bing.com
+- name: 美国-9
+  type: vless
+  server: 104.18.42.54
+  port: 80
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
   network: ws
   ws-opts:
-    path: /upload
+    path: /
     headers:
-      Host: now-us-3.nowhere-backend.xyz
-  servername: now-us-3.nowhere-backend.xyz
+      Host: us6.mcdonaldshamburgergoodgoodgood.xyz
+- name: 美国-10
+  type: vless
+  server: staticdelivery.nexusmods.com
+  port: 80
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: us6.mcdonaldshamburgergoodgoodgood.xyz
+- name: 美国-11
+  type: vless
+  server: 104.18.42.54
+  port: 80
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: us5.mcdonaldshamburgergoodgoodgood.xyz
+- name: 美国-12
+  type: vless
+  server: www.shopify.com
+  port: 80
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: us5.mcdonaldshamburgergoodgoodgood.xyz
