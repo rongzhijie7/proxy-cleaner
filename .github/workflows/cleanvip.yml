@@ -12,7 +12,6 @@ permissions:
 jobs:
 
   clean:
-
     runs-on: ubuntu-24.04
 
     steps:
@@ -48,7 +47,6 @@ jobs:
 
       - name: Download Mihomo
         run: |
-
           wget -O mihomo.gz \
             https://github.com/MetaCubeX/mihomo/releases/download/v1.19.31/mihomo-linux-amd64-v3-v1.19.31.gz
 
@@ -64,44 +62,41 @@ jobs:
 
       - name: Clean and Test VIP
         run: |
-
           python clean.py
 
       # ============================================
-      # 6. 显示结果
+      # 6. 显示最终结果
       # ============================================
 
-      - name: Show clean.yaml
+      - name: Show cleanvip.yaml
         run: |
-
           echo "======================================"
-          echo "最终 clean.yaml"
+          echo "最终 cleanvip.yaml"
           echo "======================================"
 
-          cat clean.yaml
+          if [ -f cleanvip.yaml ]; then
+            cat cleanvip.yaml
+          else
+            echo "本轮没有生成新的 cleanvip.yaml"
+            echo "可能是所有节点测试失败，保留旧版本"
+          fi
 
       # ============================================
       # 7. 提交 GitHub
       # ============================================
 
-      - name: Commit clean.yaml
+      - name: Commit cleanvip.yaml
         run: |
-
           git config user.name "github-actions[bot]"
 
           git config user.email \
             "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add clean.yaml
+          git add cleanvip.yaml
 
           if git diff --cached --quiet; then
-
-            echo "clean.yaml 没有变化"
-
+            echo "cleanvip.yaml 没有变化"
           else
-
-            git commit -m "Auto update clean.yaml"
-
+            git commit -m "Auto update cleanvip.yaml"
             git push
-
           fi
