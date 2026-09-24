@@ -27,6 +27,18 @@ jobs:
         run: |
           pip install requests pyyaml
 
+      - name: Download Mihomo
+        run: |
+          wget -q \
+            "https://github.com/MetaCubeX/mihomo/releases/download/v1.19.31/mihomo-linux-amd64-v3-v1.19.31.gz" \
+            -O mihomo.gz
+
+          gunzip mihomo.gz
+
+          chmod +x mihomo
+
+          ./mihomo -v
+
       - name: Run clean.py
         run: |
           python clean.py
@@ -52,6 +64,7 @@ jobs:
           fi
 
           git config user.name "github-actions[bot]"
+
           git config user.email \
             "41898282+github-actions[bot]@users.noreply.github.com"
 
