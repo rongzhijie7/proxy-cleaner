@@ -691,10 +691,14 @@ def test_node(name):
 
     try:
 
+        encoded_name = requests.utils.quote(
+            name,
+            safe=""
+        )
+
         url = (
             f"{MIHOMO_API}/proxies/"
-            f"{requests.utils.quote(name, safe='')}"
-            "/delay"
+            f"{encoded_name}/delay"
         )
 
         r = requests.get(
@@ -702,34 +706,69 @@ def test_node(name):
             url,
 
             params={
-
-                "timeout":
-                    TEST_TIMEOUT,
-
-                "url":
-                    TEST_URL,
-
+                "timeout": TEST_TIMEOUT,
+                "url": TEST_URL,
             },
 
             timeout=8
         )
 
+        # ====================================================
+        # 打印真实返回
+        # ====================================================
 
         if r.status_code != 200:
+
+            print(
+                f"  ❌ HTTP {r.status_code}"
+            )
+
+            try:
+
+                print(
+                    "  返回:",
+                    r.text[:500]
+                )
+
+            except Exception:
+
+                pass
 
             return None
 
 
-        data = r.json()
+        try:
+
+            data = r.json()
+
+        except Exception:
+
+            print(
+                "  ❌ 返回不是 JSON:"
+            )
+
+            print(
+                r.text[:500]
+            )
+
+            return None
 
 
         if "delay" not in data:
+
+            print(
+                "  ❌ 没有 delay"
+            )
+
+            print(
+                "  返回:",
+                data
+            )
 
             return None
 
 
         delay = data["delay"]
-
 
         if not isinstance(
             delay,
@@ -742,7 +781,12 @@ def test_node(name):
         return delay
 
 
-    except Exception:
+    except Exception as e:
+
+        print(
+            "  ❌ 请求异常:",
+            repr(e)
+        )
 
         return None
 
