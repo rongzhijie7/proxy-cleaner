@@ -23,6 +23,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
+
       # ============================================
       # 2. Python
       # ============================================
@@ -31,6 +32,7 @@ jobs:
         uses: actions/setup-python@v6
         with:
           python-version: "3.11"
+
 
       # ============================================
       # 3. Python 依赖
@@ -41,12 +43,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests pyyaml
 
+
       # ============================================
       # 4. 下载 Mihomo
       # ============================================
 
       - name: Download Mihomo
         run: |
+
           wget -O mihomo.gz \
             https://github.com/MetaCubeX/mihomo/releases/download/v1.19.31/mihomo-linux-amd64-v3-v1.19.31.gz
 
@@ -56,13 +60,16 @@ jobs:
 
           ./mihomo -v
 
+
       # ============================================
-      # 5. 清洗 + 实际测试
+      # 5. 清洗 + 测试
       # ============================================
 
       - name: Clean and Test VIP
         run: |
+
           python clean.py
+
 
       # ============================================
       # 6. 显示最终结果
@@ -70,33 +77,49 @@ jobs:
 
       - name: Show cleanvip.yaml
         run: |
+
           echo "======================================"
           echo "最终 cleanvip.yaml"
           echo "======================================"
 
           if [ -f cleanvip.yaml ]; then
+
             cat cleanvip.yaml
+
           else
+
             echo "本轮没有生成新的 cleanvip.yaml"
-            echo "可能是所有节点测试失败，保留旧版本"
+            echo "可能是全部节点测试失败"
+            echo "保留仓库原有版本"
+
           fi
 
+
       # ============================================
-      # 7. 提交 GitHub
+      # 7. 提交
       # ============================================
 
       - name: Commit cleanvip.yaml
         run: |
+
           git config user.name "github-actions[bot]"
 
           git config user.email \
             "41898282+github-actions[bot]@users.noreply.github.com"
 
+
           git add cleanvip.yaml
 
+
           if git diff --cached --quiet; then
+
             echo "cleanvip.yaml 没有变化"
+
           else
-            git commit -m "Auto update cleanvip.yaml"
+
+            git commit \
+              -m "Auto update cleanvip.yaml"
+
             git push
+
           fi
