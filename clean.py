@@ -5,6 +5,7 @@ import time
 import os
 import sys
 import urllib.parse
+import threading
 
 VIP_URL = (
     "https://gist.githubusercontent.com/"
@@ -12,24 +13,21 @@ VIP_URL = (
     "raw/VIP"
 )
 
-# 最终输出文件
 OUTPUT_FILE = "cleanvip.yaml"
 
-# Mihomo
 MIHOMO_BIN = "./mihomo"
 MIHOMO_PORT = 7890
 MIHOMO_API = "http://127.0.0.1:9090"
 
-# YouTube 测试地址
-TEST_URL = "https://www.youtube.com/generate_204"
+# 基础 HTTPS 测试
+BASIC_TEST_URL = "https://www.gstatic.com/generate_204"
 
-# 单节点测试超时：15 秒
+# YouTube 测试
+YOUTUBE_TEST_URL = "https://www.youtube.com/generate_204"
+
+# 单次测试 15 秒
 TEST_TIMEOUT = 15000
 
-# Mihomo 启动等待
-START_WAIT = 3
-
-# 只保留这些地区
 REGIONS = [
     "香港",
     "台湾",
@@ -73,16 +71,13 @@ def download_vip():
 def get_region(name):
     name = str(name)
 
-    # 狮城 = 新加坡
     if "狮城" in name:
         return "新加坡"
 
-    # 中文地区
     for region in REGIONS:
         if region in name:
             return region
 
-    # 英文地区
     lower = name.lower()
 
     if "hong kong" in lower:
@@ -135,6 +130,7 @@ def clean_name(name):
 
 
 def collect_candidates(data):
+
     proxies = data.get("proxies", [])
 
     if not isinstance(proxies, list):
@@ -161,9 +157,9 @@ def collect_candidates(data):
 
         original_name = clean_name(original_name)
 
-        # ==========================
+        # ==============================
         # 实验性 → 专线
-        # ==========================
+        # ==============================
         if "实验性" in original_name:
 
             region = get_region(original_name)
@@ -185,9 +181,9 @@ def collect_candidates(data):
 
             continue
 
-        # ==========================
+        # ==============================
         # 高级 → 备用
-        # ==========================
+        # ==============================
         if "高级" in original_name:
 
             region = get_region(original_name)
@@ -207,14 +203,11 @@ def collect_candidates(data):
 
             advanced.append(new_proxy)
 
-    # ==========================
-    # 最终候选节点
-    # ==========================
     result = []
 
-    # ==========================
-    # 实验性节点
-    # ==========================
+    # ==============================
+    # 实验性
+    # ==============================
     print()
     print("实验性节点:")
 
@@ -231,10 +224,10 @@ def collect_candidates(data):
             f"{proxy['name']}"
         )
 
-    # ==========================
-    # 高级节点按地区归类
-    # 每个地区最多 2 个
-    # ==========================
+    # ==============================
+    # 高级
+    # 每地区最多 2 个
+    # ==============================
     advanced_by_region = {
         region: []
         for region in REGIONS
@@ -252,7 +245,6 @@ def collect_candidates(data):
 
     for region in REGIONS:
 
-        # 每个地区最多保留 2 个
         nodes = advanced_by_region[region][:2]
 
         for index, proxy in enumerate(
@@ -272,9 +264,7 @@ def collect_candidates(data):
                 f"{proxy['name']}"
             )
 
-    # ==========================
     # 删除内部字段
-    # ==========================
     for proxy in result:
 
         proxy.pop("_region", None)
@@ -308,7 +298,9 @@ def create_mihomo_config(proxies):
 
         "mode": "rule",
 
-        "log-level": "info",
+        "log-level": "debug",
+
+        "ipv6": False,
 
         "external-controller":
             "127.0.0.1:9090",
@@ -317,13 +309,21 @@ def create_mihomo_config(proxies):
 
         "tcp-concurrent": True,
 
+        # ==============================
+        # 关键修改：
+        # 使用系统 DNS
+        # 不再使用 1.1.1.1 / 8.8.8.8
+        # ==============================
         "dns": {
+
             "enable": True,
+
             "ipv6": False,
-            "enhanced-mode": "fake-ip",
+
+            "enhanced-mode": "redir-host",
+
             "nameserver": [
-                "1.1.1.1",
-                "8.8.8.8",
+                "system",
             ],
         },
 
@@ -348,6 +348,7 @@ def create_mihomo_config(proxies):
 def start_mihomo(proxies):
 
     config_file = "/tmp/mihomo_test.yaml"
+    log_file = "/tmp/mihomo.log"
 
     config = create_mihomo_config(proxies)
 
@@ -369,25 +370,37 @@ def start_mihomo(proxies):
     print("启动 Mihomo")
     print("======================================")
 
+    log = open(
+        log_file,
+        "w",
+        encoding="utf-8",
+    )
+
     process = subprocess.Popen(
         [
             MIHOMO_BIN,
             "-f",
             config_file,
         ],
-        stdout=subprocess.PIPE,
+        stdout=log,
         stderr=subprocess.STDOUT,
         text=True,
     )
 
-    # 等待 API 启动
+    # 等待 API
     for i in range(40):
 
         if process.poll() is not None:
 
-            output = process.stdout.read()
+            log.close()
 
-            print(output)
+            with open(
+                log_file,
+                "r",
+                encoding="utf-8",
+                errors="ignore",
+            ) as f:
+                print(f.read())
 
             print("Mihomo 启动失败")
 
@@ -404,7 +417,7 @@ def start_mihomo(proxies):
 
                 print("Mihomo API 已启动")
 
-                return process
+                return process, log
 
         except Exception:
             pass
@@ -418,10 +431,16 @@ def start_mihomo(proxies):
     except Exception:
         pass
 
+    log.close()
+
     sys.exit(1)
 
 
-def test_node(name):
+def test_mihomo_node(
+    name,
+    test_url,
+    expected,
+):
 
     encoded_name = urllib.parse.quote(
         name,
@@ -434,12 +453,9 @@ def test_node(name):
     )
 
     params = {
-        "url": TEST_URL,
-
+        "url": test_url,
         "timeout": TEST_TIMEOUT,
-
-        # 接受 200 或 204
-        "expected": "200/204",
+        "expected": expected,
     }
 
     try:
@@ -450,99 +466,84 @@ def test_node(name):
             timeout=(TEST_TIMEOUT / 1000) + 5,
         )
 
-        # ==========================
-        # 成功
-        # ==========================
         if r.status_code == 200:
 
             try:
                 data = r.json()
             except Exception:
-
-                print(
-                    f"    ❌ {name} "
-                    f"返回内容不是 JSON"
-                )
-
-                print(
-                    "       ",
-                    r.text[:300],
-                )
-
-                return False
+                return None
 
             delay = data.get("delay", 0)
 
             if delay:
+                return delay
 
-                print(
-                    f"    ✅ {name}  "
-                    f"{delay} ms"
-                )
+            return None
 
-                return True
+        return None
 
-            print(
-                f"    ❌ {name}  "
-                f"无有效延迟"
-            )
+    except Exception:
+        return None
 
-            print(
-                "       ",
-                data,
-            )
 
-            return False
+def test_node(name):
 
-        # ==========================
-        # Mihomo 超时
-        # ==========================
-        if r.status_code == 504:
+    print()
+    print(f"    节点: {name}")
 
-            print(
-                f"    ❌ {name}  "
-                f"Mihomo 测试超时"
-            )
+    # ==============================
+    # 第一关：
+    # 基础 HTTPS
+    # ==============================
+    print("    [1/2] 基础 HTTPS 测试")
 
-            print(
-                "       ",
-                r.text[:300],
-            )
+    basic_delay = test_mihomo_node(
+        name,
+        BASIC_TEST_URL,
+        "204",
+    )
 
-            return False
+    if basic_delay:
 
-        # ==========================
-        # 其他 API 错误
-        # ==========================
         print(
-            f"    ❌ {name}  "
-            f"API HTTP {r.status_code}"
+            f"    ✅ 基础 HTTPS: "
+            f"{basic_delay} ms"
         )
 
+    else:
+
         print(
-            "       ",
-            r.text[:300],
+            "    ❌ 基础 HTTPS: 超时/失败"
         )
 
         return False
 
-    except requests.exceptions.Timeout:
+    # ==============================
+    # 第二关：
+    # YouTube
+    # ==============================
+    print("    [2/2] YouTube 测试")
+
+    youtube_delay = test_mihomo_node(
+        name,
+        YOUTUBE_TEST_URL,
+        "200-399",
+    )
+
+    if youtube_delay:
 
         print(
-            f"    ❌ {name}  "
-            f"Python 请求超时"
+            f"    ✅ YouTube: "
+            f"{youtube_delay} ms"
         )
 
-        return False
+        return True
 
-    except Exception as e:
+    print(
+        "    ❌ YouTube: 超时/失败"
+    )
 
-        print(
-            f"    ❌ {name}  "
-            f"{str(e)[:200]}"
-        )
-
-        return False
+    return False
 
 
 def test_all_nodes(proxies):
@@ -552,14 +553,22 @@ def test_all_nodes(proxies):
     print("开始实际节点测试")
     print("======================================")
 
-    print("测试地址:")
-    print(TEST_URL)
+    print(
+        "基础测试:",
+        BASIC_TEST_URL
+    )
 
-    print("单节点超时:")
-    print(f"{TEST_TIMEOUT / 1000:.0f} 秒")
+    print(
+        "YouTube测试:",
+        YOUTUBE_TEST_URL
+    )
+
+    print(
+        "单次超时:",
+        f"{TEST_TIMEOUT / 1000:.0f} 秒"
+    )
 
     print("======================================")
-    print()
 
     working = []
 
@@ -572,6 +581,7 @@ def test_all_nodes(proxies):
 
         name = proxy["name"]
 
+        print()
         print(
             f"[{index}/{total}]"
         )
@@ -603,6 +613,44 @@ def save_yaml(proxies):
         )
 
 
+def show_mihomo_log():
+
+    log_file = "/tmp/mihomo.log"
+
+    print()
+    print("======================================")
+    print("Mihomo 最近日志")
+    print("======================================")
+
+    if not os.path.exists(log_file):
+
+        print("没有找到 Mihomo 日志")
+
+        return
+
+    try:
+
+        with open(
+            log_file,
+            "r",
+            encoding="utf-8",
+            errors="ignore",
+        ) as f:
+
+            lines = f.readlines()
+
+        # 只打印最后 120 行
+        for line in lines[-120:]:
+            print(line.rstrip())
+
+    except Exception as e:
+
+        print(
+            "读取 Mihomo 日志失败:",
+            e,
+        )
+
+
 def main():
 
     if not os.path.exists(MIHOMO_BIN):
@@ -614,14 +662,14 @@ def main():
 
         sys.exit(1)
 
-    # ==========================
-    # 下载
-    # ==========================
+    # ==============================
+    # 下载 VIP
+    # ==============================
     vip_text = download_vip()
 
-    # ==========================
-    # YAML
-    # ==========================
+    # ==============================
+    # 解析 YAML
+    # ==============================
     try:
 
         data = yaml.safe_load(
@@ -645,9 +693,9 @@ def main():
 
         sys.exit(1)
 
-    # ==========================
+    # ==============================
     # 筛选
-    # ==========================
+    # ==============================
     candidates = collect_candidates(
         data
     )
@@ -660,10 +708,10 @@ def main():
 
         sys.exit(1)
 
-    # ==========================
+    # ==============================
     # 启动 Mihomo
-    # ==========================
-    mihomo = start_mihomo(
+    # ==============================
+    mihomo, mihomo_log = start_mihomo(
         candidates
     )
 
@@ -693,9 +741,19 @@ def main():
             except Exception:
                 pass
 
-    # ==========================
+        try:
+            mihomo_log.close()
+        except Exception:
+            pass
+
+    # ==============================
+    # 打印 Mihomo 日志
+    # ==============================
+    show_mihomo_log()
+
+    # ==============================
     # 结果
-    # ==========================
+    # ==============================
     print()
     print("======================================")
     print("测试完成")
@@ -716,10 +774,9 @@ def main():
         len(candidates) - len(working)
     )
 
-    # ==========================
+    # ==============================
     # 全部失败
-    # 不覆盖旧文件
-    # ==========================
+    # ==============================
     if not working:
 
         print()
@@ -733,9 +790,9 @@ def main():
 
         sys.exit(1)
 
-    # ==========================
+    # ==============================
     # 保存
-    # ==========================
+    # ==============================
     save_yaml(working)
 
     print()
