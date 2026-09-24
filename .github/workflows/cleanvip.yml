@@ -1,37 +1,43 @@
 name: Clean VIP Nodes
 
 on:
+  workflow_dispatch:
+
   schedule:
     - cron: "0 */4 * * *"
-
-  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
   clean:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
 
     steps:
 
       - name: Checkout
         uses: actions/checkout@v5
 
-      - name: Setup Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: "3.11"
+      # =========================
+      # 下载 VIP
+      # =========================
 
-      - name: Install dependencies
+      - name: Download VIP subscription
         run: |
-          pip install requests pyyaml
+          wget "https://gist.githubusercontent.com/rongzhijie7/76ce5d8efc7e0f92cda3b59a82536532/raw/VIP" -O source.yaml
+          ls -lh source.yaml
 
-      - name: Download Mihomo
+      # =========================
+      # 安装最新 Mihomo
+      # =========================
+
+      - name: Install Mihomo
         run: |
-          wget -q \
-            "https://github.com/MetaCubeX/mihomo/releases/download/v1.19.31/mihomo-linux-amd64-v3-v1.19.31.gz" \
-            -O mihomo.gz
+          VERSION=$(curl -s https://api.github.com/repos/MetaCubeX/mihomo/releases/latest | grep tag_name | cut -d '"' -f4)
+
+          echo "Mihomo version: $VERSION"
+
+          wget "https://github.com/MetaCubeX/mihomo/releases/download/${VERSION}/mihomo-linux-amd64-${VERSION}.gz" -O mihomo.gz
 
           gunzip mihomo.gz
 
@@ -39,11 +45,45 @@ jobs:
 
           ./mihomo -v
 
-      - name: Run clean.py
-        run: |
-          python clean.py
+      # =========================
+      # Python
+      # =========================
 
-      - name: Show result
+      - name: Install Python
+        run: |
+          pip install pyyaml requests
+
+      # =========================
+      # 原始节点数量
+      # =========================
+
+      - name: Count nodes
+        run: |
+          python3 - <<'EOF'
+          import yaml
+
+          with open("source.yaml", "r", encoding="utf-8") as f:
+              data = yaml.safe_load(f)
+
+          print("======================================")
+          print("VIP 原始节点数量")
+          print("======================================")
+          print(len(data.get("proxies", [])))
+          EOF
+
+      # =========================
+      # 清洗 + 测速
+      # =========================
+
+      - name: Test VIP nodes
+        run: |
+          python3 clean.py
+
+      # =========================
+      # 显示结果
+      # =========================
+
+      - name: Show cleanvip.yaml
         run: |
           echo "======================================"
           echo "最终 cleanvip.yaml"
@@ -55,24 +95,24 @@ jobs:
             echo "没有生成 cleanvip.yaml"
           fi
 
-      - name: Commit cleanvip.yaml
+      # =========================
+      # 提交
+      # =========================
+
+      - name: Save cleanvip.yaml
         run: |
 
           if [ ! -f cleanvip.yaml ]; then
-            echo "没有生成文件，不提交"
+            echo "没有 cleanvip.yaml，不提交"
             exit 0
           fi
 
-          git config user.name "github-actions[bot]"
+          git config --global user.name "github-actions"
 
-          git config user.email \
-            "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add cleanvip.yaml
 
-          if git diff --cached --quiet; then
-            echo "cleanvip.yaml 没有变化"
-          else
-            git commit -m "Auto update cleanvip.yaml"
-            git push
-          fi
+          git commit -m "update cleanvip subscription" || echo "no changes"
+
+          git push
