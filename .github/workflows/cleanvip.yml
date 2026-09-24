@@ -1,106 +1,21 @@
-name: Clean VIP Nodes
-
-on:
-  workflow_dispatch:
-
-  schedule:
-    - cron: "0 */4 * * *"
-
-permissions:
-  contents: write
-
-jobs:
-
-  clean:
-    runs-on: ubuntu-24.04
-
-    steps:
-
-      # ============================================
-      # 1. 拉取仓库
-      # ============================================
-
-      - name: Checkout
-        uses: actions/checkout@v5
-
-
-      # ============================================
-      # 2. Python
-      # ============================================
-
-      - name: Setup Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: "3.11"
-
-
-      # ============================================
-      # 3. Python 依赖
-      # ============================================
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install requests pyyaml
-
-
-      # ============================================
-      # 4. 下载 Mihomo
-      # ============================================
-
-      - name: Download Mihomo
-        run: |
-
-          wget -O mihomo.gz \
-            https://github.com/MetaCubeX/mihomo/releases/download/v1.19.31/mihomo-linux-amd64-v3-v1.19.31.gz
-
-          gunzip mihomo.gz
-
-          chmod +x mihomo
-
-          ./mihomo -v
-
-
-      # ============================================
-      # 5. 清洗 + 测试
-      # ============================================
-
-      - name: Clean and Test VIP
-        run: |
-
-          python clean.py
-
-
-      # ============================================
-      # 6. 显示最终结果
-      # ============================================
-
-      - name: Show cleanvip.yaml
-        run: |
-
-          echo "======================================"
-          echo "最终 cleanvip.yaml"
-          echo "======================================"
-
-          if [ -f cleanvip.yaml ]; then
-
-            cat cleanvip.yaml
-
-          else
-
-            echo "本轮没有生成新的 cleanvip.yaml"
-            echo "可能是全部节点测试失败"
-            echo "保留仓库原有版本"
-
-          fi
-
-
       # ============================================
       # 7. 提交
       # ============================================
 
       - name: Commit cleanvip.yaml
         run: |
+
+          if [ ! -f cleanvip.yaml ]; then
+
+            echo "======================================"
+            echo "没有生成 cleanvip.yaml"
+            echo "本轮不提交任何文件"
+            echo "======================================"
+
+            exit 0
+
+          fi
+
 
           git config user.name "github-actions[bot]"
 
