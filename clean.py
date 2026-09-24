@@ -6,40 +6,30 @@ import os
 import sys
 import urllib.parse
 
-# =========================================================
-# 配置
-# =========================================================
-
 VIP_URL = (
     "https://gist.githubusercontent.com/"
     "rongzhijie7/76ce5d8efc7e0f92cda3b59a82536532/"
     "raw/VIP"
 )
 
-OUTPUT_FILE = "clean.yaml"
+# 最终输出文件
+OUTPUT_FILE = "cleanvip.yaml"
 
+# Mihomo
 MIHOMO_BIN = "./mihomo"
-
-# Mihomo HTTP/Mixed 代理端口
 MIHOMO_PORT = 7890
-
-# Mihomo API
 MIHOMO_API = "http://127.0.0.1:9090"
 
-# 测试网址
+# YouTube 测试地址
 TEST_URL = "https://www.youtube.com/generate_204"
 
-# 单节点测试超时时间
-TEST_TIMEOUT = 8000
+# 单节点测试超时：15 秒
+TEST_TIMEOUT = 15000
 
 # Mihomo 启动等待
 START_WAIT = 3
 
-
-# =========================================================
-# 地区
-# =========================================================
-
+# 只保留这些地区
 REGIONS = [
     "香港",
     "台湾",
@@ -51,28 +41,18 @@ REGIONS = [
 ]
 
 
-# =========================================================
-# 下载 VIP
-# =========================================================
-
 def download_vip():
-
     print("======================================")
     print("下载 VIP")
     print("======================================")
 
     try:
-
         r = requests.get(
             VIP_URL,
             timeout=60,
-            headers={
-                "User-Agent": "Mozilla/5.0"
-            }
+            headers={"User-Agent": "Mozilla/5.0"},
         )
-
     except Exception as e:
-
         print("VIP 下载失败:", e)
         sys.exit(1)
 
@@ -80,37 +60,29 @@ def download_vip():
     print("Size:", len(r.content))
 
     if r.status_code != 200:
-
         print(r.text[:500])
         sys.exit(1)
 
     if not r.text.strip():
-
         print("VIP 内容为空")
         sys.exit(1)
 
     return r.text
 
 
-# =========================================================
-# 地区识别
-# =========================================================
-
 def get_region(name):
-
     name = str(name)
 
     # 狮城 = 新加坡
     if "狮城" in name:
         return "新加坡"
 
-    # 中文
+    # 中文地区
     for region in REGIONS:
-
         if region in name:
             return region
 
-    # 英文
+    # 英文地区
     lower = name.lower()
 
     if "hong kong" in lower:
@@ -146,12 +118,7 @@ def get_region(name):
     return None
 
 
-# =========================================================
-# 清理名称
-# =========================================================
-
 def clean_name(name):
-
     name = str(name)
 
     replacements = {
@@ -167,16 +134,10 @@ def clean_name(name):
     return name.strip()
 
 
-# =========================================================
-# 读取所有候选节点
-# =========================================================
-
 def collect_candidates(data):
-
     proxies = data.get("proxies", [])
 
     if not isinstance(proxies, list):
-
         print("VIP YAML 中没有有效的 proxies")
         sys.exit(1)
 
@@ -200,21 +161,18 @@ def collect_candidates(data):
 
         original_name = clean_name(original_name)
 
-        # -------------------------------------------------
-        # 实验性
-        # -------------------------------------------------
-
+        # ==========================
+        # 实验性 → 专线
+        # ==========================
         if "实验性" in original_name:
 
             region = get_region(original_name)
 
             if not region:
-
                 print(
                     "[跳过] 实验性节点无法识别地区:",
-                    original_name
+                    original_name,
                 )
-
                 continue
 
             new_proxy = proxy.copy()
@@ -227,21 +185,18 @@ def collect_candidates(data):
 
             continue
 
-        # -------------------------------------------------
-        # 高级
-        # -------------------------------------------------
-
+        # ==========================
+        # 高级 → 备用
+        # ==========================
         if "高级" in original_name:
 
             region = get_region(original_name)
 
             if not region:
-
                 print(
                     "[跳过] 高级节点无法识别地区:",
-                    original_name
+                    original_name,
                 )
-
                 continue
 
             new_proxy = proxy.copy()
@@ -252,12 +207,14 @@ def collect_candidates(data):
 
             advanced.append(new_proxy)
 
-    # =====================================================
-    # 实验性
-    # =====================================================
-
+    # ==========================
+    # 最终候选节点
+    # ==========================
     result = []
 
+    # ==========================
+    # 实验性节点
+    # ==========================
     print()
     print("实验性节点:")
 
@@ -270,16 +227,14 @@ def collect_candidates(data):
         result.append(proxy)
 
         print(
-            f"  {proxy['_original_name']}"
-            f" -> {proxy['name']}"
+            f"  {proxy['_original_name']} -> "
+            f"{proxy['name']}"
         )
 
-    # =====================================================
-    # 高级
-    #
-    # 每个地区最多两条
-    # =====================================================
-
+    # ==========================
+    # 高级节点按地区归类
+    # 每个地区最多 2 个
+    # ==========================
     advanced_by_region = {
         region: []
         for region in REGIONS
@@ -290,7 +245,6 @@ def collect_candidates(data):
         region = proxy["_region"]
 
         if region in advanced_by_region:
-
             advanced_by_region[region].append(proxy)
 
     print()
@@ -298,14 +252,12 @@ def collect_candidates(data):
 
     for region in REGIONS:
 
-        nodes = advanced_by_region[region]
-
-        # 每地区最多两条
-        nodes = nodes[:2]
+        # 每个地区最多保留 2 个
+        nodes = advanced_by_region[region][:2]
 
         for index, proxy in enumerate(
             nodes,
-            start=1
+            start=1,
         ):
 
             if index == 1:
@@ -316,14 +268,13 @@ def collect_candidates(data):
             result.append(proxy)
 
             print(
-                f"  {proxy['_original_name']}"
-                f" -> {proxy['name']}"
+                f"  {proxy['_original_name']} -> "
+                f"{proxy['name']}"
             )
 
-    # =====================================================
+    # ==========================
     # 删除内部字段
-    # =====================================================
-
+    # ==========================
     for proxy in result:
 
         proxy.pop("_region", None)
@@ -342,10 +293,6 @@ def collect_candidates(data):
     return result
 
 
-# =========================================================
-# 创建 Mihomo 测试配置
-# =========================================================
-
 def create_mihomo_config(proxies):
 
     proxy_names = [
@@ -363,7 +310,8 @@ def create_mihomo_config(proxies):
 
         "log-level": "info",
 
-        "external-controller": "127.0.0.1:9090",
+        "external-controller":
+            "127.0.0.1:9090",
 
         "unified-delay": True,
 
@@ -382,13 +330,11 @@ def create_mihomo_config(proxies):
         "proxies": proxies,
 
         "proxy-groups": [
-
             {
                 "name": "TEST",
                 "type": "select",
                 "proxies": proxy_names,
             }
-
         ],
 
         "rules": [
@@ -399,29 +345,23 @@ def create_mihomo_config(proxies):
     return config
 
 
-# =========================================================
-# 启动 Mihomo
-# =========================================================
-
 def start_mihomo(proxies):
 
     config_file = "/tmp/mihomo_test.yaml"
 
-    config = create_mihomo_config(
-        proxies
-    )
+    config = create_mihomo_config(proxies)
 
     with open(
         config_file,
         "w",
-        encoding="utf-8"
+        encoding="utf-8",
     ) as f:
 
         yaml.safe_dump(
             config,
             f,
             allow_unicode=True,
-            sort_keys=False
+            sort_keys=False,
         )
 
     print()
@@ -441,7 +381,7 @@ def start_mihomo(proxies):
     )
 
     # 等待 API 启动
-    for i in range(30):
+    for i in range(40):
 
         if process.poll() is not None:
 
@@ -457,7 +397,7 @@ def start_mihomo(proxies):
 
             r = requests.get(
                 f"{MIHOMO_API}/proxies",
-                timeout=1
+                timeout=1,
             )
 
             if r.status_code == 200:
@@ -481,17 +421,11 @@ def start_mihomo(proxies):
     sys.exit(1)
 
 
-# =========================================================
-# 测试单个节点
-#
-# 使用 Mihomo 自己的 delay API
-# =========================================================
-
 def test_node(name):
 
     encoded_name = urllib.parse.quote(
         name,
-        safe=""
+        safe="",
     )
 
     url = (
@@ -501,83 +435,129 @@ def test_node(name):
 
     params = {
         "url": TEST_URL,
+
         "timeout": TEST_TIMEOUT,
+
+        # 接受 200 或 204
         "expected": "200/204",
     }
 
     try:
 
-        start = time.time()
-
         r = requests.get(
             url,
             params=params,
-            timeout=TEST_TIMEOUT / 1000 + 3,
+            timeout=(TEST_TIMEOUT / 1000) + 5,
         )
 
-        elapsed = time.time() - start
-
+        # ==========================
+        # 成功
+        # ==========================
         if r.status_code == 200:
 
-            data = r.json()
+            try:
+                data = r.json()
+            except Exception:
 
-            delay = data.get(
-                "delay",
-                0
-            )
+                print(
+                    f"    ❌ {name} "
+                    f"返回内容不是 JSON"
+                )
+
+                print(
+                    "       ",
+                    r.text[:300],
+                )
+
+                return False
+
+            delay = data.get("delay", 0)
 
             if delay:
 
                 print(
-                    f"    ✅ {name}"
-                    f"  {delay} ms"
+                    f"    ✅ {name}  "
+                    f"{delay} ms"
                 )
 
                 return True
 
             print(
-                f"    ❌ {name}"
-                f"  无有效延迟"
+                f"    ❌ {name}  "
+                f"无有效延迟"
+            )
+
+            print(
+                "       ",
+                data,
             )
 
             return False
 
-        print(
-            f"    ❌ {name}"
-            f"  API HTTP {r.status_code}"
-        )
+        # ==========================
+        # Mihomo 超时
+        # ==========================
+        if r.status_code == 504:
 
-        try:
+            print(
+                f"    ❌ {name}  "
+                f"Mihomo 测试超时"
+            )
+
             print(
                 "       ",
-                r.text[:200]
+                r.text[:300],
             )
-        except Exception:
-            pass
+
+            return False
+
+        # ==========================
+        # 其他 API 错误
+        # ==========================
+        print(
+            f"    ❌ {name}  "
+            f"API HTTP {r.status_code}"
+        )
+
+        print(
+            "       ",
+            r.text[:300],
+        )
+
+        return False
+
+    except requests.exceptions.Timeout:
+
+        print(
+            f"    ❌ {name}  "
+            f"Python 请求超时"
+        )
 
         return False
 
     except Exception as e:
 
         print(
-            f"    ❌ {name}"
-            f"  {str(e)[:150]}"
+            f"    ❌ {name}  "
+            f"{str(e)[:200]}"
         )
 
         return False
 
-
-# =========================================================
-# 测试所有节点
-# =========================================================
 
 def test_all_nodes(proxies):
 
     print()
     print("======================================")
     print("开始实际节点测试")
+    print("======================================")
+
     print("测试地址:")
     print(TEST_URL)
+
+    print("单节点超时:")
+    print(f"{TEST_TIMEOUT / 1000:.0f} 秒")
+
     print("======================================")
     print()
 
@@ -587,7 +567,7 @@ def test_all_nodes(proxies):
 
     for index, proxy in enumerate(
         proxies,
-        start=1
+        start=1,
     ):
 
         name = proxy["name"]
@@ -603,10 +583,6 @@ def test_all_nodes(proxies):
     return working
 
 
-# =========================================================
-# 保存 YAML
-# =========================================================
-
 def save_yaml(proxies):
 
     output = {
@@ -616,46 +592,36 @@ def save_yaml(proxies):
     with open(
         OUTPUT_FILE,
         "w",
-        encoding="utf-8"
+        encoding="utf-8",
     ) as f:
 
         yaml.safe_dump(
             output,
             f,
             allow_unicode=True,
-            sort_keys=False
+            sort_keys=False,
         )
 
 
-# =========================================================
-# 主程序
-# =========================================================
-
 def main():
-
-    # -----------------------------------------------------
-    # 检查 Mihomo
-    # -----------------------------------------------------
 
     if not os.path.exists(MIHOMO_BIN):
 
         print(
-            "错误：找不到 Mihomo:"
-            f" {MIHOMO_BIN}"
+            "错误：找不到 Mihomo:",
+            MIHOMO_BIN,
         )
 
         sys.exit(1)
 
-    # -----------------------------------------------------
-    # 下载 VIP
-    # -----------------------------------------------------
-
+    # ==========================
+    # 下载
+    # ==========================
     vip_text = download_vip()
 
-    # -----------------------------------------------------
+    # ==========================
     # YAML
-    # -----------------------------------------------------
-
+    # ==========================
     try:
 
         data = yaml.safe_load(
@@ -666,44 +632,42 @@ def main():
 
         print(
             "YAML 解析失败:",
-            e
+            e,
         )
 
         sys.exit(1)
 
     if not isinstance(data, dict):
 
-        print("VIP YAML 格式错误")
+        print(
+            "VIP YAML 格式错误"
+        )
 
         sys.exit(1)
 
-    # -----------------------------------------------------
+    # ==========================
     # 筛选
-    # -----------------------------------------------------
-
+    # ==========================
     candidates = collect_candidates(
         data
     )
 
     if not candidates:
 
-        print("筛选后没有节点")
+        print(
+            "筛选后没有节点"
+        )
 
         sys.exit(1)
 
-    # -----------------------------------------------------
+    # ==========================
     # 启动 Mihomo
-    # -----------------------------------------------------
-
+    # ==========================
     mihomo = start_mihomo(
         candidates
     )
 
     try:
-
-        # -------------------------------------------------
-        # 实际测试
-        # -------------------------------------------------
 
         working = test_all_nodes(
             candidates
@@ -729,10 +693,9 @@ def main():
             except Exception:
                 pass
 
-    # -----------------------------------------------------
+    # ==========================
     # 结果
-    # -----------------------------------------------------
-
+    # ==========================
     print()
     print("======================================")
     print("测试完成")
@@ -753,10 +716,10 @@ def main():
         len(candidates) - len(working)
     )
 
-    # -----------------------------------------------------
-    # 防止生成空订阅
-    # -----------------------------------------------------
-
+    # ==========================
+    # 全部失败
+    # 不覆盖旧文件
+    # ==========================
     if not working:
 
         print()
@@ -765,32 +728,30 @@ def main():
         )
 
         print(
-            "本次不覆盖 clean.yaml"
+            f"本次不覆盖 {OUTPUT_FILE}"
         )
 
         sys.exit(1)
 
-    # -----------------------------------------------------
-    # 写文件
-    # -----------------------------------------------------
-
-    save_yaml(
-        working
-    )
+    # ==========================
+    # 保存
+    # ==========================
+    save_yaml(working)
 
     print()
     print("======================================")
-    print("clean.yaml 生成成功")
+    print(
+        f"{OUTPUT_FILE} 生成成功"
+    )
     print("======================================")
 
     for proxy in working:
 
         print(
-            f"- {proxy['name']}"
-            f" [{proxy.get('type', '')}]"
+            f"- {proxy['name']} "
+            f"[{proxy.get('type', '')}]"
         )
 
 
 if __name__ == "__main__":
-
     main()
