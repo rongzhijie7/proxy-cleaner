@@ -1,5 +1,5 @@
 proxies:
-- name: 香港专线
+- name: 香港-1
   server: 7d0a2gz0-7a0c.aws-agent.net
   port: 10011
   type: ss
@@ -10,7 +10,7 @@ proxies:
     mode: http
     host: 8c65f2f39c.m.ctrip.com
   udp: true
-- name: 日本专线
+- name: 日本-1
   server: 63182sh8-4d7b.aws-agent.net
   port: 10021
   type: ss
@@ -21,7 +21,7 @@ proxies:
     mode: http
     host: 8c65f2f39c.m.ctrip.com
   udp: true
-- name: 新加坡专线
+- name: 新加坡-1
   server: 7d0a2gz0-7a0c.aws-agent.net
   port: 10031
   type: ss
@@ -32,7 +32,7 @@ proxies:
     mode: http
     host: 8c65f2f39c.m.ctrip.com
   udp: true
-- name: 美国专线
+- name: 美国-1
   server: 63182sh8-4d7b.aws-agent.net
   port: 10051
   type: ss
@@ -43,7 +43,7 @@ proxies:
     mode: http
     host: 8c65f2f39c.m.ctrip.com
   udp: true
-- name: 香港备用
+- name: 香港-2
   server: 7d0a2gz0-7a0c.aws-agent.net
   port: 12002
   type: ss
@@ -54,7 +54,7 @@ proxies:
     mode: http
     host: 8c65f2f39c.m.ctrip.com
   udp: true
-- name: 香港备用-2
+- name: 香港-3
   server: 7d0a2gz0-7a0c.aws-agent.net
   port: 12004
   type: ss
@@ -65,7 +65,18 @@ proxies:
     mode: http
     host: 8c65f2f39c.m.ctrip.com
   udp: true
-- name: 日本备用
+- name: 香港-4
+  server: 7d0a2gz0-7a0c.aws-agent.net
+  port: 12005
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 日本-2
   server: 63182sh8-4d7b.aws-agent.net
   port: 12012
   type: ss
@@ -76,7 +87,7 @@ proxies:
     mode: http
     host: 8c65f2f39c.m.ctrip.com
   udp: true
-- name: 日本备用-2
+- name: 日本-3
   server: 63182sh8-4d7b.aws-agent.net
   port: 12014
   type: ss
@@ -87,7 +98,18 @@ proxies:
     mode: http
     host: 8c65f2f39c.m.ctrip.com
   udp: true
-- name: 新加坡备用
+- name: 日本-4
+  server: 63182sh8-4d7b.aws-agent.net
+  port: 12015
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 新加坡-2
   server: 7d0a2gz0-7a0c.aws-agent.net
   port: 12032
   type: ss
@@ -98,7 +120,7 @@ proxies:
     mode: http
     host: 8c65f2f39c.m.ctrip.com
   udp: true
-- name: 新加坡备用-2
+- name: 新加坡-3
   server: 7d0a2gz0-7a0c.aws-agent.net
   port: 12034
   type: ss
@@ -109,7 +131,18 @@ proxies:
     mode: http
     host: 8c65f2f39c.m.ctrip.com
   udp: true
-- name: 台湾备用
+- name: 新加坡-4
+  server: 7d0a2gz0-7a0c.aws-agent.net
+  port: 12035
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 台湾-1
   server: 7d0a2gz0-7a0c.aws-agent.net
   port: 12042
   type: ss
@@ -120,7 +153,7 @@ proxies:
     mode: http
     host: 8c65f2f39c.m.ctrip.com
   udp: true
-- name: 台湾备用-2
+- name: 台湾-2
   server: 7d0a2gz0-7a0c.aws-agent.net
   port: 12044
   type: ss
@@ -131,7 +164,18 @@ proxies:
     mode: http
     host: 8c65f2f39c.m.ctrip.com
   udp: true
-- name: 美国备用
+- name: 台湾-3
+  server: 7d0a2gz0-7a0c.aws-agent.net
+  port: 12045
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 美国-2
   server: 63182sh8-4d7b.aws-agent.net
   port: 12022
   type: ss
@@ -142,7 +186,7 @@ proxies:
     mode: http
     host: 8c65f2f39c.m.ctrip.com
   udp: true
-- name: 美国备用-2
+- name: 美国-3
   server: 63182sh8-4d7b.aws-agent.net
   port: 12024
   type: ss
@@ -153,3 +197,833 @@ proxies:
     mode: http
     host: 8c65f2f39c.m.ctrip.com
   udp: true
+- name: 美国-4
+  server: 63182sh8-4d7b.aws-agent.net
+  port: 12025
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 香港-5
+  server: 7d0a2gz0-7a0c.aws-agent.net
+  port: 11008
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 香港-6
+  server: 7d0a2gz0-7a0c.aws-agent.net
+  port: 11004
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 香港-7
+  server: 7d0a2gz0-7a0c.aws-agent.net
+  port: 11007
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 香港-8
+  server: 7d0a2gz0-7a0c.aws-agent.net
+  port: 11005
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 香港-9
+  server: 7d0a2gz0-7a0c.aws-agent.net
+  port: 11001
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 香港-10
+  server: 7d0a2gz0-7a0c.aws-agent.net
+  port: 11002
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 香港-11
+  server: 7d0a2gz0-7a0c.aws-agent.net
+  port: 11006
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 香港-12
+  server: 7d0a2gz0-7a0c.aws-agent.net
+  port: 11003
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 日本-5
+  server: 63182sh8-4d7b.aws-agent.net
+  port: 11018
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 日本-6
+  server: 63182sh8-4d7b.aws-agent.net
+  port: 11014
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 日本-7
+  server: 63182sh8-4d7b.aws-agent.net
+  port: 11017
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 日本-8
+  server: 63182sh8-4d7b.aws-agent.net
+  port: 11015
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 日本-9
+  server: 63182sh8-4d7b.aws-agent.net
+  port: 11011
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 日本-10
+  server: 63182sh8-4d7b.aws-agent.net
+  port: 11012
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 日本-11
+  server: 63182sh8-4d7b.aws-agent.net
+  port: 11016
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 日本-12
+  server: 63182sh8-4d7b.aws-agent.net
+  port: 11013
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 新加坡-5
+  server: 7d0a2gz0-7a0c.aws-agent.net
+  port: 11038
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 新加坡-6
+  server: 7d0a2gz0-7a0c.aws-agent.net
+  port: 11034
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 新加坡-7
+  server: 7d0a2gz0-7a0c.aws-agent.net
+  port: 11037
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 新加坡-8
+  server: 7d0a2gz0-7a0c.aws-agent.net
+  port: 11035
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 新加坡-9
+  server: 7d0a2gz0-7a0c.aws-agent.net
+  port: 11031
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 新加坡-10
+  server: 7d0a2gz0-7a0c.aws-agent.net
+  port: 11032
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 新加坡-11
+  server: 7d0a2gz0-7a0c.aws-agent.net
+  port: 11036
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 新加坡-12
+  server: 7d0a2gz0-7a0c.aws-agent.net
+  port: 11033
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 台湾-4
+  server: 7d0a2gz0-7a0c.aws-agent.net
+  port: 11043
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 台湾-5
+  server: 7d0a2gz0-7a0c.aws-agent.net
+  port: 11041
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 台湾-6
+  server: 7d0a2gz0-7a0c.aws-agent.net
+  port: 11042
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 美国-5
+  server: 63182sh8-4d7b.aws-agent.net
+  port: 11028
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 美国-6
+  server: 63182sh8-4d7b.aws-agent.net
+  port: 11024
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 美国-7
+  server: 63182sh8-4d7b.aws-agent.net
+  port: 11027
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 美国-8
+  server: 63182sh8-4d7b.aws-agent.net
+  port: 11025
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 美国-9
+  server: 63182sh8-4d7b.aws-agent.net
+  port: 11021
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 美国-10
+  server: 63182sh8-4d7b.aws-agent.net
+  port: 11022
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 美国-11
+  server: 63182sh8-4d7b.aws-agent.net
+  port: 11026
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 美国-12
+  server: 63182sh8-4d7b.aws-agent.net
+  port: 11023
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 英国-1
+  server: 8bf71bj7-dc2c.aws-agent.net
+  port: 11058
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 英国-2
+  server: 8bf71bj7-dc2c.aws-agent.net
+  port: 11059
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 韩国-1
+  server: 63182sh8-4d7b.aws-agent.net
+  port: 11071
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 韩国-2
+  server: 63182sh8-4d7b.aws-agent.net
+  port: 11072
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: 香港-13
+  type: anytls
+  server: 152.175.13.85
+  port: 57422
+  password: a4adf959-f282-471e-aa6d-d02146171a74
+  udp: true
+  sni: cache-proxy.ahdohpiechei.com
+  skip-cert-verify: true
+- name: 香港-14
+  type: anytls
+  server: 152.175.13.85
+  port: 40826
+  password: a4adf959-f282-471e-aa6d-d02146171a74
+  udp: true
+  sni: cache-proxy.ahdohpiechei.com
+  skip-cert-verify: true
+- name: 香港-15
+  type: anytls
+  server: 152.175.13.85
+  port: 52460
+  password: a4adf959-f282-471e-aa6d-d02146171a74
+  udp: true
+  sni: cache-proxy.ahdohpiechei.com
+  skip-cert-verify: true
+- name: 日本-13
+  type: anytls
+  server: 85.149.218.124
+  port: 59075
+  password: a4adf959-f282-471e-aa6d-d02146171a74
+  udp: true
+  sni: cache-proxy.ahdohpiechei.com
+  skip-cert-verify: true
+- name: 日本-14
+  type: anytls
+  server: 85.149.218.124
+  port: 44898
+  password: a4adf959-f282-471e-aa6d-d02146171a74
+  udp: true
+  sni: cache-proxy.ahdohpiechei.com
+  skip-cert-verify: true
+- name: 日本-15
+  type: anytls
+  server: 85.149.218.124
+  port: 45382
+  password: a4adf959-f282-471e-aa6d-d02146171a74
+  udp: true
+  sni: cache-proxy.ahdohpiechei.com
+  skip-cert-verify: true
+- name: 台湾-7
+  type: anytls
+  server: 152.175.13.85
+  port: 55742
+  password: a4adf959-f282-471e-aa6d-d02146171a74
+  udp: true
+  sni: cache-proxy.ahdohpiechei.com
+  skip-cert-verify: true
+- name: 台湾-8
+  type: anytls
+  server: 152.175.13.85
+  port: 53952
+  password: a4adf959-f282-471e-aa6d-d02146171a74
+  udp: true
+  sni: cache-proxy.ahdohpiechei.com
+  skip-cert-verify: true
+- name: 台湾-9
+  type: anytls
+  server: 152.175.13.85
+  port: 52878
+  password: a4adf959-f282-471e-aa6d-d02146171a74
+  udp: true
+  sni: cache-proxy.ahdohpiechei.com
+  skip-cert-verify: true
+- name: 新加坡-13
+  type: anytls
+  server: 152.175.13.85
+  port: 58925
+  password: a4adf959-f282-471e-aa6d-d02146171a74
+  udp: true
+  sni: cache-proxy.ahdohpiechei.com
+  skip-cert-verify: true
+- name: 新加坡-14
+  type: anytls
+  server: 152.175.13.85
+  port: 44736
+  password: a4adf959-f282-471e-aa6d-d02146171a74
+  udp: true
+  sni: cache-proxy.ahdohpiechei.com
+  skip-cert-verify: true
+- name: 新加坡-15
+  type: anytls
+  server: 152.175.13.85
+  port: 47575
+  password: a4adf959-f282-471e-aa6d-d02146171a74
+  udp: true
+  sni: cache-proxy.ahdohpiechei.com
+  skip-cert-verify: true
+- name: 美国-13
+  type: anytls
+  server: 85.149.218.124
+  port: 57339
+  password: a4adf959-f282-471e-aa6d-d02146171a74
+  udp: true
+  sni: cache-proxy.ahdohpiechei.com
+  skip-cert-verify: true
+- name: 美国-14
+  type: anytls
+  server: 85.149.218.124
+  port: 57224
+  password: a4adf959-f282-471e-aa6d-d02146171a74
+  udp: true
+  sni: cache-proxy.ahdohpiechei.com
+  skip-cert-verify: true
+- name: 美国-15
+  type: anytls
+  server: 85.149.218.124
+  port: 43727
+  password: a4adf959-f282-471e-aa6d-d02146171a74
+  udp: true
+  sni: cache-proxy.ahdohpiechei.com
+  skip-cert-verify: true
+- name: 香港-16
+  type: vless
+  server: bestcf.030101.xyz
+  port: 443
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /upload
+    headers:
+      Host: now-hk-1.nowhere-backend.xyz
+  servername: now-hk-1.nowhere-backend.xyz
+- name: 香港-17
+  type: vless
+  server: bestcf.030101.xyz
+  port: 443
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /upload
+    headers:
+      Host: now-hk-2.nowhere-backend.xyz
+  servername: now-hk-2.nowhere-backend.xyz
+- name: 香港-18
+  type: vless
+  server: bestcf.030101.xyz
+  port: 443
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /upload
+    headers:
+      Host: now-hk-3.nowhere-backend.xyz
+  servername: now-hk-3.nowhere-backend.xyz
+- name: 日本-16
+  type: vless
+  server: bestcf.030101.xyz
+  port: 443
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /upload
+    headers:
+      Host: now-jp-1.nowhere-backend.xyz
+  servername: now-jp-1.nowhere-backend.xyz
+- name: 日本-17
+  type: vless
+  server: bestcf.030101.xyz
+  port: 443
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /upload
+    headers:
+      Host: now-jp-2.nowhere-backend.xyz
+  servername: now-jp-2.nowhere-backend.xyz
+- name: 日本-18
+  type: vless
+  server: bestcf.030101.xyz
+  port: 443
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /upload
+    headers:
+      Host: now-jp-3.nowhere-backend.xyz
+  servername: now-jp-3.nowhere-backend.xyz
+- name: 台湾-10
+  type: vless
+  server: bestcf.030101.xyz
+  port: 443
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /upload
+    headers:
+      Host: now-tw-1.nowhere-backend.xyz
+  servername: now-tw-1.nowhere-backend.xyz
+- name: 台湾-11
+  type: vless
+  server: bestcf.030101.xyz
+  port: 443
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /upload
+    headers:
+      Host: now-tw-2.nowhere-backend.xyz
+  servername: now-tw-2.nowhere-backend.xyz
+- name: 台湾-12
+  type: vless
+  server: bestcf.030101.xyz
+  port: 443
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /upload
+    headers:
+      Host: now-tw-3.nowhere-backend.xyz
+  servername: now-tw-3.nowhere-backend.xyz
+- name: 新加坡-16
+  type: vless
+  server: bestcf.030101.xyz
+  port: 443
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /upload
+    headers:
+      Host: now-sg-1.nowhere-backend.xyz
+  servername: now-sg-1.nowhere-backend.xyz
+- name: 新加坡-17
+  type: vless
+  server: bestcf.030101.xyz
+  port: 443
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /upload
+    headers:
+      Host: now-sg-2.nowhere-backend.xyz
+  servername: now-sg-2.nowhere-backend.xyz
+- name: 新加坡-18
+  type: vless
+  server: bestcf.030101.xyz
+  port: 443
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /upload
+    headers:
+      Host: now-sg-3.nowhere-backend.xyz
+  servername: now-sg-3.nowhere-backend.xyz
+- name: 美国-16
+  type: vless
+  server: bestcf.030101.xyz
+  port: 443
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /upload
+    headers:
+      Host: now-us-1.nowhere-backend.xyz
+  servername: now-us-1.nowhere-backend.xyz
+- name: 美国-17
+  type: vless
+  server: bestcf.030101.xyz
+  port: 443
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /upload
+    headers:
+      Host: now-us-2.nowhere-backend.xyz
+  servername: now-us-2.nowhere-backend.xyz
+- name: 美国-18
+  type: vless
+  server: bestcf.030101.xyz
+  port: 443
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /upload
+    headers:
+      Host: now-us-3.nowhere-backend.xyz
+  servername: now-us-3.nowhere-backend.xyz
