@@ -172,6 +172,42 @@ proxies:
   password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
   obfs: salamander
   obfs-password: OTA2ZjRiOGQ2MWYxNmQyZA==
+- name: 香港-4
+  type: vless
+  server: cf-yes.nekocloud.host
+  port: 443
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /nekocloud/hk-01
+    headers:
+      Host: hk-01.neko-yes.com
+  servername: hk-01.neko-yes.com
+- name: 香港-5
+  type: vless
+  server: cf-yes.nekocloud.host
+  port: 443
+  uuid: 7067f13a-f395-4890-8dfa-99dd9c429bd3
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /nekocloud/hk-02
+    headers:
+      Host: hk-02.neko-yes.com
+  servername: hk-02.neko-yes.com
 - name: 台湾-1
   type: vless
   server: cf-yes.nekocloud.host
