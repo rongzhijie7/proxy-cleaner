@@ -7,6 +7,9 @@ on:
   schedule:
     - cron: "0 */6 * * *"
 
+permissions:
+  contents: write
+
 jobs:
 
   cleantest:
@@ -50,11 +53,11 @@ jobs:
           python3 - <<EOF
           import yaml
 
-          with open("source.yaml","r",encoding="utf-8") as f:
-              data=yaml.safe_load(f)
+          with open("source.yaml", "r", encoding="utf-8") as f:
+              data = yaml.safe_load(f)
 
           print("当前节点:")
-          print(len(data["proxies"]))
+          print(len(data.get("proxies", [])))
           EOF
 
 
