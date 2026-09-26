@@ -1,10 +1,6 @@
 name: CleanVIP
-on:
-workflow_dispatch:
-schedule:
-- cron: 0 */6 * * *
-permissions:
-contents: write
+on: {workflow_dispatch: {}, schedule: [{cron: ‘0 */6 * * *’}]}
+permissions: {contents: write}
 jobs:
 cleanvip:
 runs-on: ubuntu-latest
@@ -12,32 +8,22 @@ steps:
 - name: Checkout
 uses: actions/checkout@v5
 - name: Install Python
-run: |
-python3 -m pip install –upgrade pip
-python3 -m pip install pyyaml requests
+run: python3 -m pip install pyyaml requests
 - name: Run CleanVIP
-run: |
-python3 clean.py
+run: python3 clean.py
 - name: Check output
 run: |
-echo “================================”
-echo “检查 cleanvip.yaml”
-echo “================================”
-if [ ! -f cleanvip.yaml ]; then
-echo “cleanvip.yaml 没有生成”
-exit 1
-fi
+test -f cleanvip.yaml
+echo “cleanvip.yaml:”
 ls -lh cleanvip.yaml
-echo
 echo “节点数量:”
 grep -c “name:” cleanvip.yaml || true
-echo
 echo “节点名称:”
 grep “name:” cleanvip.yaml || true
 - name: Save cleanvip.yaml
 run: |
-git config –global user.name “github-actions”
-git config –global user.email “41898282+github-actions[bot]@users.noreply.github.com”
+git config –global user.name github-actions
+git config –global user.email 41898282+github-actions[bot]@users.noreply.github.com
 git add cleanvip.yaml
-git commit -m “update cleanvip subscription” || echo “no changes”
+git commit -m “update cleanvip subscription” || true
 git push
