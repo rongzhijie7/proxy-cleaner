@@ -1,4 +1,4 @@
-name: Clean VIP Nodes
+name: Clean VIP
 
 on:
   workflow_dispatch:
@@ -18,97 +18,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
-      # =========================
-      # 下载 VIP
-      # =========================
-
-      - name: Download VIP subscription
+      - name: Download VIP
         run: |
-          wget "https://gist.githubusercontent.com/rongzhijie7/76ce5d8efc7e0f92cda3b59a82536532/raw/VIP" -O source.yaml
+          wget "${{ secrets.GIST_URL }}" -O source.yaml
           ls -lh source.yaml
-
-      # =========================
-      # 安装最新 Mihomo
-      # =========================
-
-      - name: Install Mihomo
-        run: |
-          VERSION=$(curl -s https://api.github.com/repos/MetaCubeX/mihomo/releases/latest | grep tag_name | cut -d '"' -f4)
-
-          echo "Mihomo version: $VERSION"
-
-          wget "https://github.com/MetaCubeX/mihomo/releases/download/${VERSION}/mihomo-linux-amd64-${VERSION}.gz" -O mihomo.gz
-
-          gunzip mihomo.gz
-
-          chmod +x mihomo
-
-          ./mihomo -v
-
-      # =========================
-      # Python
-      # =========================
 
       - name: Install Python
         run: |
-          pip install pyyaml requests
+          pip install pyyaml
 
-      # =========================
-      # 原始节点数量
-      # =========================
-
-      - name: Count nodes
+      - name: Clean VIP
         run: |
-          python3 - <<'EOF'
-          import yaml
-
-          with open("source.yaml", "r", encoding="utf-8") as f:
-              data = yaml.safe_load(f)
-
-          print("======================================")
-          print("VIP 原始节点数量")
-          print("======================================")
-          print(len(data.get("proxies", [])))
-          EOF
-
-      # =========================
-      # 清洗 + 测速
-      # =========================
-
-      - name: Test VIP nodes
-        run: |
-          python3 clean.py
-
-      # =========================
-      # 显示结果
-      # =========================
-
-      - name: Show cleanvip.yaml
-        run: |
-          echo "======================================"
-          echo "最终 cleanvip.yaml"
-          echo "======================================"
-
-          if [ -f cleanvip.yaml ]; then
-            cat cleanvip.yaml
-          else
-            echo "没有生成 cleanvip.yaml"
-          fi
-
-      # =========================
-      # 提交
-      # =========================
+          python clean.py
 
       - name: Save cleanvip.yaml
         run: |
-
-          if [ ! -f cleanvip.yaml ]; then
-            echo "没有 cleanvip.yaml，不提交"
-            exit 0
-          fi
-
           git config --global user.name "github-actions"
-
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add cleanvip.yaml
