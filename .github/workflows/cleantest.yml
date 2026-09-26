@@ -1,0 +1,78 @@
+```yaml
+name: CleanTest
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: "0 */6 * * *"
+
+jobs:
+
+  cleantest:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v5
+
+
+      - name: Download subscription
+        run: |
+          wget "${{ secrets.GIST_URL }}" -O source.yaml
+          ls -lh source.yaml
+
+
+      - name: Install Mihomo
+        run: |
+          VERSION=$(curl -s https://api.github.com/repos/MetaCubeX/mihomo/releases/latest | grep tag_name | cut -d '"' -f4)
+
+          echo "Mihomo version: $VERSION"
+
+          wget https://github.com/MetaCubeX/mihomo/releases/download/${VERSION}/mihomo-linux-amd64-${VERSION}.gz -O mihomo.gz
+
+          gunzip mihomo.gz
+
+          chmod +x mihomo
+
+          ./mihomo -v
+
+
+      - name: Install Python
+        run: |
+          pip install pyyaml requests
+
+
+      - name: Count nodes
+        run: |
+          python3 - <<EOF
+          import yaml
+
+          with open("source.yaml","r",encoding="utf-8") as f:
+              data=yaml.safe_load(f)
+
+          print("当前节点:")
+          print(len(data["proxies"]))
+          EOF
+
+
+      - name: Test nodes
+        run: |
+          python3 cleantest.py
+
+
+      - name: Save cleantest.yaml
+        run: |
+
+          git config --global user.name "github-actions"
+
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add cleantest.yaml
+
+          git commit -m "update cleantest subscription" || echo "no changes"
+
+          git push
+```
