@@ -1,5 +1,5 @@
 proxies:
-- name: 香港专线
+- name: HK专线
   server: 7d0a2gz0-7a0c.aws-agent.net
   port: 10011
   type: ss
@@ -10,29 +10,7 @@ proxies:
     mode: http
     host: 8c65f2f39c.m.ctrip.com
   udp: true
-- name: 日本专线
-  server: 63182sh8-4d7b.aws-agent.net
-  port: 10021
-  type: ss
-  cipher: aes-128-gcm
-  password: Sj10bnYDe7w6V29E
-  plugin: obfs
-  plugin-opts:
-    mode: http
-    host: 8c65f2f39c.m.ctrip.com
-  udp: true
-- name: 新加坡专线
-  server: 7d0a2gz0-7a0c.aws-agent.net
-  port: 10031
-  type: ss
-  cipher: aes-128-gcm
-  password: Sj10bnYDe7w6V29E
-  plugin: obfs
-  plugin-opts:
-    mode: http
-    host: 8c65f2f39c.m.ctrip.com
-  udp: true
-- name: 美国专线
+- name: US专线
   server: 63182sh8-4d7b.aws-agent.net
   port: 10051
   type: ss
@@ -43,285 +21,135 @@ proxies:
     mode: http
     host: 8c65f2f39c.m.ctrip.com
   udp: true
-- type: trojan
-  password: C969E66F-844F-DC7A-20EB-7289B34DC9A7
-  server: oracle-gz.linkcubecloud.org
-  port: 8400
-  name: 台湾专线
-  skip-cert-verify: true
-  sni: cos.ap-guangzhou.myqcloud.com
-  udp: true
-  network: tcp
-- name: 台湾备用
-  type: vmess
-  server: 31.77.186.214
-  port: 8080
+- name: SG专线
+  server: 7d0a2gz0-7a0c.aws-agent.net
+  port: 10031
+  type: ss
   cipher: aes-128-gcm
-  uuid: d40d7099-be60-4b4f-8b41-e192bb39ef81
-  alterId: 0
-  network: ws
-  ws-opts:
-    path: /8fa09dd1-1631-5ed4-9de3-bd8faa585dbd
-    headers:
-      Host: tms.dingtalk.com
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
   udp: true
-- name: 台湾备用-2
-  type: vmess
-  server: 82.109.227.64
-  port: 8080
+- name: JP专线
+  server: 63182sh8-4d7b.aws-agent.net
+  port: 10021
+  type: ss
   cipher: aes-128-gcm
-  uuid: d40d7099-be60-4b4f-8b41-e192bb39ef81
-  alterId: 0
-  network: ws
-  ws-opts:
-    path: /8fa09dd1-1631-5ed4-9de3-bd8faa585dbd
-    headers:
-      Host: tms.dingtalk.com
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
   udp: true
-- name: 台湾备用-3
-  type: vmess
-  server: 120.232.202.14
-  port: 8072
+- name: HK备用01
+  server: 7d0a2gz0-7a0c.aws-agent.net
+  port: 12002
+  type: ss
   cipher: aes-128-gcm
-  uuid: d40d7099-be60-4b4f-8b41-e192bb39ef81
-  alterId: 0
-  network: ws
-  ws-opts:
-    path: /3ff53f15-4c9a-45b0-99ad-c8dfa3825d8f
-    headers:
-      Host: tms.dingtalk.com
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
   udp: true
-- name: 新加坡备用
-  type: vmess
-  server: 31.77.186.214
-  port: 8080
+- name: HK备用02
+  server: 7d0a2gz0-7a0c.aws-agent.net
+  port: 12004
+  type: ss
   cipher: aes-128-gcm
-  uuid: d40d7099-be60-4b4f-8b41-e192bb39ef81
-  alterId: 0
-  network: ws
-  ws-opts:
-    path: /c1c592aa-575d-5830-aec5-6de129ba7f2c
-    headers:
-      Host: tms.dingtalk.com
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
   udp: true
-- name: 新加坡备用-2
-  type: vmess
-  server: 82.109.227.64
-  port: 8080
+- name: TW备用01
+  server: 7d0a2gz0-7a0c.aws-agent.net
+  port: 12042
+  type: ss
   cipher: aes-128-gcm
-  uuid: d40d7099-be60-4b4f-8b41-e192bb39ef81
-  alterId: 0
-  network: ws
-  ws-opts:
-    path: /c1c592aa-575d-5830-aec5-6de129ba7f2c
-    headers:
-      Host: tms.dingtalk.com
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
   udp: true
-- name: 新加坡备用-3
-  type: vmess
-  server: 120.232.202.14
-  port: 8062
+- name: TW备用02
+  server: 7d0a2gz0-7a0c.aws-agent.net
+  port: 12044
+  type: ss
   cipher: aes-128-gcm
-  uuid: d40d7099-be60-4b4f-8b41-e192bb39ef81
-  alterId: 0
-  network: ws
-  ws-opts:
-    path: /3ff53f15-4c9a-45b0-99ad-c8dfa3825d8f
-    headers:
-      Host: tms.dingtalk.com
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
   udp: true
-- name: 新加坡备用-4
-  type: vmess
-  server: 31.77.186.214
-  port: 8080
+- name: US备用01
+  server: 63182sh8-4d7b.aws-agent.net
+  port: 12022
+  type: ss
   cipher: aes-128-gcm
-  uuid: d40d7099-be60-4b4f-8b41-e192bb39ef81
-  alterId: 0
-  network: ws
-  ws-opts:
-    path: /c218004e-e160-5819-b3b7-e95bca37f3c6
-    headers:
-      Host: tms.dingtalk.com
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
   udp: true
-- name: 新加坡备用-5
-  type: vmess
-  server: 82.109.227.64
-  port: 8080
+- name: US备用02
+  server: 63182sh8-4d7b.aws-agent.net
+  port: 12024
+  type: ss
   cipher: aes-128-gcm
-  uuid: d40d7099-be60-4b4f-8b41-e192bb39ef81
-  alterId: 0
-  network: ws
-  ws-opts:
-    path: /c218004e-e160-5819-b3b7-e95bca37f3c6
-    headers:
-      Host: tms.dingtalk.com
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
   udp: true
-- name: 新加坡备用-6
-  type: vmess
-  server: 120.232.202.14
-  port: 8063
+- name: SG备用01
+  server: 7d0a2gz0-7a0c.aws-agent.net
+  port: 12032
+  type: ss
   cipher: aes-128-gcm
-  uuid: d40d7099-be60-4b4f-8b41-e192bb39ef81
-  alterId: 0
-  network: ws
-  ws-opts:
-    path: /3ff53f15-4c9a-45b0-99ad-c8dfa3825d8f
-    headers:
-      Host: tms.dingtalk.com
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
   udp: true
-- name: 日本备用
-  type: vmess
-  server: 31.77.186.214
-  port: 8080
+- name: SG备用02
+  server: 7d0a2gz0-7a0c.aws-agent.net
+  port: 12034
+  type: ss
   cipher: aes-128-gcm
-  uuid: d40d7099-be60-4b4f-8b41-e192bb39ef81
-  alterId: 0
-  network: ws
-  ws-opts:
-    path: /48b27e9e-1e69-5cc0-998f-6f1d1138a029
-    headers:
-      Host: tms.dingtalk.com
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
   udp: true
-- name: 日本备用-2
-  type: vmess
-  server: 82.109.227.89
-  port: 8080
+- name: JP备用01
+  server: 63182sh8-4d7b.aws-agent.net
+  port: 12012
+  type: ss
   cipher: aes-128-gcm
-  uuid: d40d7099-be60-4b4f-8b41-e192bb39ef81
-  alterId: 0
-  network: ws
-  ws-opts:
-    path: /48b27e9e-1e69-5cc0-998f-6f1d1138a029
-    headers:
-      Host: tms.dingtalk.com
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
   udp: true
-- name: 日本备用-3
-  type: vmess
-  server: 120.232.202.14
-  port: 8052
+- name: JP备用02
+  server: 63182sh8-4d7b.aws-agent.net
+  port: 12014
+  type: ss
   cipher: aes-128-gcm
-  uuid: d40d7099-be60-4b4f-8b41-e192bb39ef81
-  alterId: 0
-  network: ws
-  ws-opts:
-    path: /3ff53f15-4c9a-45b0-99ad-c8dfa3825d8f
-    headers:
-      Host: tms.dingtalk.com
-  udp: true
-- name: 日本备用-4
-  type: vmess
-  server: 31.77.186.214
-  port: 8080
-  cipher: aes-128-gcm
-  uuid: d40d7099-be60-4b4f-8b41-e192bb39ef81
-  alterId: 0
-  network: ws
-  ws-opts:
-    path: /f774c749-ebf5-54d0-b3bd-f768fa8fd243
-    headers:
-      Host: tms.dingtalk.com
-  udp: true
-- name: 日本备用-5
-  type: vmess
-  server: 82.109.227.89
-  port: 8080
-  cipher: aes-128-gcm
-  uuid: d40d7099-be60-4b4f-8b41-e192bb39ef81
-  alterId: 0
-  network: ws
-  ws-opts:
-    path: /f774c749-ebf5-54d0-b3bd-f768fa8fd243
-    headers:
-      Host: tms.dingtalk.com
-  udp: true
-- name: 日本备用-6
-  type: vmess
-  server: 120.232.202.14
-  port: 8053
-  cipher: aes-128-gcm
-  uuid: d40d7099-be60-4b4f-8b41-e192bb39ef81
-  alterId: 0
-  network: ws
-  ws-opts:
-    path: /3ff53f15-4c9a-45b0-99ad-c8dfa3825d8f
-    headers:
-      Host: tms.dingtalk.com
-  udp: true
-- name: 美国备用
-  type: vmess
-  server: 31.77.186.214
-  port: 8080
-  cipher: aes-128-gcm
-  uuid: d40d7099-be60-4b4f-8b41-e192bb39ef81
-  alterId: 0
-  network: ws
-  ws-opts:
-    path: /961fec53-0864-5d90-9da9-8bc55e926e45
-    headers:
-      Host: tms.dingtalk.com
-  udp: true
-- name: 美国备用-2
-  type: vmess
-  server: 82.109.227.64
-  port: 8080
-  cipher: aes-128-gcm
-  uuid: d40d7099-be60-4b4f-8b41-e192bb39ef81
-  alterId: 0
-  network: ws
-  ws-opts:
-    path: /961fec53-0864-5d90-9da9-8bc55e926e45
-    headers:
-      Host: tms.dingtalk.com
-  udp: true
-- name: 美国备用-3
-  type: vmess
-  server: 120.232.202.14
-  port: 8032
-  cipher: aes-128-gcm
-  uuid: d40d7099-be60-4b4f-8b41-e192bb39ef81
-  alterId: 0
-  network: ws
-  ws-opts:
-    path: /3ff53f15-4c9a-45b0-99ad-c8dfa3825d8f
-    headers:
-      Host: tms.dingtalk.com
-  udp: true
-- name: 美国备用-4
-  type: vmess
-  server: 31.77.186.214
-  port: 8080
-  cipher: aes-128-gcm
-  uuid: d40d7099-be60-4b4f-8b41-e192bb39ef81
-  alterId: 0
-  network: ws
-  ws-opts:
-    path: /31f83ea2-6059-5c83-8271-b26b4eb00f99
-    headers:
-      Host: tms.dingtalk.com
-  udp: true
-- name: 美国备用-5
-  type: vmess
-  server: 82.109.227.89
-  port: 8080
-  cipher: aes-128-gcm
-  uuid: d40d7099-be60-4b4f-8b41-e192bb39ef81
-  alterId: 0
-  network: ws
-  ws-opts:
-    path: /31f83ea2-6059-5c83-8271-b26b4eb00f99
-    headers:
-      Host: tms.dingtalk.com
-  udp: true
-- name: 美国备用-6
-  type: vmess
-  server: 120.232.202.14
-  port: 8033
-  cipher: aes-128-gcm
-  uuid: d40d7099-be60-4b4f-8b41-e192bb39ef81
-  alterId: 0
-  network: ws
-  ws-opts:
-    path: /3ff53f15-4c9a-45b0-99ad-c8dfa3825d8f
-    headers:
-      Host: tms.dingtalk.com
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
   udp: true
