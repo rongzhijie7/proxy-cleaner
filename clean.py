@@ -1,585 +1,395 @@
 import requests
 import yaml
 
+# ============================================================
+# 筛选规则
+# ============================================================
+
+# 实验性 = 专线
+DEDICATED_KEYWORDS = [
+    "实验性",
+]
+
+# 高级 = 备用
+BACKUP_KEYWORDS = [
+    "高级",
+]
+
+# 只处理这些地区
+# ISO 3166-1 alpha-2
+REGIONS = {
+    "香港": "HK",
+    "台湾": "TW",
+    "美国": "US",
+    "新加坡": "SG",
+    "日本": "JP",
+    "英国": "GB",
+    "韩国": "KR",
+}
+
+# 地区别名
+REGION_ALIASES = {
+    "香港": "香港",
+    "🇭🇰": "香港",
+
+    "台湾": "台湾",
+    "台灣": "台湾",
+    "🇹🇼": "台湾",
+
+    "美国": "美国",
+    "🇺🇸": "美国",
+
+    "新加坡": "新加坡",
+    "狮城": "新加坡",
+    "🇸🇬": "新加坡",
+
+    "日本": "日本",
+    "🇯🇵": "日本",
+
+    "英国": "英国",
+    "英國": "英国",
+    "🇬🇧": "英国",
+
+    "韩国": "韩国",
+    "韓國": "韩国",
+    "🇰🇷": "韩国",
+}
+
+# ============================================================
+# Gist
+# ============================================================
+
 GIST_ID = "76ce5d8efc7e0f92cda3b59a82536532"
+GIST_FILE = "VIP"
 
-GIST_API_URL = "https://api.github.com/gists/" + GIST_ID
+GIST_API_URL = f"https://api.github.com/gists/{GIST_ID}"
 
-GIST_RAW_URL = "https://gist.githubusercontent.com/rongzhijie7/76ce5d8efc7e0f92cda3b59a82536532/raw/VIP"
+GIST_RAW_URL = (
+    f"https://gist.githubusercontent.com/"
+    f"rongzhijie7/{GIST_ID}/raw/VIP"
+)
 
 OUTPUT_FILE = "cleanvip.yaml"
 
 
-session = requests.Session()
-
-session.headers.update({
-    "User-Agent": "CleanVIP-GitHub-Actions",
-    "Accept": "application/vnd.github+json"
-})
-
-
 # ============================================================
-# 获取 VIP Gist
+# 获取 Gist
 # ============================================================
 
-def get_vip_content():
+def get_source():
 
     print("================================")
-    print("获取 VIP Gist")
+    print("获取 Gist")
     print("================================")
 
-    print("Gist API:")
-    print(GIST_API_URL)
+    headers = {
+        "Accept": "application/vnd.github+json",
+        "User-Agent": "github-actions-cleanvip",
+    }
 
     try:
 
-        response = session.get(
+        response = requests.get(
             GIST_API_URL,
-            timeout=30
+            headers=headers,
+            timeout=30,
         )
 
-        print("API status:", response.status_code)
+        print("Gist API 状态:", response.status_code)
 
-        response.raise_for_status()
+        if response.status_code == 200:
 
-        data = response.json()
+            data = response.json()
 
-        files = data.get(
-            "files",
-            {}
-        )
+            files = data.get("files", {})
 
-        print(
-            "Gist files:",
-            list(files.keys())
-        )
+            print("Gist 文件:", list(files.keys()))
 
-        vip = None
+            if GIST_FILE in files:
 
-        for filename, info in files.items():
+                file_info = files[GIST_FILE]
 
-            if filename.lower() == "vip":
+                content = file_info.get("content")
 
-                vip = info
+                if content:
 
-                break
+                    print("找到 VIP 文件")
+                    print("内容大小:", len(content))
 
-        if vip is None:
+                    return content
 
-            raise RuntimeError(
-                "VIP file not found in Gist"
-            )
+                raw_url = file_info.get("raw_url")
 
-        print("VIP file found")
+                if raw_url:
 
-        print(
-            "size:",
-            vip.get("size")
-        )
+                    print("使用 Gist raw_url")
 
-        content = vip.get("content")
+                    r = requests.get(
+                        raw_url,
+                        timeout=30,
+                    )
 
-        if content and not vip.get(
-            "truncated",
-            False
-        ):
+                    r.raise_for_status()
 
-            print(
-                "Using Gist API content"
-            )
+                    return r.text
 
-            return content
+    except Exception as e:
 
-        raw_url = vip.get(
-            "raw_url"
-        )
+        print("Gist API 获取失败:", e)
 
-        if not raw_url:
+    print("尝试 Gist Raw")
 
-            raise RuntimeError(
-                "VIP raw_url not found"
-            )
+    response = requests.get(
+        GIST_RAW_URL,
+        timeout=30,
+    )
 
-        print(
-            "Using Gist raw_url:"
-        )
+    response.raise_for_status()
 
-        print(raw_url)
+    print("Raw 获取成功")
 
-        response = session.get(
-            raw_url,
-            timeout=60
-        )
-
-        print(
-            "Raw status:",
-            response.status_code
-        )
-
-        response.raise_for_status()
-
-        if not response.text.strip():
-
-            raise RuntimeError(
-                "VIP raw content is empty"
-            )
-
-        return response.text
-
-    except Exception as error:
-
-        print()
-        print(
-            "Gist API failed:"
-        )
-
-        print(
-            str(error)
-        )
-
-        print()
-        print(
-            "Trying direct VIP Raw URL..."
-        )
-
-        response = session.get(
-            GIST_RAW_URL,
-            timeout=60
-        )
-
-        print(
-            "Direct Raw status:",
-            response.status_code
-        )
-
-        response.raise_for_status()
-
-        if not response.text.strip():
-
-            raise RuntimeError(
-                "Direct VIP Raw content is empty"
-            )
-
-        return response.text
+    return response.text
 
 
 # ============================================================
-# 识别地区
+# 地区识别
 # ============================================================
 
 def get_region(name):
 
-    if "香港" in name:
-        return "香港"
+    for keyword, region in REGION_ALIASES.items():
 
-    if "台湾" in name:
-        return "台湾"
+        if keyword in name:
 
-    if "狮城" in name:
-        return "新加坡"
-
-    if "新加坡" in name:
-        return "新加坡"
-
-    if "日本" in name:
-        return "日本"
-
-    if "美国" in name:
-        return "美国"
+            return region
 
     return None
 
 
 # ============================================================
-# 判断是不是专线
+# 节点类型
 # ============================================================
 
 def is_dedicated(name):
 
-    return name.endswith(
-        "专线"
+    return any(
+        keyword in name
+        for keyword in DEDICATED_KEYWORDS
     )
 
-
-# ============================================================
-# 判断是不是备用节点
-# ============================================================
 
 def is_backup(name):
 
-    patterns = [
-        "02O-",
-        "02B",
-        "03O-",
-        "03B"
-    ]
-
-    for pattern in patterns:
-
-        if pattern in name:
-
-            return True
-
-    return False
+    return any(
+        keyword in name
+        for keyword in BACKUP_KEYWORDS
+    )
 
 
 # ============================================================
-# 处理 VIP
+# 主程序
 # ============================================================
 
-def clean_vip(content):
+def main():
 
-    print()
-    print("================================")
-    print("解析 VIP")
-    print("================================")
+    content = get_source()
 
-    try:
+    config = yaml.safe_load(content)
 
-        data = yaml.safe_load(
-            content
-        )
-
-    except Exception as error:
+    if not isinstance(config, dict):
 
         raise RuntimeError(
-            "YAML 解析失败: "
-            + str(error)
+            "Gist 内容不是有效 YAML"
         )
 
-    if not isinstance(
-        data,
-        dict
-    ):
+    proxies = config.get("proxies", [])
+
+    if not proxies:
 
         raise RuntimeError(
-            "VIP YAML 顶层不是字典"
+            "Gist 中没有找到 proxies"
         )
 
-    proxies = data.get(
-        "proxies",
-        []
-    )
-
-    if not isinstance(
-        proxies,
-        list
-    ):
-
-        raise RuntimeError(
-            "VIP YAML 没有 proxies"
-        )
-
-    print(
-        "原始节点数量:",
-        len(proxies)
-    )
-
-    print()
-    print("原始节点名称:")
-    print("--------------------------------")
-
-    for index, proxy in enumerate(
-        proxies,
-        1
-    ):
-
-        if isinstance(
-            proxy,
-            dict
-        ):
-
-            print(
-                str(index).zfill(3)
-                + ". "
-                + str(
-                    proxy.get(
-                        "name",
-                        "<无名称>"
-                    )
-                )
-            )
-
-    print("--------------------------------")
+    print("")
+    print("原始节点数量:", len(proxies))
 
     # ========================================================
-    # 第一阶段：筛选
+    # 按地区分别保存
     # ========================================================
 
-    dedicated = []
-    backup = []
+    dedicated = {}
+    backup = {}
+
+    # 初始化地区
+    for region in REGIONS:
+
+        dedicated[region] = []
+        backup[region] = []
+
+    # ========================================================
+    # 筛选
+    # ========================================================
 
     for proxy in proxies:
 
-        if not isinstance(
-            proxy,
-            dict
-        ):
-            continue
-
         name = str(
-            proxy.get(
-                "name",
-                ""
-            )
+            proxy.get("name", "")
         ).strip()
 
         if not name:
             continue
 
-        if not proxy.get(
-            "server"
-        ):
+        region = get_region(name)
+
+        # 没识别出地区，直接丢弃
+        if region is None:
+            print("跳过（未知地区）:", name)
             continue
 
-        region = get_region(
-            name
-        )
+        # ----------------------------------------------------
+        # 实验性 → 专线
+        # ----------------------------------------------------
 
-        if not region:
-            continue
+        if is_dedicated(name):
 
-        # ------------------------------
-        # 专线
-        # ------------------------------
+            dedicated[region].append(proxy)
 
-        if is_dedicated(
-            name
-        ):
-
-            # 狮城统一改成新加坡
-            new_proxy = proxy.copy()
-
-            new_proxy["name"] = (
-                region
-                + "专线"
-            )
-
-            dedicated.append(
-                new_proxy
+            print(
+                "专线:",
+                name,
+                "→",
+                REGIONS[region] + "专线",
             )
 
             continue
 
-        # ------------------------------
-        # 备用
-        # ------------------------------
+        # ----------------------------------------------------
+        # 高级 → 备用
+        # ----------------------------------------------------
 
-        if is_backup(
-            name
+        if is_backup(name):
+
+            backup[region].append(proxy)
+
+            print(
+                "备用:",
+                name,
+                "→",
+                REGIONS[region] + "备用",
+            )
+
+            continue
+
+        # ----------------------------------------------------
+        # 其他类型全部丢弃
+        # ----------------------------------------------------
+
+        print("跳过:", name)
+
+    # ========================================================
+    # 生成最终节点
+    # ========================================================
+
+    final_proxies = []
+
+    # ========================================================
+    # 专线
+    # 每个地区只保留一个
+    # ========================================================
+
+    for region, nodes in dedicated.items():
+
+        if not nodes:
+            continue
+
+        proxy = nodes[0].copy()
+
+        proxy["name"] = (
+            f"{REGIONS[region]}专线"
+        )
+
+        final_proxies.append(proxy)
+
+    # ========================================================
+    # 备用
+    # 每个地区最多两个
+    # ========================================================
+
+    for region, nodes in backup.items():
+
+        for index, proxy in enumerate(
+            nodes[:2],
+            start=1,
         ):
 
-            # 只保留指定地区
-            if region in {
-                "台湾",
-                "新加坡",
-                "日本",
-                "美国"
-            }:
-
-                new_proxy = proxy.copy()
-
-                new_proxy["_region"] = (
-                    region
-                )
-
-                backup.append(
-                    new_proxy
-                )
-
-
-    print()
-    print(
-        "专线节点:",
-        len(dedicated)
-    )
-
-    print(
-        "备用节点:",
-        len(backup)
-    )
-
-
-    # ========================================================
-    # 第二阶段：专线去重
-    # ========================================================
-
-    result = []
-
-    dedicated_regions = set()
-
-    for proxy in dedicated:
-
-        name = proxy.get(
-            "name",
-            ""
-        )
-
-        region = name.replace(
-            "专线",
-            ""
-        )
-
-        if region in dedicated_regions:
-
-            continue
-
-        dedicated_regions.add(
-            region
-        )
-
-        result.append(
-            proxy
-        )
-
-
-    # ========================================================
-    # 第三阶段：备用节点编号
-    # ========================================================
-
-    backup_count = {}
-
-    for proxy in backup:
-
-        region = proxy.pop(
-            "_region",
-            None
-        )
-
-        if not region:
-            continue
-
-        backup_count[
-            region
-        ] = (
-            backup_count.get(
-                region,
-                0
-            )
-            + 1
-        )
-
-        count = backup_count[
-            region
-        ]
-
-        if count == 1:
+            proxy = proxy.copy()
 
             proxy["name"] = (
-                region
-                + "备用"
+                f"{REGIONS[region]}"
+                f"备用"
+                f"{index:02d}"
             )
 
-        else:
+            final_proxies.append(proxy)
 
-            proxy["name"] = (
-                region
-                + "备用-"
-                + str(count)
-            )
+    # ========================================================
+    # 检查
+    # ========================================================
 
-        result.append(
-            proxy
+    if not final_proxies:
+
+        raise RuntimeError(
+            "筛选后没有节点，请检查关键词和地区名称"
         )
 
-
-    return result
-
-
-# ============================================================
-# 输出 cleanvip.yaml
-# ============================================================
-
-def save_output(
-    proxies
-):
-
-    print()
-    print("================================")
-    print("生成 cleanvip.yaml")
-    print("================================")
+    # ========================================================
+    # 输出
+    # ========================================================
 
     output = {
-        "proxies": proxies
+        "proxies": final_proxies
     }
 
     with open(
         OUTPUT_FILE,
         "w",
-        encoding="utf-8"
-    ) as file:
+        encoding="utf-8",
+    ) as f:
 
         yaml.safe_dump(
             output,
-            file,
+            f,
             allow_unicode=True,
-            sort_keys=False
+            sort_keys=False,
         )
 
-    print()
+    # ========================================================
+    # 输出统计
+    # ========================================================
+
+    print("")
+    print("================================")
+    print("筛选完成")
+    print("================================")
+
     print(
         "最终节点数量:",
-        len(proxies)
+        len(final_proxies),
     )
 
-    print()
+    print("")
     print("最终节点:")
-    print("--------------------------------")
 
-    for index, proxy in enumerate(
-        proxies,
-        1
-    ):
+    for proxy in final_proxies:
 
         print(
-            str(index).zfill(2)
-            + ". "
-            + str(
-                proxy.get(
-                    "name",
-                    ""
-                )
-            )
+            " -",
+            proxy["name"],
         )
 
-    print("--------------------------------")
-
-    print()
-    print(
-        "生成完成:",
-        OUTPUT_FILE
-    )
-
-
-# ============================================================
-# Main
-# ============================================================
-
-def main():
-
-    print()
-    print("================================")
-    print("CleanVIP")
-    print("================================")
-    print()
-
-    content = get_vip_content()
-
-    proxies = clean_vip(
-        content
-    )
-
-    if not proxies:
-
-        raise RuntimeError(
-            "筛选后没有节点"
-        )
-
-    save_output(
-        proxies
-    )
+    print("")
+    print("输出文件:", OUTPUT_FILE)
 
 
 if __name__ == "__main__":
-
     main()
