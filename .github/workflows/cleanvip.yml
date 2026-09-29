@@ -2,80 +2,33 @@ name: CleanVIP
 
 on:
   workflow_dispatch:
-
   schedule:
-    - cron: "0 */4 * * *"
+    - cron: '0 */6 * * *'
 
 permissions:
   contents: write
 
 jobs:
   cleanvip:
-
     runs-on: ubuntu-latest
 
     steps:
-
-      # =====================================================
-      # 拉取仓库
-      # =====================================================
-
       - name: Checkout
         uses: actions/checkout@v5
 
-      # =====================================================
-      # 安装 Python
-      # =====================================================
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.x'
 
-      - name: Install Python dependencies
+      - name: Install dependencies
         run: |
-          python3 -m pip install --upgrade pip
-          python3 -m pip install requests pyyaml
-
-      # =====================================================
-      # 下载 Mihomo
-      # =====================================================
-
-      - name: Install Mihomo
-        run: |
-          MIHOMO_VERSION="v1.19.31"
-
-          wget -q \
-            "https://github.com/MetaCubeX/mihomo/releases/download/${MIHOMO_VERSION}/mihomo-linux-amd64-v3-${MIHOMO_VERSION}.gz" \
-            -O mihomo.gz
-
-          gzip -d mihomo.gz
-
-          chmod +x mihomo
-
-          ./mihomo -v
-
-      # =====================================================
-      # 执行 CleanVIP
-      # =====================================================
+          python -m pip install --upgrade pip
+          pip install requests pyyaml
 
       - name: Run CleanVIP
         run: |
           python3 cleanvip.py
-
-      # =====================================================
-      # 检查输出
-      # =====================================================
-
-      - name: Check cleanvip.yaml
-        run: |
-          echo "=========================================="
-          echo "cleanvip.yaml"
-          echo "=========================================="
-
-          cat cleanvip.yaml
-
-          echo ""
-          echo "=========================================="
-
-      # =====================================================
-      # 提交结果
-      # =====================================================
 
       - name: Commit cleanvip.yaml
         run: |
@@ -86,7 +39,8 @@ jobs:
 
           if git diff --cached --quiet; then
             echo "cleanvip.yaml 没有变化"
-          else
-            git commit -m "Update cleanvip nodes"
-            git push
+            exit 0
           fi
+
+          git commit -m "Update cleanvip nodes"
+          git push
