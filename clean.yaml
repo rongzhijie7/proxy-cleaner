@@ -130,48 +130,6 @@ proxies:
     short-id: '44099498'
   network: tcp
   servername: download-porter.hoyoverse.com
-- name: 美国-1
-  type: vless
-  server: cfyes.777078.xyz
-  port: 443
-  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /liangxin/us
-    headers:
-      Host: lx-us1.777078.xyz
-  servername: lx-us1.777078.xyz
-- name: 美国-2
-  type: vless
-  server: cfyes.777078.xyz
-  port: 443
-  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /liangxin/us
-    headers:
-      Host: lx-us2.777078.xyz
-  servername: lx-us2.777078.xyz
-- name: 美国-3
-  server: ushost.xn--9kqp42aims.top
-  port: 20000
-  ports: 20000-55000
-  mport: 20000-55000
-  udp: true
-  skip-cert-verify: true
-  sni: gw.alicdn.com
-  type: hysteria2
-  password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
-  obfs: salamander
-  obfs-password: OTA2ZjRiOGQ2MWYxNmQyZA==
 - name: 香港-4
   type: vless
   server: cf-yes.nekocloud.host
