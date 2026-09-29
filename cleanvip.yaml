@@ -70,7 +70,7 @@ proxies:
 - name: JP备用02
   type: anytls
   server: 85.149.218.124
-  port: 44898
+  port: 45382
   password: a4adf959-f282-471e-aa6d-d02146171a74
   udp: true
   sni: cache-proxy.ahdohpiechei.com
@@ -83,27 +83,146 @@ proxies:
   udp: true
   sni: cache-proxy.ahdohpiechei.com
   skip-cert-verify: true
-- name: SG备用02
-  type: anytls
-  server: 152.175.13.85
-  port: 47575
-  password: a4adf959-f282-471e-aa6d-d02146171a74
+- name: HK中转01
+  type: vmess
+  server: 82.109.227.64
+  port: 8080
+  cipher: aes-128-gcm
+  uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
+  alterId: 0
+  network: ws
+  ws-opts:
+    path: /c8462d65-0e61-5eff-bb73-4afd084f3e68
+    headers:
+      Host: tms.dingtalk.com
   udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: TW备用01
-  type: anytls
-  server: 152.175.13.85
-  port: 53952
-  password: a4adf959-f282-471e-aa6d-d02146171a74
+- name: HK中转02
+  type: vmess
+  server: 82.109.227.89
+  port: 8080
+  cipher: aes-128-gcm
+  uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
+  alterId: 0
+  network: ws
+  ws-opts:
+    path: /8635d2ba-8230-5e35-9a2a-9644f0a1fec9
+    headers:
+      Host: tms.dingtalk.com
   udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: TW备用02
-  type: anytls
-  server: 152.175.13.85
-  port: 52878
-  password: a4adf959-f282-471e-aa6d-d02146171a74
+- name: JP中转01
+  type: vmess
+  server: 82.109.227.89
+  port: 8080
+  cipher: aes-128-gcm
+  uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
+  alterId: 0
+  network: ws
+  ws-opts:
+    path: /f774c749-ebf5-54d0-b3bd-f768fa8fd243
+    headers:
+      Host: tms.dingtalk.com
   udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
+- name: JP中转02
+  type: vmess
+  server: 82.109.227.89
+  port: 8080
+  cipher: aes-128-gcm
+  uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
+  alterId: 0
+  network: ws
+  ws-opts:
+    path: /f2a1ea72-960b-50df-922f-f94db85815c5
+    headers:
+      Host: tms.dingtalk.com
+  udp: true
+- name: KR中转01
+  type: vmess
+  server: 120.232.202.14
+  port: 8059
+  cipher: aes-128-gcm
+  uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
+  alterId: 0
+  network: ws
+  ws-opts:
+    path: /3ff53f15-4c9a-45b0-99ad-c8dfa3825d8f
+    headers:
+      Host: tms.dingtalk.com
+  udp: true
+- name: KR中转02
+  type: vmess
+  server: 82.109.227.89
+  port: 8080
+  cipher: aes-128-gcm
+  uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
+  alterId: 0
+  network: ws
+  ws-opts:
+    path: /274a7731-03a7-5585-8461-b34b7512a701
+    headers:
+      Host: tms.dingtalk.com
+  udp: true
+- name: SG中转01
+  type: vmess
+  server: 82.109.227.64
+  port: 8080
+  cipher: aes-128-gcm
+  uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
+  alterId: 0
+  network: ws
+  ws-opts:
+    path: /c218004e-e160-5819-b3b7-e95bca37f3c6
+    headers:
+      Host: tms.dingtalk.com
+  udp: true
+- name: SG中转02
+  type: vmess
+  server: 120.232.202.14
+  port: 8061
+  cipher: aes-128-gcm
+  uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
+  alterId: 0
+  network: ws
+  ws-opts:
+    path: /3ff53f15-4c9a-45b0-99ad-c8dfa3825d8f
+    headers:
+      Host: tms.dingtalk.com
+  udp: true
+- name: US中转01
+  type: vmess
+  server: 82.109.227.64
+  port: 8080
+  cipher: aes-128-gcm
+  uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
+  alterId: 0
+  network: ws
+  ws-opts:
+    path: /b95bfb5e-ea09-51e0-a8f6-dbd2a39288fb
+    headers:
+      Host: tms.dingtalk.com
+  udp: true
+- name: US中转02
+  type: vmess
+  server: 82.109.227.64
+  port: 8080
+  cipher: aes-128-gcm
+  uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
+  alterId: 0
+  network: ws
+  ws-opts:
+    path: /8636cf92-d82b-5288-835a-acdba0d05889
+    headers:
+      Host: tms.dingtalk.com
+  udp: true
+- name: GB中转01
+  type: vmess
+  server: 82.109.227.64
+  port: 8080
+  cipher: aes-128-gcm
+  uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
+  alterId: 0
+  network: ws
+  ws-opts:
+    path: /78a5b4ff-0d73-5cdd-805e-c569b63e207a
+    headers:
+      Host: tms.dingtalk.com
+  udp: true
