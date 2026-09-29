@@ -22,7 +22,7 @@ OUTPUT_FILE = "cleanvip.yaml"
 
 MIHOMO_VERSION = "v1.19.31"
 
-TEST_URL = "https://www.gstatic.com/generate_204"
+TEST_URL = "https://www.youtube.com/generate_204"
 
 TEST_TIMEOUT = 5000
 
@@ -385,6 +385,7 @@ def test_proxy(name):
             name,
             safe=""
         )
+        + "/delay"
     )
 
     try:
@@ -398,7 +399,13 @@ def test_proxy(name):
             timeout=10
         )
 
+        # 调试信息
         if response.status_code != 200:
+            log(
+                f"[API错误] {name} "
+                f"HTTP {response.status_code}: "
+                f"{response.text[:300]}"
+            )
             return None
 
         data = response.json()
@@ -406,11 +413,86 @@ def test_proxy(name):
         delay = data.get("delay")
 
         if delay is None:
+            log(
+                f"[测速失败] {name}: "
+                f"{data}"
+            )
             return None
 
         return int(delay)
 
-    except Exception:
+    except requests.exceptions.Timeout:
+
+        log(
+            f"[超时] {name}"
+        )
+
+        return None
+
+    except Exception as e:
+
+        log(
+            f"[异常] {name}: {e}"
+        )
+
+        return Nonedef test_proxy(name):
+
+    api_url = (
+        "http://127.0.0.1:9090/proxies/"
+        + requests.utils.quote(
+            name,
+            safe=""
+        )
+        + "/delay"
+    )
+
+    try:
+
+        response = requests.get(
+            api_url,
+            params={
+                "url": TEST_URL,
+                "timeout": TEST_TIMEOUT,
+            },
+            timeout=10
+        )
+
+        # 调试信息
+        if response.status_code != 200:
+            log(
+                f"[API错误] {name} "
+                f"HTTP {response.status_code}: "
+                f"{response.text[:300]}"
+            )
+            return None
+
+        data = response.json()
+
+        delay = data.get("delay")
+
+        if delay is None:
+            log(
+                f"[测速失败] {name}: "
+                f"{data}"
+            )
+            return None
+
+        return int(delay)
+
+    except requests.exceptions.Timeout:
+
+        log(
+            f"[超时] {name}"
+        )
+
+        return None
+
+    except Exception as e:
+
+        log(
+            f"[异常] {name}: {e}"
+        )
+
         return None
 
 
