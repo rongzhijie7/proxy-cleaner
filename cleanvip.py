@@ -173,12 +173,15 @@ def get_node_type(name):
     name = str(name)
     name_lower = name.lower()
 
+    # 实验性优先
     if "实验性" in name:
         return "dedicated"
 
+    # 高级
     if "高级" in name:
         return "backup"
 
+    # PR，不区分大小写
     if "pr" in name_lower:
         return "relay"
 
@@ -188,10 +191,11 @@ def get_node_type(name):
 # ============================================================
 # 分类节点
 #
-# IPEL 规则：
-#   实验性 + IPEL → 保留，不测速
-#   高级 + IPEL   → 直接排除
-#   PR + IPEL     → 直接排除
+# IEPL 规则：
+#
+# 实验性 + IEPL → 保留，不测速
+# 高级 + IEPL   → 直接排除
+# PR + IEPL     → 直接排除
 # ============================================================
 
 def filter_nodes(nodes):
@@ -202,39 +206,49 @@ def filter_nodes(nodes):
 
     ignored_region = 0
     ignored_keyword = 0
-    ignored_ipel = 0
+    ignored_iepl = 0
 
     for node in nodes:
 
         name = str(node.get("name", ""))
 
+        # ----------------------------------------------------
+        # 地区
+        # ----------------------------------------------------
+
         region = get_region(name)
 
         if not region:
+
             ignored_region += 1
             continue
+
+        # ----------------------------------------------------
+        # 类型
+        # ----------------------------------------------------
 
         node_type = get_node_type(name)
 
         if not node_type:
+
             ignored_keyword += 1
             continue
 
         # ----------------------------------------------------
-        # IPEL
+        # IEPL
         #
-        # 实验性仍然保留，因为实验性本身不测速
+        # 只有实验性可以保留
         # 高级 / PR 直接排除
         # ----------------------------------------------------
 
-        if "ipel" in name.lower():
+        if "iepl" in name.lower():
 
             if node_type in (
                 "backup",
                 "relay",
             ):
 
-                ignored_ipel += 1
+                ignored_iepl += 1
                 continue
 
         # ----------------------------------------------------
@@ -259,20 +273,34 @@ def filter_nodes(nodes):
     log("=" * 60)
 
     log(
-        f"实验性节点: {sum(len(v) for v in dedicated.values())}"
+        f"实验性节点: "
+        f"{sum(len(v) for v in dedicated.values())}"
     )
 
     log(
-        f"高级节点:   {sum(len(v) for v in backup.values())}"
+        f"高级节点:   "
+        f"{sum(len(v) for v in backup.values())}"
     )
 
     log(
-        f"PR节点:      {sum(len(v) for v in relay.values())}"
+        f"PR节点:      "
+        f"{sum(len(v) for v in relay.values())}"
     )
 
-    log(f"地区不匹配:  {ignored_region}")
-    log(f"关键词不匹配: {ignored_keyword}")
-    log(f"IPEL排除:     {ignored_ipel}")
+    log(
+        f"地区不匹配:  "
+        f"{ignored_region}"
+    )
+
+    log(
+        f"关键词不匹配: "
+        f"{ignored_keyword}"
+    )
+
+    log(
+        f"IEPL排除:     "
+        f"{ignored_iepl}"
+    )
 
     return dedicated, backup, relay
 
@@ -280,7 +308,7 @@ def filter_nodes(nodes):
 # ============================================================
 # 实验性 → 专线
 #
-# 每个地区只取 1 条
+# 每个地区只保留 1 条
 # 不测速
 # ============================================================
 
@@ -388,7 +416,7 @@ def download_mihomo():
     target = None
 
     # --------------------------------------------------------
-    # 优先寻找 Linux amd64 v3
+    # 优先 Linux amd64 v3
     # --------------------------------------------------------
 
     for asset in assets:
@@ -465,7 +493,9 @@ def download_mihomo():
             response.content
         )
 
-    log("解压 Mihomo...")
+    log(
+        "解压 Mihomo..."
+    )
 
     with gzip.open(
         gz_file,
@@ -906,7 +936,6 @@ def test_nodes(
 
 # ============================================================
 # 高级 → 备用
-#
 # 每区最快 2 条
 # ============================================================
 
@@ -982,7 +1011,6 @@ def select_backups(
 
 # ============================================================
 # PR → 中转
-#
 # 每区最快 2 条
 # ============================================================
 
