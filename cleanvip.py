@@ -1,16 +1,16 @@
 import os
-import time
+import gzip
+import shutil
 import subprocess
+import time
 from collections import defaultdict
-from pathlib import Path
-from urllib.parse import quote
 
 import requests
 import yaml
 
 
 # ============================================================
-# 基本配置
+# 配置
 # ============================================================
 
 GIST_URL = (
@@ -19,453 +19,634 @@ GIST_URL = (
 )
 
 OUTPUT_FILE = "cleanvip.yaml"
-MIHOMO_BIN = "./mihomo"
 
-API = "http://127.0.0.1:9090"
+MIHOMO_VERSION = "v1.19.31"
 
-# 使用 YouTube 204 页面进行有效性测试
-TEST_URL = "https://www.youtube.com/generate_204"
+TEST_URL = "https://www.gstatic.com/generate_204"
 
-# 单节点最大测速时间
-TEST_TIMEOUT_MS = 8000
+TEST_TIMEOUT = 5000
 
-# Mihomo 启动等待时间
-STARTUP_TIMEOUT = 20
+MAX_BACKUP_PER_REGION = 2
 
 
 # ============================================================
-# 地区 -> ISO 3166-1 alpha-2
+# ISO 3166-1 alpha-2 地区识别
 # ============================================================
 
 REGIONS = {
     "香港": "HK",
-    "Hong Kong": "HK",
+    "🇭🇰": "HK",
 
     "台湾": "TW",
     "台灣": "TW",
-    "Taiwan": "TW",
+    "🇹🇼": "TW",
 
-    "日本": "JP",
-    "Japan": "JP",
+    "美国": "US",
+    "美國": "US",
+    "🇺🇸": "US",
 
     "新加坡": "SG",
     "狮城": "SG",
-    "Singapore": "SG",
+    "獅城": "SG",
+    "🇸🇬": "SG",
 
-    "美国": "US",
-    "USA": "US",
-    "United States": "US",
-
-    "韩国": "KR",
-    "韓國": "KR",
-    "Korea": "KR",
+    "日本": "JP",
+    "🇯🇵": "JP",
 
     "英国": "GB",
     "英國": "GB",
-    "UK": "GB",
+    "🇬🇧": "GB",
 
-    "德国": "DE",
-    "德國": "DE",
-    "Germany": "DE",
-
-    "意大利": "IT",
-    "義大利": "IT",
-    "Italy": "IT",
-
-    "印度": "IN",
-    "India": "IN",
-
-    "泰国": "TH",
-    "泰國": "TH",
-    "Thailand": "TH",
-
-    "澳大利亚": "AU",
-    "澳洲": "AU",
-    "Australia": "AU",
-
-    "墨西哥": "MX",
-    "Mexico": "MX",
-
-    "巴西": "BR",
-    "Brazil": "BR",
-
-    "加拿大": "CA",
-    "Canada": "CA",
-
-    "荷兰": "NL",
-    "荷蘭": "NL",
-    "Netherlands": "NL",
-
-    "法国": "FR",
-    "法國": "FR",
-    "France": "FR",
-
-    "西班牙": "ES",
-    "Spain": "ES",
-
-    "土耳其": "TR",
-    "Turkey": "TR",
-
-    "匈牙利": "HU",
-    "Hungary": "HU",
-
-    "乌克兰": "UA",
-    "Ukraine": "UA",
-
-    "摩尔多瓦": "MD",
-    "Moldova": "MD",
-
-    "阿根廷": "AR",
-    "Argentina": "AR",
-
-    "智利": "CL",
-    "Chile": "CL",
-
-    "新西兰": "NZ",
-    "New Zealand": "NZ",
-
-    "印尼": "ID",
-    "印度尼西亚": "ID",
-    "Indonesia": "ID",
-
-    "越南": "VN",
-    "Vietnam": "VN",
-
-    "巴基斯坦": "PK",
-    "Pakistan": "PK",
-
-    "以色列": "IL",
-    "Israel": "IL",
-
-    "阿联酋": "AE",
-    "United Arab Emirates": "AE",
-
-    "菲律宾": "PH",
-    "Philippines": "PH",
-
-    "马来西亚": "MY",
-    "Malaysia": "MY",
-
-    "埃及": "EG",
-    "Egypt": "EG",
-
-    "尼日利亚": "NG",
-    "Nigeria": "NG",
+    "韩国": "KR",
+    "韓國": "KR",
+    "🇰🇷": "KR",
 }
 
 
 # ============================================================
-# 根据节点名称识别地区
+# 输出日志
 # ============================================================
 
-def get_region(name):
-    # 优先匹配较长名称
-    items = sorted(
-        REGIONS.items(),
-        key=lambda x: len(x[0]),
-        reverse=True
+def log(text):
+    print(text, flush=True)
+
+
+# ============================================================
+# 1. 从 VIP Gist 获取原始节点
+# ============================================================
+
+def download_vip():
+
+    log("=" * 60)
+    log("1. 获取 VIP Gist")
+    log("=" * 60)
+
+    response = requests.get(
+        GIST_URL,
+        timeout=30,
+        headers={
+            "User-Agent": "Mozilla/5.0"
+        }
     )
 
-    for region_name, code in items:
-        if region_name in name:
-            return code
+    log(f"Gist HTTP 状态: {response.status_code}")
+
+    response.raise_for_status()
+
+    content = response.text
+
+    log(f"原始内容大小: {len(content)}")
+
+    return content
+
+
+# ============================================================
+# 2. 解析 YAML
+# ============================================================
+
+def parse_vip(content):
+
+    log("=" * 60)
+    log("2. 解析 VIP 节点")
+    log("=" * 60)
+
+    data = yaml.safe_load(content)
+
+    if not isinstance(data, dict):
+        raise RuntimeError("VIP Gist 不是有效 YAML")
+
+    proxies = data.get("proxies")
+
+    if not isinstance(proxies, list):
+        raise RuntimeError("VIP Gist 中没有 proxies")
+
+    log(f"原始节点数量: {len(proxies)}")
+
+    return proxies
+
+
+# ============================================================
+# 地区识别
+# ============================================================
+
+def detect_region(name):
+
+    for keyword in sorted(
+        REGIONS,
+        key=len,
+        reverse=True
+    ):
+        if keyword.lower() in name.lower():
+            return REGIONS[keyword]
 
     return None
 
 
 # ============================================================
-# 从 VIP Gist 获取节点
+# 节点类型识别
 # ============================================================
 
-def load_nodes():
-    print("=" * 60)
-    print("获取 VIP Gist")
-    print("=" * 60)
+def detect_type(name):
+
+    # 实验性 = 专线
+    if "实验性" in name:
+        return "dedicated"
+
+    # 高级 = 备用
+    if "高级" in name:
+        return "backup"
+
+    return None
+
+
+# ============================================================
+# 3. 筛选节点
+# ============================================================
+
+def filter_nodes(proxies):
+
+    log("=" * 60)
+    log("3. 筛选节点")
+    log("=" * 60)
+
+    dedicated = []
+    backup = []
+
+    ignored_region = 0
+    ignored_keyword = 0
+
+    for proxy in proxies:
+
+        if not isinstance(proxy, dict):
+            continue
+
+        name = str(proxy.get("name", ""))
+
+        if not name:
+            continue
+
+        region = detect_region(name)
+
+        if not region:
+            ignored_region += 1
+            continue
+
+        node_type = detect_type(name)
+
+        if node_type == "dedicated":
+
+            dedicated.append({
+                "proxy": proxy,
+                "region": region,
+                "type": "dedicated",
+                "original_name": name,
+            })
+
+        elif node_type == "backup":
+
+            backup.append({
+                "proxy": proxy,
+                "region": region,
+                "type": "backup",
+                "original_name": name,
+            })
+
+        else:
+
+            ignored_keyword += 1
+
+    log(f"专线候选: {len(dedicated)}")
+    log(f"备用候选: {len(backup)}")
+    log(f"地区不匹配: {ignored_region}")
+    log(f"关键词不匹配: {ignored_keyword}")
+
+    return dedicated, backup
+
+
+# ============================================================
+# 下载 Mihomo
+# ============================================================
+
+def download_mihomo():
+
+    binary = "./mihomo"
+
+    if os.path.exists(binary):
+
+        log("使用已有 Mihomo")
+
+        os.chmod(binary, 0o755)
+
+        return binary
+
+    log("=" * 60)
+    log("下载 Mihomo")
+    log("=" * 60)
+
+    url = (
+        "https://github.com/MetaCubeX/mihomo/releases/download/"
+        f"{MIHOMO_VERSION}/"
+        f"mihomo-linux-amd64-v3-{MIHOMO_VERSION}.gz"
+    )
 
     response = requests.get(
-        GIST_URL,
-        timeout=30
+        url,
+        timeout=60,
+        stream=True
     )
 
     response.raise_for_status()
 
-    data = yaml.safe_load(response.text) or {}
+    gz_file = "mihomo.gz"
 
-    nodes = data.get("proxies", [])
+    with open(gz_file, "wb") as f:
 
-    if not isinstance(nodes, list):
-        raise RuntimeError(
-            "VIP Gist 中没有找到有效的 proxies 列表"
-        )
-
-    print(f"原始节点数量: {len(nodes)}")
-
-    return nodes
-
-
-# ============================================================
-# 筛选 + 重命名
-#
-# 实验性 -> ISO专线
-# 高级   -> ISO备用
-#
-# 例如：
-# 香港实验性 -> HK专线
-# 香港高级   -> HK备用
-#
-# 同地区多个：
-# HK专线
-# HK专线-2
-# HK专线-3
-#
-# ============================================================
-
-def select_and_rename(nodes):
-
-    selected = []
-
-    for node in nodes:
-
-        if not isinstance(node, dict):
-            continue
-
-        original_name = str(
-            node.get("name", "")
-        )
-
-        # 只处理“实验性”和“高级”
-        if (
-            "实验性" not in original_name
-            and
-            "高级" not in original_name
+        for chunk in response.iter_content(
+            chunk_size=1024 * 64
         ):
-            continue
 
-        region = get_region(original_name)
+            if chunk:
+                f.write(chunk)
 
-        if not region:
-            print(
-                f"跳过无法识别地区的节点: "
-                f"{original_name}"
-            )
-            continue
+    with gzip.open(gz_file, "rb") as src:
 
-        if "实验性" in original_name:
-            kind = "专线"
-        else:
-            kind = "备用"
+        with open(binary, "wb") as dst:
+            shutil.copyfileobj(src, dst)
 
-        new_node = dict(node)
+    os.chmod(binary, 0o755)
 
-        # 暂存分类
-        new_node["_region"] = region
-        new_node["_kind"] = kind
+    os.remove(gz_file)
 
-        selected.append(new_node)
+    log("Mihomo 下载完成")
 
-    print(
-        f"符合“实验性/高级”条件: "
-        f"{len(selected)}"
-    )
-
-    # --------------------------------------------------------
-    # 重新命名
-    # --------------------------------------------------------
-
-    counters = defaultdict(int)
-
-    result = []
-
-    for node in selected:
-
-        region = node["_region"]
-        kind = node["_kind"]
-
-        key = (region, kind)
-
-        counters[key] += 1
-
-        number = counters[key]
-
-        base_name = f"{region}{kind}"
-
-        if number == 1:
-            new_name = base_name
-        else:
-            new_name = f"{base_name}-{number}"
-
-        node["name"] = new_name
-
-        node.pop("_region", None)
-        node.pop("_kind", None)
-
-        result.append(node)
-
-        print(
-            f"{node['name']}"
-        )
-
-    return result
-
-
-# ============================================================
-# 生成 Mihomo 测速配置
-# ============================================================
-
-def write_test_config(nodes, config_path):
-
-    config = {
-        "mixed-port": 7890,
-
-        "mode": "rule",
-
-        "allow-lan": False,
-
-        "ipv6": False,
-
-        "log-level": "error",
-
-        "external-controller": "127.0.0.1:9090",
-
-        "secret": "",
-
-        "dns": {
-            "enable": True,
-            "ipv6": False,
-            "enhanced-mode": "redir-host",
-            "nameserver": [
-                "223.5.5.5",
-                "1.1.1.1",
-            ],
-        },
-
-        "proxies": nodes,
-
-        "proxy-groups": [
-            {
-                "name": "TEST",
-                "type": "select",
-                "proxies": [
-                    node["name"]
-                    for node in nodes
-                ],
-            }
-        ],
-
-        "rules": [
-            "MATCH,DIRECT"
-        ],
-    }
-
-    Path(config_path).write_text(
-        yaml.safe_dump(
-            config,
-            allow_unicode=True,
-            sort_keys=False,
-        ),
-        encoding="utf-8",
-    )
+    return binary
 
 
 # ============================================================
 # 启动 Mihomo
 # ============================================================
 
-def start_mihomo(config_path):
+def start_mihomo(binary, proxies):
 
-    print("=" * 60)
-    print("启动 Mihomo")
-    print("=" * 60)
+    workdir = ".mihomo_test"
+
+    os.makedirs(workdir, exist_ok=True)
+
+    config_file = os.path.join(
+        workdir,
+        "config.yaml"
+    )
+
+    config = {
+        "mixed-port": 7890,
+        "allow-lan": False,
+        "mode": "rule",
+        "log-level": "error",
+
+        "external-controller": "127.0.0.1:9090",
+
+        "proxies": proxies,
+
+        "proxy-groups": [
+            {
+                "name": "TEST",
+                "type": "select",
+                "proxies": [
+                    proxy["name"]
+                    for proxy in proxies
+                ],
+            }
+        ],
+
+        "rules": [
+            "MATCH,TEST"
+        ],
+    }
+
+    with open(
+        config_file,
+        "w",
+        encoding="utf-8"
+    ) as f:
+
+        yaml.safe_dump(
+            config,
+            f,
+            allow_unicode=True,
+            sort_keys=False
+        )
 
     process = subprocess.Popen(
         [
-            MIHOMO_BIN,
+            binary,
+            "-d",
+            workdir,
             "-f",
-            config_path,
+            config_file
         ],
         stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL
     )
 
-    deadline = time.time() + STARTUP_TIMEOUT
+    log("等待 Mihomo 启动...")
 
-    while time.time() < deadline:
-
-        if process.poll() is not None:
-            raise RuntimeError(
-                "Mihomo 启动失败"
-            )
+    for _ in range(30):
 
         try:
+
             response = requests.get(
-                f"{API}/version",
-                timeout=3,
+                "http://127.0.0.1:9090",
+                timeout=1
             )
 
-            if response.ok:
-                print("Mihomo API 已启动")
+            if response.status_code < 500:
+                log("Mihomo 已启动")
                 return process
 
-        except requests.RequestException:
+        except Exception:
             pass
 
-        time.sleep(0.5)
+        time.sleep(1)
 
-    process.terminate()
+    process.kill()
 
-    raise RuntimeError(
-        "Mihomo API 启动超时"
-    )
+    raise RuntimeError("Mihomo 启动失败")
 
 
 # ============================================================
 # 测试单个节点
 # ============================================================
 
-def test_node(name):
+def test_proxy(name):
 
-    encoded_name = quote(
-        name,
-        safe=""
+    api_url = (
+        "http://127.0.0.1:9090/proxies/"
+        + requests.utils.quote(
+            name,
+            safe=""
+        )
     )
-
-    url = (
-        f"{API}/proxies/"
-        f"{encoded_name}/delay"
-    )
-
-    params = {
-        "url": TEST_URL,
-        "timeout": TEST_TIMEOUT_MS,
-        "expected": "204",
-    }
 
     try:
 
         response = requests.get(
-            url,
-            params=params,
-            timeout=(
-                TEST_TIMEOUT_MS / 1000
-            ) + 3,
+            api_url,
+            params={
+                "url": TEST_URL,
+                "timeout": TEST_TIMEOUT,
+            },
+            timeout=10
         )
 
-        if not response.ok:
+        if response.status_code != 200:
             return None
 
         data = response.json()
 
-        delay = int(
-            data.get("delay", 0)
-        )
+        delay = data.get("delay")
 
-        if delay > 0:
-            return delay
+        if delay is None:
+            return None
+
+        return int(delay)
 
     except Exception:
-        pass
+        return None
 
-    return None
+
+# ============================================================
+# 4. 测速
+# ============================================================
+
+def speed_test(nodes):
+
+    if not nodes:
+        return []
+
+    log("=" * 60)
+    log("4. 开始测速")
+    log("=" * 60)
+
+    mihomo_binary = download_mihomo()
+
+    # 为了避免 VIP 原始节点重名，
+    # 测速时临时使用唯一名称。
+    test_proxies = []
+
+    for index, item in enumerate(nodes):
+
+        proxy = dict(item["proxy"])
+
+        test_name = f"__VIP_TEST_{index:04d}__"
+
+        proxy["name"] = test_name
+
+        item["test_name"] = test_name
+
+        test_proxies.append(proxy)
+
+    process = None
+
+    passed = []
+
+    try:
+
+        process = start_mihomo(
+            mihomo_binary,
+            test_proxies
+        )
+
+        for index, item in enumerate(nodes):
+
+            delay = test_proxy(
+                item["test_name"]
+            )
+
+            if delay is not None:
+
+                item["delay"] = delay
+
+                passed.append(item)
+
+                log(
+                    f"[通过] "
+                    f"{item['original_name']} "
+                    f"{delay} ms"
+                )
+
+            else:
+
+                log(
+                    f"[失败] "
+                    f"{item['original_name']}"
+                )
+
+    finally:
+
+        if process:
+
+            try:
+                process.terminate()
+                process.wait(timeout=5)
+            except Exception:
+                try:
+                    process.kill()
+                except Exception:
+                    pass
+
+    log("")
+    log(f"测速通过: {len(passed)} / {len(nodes)}")
+
+    return passed
+
+
+# ============================================================
+# 5. 备用节点每地区最多保留 2 个
+# ============================================================
+
+def limit_backup(nodes):
+
+    grouped = defaultdict(list)
+
+    for item in nodes:
+
+        grouped[
+            item["region"]
+        ].append(item)
+
+    result = []
+
+    log("=" * 60)
+    log("5. 筛选备用节点")
+    log("=" * 60)
+
+    for region in sorted(grouped):
+
+        items = grouped[region]
+
+        # 延迟从低到高
+        items.sort(
+            key=lambda item: item["delay"]
+        )
+
+        selected = items[
+            :MAX_BACKUP_PER_REGION
+        ]
+
+        result.extend(selected)
+
+        log(
+            f"{region}: "
+            f"{len(items)} 个测速通过 → "
+            f"保留 {len(selected)} 个"
+        )
+
+    return result
+
+
+# ============================================================
+# 6. 最终命名
+# ============================================================
+
+def rename_nodes(dedicated, backup):
+
+    log("=" * 60)
+    log("6. 按 ISO 3166-1 alpha-2 重新命名")
+    log("=" * 60)
+
+    counters = defaultdict(int)
+
+    final_nodes = []
+
+    # 专线
+    for item in dedicated:
+
+        region = item["region"]
+
+        key = f"{region}专线"
+
+        counters[key] += 1
+
+        number = counters[key]
+
+        new_name = f"{key}{number:02d}"
+
+        proxy = dict(item["proxy"])
+
+        proxy["name"] = new_name
+
+        final_nodes.append(proxy)
+
+        log(
+            f"{item['original_name']} "
+            f"→ {new_name} "
+            f"({item['delay']} ms)"
+        )
+
+    # 备用
+    for item in backup:
+
+        region = item["region"]
+
+        key = f"{region}备用"
+
+        counters[key] += 1
+
+        number = counters[key]
+
+        new_name = f"{key}{number:02d}"
+
+        proxy = dict(item["proxy"])
+
+        proxy["name"] = new_name
+
+        final_nodes.append(proxy)
+
+        log(
+            f"{item['original_name']} "
+            f"→ {new_name} "
+            f"({item['delay']} ms)"
+        )
+
+    return final_nodes
+
+
+# ============================================================
+# 7. 生成 cleanvip.yaml
+# ============================================================
+
+def save_yaml(proxies):
+
+    log("=" * 60)
+    log("7. 生成 cleanvip.yaml")
+    log("=" * 60)
+
+    output = {
+        "proxies": proxies
+    }
+
+    # 直接覆盖旧文件
+    with open(
+        OUTPUT_FILE,
+        "w",
+        encoding="utf-8"
+    ) as f:
+
+        yaml.safe_dump(
+            output,
+            f,
+            allow_unicode=True,
+            sort_keys=False,
+            default_flow_style=False
+        )
+
+    log(
+        f"最终节点数量: {len(proxies)}"
+    )
+
+    log(
+        f"文件已生成: {OUTPUT_FILE}"
+    )
 
 
 # ============================================================
@@ -474,166 +655,100 @@ def test_node(name):
 
 def main():
 
-    print()
-    print("=" * 60)
-    print("CleanVIP")
-    print("=" * 60)
-    print()
+    log("")
+    log("=" * 60)
+    log("CleanVIP")
+    log("VIP Gist → 筛选 → 测速 → ISO命名 → cleanvip.yaml")
+    log("=" * 60)
+    log("")
 
     # --------------------------------------------------------
-    # 1. 获取 VIP
+    # 1. 只从 VIP Gist 获取源节点
     # --------------------------------------------------------
 
-    nodes = load_nodes()
+    content = download_vip()
 
     # --------------------------------------------------------
-    # 2. 筛选并重命名
+    # 2. 解析原始 YAML
     # --------------------------------------------------------
 
-    candidates = select_and_rename(
-        nodes
+    proxies = parse_vip(content)
+
+    # --------------------------------------------------------
+    # 3. 筛选
+    # --------------------------------------------------------
+
+    dedicated, backup = filter_nodes(
+        proxies
     )
+
+    candidates = dedicated + backup
 
     if not candidates:
-        raise RuntimeError(
-            "没有找到包含“实验性”或“高级”的节点"
-        )
-
-    # --------------------------------------------------------
-    # 3. 创建临时 Mihomo 配置
-    # --------------------------------------------------------
-
-    test_config = (
-        "mihomo-test.yaml"
-    )
-
-    write_test_config(
-        candidates,
-        test_config
-    )
-
-    process = None
-
-    alive = []
-
-    try:
-
-        # ----------------------------------------------------
-        # 4. 启动 Mihomo
-        # ----------------------------------------------------
-
-        process = start_mihomo(
-            test_config
-        )
-
-        print()
-        print("=" * 60)
-        print("开始有效性测速")
-        print("=" * 60)
-        print()
-
-        # ----------------------------------------------------
-        # 5. 逐个测速
-        # ----------------------------------------------------
-
-        total = len(candidates)
-
-        for index, node in enumerate(
-            candidates,
-            1
-        ):
-
-            name = node["name"]
-
-            delay = test_node(name)
-
-            if delay is not None:
-
-                print(
-                    f"[{index}/{total}] "
-                    f"✓ {name} "
-                    f"{delay} ms"
-                )
-
-                alive.append(node)
-
-            else:
-
-                print(
-                    f"[{index}/{total}] "
-                    f"✗ {name}"
-                )
-
-    finally:
-
-        # ----------------------------------------------------
-        # 6. 关闭 Mihomo
-        # ----------------------------------------------------
-
-        if process:
-
-            process.terminate()
-
-            try:
-                process.wait(
-                    timeout=5
-                )
-
-            except subprocess.TimeoutExpired:
-
-                process.kill()
-
-        try:
-            os.remove(
-                test_config
-            )
-        except OSError:
-            pass
-
-    # --------------------------------------------------------
-    # 7. 防止测速全部失败时覆盖旧文件
-    # --------------------------------------------------------
-
-    if not alive:
 
         raise RuntimeError(
-            "所有候选节点测速失败，"
-            "拒绝覆盖现有 cleanvip.yaml"
+            "筛选后没有符合条件的节点"
         )
 
     # --------------------------------------------------------
-    # 8. 写入 cleanvip.yaml
+    # 4. 测速
     # --------------------------------------------------------
 
-    output = {
-        "proxies": alive
-    }
-
-    Path(
-        OUTPUT_FILE
-    ).write_text(
-        yaml.safe_dump(
-            output,
-            allow_unicode=True,
-            sort_keys=False,
-        ),
-        encoding="utf-8",
+    passed = speed_test(
+        candidates
     )
 
-    print()
-    print("=" * 60)
-    print("CleanVIP 完成")
-    print("=" * 60)
-    print(
-        f"筛选节点: {len(candidates)}"
+    if not passed:
+
+        raise RuntimeError(
+            "测速后没有可用节点"
+        )
+
+    # --------------------------------------------------------
+    # 5. 分离专线 / 备用
+    # --------------------------------------------------------
+
+    passed_dedicated = [
+        item
+        for item in passed
+        if item["type"] == "dedicated"
+    ]
+
+    passed_backup = [
+        item
+        for item in passed
+        if item["type"] == "backup"
+    ]
+
+    # --------------------------------------------------------
+    # 6. 备用每地区最多 2 个
+    # --------------------------------------------------------
+
+    passed_backup = limit_backup(
+        passed_backup
     )
-    print(
-        f"有效节点: {len(alive)}"
+
+    # --------------------------------------------------------
+    # 7. 最终命名
+    # --------------------------------------------------------
+
+    final_proxies = rename_nodes(
+        passed_dedicated,
+        passed_backup
     )
-    print(
-        f"输出文件: {OUTPUT_FILE}"
+
+    # --------------------------------------------------------
+    # 8. 生成全新的 cleanvip.yaml
+    # --------------------------------------------------------
+
+    save_yaml(
+        final_proxies
     )
-    print("=" * 60)
+
+    log("")
+    log("=" * 60)
+    log("CleanVIP 执行完成")
+    log("=" * 60)
 
 
 if __name__ == "__main__":
