@@ -1,5 +1,5 @@
-import os
 import gzip
+import os
 import shutil
 import subprocess
 import time
@@ -10,7 +10,8 @@ import yaml
 
 
 # ============================================================
-# 配置
+# CleanVIP
+# VIP Gist → 筛选 → 测速 → ISO命名 → cleanvip.yaml
 # ============================================================
 
 GIST_URL = (
@@ -22,15 +23,18 @@ OUTPUT_FILE = "cleanvip.yaml"
 
 MIHOMO_VERSION = "v1.19.31"
 
+# YouTube 测速地址
 TEST_URL = "https://www.youtube.com/generate_204"
 
+# Mihomo delay API 超时时间，单位毫秒
 TEST_TIMEOUT = 5000
 
+# 高级节点每个地区最多保留 2 个
 MAX_BACKUP_PER_REGION = 2
 
 
 # ============================================================
-# ISO 3166-1 alpha-2 地区识别
+# ISO 3166-1 alpha-2 地区
 # ============================================================
 
 REGIONS = {
@@ -40,6 +44,9 @@ REGIONS = {
     "台湾": "TW",
     "台灣": "TW",
     "🇹🇼": "TW",
+
+    "中国台湾": "TW",
+    "中國台灣": "TW",
 
     "美国": "US",
     "美國": "US",
@@ -63,20 +70,15 @@ REGIONS = {
 }
 
 
-# ============================================================
-# 输出日志
-# ============================================================
-
-def log(text):
-    print(text, flush=True)
+def log(message):
+    print(message, flush=True)
 
 
 # ============================================================
-# 1. 从 VIP Gist 获取原始节点
+# 1. 获取 VIP Gist
 # ============================================================
 
 def download_vip():
-
     log("=" * 60)
     log("1. 获取 VIP Gist")
     log("=" * 60)
@@ -105,37 +107,59 @@ def download_vip():
 # ============================================================
 
 def parse_vip(content):
-
     log("=" * 60)
     log("2. 解析 VIP 节点")
     log("=" * 60)
 
-    data = yaml.safe_load(content)
+    try:
+        data = yaml.safe_load(content)
+
+    except yaml.YAMLError as e:
+        raise RuntimeError(
+            f"VIP Gist YAML 解析失败: {e}"
+        )
 
     if not isinstance(data, dict):
-        raise RuntimeError("VIP Gist 不是有效 YAML")
+        raise RuntimeError(
+            "VIP Gist 不是有效的 YAML 配置"
+        )
 
     proxies = data.get("proxies")
 
     if not isinstance(proxies, list):
-        raise RuntimeError("VIP Gist 中没有 proxies")
+        raise RuntimeError(
+            "VIP Gist 中没有有效的 proxies"
+        )
 
-    log(f"原始节点数量: {len(proxies)}")
+    valid = []
 
-    return proxies
+    for proxy in proxies:
+
+        if not isinstance(proxy, dict):
+            continue
+
+        if not proxy.get("name"):
+            continue
+
+        valid.append(proxy)
+
+    log(f"原始节点数量: {len(valid)}")
+
+    return valid
 
 
 # ============================================================
-# 地区识别
+# 3. 地区识别
 # ============================================================
 
 def detect_region(name):
 
     for keyword in sorted(
-        REGIONS,
+        REGIONS.keys(),
         key=len,
         reverse=True
     ):
+
         if keyword.lower() in name.lower():
             return REGIONS[keyword]
 
@@ -143,16 +167,17 @@ def detect_region(name):
 
 
 # ============================================================
-# 节点类型识别
+# 4. 类型识别
+#
+# 实验性 = 专线
+# 高级   = 备用
 # ============================================================
 
 def detect_type(name):
 
-    # 实验性 = 专线
     if "实验性" in name:
         return "dedicated"
 
-    # 高级 = 备用
     if "高级" in name:
         return "backup"
 
@@ -160,7 +185,7 @@ def detect_type(name):
 
 
 # ============================================================
-# 3. 筛选节点
+# 5. 筛选节点
 # ============================================================
 
 def filter_nodes(proxies):
@@ -177,65 +202,79 @@ def filter_nodes(proxies):
 
     for proxy in proxies:
 
-        if not isinstance(proxy, dict):
-            continue
+        original_name = str(
+            proxy.get("name", "")
+        )
 
-        name = str(proxy.get("name", ""))
+        # 先识别地区
+        region = detect_region(
+            original_name
+        )
 
-        if not name:
-            continue
+        if region is None:
 
-        region = detect_region(name)
-
-        if not region:
             ignored_region += 1
+
             continue
 
-        node_type = detect_type(name)
+        # 再识别类型
+        node_type = detect_type(
+            original_name
+        )
 
-        if node_type == "dedicated":
-
-            dedicated.append({
-                "proxy": proxy,
-                "region": region,
-                "type": "dedicated",
-                "original_name": name,
-            })
-
-        elif node_type == "backup":
-
-            backup.append({
-                "proxy": proxy,
-                "region": region,
-                "type": "backup",
-                "original_name": name,
-            })
-
-        else:
+        if node_type is None:
 
             ignored_keyword += 1
 
-    log(f"专线候选: {len(dedicated)}")
-    log(f"备用候选: {len(backup)}")
-    log(f"地区不匹配: {ignored_region}")
-    log(f"关键词不匹配: {ignored_keyword}")
+            continue
+
+        item = {
+            "proxy": dict(proxy),
+            "region": region,
+            "type": node_type,
+            "original_name": original_name,
+        }
+
+        if node_type == "dedicated":
+
+            dedicated.append(item)
+
+        else:
+
+            backup.append(item)
+
+    log(
+        f"专线候选: {len(dedicated)}"
+    )
+
+    log(
+        f"备用候选: {len(backup)}"
+    )
+
+    log(
+        f"地区不匹配: {ignored_region}"
+    )
+
+    log(
+        f"关键词不匹配: {ignored_keyword}"
+    )
 
     return dedicated, backup
 
 
 # ============================================================
-# 下载 Mihomo
+# 6. 下载 Mihomo
 # ============================================================
 
 def download_mihomo():
 
     binary = "./mihomo"
 
-    if os.path.exists(binary):
-
-        log("使用已有 Mihomo")
+    if os.path.isfile(binary):
 
         os.chmod(binary, 0o755)
+
+        log("使用已有 Mihomo")
 
         return binary
 
@@ -249,33 +288,56 @@ def download_mihomo():
         f"mihomo-linux-amd64-v3-{MIHOMO_VERSION}.gz"
     )
 
+    log(f"下载地址: {url}")
+
     response = requests.get(
         url,
         timeout=60,
-        stream=True
+        stream=True,
+        headers={
+            "User-Agent": "Mozilla/5.0"
+        }
     )
 
     response.raise_for_status()
 
     gz_file = "mihomo.gz"
 
-    with open(gz_file, "wb") as f:
+    with open(
+        gz_file,
+        "wb"
+    ) as f:
 
         for chunk in response.iter_content(
-            chunk_size=1024 * 64
+            chunk_size=65536
         ):
 
             if chunk:
                 f.write(chunk)
 
-    with gzip.open(gz_file, "rb") as src:
+    with gzip.open(
+        gz_file,
+        "rb"
+    ) as source:
 
-        with open(binary, "wb") as dst:
-            shutil.copyfileobj(src, dst)
+        with open(
+            binary,
+            "wb"
+        ) as target:
 
-    os.chmod(binary, 0o755)
+            shutil.copyfileobj(
+                source,
+                target
+            )
 
-    os.remove(gz_file)
+    os.chmod(
+        binary,
+        0o755
+    )
+
+    os.remove(
+        gz_file
+    )
 
     log("Mihomo 下载完成")
 
@@ -283,14 +345,22 @@ def download_mihomo():
 
 
 # ============================================================
-# 启动 Mihomo
+# 7. 启动 Mihomo
 # ============================================================
 
-def start_mihomo(binary, proxies):
+def start_mihomo(
+    binary,
+    proxies
+):
 
-    workdir = ".mihomo_test"
+    workdir = os.path.abspath(
+        ".mihomo_test"
+    )
 
-    os.makedirs(workdir, exist_ok=True)
+    os.makedirs(
+        workdir,
+        exist_ok=True
+    )
 
     config_file = os.path.join(
         workdir,
@@ -298,12 +368,17 @@ def start_mihomo(binary, proxies):
     )
 
     config = {
+
         "mixed-port": 7890,
+
         "allow-lan": False,
+
         "mode": "rule",
+
         "log-level": "error",
 
-        "external-controller": "127.0.0.1:9090",
+        "external-controller":
+            "127.0.0.1:9090",
 
         "proxies": proxies,
 
@@ -333,7 +408,8 @@ def start_mihomo(binary, proxies):
             config,
             f,
             allow_unicode=True,
-            sort_keys=False
+            sort_keys=False,
+            default_flow_style=False
         )
 
     process = subprocess.Popen(
@@ -345,46 +421,122 @@ def start_mihomo(binary, proxies):
             config_file
         ],
         stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL
+        stderr=subprocess.PIPE,
+        text=True
     )
 
     log("等待 Mihomo 启动...")
+
+    controller = (
+        "http://127.0.0.1:9090"
+    )
 
     for _ in range(30):
 
         try:
 
             response = requests.get(
-                "http://127.0.0.1:9090",
+                controller,
                 timeout=1
             )
 
             if response.status_code < 500:
+
                 log("Mihomo 已启动")
+
                 return process
 
-        except Exception:
+        except requests.RequestException:
+
             pass
 
         time.sleep(1)
 
-    process.kill()
+    # 启动失败，读取错误
+    try:
 
-    raise RuntimeError("Mihomo 启动失败")
+        process.terminate()
+
+        stderr = process.communicate(
+            timeout=5
+        )[1]
+
+    except Exception:
+
+        process.kill()
+
+        stderr = ""
+
+    if stderr:
+
+        log("Mihomo 错误:")
+
+        log(
+            stderr[-5000:]
+        )
+
+    raise RuntimeError(
+        "Mihomo 启动失败"
+    )
 
 
 # ============================================================
-# 测试单个节点
+# 8. 停止 Mihomo
+# ============================================================
+
+def stop_mihomo(process):
+
+    if process is None:
+        return
+
+    if process.poll() is not None:
+        return
+
+    try:
+
+        process.terminate()
+
+        process.wait(
+            timeout=5
+        )
+
+    except Exception:
+
+        try:
+
+            process.kill()
+
+            process.wait(
+                timeout=3
+            )
+
+        except Exception:
+
+            pass
+
+
+# ============================================================
+# 9. Mihomo 节点测速
+#
+# 正确 API：
+#
+# /proxies/{节点名称}/delay
+#
+# 而不是：
+#
+# /proxies/{节点名称}
 # ============================================================
 
 def test_proxy(name):
 
+    encoded_name = requests.utils.quote(
+        name,
+        safe=""
+    )
+
     api_url = (
         "http://127.0.0.1:9090/proxies/"
-        + requests.utils.quote(
-            name,
-            safe=""
-        )
+        + encoded_name
         + "/delay"
     )
 
@@ -394,34 +546,66 @@ def test_proxy(name):
             api_url,
             params={
                 "url": TEST_URL,
-                "timeout": TEST_TIMEOUT,
+                "timeout": TEST_TIMEOUT
             },
             timeout=10
         )
 
-        # 调试信息
         if response.status_code != 200:
+
             log(
                 f"[API错误] {name} "
                 f"HTTP {response.status_code}: "
-                f"{response.text[:300]}"
+                f"{response.text[:500]}"
             )
+
             return None
 
-        data = response.json()
+        try:
 
-        delay = data.get("delay")
+            data = response.json()
+
+        except ValueError:
+
+            log(
+                f"[API错误] {name}: "
+                "返回内容不是 JSON"
+            )
+
+            return None
+
+        delay = data.get(
+            "delay"
+        )
 
         if delay is None:
+
             log(
                 f"[测速失败] {name}: "
                 f"{data}"
             )
+
             return None
 
-        return int(delay)
+        try:
 
-    except requests.exceptions.Timeout:
+            delay = int(delay)
+
+        except (
+            TypeError,
+            ValueError
+        ):
+
+            log(
+                f"[测速失败] {name}: "
+                f"delay={delay}"
+            )
+
+            return None
+
+        return delay
+
+    except requests.Timeout:
 
         log(
             f"[超时] {name}"
@@ -429,60 +613,10 @@ def test_proxy(name):
 
         return None
 
-    except Exception as e:
+    except requests.RequestException as e:
 
         log(
-            f"[异常] {name}: {e}"
-        )
-
-        return Nonedef test_proxy(name):
-
-    api_url = (
-        "http://127.0.0.1:9090/proxies/"
-        + requests.utils.quote(
-            name,
-            safe=""
-        )
-        + "/delay"
-    )
-
-    try:
-
-        response = requests.get(
-            api_url,
-            params={
-                "url": TEST_URL,
-                "timeout": TEST_TIMEOUT,
-            },
-            timeout=10
-        )
-
-        # 调试信息
-        if response.status_code != 200:
-            log(
-                f"[API错误] {name} "
-                f"HTTP {response.status_code}: "
-                f"{response.text[:300]}"
-            )
-            return None
-
-        data = response.json()
-
-        delay = data.get("delay")
-
-        if delay is None:
-            log(
-                f"[测速失败] {name}: "
-                f"{data}"
-            )
-            return None
-
-        return int(delay)
-
-    except requests.exceptions.Timeout:
-
-        log(
-            f"[超时] {name}"
+            f"[网络错误] {name}: {e}"
         )
 
         return None
@@ -497,35 +631,42 @@ def test_proxy(name):
 
 
 # ============================================================
-# 4. 测速
+# 10. 批量测速
 # ============================================================
 
 def speed_test(nodes):
 
     if not nodes:
+
         return []
 
     log("=" * 60)
     log("4. 开始测速")
     log("=" * 60)
 
-    mihomo_binary = download_mihomo()
+    mihomo = download_mihomo()
 
-    # 为了避免 VIP 原始节点重名，
-    # 测速时临时使用唯一名称。
     test_proxies = []
 
+    # 给测速节点临时命名
+    # 防止 VIP Gist 中原始名称重复
     for index, item in enumerate(nodes):
 
-        proxy = dict(item["proxy"])
+        proxy = dict(
+            item["proxy"]
+        )
 
-        test_name = f"__VIP_TEST_{index:04d}__"
+        test_name = (
+            f"__VIP_TEST_{index + 1:04d}__"
+        )
 
         proxy["name"] = test_name
 
         item["test_name"] = test_name
 
-        test_proxies.append(proxy)
+        test_proxies.append(
+            proxy
+        )
 
     process = None
 
@@ -534,59 +675,69 @@ def speed_test(nodes):
     try:
 
         process = start_mihomo(
-            mihomo_binary,
+            mihomo,
             test_proxies
         )
 
-        for index, item in enumerate(nodes):
+        for item in nodes:
 
-            delay = test_proxy(
+            original_name = (
+                item["original_name"]
+            )
+
+            test_name = (
                 item["test_name"]
             )
 
-            if delay is not None:
+            delay = test_proxy(
+                test_name
+            )
 
-                item["delay"] = delay
-
-                passed.append(item)
-
-                log(
-                    f"[通过] "
-                    f"{item['original_name']} "
-                    f"{delay} ms"
-                )
-
-            else:
+            if delay is None:
 
                 log(
-                    f"[失败] "
-                    f"{item['original_name']}"
+                    f"[失败] {original_name}"
                 )
+
+                continue
+
+            item["delay"] = delay
+
+            passed.append(
+                item
+            )
+
+            log(
+                f"[通过] {original_name} "
+                f"→ {delay} ms"
+            )
 
     finally:
 
-        if process:
+        stop_mihomo(
+            process
+        )
 
-            try:
-                process.terminate()
-                process.wait(timeout=5)
-            except Exception:
-                try:
-                    process.kill()
-                except Exception:
-                    pass
-
-    log("")
-    log(f"测速通过: {len(passed)} / {len(nodes)}")
+    log(
+        f"测速通过: "
+        f"{len(passed)} / "
+        f"{len(nodes)}"
+    )
 
     return passed
 
 
 # ============================================================
-# 5. 备用节点每地区最多保留 2 个
+# 11. 备用节点筛选
+#
+# 每个地区最多保留最快的 2 个
 # ============================================================
 
-def limit_backup(nodes):
+def select_backup(nodes):
+
+    log("=" * 60)
+    log("5. 筛选备用节点")
+    log("=" * 60)
 
     grouped = defaultdict(list)
 
@@ -596,68 +747,103 @@ def limit_backup(nodes):
             item["region"]
         ].append(item)
 
-    result = []
+    selected = []
 
-    log("=" * 60)
-    log("5. 筛选备用节点")
-    log("=" * 60)
+    for region in sorted(
+        grouped.keys()
+    ):
 
-    for region in sorted(grouped):
+        items = grouped[
+            region
+        ]
 
-        items = grouped[region]
-
-        # 延迟从低到高
+        # 按测速延迟从低到高
         items.sort(
-            key=lambda item: item["delay"]
+            key=lambda x: x["delay"]
         )
 
-        selected = items[
+        keep = items[
             :MAX_BACKUP_PER_REGION
         ]
 
-        result.extend(selected)
+        selected.extend(
+            keep
+        )
 
         log(
             f"{region}: "
-            f"{len(items)} 个测速通过 → "
-            f"保留 {len(selected)} 个"
+            f"测速通过 {len(items)} "
+            f"→ 保留 {len(keep)}"
         )
 
-    return result
+    return selected
 
 
 # ============================================================
-# 6. 最终命名
+# 12. 最终命名
+#
+# 专线：
+# HK专线01
+# HK专线02
+#
+# 备用：
+# HK备用01
+# HK备用02
+#
+# 注意：
+# 最终名称不再使用中文地区名。
 # ============================================================
 
-def rename_nodes(dedicated, backup):
+def rename_nodes(
+    dedicated,
+    backup
+):
 
     log("=" * 60)
-    log("6. 按 ISO 3166-1 alpha-2 重新命名")
+    log("6. ISO 3166-1 alpha-2 节点命名")
     log("=" * 60)
 
     counters = defaultdict(int)
 
-    final_nodes = []
+    final_proxies = []
 
+    # --------------------------------------------------------
     # 专线
+    # --------------------------------------------------------
+
+    # 为了让每个地区内部编号稳定，
+    # 按地区 + 延迟排序。
+    dedicated.sort(
+        key=lambda x: (
+            x["region"],
+            x["delay"]
+        )
+    )
+
     for item in dedicated:
 
         region = item["region"]
 
-        key = f"{region}专线"
+        key = (
+            f"{region}专线"
+        )
 
         counters[key] += 1
 
-        number = counters[key]
+        new_name = (
+            f"{key}"
+            f"{counters[key]:02d}"
+        )
 
-        new_name = f"{key}{number:02d}"
-
-        proxy = dict(item["proxy"])
+        proxy = dict(
+            item["proxy"]
+        )
 
         proxy["name"] = new_name
 
-        final_nodes.append(proxy)
+        final_proxies.append(
+            proxy
+        )
 
         log(
             f"{item['original_name']} "
@@ -665,24 +851,41 @@ def rename_nodes(dedicated, backup):
             f"({item['delay']} ms)"
         )
 
+    # --------------------------------------------------------
     # 备用
+    # --------------------------------------------------------
+
+    backup.sort(
+        key=lambda x: (
+            x["region"],
+            x["delay"]
+        )
+    )
+
     for item in backup:
 
         region = item["region"]
 
-        key = f"{region}备用"
+        key = (
+            f"{region}备用"
+        )
 
         counters[key] += 1
 
-        number = counters[key]
+        new_name = (
+            f"{key}"
+            f"{counters[key]:02d}"
+        )
 
-        new_name = f"{key}{number:02d}"
-
-        proxy = dict(item["proxy"])
+        proxy = dict(
+            item["proxy"]
+        )
 
         proxy["name"] = new_name
 
-        final_nodes.append(proxy)
+        final_proxies.append(
+            proxy
+        )
 
         log(
             f"{item['original_name']} "
@@ -690,11 +893,11 @@ def rename_nodes(dedicated, backup):
             f"({item['delay']} ms)"
         )
 
-    return final_nodes
+    return final_proxies
 
 
 # ============================================================
-# 7. 生成 cleanvip.yaml
+# 13. 生成 cleanvip.yaml
 # ============================================================
 
 def save_yaml(proxies):
@@ -707,7 +910,8 @@ def save_yaml(proxies):
         "proxies": proxies
     }
 
-    # 直接覆盖旧文件
+    # 直接覆盖旧文件。
+    # 不读取旧 cleanvip.yaml。
     with open(
         OUTPUT_FILE,
         "w",
@@ -723,16 +927,18 @@ def save_yaml(proxies):
         )
 
     log(
-        f"最终节点数量: {len(proxies)}"
+        f"最终节点数量: "
+        f"{len(proxies)}"
     )
 
     log(
-        f"文件已生成: {OUTPUT_FILE}"
+        f"文件已生成: "
+        f"{OUTPUT_FILE}"
     )
 
 
 # ============================================================
-# 主程序
+# 14. 主程序
 # ============================================================
 
 def main():
@@ -740,31 +946,41 @@ def main():
     log("")
     log("=" * 60)
     log("CleanVIP")
-    log("VIP Gist → 筛选 → 测速 → ISO命名 → cleanvip.yaml")
+    log(
+        "VIP Gist → 筛选 → 测速 → "
+        "ISO命名 → cleanvip.yaml"
+    )
     log("=" * 60)
     log("")
 
-    # --------------------------------------------------------
-    # 1. 只从 VIP Gist 获取源节点
-    # --------------------------------------------------------
+    # ========================================================
+    # 第一步：只从 VIP Gist 获取节点
+    # ========================================================
 
     content = download_vip()
 
-    # --------------------------------------------------------
-    # 2. 解析原始 YAML
-    # --------------------------------------------------------
+    # ========================================================
+    # 第二步：解析 VIP Gist
+    # ========================================================
 
-    proxies = parse_vip(content)
+    proxies = parse_vip(
+        content
+    )
 
-    # --------------------------------------------------------
-    # 3. 筛选
-    # --------------------------------------------------------
+    # ========================================================
+    # 第三步：筛选
+    #
+    # 实验性 = 专线
+    # 高级   = 备用
+    # ========================================================
 
     dedicated, backup = filter_nodes(
         proxies
     )
 
-    candidates = dedicated + backup
+    candidates = (
+        dedicated + backup
+    )
 
     if not candidates:
 
@@ -772,9 +988,9 @@ def main():
             "筛选后没有符合条件的节点"
         )
 
-    # --------------------------------------------------------
-    # 4. 测速
-    # --------------------------------------------------------
+    # ========================================================
+    # 第四步：测速
+    # ========================================================
 
     passed = speed_test(
         candidates
@@ -786,9 +1002,9 @@ def main():
             "测速后没有可用节点"
         )
 
-    # --------------------------------------------------------
-    # 5. 分离专线 / 备用
-    # --------------------------------------------------------
+    # ========================================================
+    # 第五步：分离专线和备用
+    # ========================================================
 
     passed_dedicated = [
         item
@@ -802,26 +1018,33 @@ def main():
         if item["type"] == "backup"
     ]
 
-    # --------------------------------------------------------
-    # 6. 备用每地区最多 2 个
-    # --------------------------------------------------------
+    log("")
+    log(
+        f"测速通过："
+        f"专线 {len(passed_dedicated)}，"
+        f"备用 {len(passed_backup)}"
+    )
 
-    passed_backup = limit_backup(
+    # ========================================================
+    # 第六步：备用每地区只留最快 2 个
+    # ========================================================
+
+    selected_backup = select_backup(
         passed_backup
     )
 
-    # --------------------------------------------------------
-    # 7. 最终命名
-    # --------------------------------------------------------
+    # ========================================================
+    # 第七步：测速完成后再改名字
+    # ========================================================
 
     final_proxies = rename_nodes(
         passed_dedicated,
-        passed_backup
+        selected_backup
     )
 
-    # --------------------------------------------------------
-    # 8. 生成全新的 cleanvip.yaml
-    # --------------------------------------------------------
+    # ========================================================
+    # 第八步：覆盖生成 cleanvip.yaml
+    # ========================================================
 
     save_yaml(
         final_proxies
@@ -832,6 +1055,10 @@ def main():
     log("CleanVIP 执行完成")
     log("=" * 60)
 
+
+# ============================================================
+# 程序入口
+# ============================================================
 
 if __name__ == "__main__":
     main()
