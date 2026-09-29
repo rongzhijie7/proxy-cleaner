@@ -1,5 +1,49 @@
 proxies:
-- name: HK备用-4
+- name: HK专线01
+  server: 7d0a2gz0-7a0c.aws-agent.net
+  port: 10011
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: JP专线01
+  server: 63182sh8-4d7b.aws-agent.net
+  port: 10021
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: SG专线01
+  server: 7d0a2gz0-7a0c.aws-agent.net
+  port: 10031
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: US专线01
+  server: 63182sh8-4d7b.aws-agent.net
+  port: 10051
+  type: ss
+  cipher: aes-128-gcm
+  password: Sj10bnYDe7w6V29E
+  plugin: obfs
+  plugin-opts:
+    mode: http
+    host: 8c65f2f39c.m.ctrip.com
+  udp: true
+- name: HK备用01
   type: anytls
   server: 152.175.13.85
   port: 57422
@@ -7,7 +51,7 @@ proxies:
   udp: true
   sni: cache-proxy.ahdohpiechei.com
   skip-cert-verify: true
-- name: HK备用-5
+- name: HK备用02
   type: anytls
   server: 152.175.13.85
   port: 40826
@@ -15,15 +59,7 @@ proxies:
   udp: true
   sni: cache-proxy.ahdohpiechei.com
   skip-cert-verify: true
-- name: HK备用-6
-  type: anytls
-  server: 152.175.13.85
-  port: 52460
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: JP备用-4
+- name: JP备用01
   type: anytls
   server: 85.149.218.124
   port: 59075
@@ -31,7 +67,7 @@ proxies:
   udp: true
   sni: cache-proxy.ahdohpiechei.com
   skip-cert-verify: true
-- name: JP备用-5
+- name: JP备用02
   type: anytls
   server: 85.149.218.124
   port: 44898
@@ -39,39 +75,7 @@ proxies:
   udp: true
   sni: cache-proxy.ahdohpiechei.com
   skip-cert-verify: true
-- name: JP备用-6
-  type: anytls
-  server: 85.149.218.124
-  port: 45382
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: TW备用-4
-  type: anytls
-  server: 152.175.13.85
-  port: 55742
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: TW备用-5
-  type: anytls
-  server: 152.175.13.85
-  port: 53952
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: TW备用-6
-  type: anytls
-  server: 152.175.13.85
-  port: 52878
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: SG备用-4
+- name: SG备用01
   type: anytls
   server: 152.175.13.85
   port: 58925
@@ -79,15 +83,7 @@ proxies:
   udp: true
   sni: cache-proxy.ahdohpiechei.com
   skip-cert-verify: true
-- name: SG备用-5
-  type: anytls
-  server: 152.175.13.85
-  port: 44736
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: SG备用-6
+- name: SG备用02
   type: anytls
   server: 152.175.13.85
   port: 47575
@@ -95,82 +91,18 @@ proxies:
   udp: true
   sni: cache-proxy.ahdohpiechei.com
   skip-cert-verify: true
-- name: US备用-4
+- name: TW备用01
   type: anytls
-  server: 85.149.218.124
-  port: 57339
+  server: 152.175.13.85
+  port: 53952
   password: a4adf959-f282-471e-aa6d-d02146171a74
   udp: true
   sni: cache-proxy.ahdohpiechei.com
   skip-cert-verify: true
-- name: US备用-5
+- name: TW备用02
   type: anytls
-  server: 85.149.218.124
-  port: 57224
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: US备用-6
-  type: anytls
-  server: 85.149.218.124
-  port: 43727
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: DE备用
-  type: anytls
-  server: 64.118.159.151
-  port: 53451
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: IT备用
-  type: anytls
-  server: 64.118.159.151
-  port: 30192
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: IN备用
-  type: anytls
-  server: 85.149.218.124
-  port: 26552
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: TH备用
-  type: anytls
-  server: 85.149.218.124
-  port: 53212
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: AU备用
-  type: anytls
-  server: 85.149.218.124
-  port: 31389
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: MX备用
-  type: anytls
-  server: 85.149.218.124
-  port: 39436
-  password: a4adf959-f282-471e-aa6d-d02146171a74
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: BR备用
-  type: anytls
-  server: 85.149.218.124
-  port: 36401
+  server: 152.175.13.85
+  port: 52878
   password: a4adf959-f282-471e-aa6d-d02146171a74
   udp: true
   sni: cache-proxy.ahdohpiechei.com
