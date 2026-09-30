@@ -43,15 +43,23 @@ proxies:
     mode: http
     host: 8c65f2f39c.m.ctrip.com
   udp: true
-- name: JP备用01
+- name: HK备用01
   type: anytls
-  server: 85.149.218.124
-  port: 45382
+  server: 152.175.13.85
+  port: 40826
   password: a4adf959-f282-471e-aa6d-d02146171a74
   udp: true
   sni: cache-proxy.ahdohpiechei.com
   skip-cert-verify: true
-- name: JP备用02
+- name: HK备用02
+  type: anytls
+  server: 152.175.13.85
+  port: 52460
+  password: a4adf959-f282-471e-aa6d-d02146171a74
+  udp: true
+  sni: cache-proxy.ahdohpiechei.com
+  skip-cert-verify: true
+- name: JP备用01
   type: anytls
   server: 85.149.218.124
   port: 59075
@@ -59,15 +67,15 @@ proxies:
   udp: true
   sni: cache-proxy.ahdohpiechei.com
   skip-cert-verify: true
-- name: SG备用01
+- name: JP备用02
   type: anytls
-  server: 152.175.13.85
-  port: 44736
+  server: 85.149.218.124
+  port: 44898
   password: a4adf959-f282-471e-aa6d-d02146171a74
   udp: true
   sni: cache-proxy.ahdohpiechei.com
   skip-cert-verify: true
-- name: SG备用02
+- name: SG备用01
   type: anytls
   server: 152.175.13.85
   port: 47575
@@ -75,10 +83,18 @@ proxies:
   udp: true
   sni: cache-proxy.ahdohpiechei.com
   skip-cert-verify: true
+- name: SG备用02
+  type: anytls
+  server: 152.175.13.85
+  port: 44736
+  password: a4adf959-f282-471e-aa6d-d02146171a74
+  udp: true
+  sni: cache-proxy.ahdohpiechei.com
+  skip-cert-verify: true
 - name: US备用01
   type: anytls
   server: 85.149.218.124
-  port: 43727
+  port: 57224
   password: a4adf959-f282-471e-aa6d-d02146171a74
   udp: true
   sni: cache-proxy.ahdohpiechei.com
@@ -100,7 +116,7 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /3906f824-1308-5372-b18d-3c14d04a4278
+    path: /0b95429d-fb7b-5c42-b9d2-09e7d9538070
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -113,7 +129,7 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /627491bf-5840-5255-8c29-d055299cb1bf
+    path: /3906f824-1308-5372-b18d-3c14d04a4278
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -145,19 +161,6 @@ proxies:
   udp: true
 - name: KR中转01
   type: vmess
-  server: 120.232.202.14
-  port: 8059
-  cipher: aes-128-gcm
-  uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
-  alterId: 0
-  network: ws
-  ws-opts:
-    path: /3ff53f15-4c9a-45b0-99ad-c8dfa3825d8f
-    headers:
-      Host: tms.dingtalk.com
-  udp: true
-- name: KR中转02
-  type: vmess
   server: 82.109.227.89
   port: 8080
   cipher: aes-128-gcm
@@ -166,6 +169,19 @@ proxies:
   network: ws
   ws-opts:
     path: /274a7731-03a7-5585-8461-b34b7512a701
+    headers:
+      Host: tms.dingtalk.com
+  udp: true
+- name: KR中转02
+  type: vmess
+  server: 120.232.202.14
+  port: 8059
+  cipher: aes-128-gcm
+  uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
+  alterId: 0
+  network: ws
+  ws-opts:
+    path: /3ff53f15-4c9a-45b0-99ad-c8dfa3825d8f
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -185,7 +201,7 @@ proxies:
 - name: SG中转02
   type: vmess
   server: 120.232.202.14
-  port: 8062
+  port: 8061
   cipher: aes-128-gcm
   uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
   alterId: 0
