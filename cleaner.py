@@ -4,9 +4,9 @@ import time
 import subprocess
 import re
 
-# ======================
-# YAML类型规范化
-# ======================
+# ============================================================
+# YAML 类型规范化
+# ============================================================
 
 def normalize_value(v):
 
@@ -24,27 +24,25 @@ def normalize_value(v):
     return v
 
 
-
 def normalize_proxy(proxy):
 
     new_proxy = {}
 
     for key, value in proxy.items():
-
         new_proxy[key] = normalize_value(value)
 
     return new_proxy
 
-# ======================
-# 地区关键词
-# ======================
+
+# ============================================================
+# 地区顺序
+# ============================================================
 
 REGIONS = [
     "香港",
     "澳门",
     "台湾",
     "新加坡",
-    "狮城",
     "日本",
     "韩国",
     "美国",
@@ -58,12 +56,13 @@ REGIONS = [
 ]
 
 
-# ======================
-# 读取订阅
-# ======================
+# ============================================================
+# 读取 source.yaml
+# ============================================================
 
+print("=" * 60)
 print("读取 source.yaml")
-
+print("=" * 60)
 
 with open(
     "source.yaml",
@@ -86,9 +85,9 @@ print(
 )
 
 
-# ======================
-# 地区筛选 + 重命名
-# ======================
+# ============================================================
+# 地区筛选
+# ============================================================
 
 region_count = {}
 
@@ -97,9 +96,9 @@ proxies = []
 
 for p in raw_proxies:
 
-    # ======================
+    # --------------------------------------------------------
     # 修复节点字段类型
-    # ======================
+    # --------------------------------------------------------
 
     p = normalize_proxy(p)
 
@@ -110,9 +109,9 @@ for p in raw_proxies:
     )
 
 
-    # ======================
+    # --------------------------------------------------------
     # 删除无效节点
-    # ======================
+    # --------------------------------------------------------
 
     if not old_name:
         continue
@@ -125,6 +124,11 @@ for p in raw_proxies:
     if not p.get("type"):
         continue
 
+
+    # --------------------------------------------------------
+    # 判断地区
+    # --------------------------------------------------------
+
     region = None
 
 
@@ -133,23 +137,29 @@ for p in raw_proxies:
         if r in old_name:
 
             region = r
+
             break
 
 
+    # 狮城统一归入新加坡
+    if region == "狮城":
+
+        region = "新加坡"
+
+
     if region:
-
-        if region == "狮城":
-            region = "新加坡"
-
 
         region_count.setdefault(
             region,
             0
         )
 
-
         region_count[region] += 1
 
+
+        # ----------------------------------------------------
+        # 临时名称
+        # ----------------------------------------------------
 
         p["name"] = (
             f"{region}-"
@@ -160,18 +170,15 @@ for p in raw_proxies:
         proxies.append(p)
 
 
-
 print(
     "地区筛选后:",
     len(proxies)
 )
 
 
-
-# ======================
+# ============================================================
 # 生成 Mihomo 测试配置
-# ======================
-
+# ============================================================
 
 names = [
     p["name"]
@@ -181,7 +188,7 @@ names = [
 
 test_config = {
 
-    "mixed-port":7890,
+    "mixed-port": 7890,
 
     "external-controller":
         "127.0.0.1:9090",
@@ -189,22 +196,23 @@ test_config = {
     "proxies":
         proxies,
 
-
-    "proxy-groups":[
+    "proxy-groups": [
 
         {
-            "name":"TEST",
-            "type":"url-test",
-            "proxies":names,
+            "name": "TEST",
+
+            "type": "url-test",
+
+            "proxies": names,
+
             "url":
-            "https://www.gstatic.com/generate_204",
-            "interval":300
+                "https://www.gstatic.com/generate_204",
+
+            "interval": 300
         }
 
     ]
-
 }
-
 
 
 with open(
@@ -221,14 +229,14 @@ with open(
     )
 
 
-
-# ======================
+# ============================================================
 # 启动 Mihomo
-# ======================
+# ============================================================
 
-print(
-    "启动 Mihomo"
-)
+print()
+print("=" * 60)
+print("启动 Mihomo")
+print("=" * 60)
 
 
 process = subprocess.Popen(
@@ -240,58 +248,54 @@ process = subprocess.Popen(
 )
 
 
+# 等待 Mihomo 启动
 time.sleep(5)
 
 
-
-# ======================
+# ============================================================
 # 节点测速
-# ======================
+# ============================================================
 
-print(
-    "开始测速"
-)
+print()
+print("=" * 60)
+print("开始测速")
+print("=" * 60)
 
 
-alive=[]
+alive = []
 
 
 for name in names:
 
-
     try:
 
-        r=requests.get(
+        r = requests.get(
 
             f"http://127.0.0.1:9090/proxies/{name}/delay",
 
             params={
 
-                "timeout":5000,
+                "timeout": 5000,
 
                 "url":
-                "https://www.gstatic.com/generate_204"
+                    "https://www.gstatic.com/generate_204"
 
             },
 
             timeout=8
-
         )
 
 
-        data=r.json()
+        data = r.json()
 
 
         if "delay" in data:
 
-
-            delay=data["delay"]
+            delay = data["delay"]
 
 
             print(
-                name,
-                delay,
-                "ms"
+                f"{name}: {delay} ms"
             )
 
 
@@ -301,37 +305,32 @@ for name in names:
         else:
 
             print(
-                name,
-                "FAIL"
+                f"{name}: FAIL"
             )
 
 
-    except Exception:
-
+    except Exception as e:
 
         print(
-            name,
-            "FAIL"
+            f"{name}: FAIL"
         )
 
 
-
+print()
 print(
-    "可用节点:",
+    "测速成功节点:",
     len(alive)
 )
 
 
+# ============================================================
+# 只保留测速成功节点
+# ============================================================
 
-# ======================
-# 输出 clean.yaml
-# ======================
-
-
-alive_set=set(alive)
+alive_set = set(alive)
 
 
-clean=[]
+clean = []
 
 
 for p in proxies:
@@ -341,8 +340,95 @@ for p in proxies:
         clean.append(p)
 
 
+# ============================================================
+# 按地区顺序排序
+# ============================================================
 
-output={
+region_index = {
+
+    region: index
+
+    for index, region in enumerate(
+        REGIONS
+    )
+
+}
+
+
+def get_region(name):
+
+    for region in REGIONS:
+
+        if name.startswith(
+            region + "-"
+        ):
+
+            return region
+
+
+    return None
+
+
+clean.sort(
+
+    key=lambda p:
+        region_index.get(
+            get_region(
+                p.get("name", "")
+            ),
+            999
+        )
+
+)
+
+
+# ============================================================
+# 测速成功后重新连续编号
+# ============================================================
+
+new_region_count = {}
+
+
+for p in clean:
+
+    old_name = p.get(
+        "name",
+        ""
+    )
+
+
+    region = get_region(
+        old_name
+    )
+
+
+    if not region:
+        continue
+
+
+    new_region_count.setdefault(
+        region,
+        0
+    )
+
+
+    new_region_count[region] += 1
+
+
+    p["name"] = (
+
+        f"{region}-"
+
+        f"{new_region_count[region]}"
+
+    )
+
+
+# ============================================================
+# 输出 clean.yaml
+# ============================================================
+
+output = {
 
     "proxies":
         clean
@@ -350,13 +436,11 @@ output={
 }
 
 
-
 with open(
     "clean.yaml",
     "w",
     encoding="utf-8"
 ) as f:
-
 
     yaml.dump(
 
@@ -371,13 +455,35 @@ with open(
     )
 
 
+# ============================================================
+# 显示最终节点顺序
+# ============================================================
 
+print()
+print("=" * 60)
+print("最终节点顺序")
+print("=" * 60)
+
+
+for p in clean:
+
+    print(
+        p["name"]
+    )
+
+
+print()
+print("=" * 60)
 print(
-    "clean.yaml生成完成:",
+    "clean.yaml 生成完成:",
     len(clean),
     "个节点"
 )
+print("=" * 60)
 
 
+# ============================================================
+# 关闭 Mihomo
+# ============================================================
 
 process.kill()
