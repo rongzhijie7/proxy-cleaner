@@ -1,14 +1,14 @@
 proxies:
 - name: HK01
   type: vmess
-  server: 82.109.227.89
+  server: 82.109.227.64
   port: 8080
   cipher: aes-128-gcm
   uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
   alterId: 0
   network: ws
   ws-opts:
-    path: /3d2053af-b101-5710-8078-38128106081b
+    path: /c8462d65-0e61-5eff-bb73-4afd084f3e68
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -21,7 +21,7 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /407a2d9d-fee4-5d45-a787-8158bc39b597
+    path: /7428a772-e915-5642-b1d1-9ba8d722cba0
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -40,7 +40,7 @@ proxies:
   udp: true
 - name: TW02
   type: vmess
-  server: 82.109.227.89
+  server: 31.77.186.214
   port: 8080
   cipher: aes-128-gcm
   uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
@@ -48,6 +48,32 @@ proxies:
   network: ws
   ws-opts:
     path: /9fa3a7b0-c800-50e3-8dc7-6fa584ee1d53
+    headers:
+      Host: tms.dingtalk.com
+  udp: true
+- name: SG01
+  type: vmess
+  server: 82.109.227.64
+  port: 8080
+  cipher: aes-128-gcm
+  uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
+  alterId: 0
+  network: ws
+  ws-opts:
+    path: /c218004e-e160-5819-b3b7-e95bca37f3c6
+    headers:
+      Host: tms.dingtalk.com
+  udp: true
+- name: SG02
+  type: vmess
+  server: 31.77.186.214
+  port: 8080
+  cipher: aes-128-gcm
+  uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
+  alterId: 0
+  network: ws
+  ws-opts:
+    path: /c218004e-e160-5819-b3b7-e95bca37f3c6
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -105,7 +131,7 @@ proxies:
   udp: true
 - name: US01
   type: vmess
-  server: 31.77.186.214
+  server: 82.109.227.64
   port: 8080
   cipher: aes-128-gcm
   uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
@@ -118,7 +144,7 @@ proxies:
   udp: true
 - name: US02
   type: vmess
-  server: 82.109.227.64
+  server: 31.77.186.214
   port: 8080
   cipher: aes-128-gcm
   uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
@@ -183,7 +209,7 @@ proxies:
   udp: true
 - name: CH01
   type: vmess
-  server: 31.77.186.214
+  server: 82.109.227.64
   port: 8080
   cipher: aes-128-gcm
   uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
@@ -196,7 +222,7 @@ proxies:
   udp: true
 - name: CH02
   type: vmess
-  server: 82.109.227.64
+  server: 31.77.186.214
   port: 8080
   cipher: aes-128-gcm
   uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
@@ -235,7 +261,7 @@ proxies:
   udp: true
 - name: PH01
   type: vmess
-  server: 82.109.227.89
+  server: 31.77.186.214
   port: 8080
   cipher: aes-128-gcm
   uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
@@ -248,7 +274,7 @@ proxies:
   udp: true
 - name: PH02
   type: vmess
-  server: 31.77.186.214
+  server: 82.109.227.89
   port: 8080
   cipher: aes-128-gcm
   uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
@@ -261,7 +287,7 @@ proxies:
   udp: true
 - name: NG01
   type: vmess
-  server: 31.77.186.214
+  server: 82.109.227.64
   port: 8080
   cipher: aes-128-gcm
   uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
@@ -274,7 +300,7 @@ proxies:
   udp: true
 - name: NG02
   type: vmess
-  server: 82.109.227.64
+  server: 31.77.186.214
   port: 8080
   cipher: aes-128-gcm
   uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
