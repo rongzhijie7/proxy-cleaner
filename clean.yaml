@@ -144,21 +144,6 @@ proxies:
   servername: download-porter.hoyoverse.com
 - name: 日本-4
   type: vless
-  server: jp03.73c01f37-d10a-4317-a43a-380fc51d0bc4.genshinimpact.cyou
-  port: 443
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: safari
-  reality-opts:
-    public-key: upIlaFG6DWfKE8wjn_qXYqb9ohDNavC3LRayjJ4Wp1o
-    short-id: 94d3f4df
-  network: tcp
-  servername: updates.cdn-apple.com
-- name: 日本-5
-  type: vless
   server: jp01.5392a812-9a56-456f-b89a-9e5b4208168a.genshinimpact.cyou
   port: 8443
   uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
@@ -169,7 +154,7 @@ proxies:
   client-fingerprint: safari
   network: tcp
   servername: cdn-jp01.download.pikoport.com
-- name: 日本-6
+- name: 日本-5
   type: vless
   server: 13.196.212.168
   port: 8443
@@ -181,7 +166,7 @@ proxies:
   client-fingerprint: safari
   network: tcp
   servername: cdn-jp01.download.pikoport.com
-- name: 日本-7
+- name: 日本-6
   type: vless
   server: jp02.cbd12403-7946-4bbc-8127-2d9e5f1d50bc.genshinimpact.cyou
   port: 8443
@@ -207,6 +192,21 @@ proxies:
   obfs-password: OTA2ZjRiOGQ2MWYxNmQyZA==
 - name: 美国-2
   type: vless
+  server: us01.d168f27a-5efc-4699-891d-eda6ea40be1d.genshinimpact.cyou
+  port: 443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: eN-hpk_h3mbxeGOfINunn7Ij_nsfFkgja3w5breOygg
+    short-id: 296d5815
+  network: tcp
+  servername: download.windowsupdate.com
+- name: 美国-3
+  type: vless
   server: us02.4b214271-fd51-4e6b-9303-fe6e915f406d.genshinimpact.cyou
   port: 443
   uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
@@ -220,20 +220,9 @@ proxies:
     short-id: 157eb31c
   network: tcp
   servername: www.bing.com
-- name: 美国-3
-  type: vless
-  server: 104.18.42.54
-  port: 80
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: us5.delta.cloudns.be
 - name: 美国-4
   type: vless
-  server: 8f075ed5.alidns-3.com
+  server: 104.18.42.54
   port: 80
   uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
   udp: true
@@ -244,6 +233,17 @@ proxies:
       Host: us5.delta.cloudns.be
 - name: 美国-5
   type: vless
+  server: 8f075ed5.alidns-3.com
+  port: 80
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: us5.delta.cloudns.be
+- name: 美国-6
+  type: vless
   server: 104.18.42.54
   port: 80
   uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
@@ -253,7 +253,7 @@ proxies:
     path: /
     headers:
       Host: us6.delta.cloudns.be
-- name: 美国-6
+- name: 美国-7
   type: vless
   server: 8f075ed5.alidns-3.com
   port: 80
