@@ -192,6 +192,21 @@ proxies:
   obfs-password: OTA2ZjRiOGQ2MWYxNmQyZA==
 - name: 美国-2
   type: vless
+  server: us01.d168f27a-5efc-4699-891d-eda6ea40be1d.genshinimpact.cyou
+  port: 443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: eN-hpk_h3mbxeGOfINunn7Ij_nsfFkgja3w5breOygg
+    short-id: 296d5815
+  network: tcp
+  servername: download.windowsupdate.com
+- name: 美国-3
+  type: vless
   server: us02.4b214271-fd51-4e6b-9303-fe6e915f406d.genshinimpact.cyou
   port: 443
   uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
@@ -205,20 +220,9 @@ proxies:
     short-id: 157eb31c
   network: tcp
   servername: www.bing.com
-- name: 美国-3
-  type: vless
-  server: 104.18.42.54
-  port: 80
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: us5.delta.cloudns.be
 - name: 美国-4
   type: vless
-  server: 8f075ed5.alidns-3.com
+  server: 104.18.42.54
   port: 80
   uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
   udp: true
@@ -229,6 +233,17 @@ proxies:
       Host: us5.delta.cloudns.be
 - name: 美国-5
   type: vless
+  server: 8f075ed5.alidns-3.com
+  port: 80
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: us5.delta.cloudns.be
+- name: 美国-6
+  type: vless
   server: 104.18.42.54
   port: 80
   uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
@@ -238,7 +253,7 @@ proxies:
     path: /
     headers:
       Host: us6.delta.cloudns.be
-- name: 美国-6
+- name: 美国-7
   type: vless
   server: 8f075ed5.alidns-3.com
   port: 80
