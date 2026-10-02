@@ -46,7 +46,7 @@ proxies:
 - name: HK备用01
   type: anytls
   server: 152.175.13.85
-  port: 57422
+  port: 40826
   password: a4adf959-f282-471e-aa6d-d02146171a74
   udp: true
   sni: cache-proxy.ahdohpiechei.com
@@ -54,7 +54,7 @@ proxies:
 - name: HK备用02
   type: anytls
   server: 152.175.13.85
-  port: 52460
+  port: 57422
   password: a4adf959-f282-471e-aa6d-d02146171a74
   udp: true
   sni: cache-proxy.ahdohpiechei.com
@@ -62,7 +62,7 @@ proxies:
 - name: JP备用01
   type: anytls
   server: 85.149.218.124
-  port: 59075
+  port: 45382
   password: a4adf959-f282-471e-aa6d-d02146171a74
   udp: true
   sni: cache-proxy.ahdohpiechei.com
@@ -70,7 +70,7 @@ proxies:
 - name: JP备用02
   type: anytls
   server: 85.149.218.124
-  port: 45382
+  port: 59075
   password: a4adf959-f282-471e-aa6d-d02146171a74
   udp: true
   sni: cache-proxy.ahdohpiechei.com
@@ -78,7 +78,7 @@ proxies:
 - name: SG备用01
   type: anytls
   server: 152.175.13.85
-  port: 44736
+  port: 47575
   password: a4adf959-f282-471e-aa6d-d02146171a74
   udp: true
   sni: cache-proxy.ahdohpiechei.com
@@ -86,7 +86,7 @@ proxies:
 - name: SG备用02
   type: anytls
   server: 152.175.13.85
-  port: 47575
+  port: 58925
   password: a4adf959-f282-471e-aa6d-d02146171a74
   udp: true
   sni: cache-proxy.ahdohpiechei.com
@@ -94,7 +94,7 @@ proxies:
 - name: US备用01
   type: anytls
   server: 85.149.218.124
-  port: 57224
+  port: 57339
   password: a4adf959-f282-471e-aa6d-d02146171a74
   udp: true
   sni: cache-proxy.ahdohpiechei.com
@@ -116,20 +116,20 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /3906f824-1308-5372-b18d-3c14d04a4278
+    path: /c1b2dfe9-1c7d-51d5-8f7c-b3339272ddb4
     headers:
       Host: tms.dingtalk.com
   udp: true
 - name: HK中转02
   type: vmess
-  server: 82.109.227.89
+  server: 82.109.227.64
   port: 8080
   cipher: aes-128-gcm
   uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
   alterId: 0
   network: ws
   ws-opts:
-    path: /c1b2dfe9-1c7d-51d5-8f7c-b3339272ddb4
+    path: /7428a772-e915-5642-b1d1-9ba8d722cba0
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -155,7 +155,7 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /f2a1ea72-960b-50df-922f-f94db85815c5
+    path: /fd968c3a-b965-579f-8c82-75670fd11eef
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -194,7 +194,7 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /b17d3a59-0106-59a8-84a9-b715cd3cfc1d
+    path: /c1c592aa-575d-5830-aec5-6de129ba7f2c
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -207,7 +207,7 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /c1c592aa-575d-5830-aec5-6de129ba7f2c
+    path: /b17d3a59-0106-59a8-84a9-b715cd3cfc1d
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -220,20 +220,20 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /b95bfb5e-ea09-51e0-a8f6-dbd2a39288fb
+    path: /0776035a-8b25-5da2-abea-77f5d67c7a62
     headers:
       Host: tms.dingtalk.com
   udp: true
 - name: US中转02
   type: vmess
-  server: 82.109.227.89
+  server: 82.109.227.64
   port: 8080
   cipher: aes-128-gcm
   uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
   alterId: 0
   network: ws
   ws-opts:
-    path: /871605c2-5b56-52e0-8b15-c480f22d88c3
+    path: /fd9ba1b8-fc82-52ff-b5fa-594377428617
     headers:
       Host: tms.dingtalk.com
   udp: true
