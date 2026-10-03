@@ -14,19 +14,6 @@ proxies:
   servername: iosapps.itunes.apple.com
 - name: 香港-2
   type: vless
-  server: aws-link2.lxyun.xyz
-  port: 443
-  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  flow: xtls-rprx-vision
-  client-fingerprint: safari
-  fingerprint: af0f11574724e7ddd96f64eb77a450f71ce2de61ee5afd6f2e27ed7604a6a9b1
-  network: tcp
-  servername: www.lamer.com.hk
-- name: 香港-3
-  type: vless
   server: aws-link3.lxyun.xyz
   port: 443
   uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
