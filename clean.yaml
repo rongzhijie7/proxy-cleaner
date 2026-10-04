@@ -42,6 +42,21 @@ proxies:
   servername: www.lamer.com.hk
 - name: 新加坡-1
   type: vless
+  server: aws-link7.lxyun.xyz
+  port: 443
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: ios
+  reality-opts:
+    public-key: w7AGIp_u4slcX3JotLyiuaT05lawuzU3f1eL88RI53c
+    short-id: 1d77a374
+  network: tcp
+  servername: fastcdn.hoyoverse.com
+- name: 新加坡-2
+  type: vless
   server: aws-link8.lxyun.xyz
   port: 443
   uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
@@ -55,7 +70,7 @@ proxies:
     short-id: 55c73a28
   network: tcp
   servername: iosapps.itunes.apple.com
-- name: 新加坡-2
+- name: 新加坡-3
   type: vless
   server: aws-link9.lxyun.xyz
   port: 443
@@ -70,7 +85,7 @@ proxies:
     short-id: bef8fff6
   network: tcp
   servername: iosapps.itunes.apple.com
-- name: 新加坡-3
+- name: 新加坡-4
   server: sg-gcp.xn--9kqp42aims.top
   port: 20000
   ports: 20000-55000
@@ -129,19 +144,22 @@ proxies:
   servername: download-porter.hoyoverse.com
 - name: 日本-4
   type: vless
-  server: jp01.5392a812-9a56-456f-b89a-9e5b4208168a.genshinimpact.cyou
-  port: 8443
+  server: jp03.73c01f37-d10a-4317-a43a-380fc51d0bc4.genshinimpact.cyou
+  port: 443
   uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
   udp: true
   tls: true
   skip-cert-verify: false
   flow: xtls-rprx-vision
   client-fingerprint: safari
+  reality-opts:
+    public-key: upIlaFG6DWfKE8wjn_qXYqb9ohDNavC3LRayjJ4Wp1o
+    short-id: 94d3f4df
   network: tcp
-  servername: cdn-jp01.download.pikoport.com
+  servername: updates.cdn-apple.com
 - name: 日本-5
   type: vless
-  server: 13.196.212.168
+  server: jp01.5392a812-9a56-456f-b89a-9e5b4208168a.genshinimpact.cyou
   port: 8443
   uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
   udp: true
@@ -153,16 +171,16 @@ proxies:
   servername: cdn-jp01.download.pikoport.com
 - name: 日本-6
   type: vless
-  server: jp02.cbd12403-7946-4bbc-8127-2d9e5f1d50bc.genshinimpact.cyou
+  server: 13.196.212.168
   port: 8443
   uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
   udp: true
   tls: true
   skip-cert-verify: false
   flow: xtls-rprx-vision
-  client-fingerprint: chrome
+  client-fingerprint: safari
   network: tcp
-  servername: cdn-jp02.download.pikoport.com
+  servername: cdn-jp01.download.pikoport.com
 - name: 美国-1
   server: ushost.xn--9kqp42aims.top
   port: 20000
