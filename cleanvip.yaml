@@ -46,7 +46,7 @@ proxies:
 - name: HK备用01
   type: anytls
   server: 152.175.13.85
-  port: 40826
+  port: 52460
   password: a4adf959-f282-471e-aa6d-d02146171a74
   udp: true
   sni: cache-proxy.ahdohpiechei.com
@@ -54,7 +54,7 @@ proxies:
 - name: HK备用02
   type: anytls
   server: 152.175.13.85
-  port: 52460
+  port: 40826
   password: a4adf959-f282-471e-aa6d-d02146171a74
   udp: true
   sni: cache-proxy.ahdohpiechei.com
@@ -78,7 +78,7 @@ proxies:
 - name: SG备用01
   type: anytls
   server: 152.175.13.85
-  port: 58925
+  port: 44736
   password: a4adf959-f282-471e-aa6d-d02146171a74
   udp: true
   sni: cache-proxy.ahdohpiechei.com
@@ -86,7 +86,7 @@ proxies:
 - name: SG备用02
   type: anytls
   server: 152.175.13.85
-  port: 44736
+  port: 58925
   password: a4adf959-f282-471e-aa6d-d02146171a74
   udp: true
   sni: cache-proxy.ahdohpiechei.com
@@ -129,7 +129,7 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /627491bf-5840-5255-8c29-d055299cb1bf
+    path: /c1b2dfe9-1c7d-51d5-8f7c-b3339272ddb4
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -142,7 +142,7 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /f2a1ea72-960b-50df-922f-f94db85815c5
+    path: /48b27e9e-1e69-5cc0-998f-6f1d1138a029
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -194,7 +194,7 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /b17d3a59-0106-59a8-84a9-b715cd3cfc1d
+    path: /c1c592aa-575d-5830-aec5-6de129ba7f2c
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -207,20 +207,20 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /c1c592aa-575d-5830-aec5-6de129ba7f2c
+    path: /b17d3a59-0106-59a8-84a9-b715cd3cfc1d
     headers:
       Host: tms.dingtalk.com
   udp: true
 - name: US中转01
   type: vmess
-  server: 82.109.227.64
+  server: 82.109.227.89
   port: 8080
   cipher: aes-128-gcm
   uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
   alterId: 0
   network: ws
   ws-opts:
-    path: /8636cf92-d82b-5288-835a-acdba0d05889
+    path: /871605c2-5b56-52e0-8b15-c480f22d88c3
     headers:
       Host: tms.dingtalk.com
   udp: true
