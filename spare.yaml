@@ -1,14 +1,14 @@
 proxies:
 - name: HK01
   type: vmess
-  server: 82.109.227.89
+  server: 82.109.227.64
   port: 8080
   cipher: aes-128-gcm
   uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
   alterId: 0
   network: ws
   ws-opts:
-    path: /04b4499a-71aa-5388-9d19-31a6ba6a4952
+    path: /c8462d65-0e61-5eff-bb73-4afd084f3e68
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -21,7 +21,7 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /8635d2ba-8230-5e35-9a2a-9644f0a1fec9
+    path: /3d2053af-b101-5710-8078-38128106081b
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -73,7 +73,7 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /c1c592aa-575d-5830-aec5-6de129ba7f2c
+    path: /b17d3a59-0106-59a8-84a9-b715cd3cfc1d
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -92,7 +92,7 @@ proxies:
   udp: true
 - name: JP02
   type: vmess
-  server: 82.109.227.89
+  server: 31.77.186.214
   port: 8080
   cipher: aes-128-gcm
   uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
@@ -131,19 +131,6 @@ proxies:
   udp: true
 - name: US01
   type: vmess
-  server: 31.77.186.214
-  port: 8080
-  cipher: aes-128-gcm
-  uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
-  alterId: 0
-  network: ws
-  ws-opts:
-    path: /8636cf92-d82b-5288-835a-acdba0d05889
-    headers:
-      Host: tms.dingtalk.com
-  udp: true
-- name: US02
-  type: vmess
   server: 82.109.227.64
   port: 8080
   cipher: aes-128-gcm
@@ -151,7 +138,20 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /8636cf92-d82b-5288-835a-acdba0d05889
+    path: /b95bfb5e-ea09-51e0-a8f6-dbd2a39288fb
+    headers:
+      Host: tms.dingtalk.com
+  udp: true
+- name: US02
+  type: vmess
+  server: 31.77.186.214
+  port: 8080
+  cipher: aes-128-gcm
+  uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
+  alterId: 0
+  network: ws
+  ws-opts:
+    path: /b95bfb5e-ea09-51e0-a8f6-dbd2a39288fb
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -233,6 +233,32 @@ proxies:
     headers:
       Host: tms.dingtalk.com
   udp: true
+- name: GB01
+  type: vmess
+  server: 82.109.227.64
+  port: 8080
+  cipher: aes-128-gcm
+  uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
+  alterId: 0
+  network: ws
+  ws-opts:
+    path: /78a5b4ff-0d73-5cdd-805e-c569b63e207a
+    headers:
+      Host: tms.dingtalk.com
+  udp: true
+- name: GB02
+  type: vmess
+  server: 31.77.186.214
+  port: 8080
+  cipher: aes-128-gcm
+  uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
+  alterId: 0
+  network: ws
+  ws-opts:
+    path: /78a5b4ff-0d73-5cdd-805e-c569b63e207a
+    headers:
+      Host: tms.dingtalk.com
+  udp: true
 - name: PH01
   type: vmess
   server: 82.109.227.89
@@ -287,7 +313,7 @@ proxies:
   udp: true
 - name: NG01
   type: vmess
-  server: 82.109.227.64
+  server: 31.77.186.214
   port: 8080
   cipher: aes-128-gcm
   uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
@@ -300,7 +326,7 @@ proxies:
   udp: true
 - name: NG02
   type: vmess
-  server: 31.77.186.214
+  server: 82.109.227.64
   port: 8080
   cipher: aes-128-gcm
   uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
