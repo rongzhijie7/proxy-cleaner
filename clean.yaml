@@ -187,6 +187,30 @@ proxies:
     short-id: 94d3f4df
   network: tcp
   servername: updates.cdn-apple.com
+- name: 日本-5
+  type: vless
+  server: jp01.5392a812-9a56-456f-b89a-9e5b4208168a.genshinimpact.cyou
+  port: 8443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  network: tcp
+  servername: cdn-jp01.download.pikoport.com
+- name: 日本-6
+  type: vless
+  server: 13.196.212.168
+  port: 8443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  network: tcp
+  servername: cdn-jp01.download.pikoport.com
 - name: 美国-1
   type: vless
   server: cfyes.777078.xyz
