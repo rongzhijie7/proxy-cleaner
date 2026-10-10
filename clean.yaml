@@ -87,21 +87,6 @@ proxies:
   servername: fastcdn.hoyoverse.com
 - name: 新加坡-2
   type: vless
-  server: aws-link8.lxyun.xyz
-  port: 443
-  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: ios
-  reality-opts:
-    public-key: vDrdqD70aoQOIU5P5UU-h2h9wCu_tEOD4pGu8NOGvzA
-    short-id: 55c73a28
-  network: tcp
-  servername: iosapps.itunes.apple.com
-- name: 新加坡-3
-  type: vless
   server: aws-link9.lxyun.xyz
   port: 443
   uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
@@ -115,7 +100,7 @@ proxies:
     short-id: bef8fff6
   network: tcp
   servername: iosapps.itunes.apple.com
-- name: 新加坡-4
+- name: 新加坡-3
   server: sg-gcp.xn--9kqp42aims.top
   port: 20000
   ports: 20000-55000
