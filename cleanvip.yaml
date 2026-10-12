@@ -97,7 +97,7 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /8635d2ba-8230-5e35-9a2a-9644f0a1fec9
+    path: /4e17a13d-8e93-59aa-9ac6-3d10b9fc45ef
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -129,19 +129,6 @@ proxies:
   udp: true
 - name: KR中转01
   type: vmess
-  server: 120.232.202.14
-  port: 8059
-  cipher: aes-128-gcm
-  uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
-  alterId: 0
-  network: ws
-  ws-opts:
-    path: /3ff53f15-4c9a-45b0-99ad-c8dfa3825d8f
-    headers:
-      Host: tms.dingtalk.com
-  udp: true
-- name: KR中转02
-  type: vmess
   server: 82.109.227.89
   port: 8080
   cipher: aes-128-gcm
@@ -150,6 +137,19 @@ proxies:
   network: ws
   ws-opts:
     path: /274a7731-03a7-5585-8461-b34b7512a701
+    headers:
+      Host: tms.dingtalk.com
+  udp: true
+- name: KR中转02
+  type: vmess
+  server: 120.232.202.14
+  port: 8059
+  cipher: aes-128-gcm
+  uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
+  alterId: 0
+  network: ws
+  ws-opts:
+    path: /3ff53f15-4c9a-45b0-99ad-c8dfa3825d8f
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -162,7 +162,7 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /c1c592aa-575d-5830-aec5-6de129ba7f2c
+    path: /b17d3a59-0106-59a8-84a9-b715cd3cfc1d
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -175,20 +175,20 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /b17d3a59-0106-59a8-84a9-b715cd3cfc1d
+    path: /c1c592aa-575d-5830-aec5-6de129ba7f2c
     headers:
       Host: tms.dingtalk.com
   udp: true
 - name: US中转01
   type: vmess
-  server: 82.109.227.89
+  server: 82.109.227.64
   port: 8080
   cipher: aes-128-gcm
   uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
   alterId: 0
   network: ws
   ws-opts:
-    path: /871605c2-5b56-52e0-8b15-c480f22d88c3
+    path: /b95bfb5e-ea09-51e0-a8f6-dbd2a39288fb
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -201,7 +201,7 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /0776035a-8b25-5da2-abea-77f5d67c7a62
+    path: /8636cf92-d82b-5288-835a-acdba0d05889
     headers:
       Host: tms.dingtalk.com
   udp: true
