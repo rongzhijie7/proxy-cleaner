@@ -1,32 +1,6 @@
 proxies:
 - name: 香港-1
   type: vless
-  server: aws-link1.lxyun.xyz
-  port: 443
-  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  flow: xtls-rprx-vision
-  client-fingerprint: safari
-  fingerprint: d5c39647e414c144b719bc49cb41c4b8f46f09f4cf26c863cae15c01d4a7b96a
-  network: tcp
-  servername: iosapps.itunes.apple.com
-- name: 香港-2
-  type: vless
-  server: aws-link2.lxyun.xyz
-  port: 443
-  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  flow: xtls-rprx-vision
-  client-fingerprint: safari
-  fingerprint: af0f11574724e7ddd96f64eb77a450f71ce2de61ee5afd6f2e27ed7604a6a9b1
-  network: tcp
-  servername: www.lamer.com.hk
-- name: 香港-3
-  type: vless
   server: aws-link3.lxyun.xyz
   port: 443
   uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
@@ -40,7 +14,7 @@ proxies:
     short-id: 3206e665
   network: tcp
   servername: www.lamer.com.hk
-- name: 香港-4
+- name: 香港-2
   type: vless
   server: 8f075ed5.alidns-3.com
   port: 443
@@ -55,7 +29,7 @@ proxies:
     headers:
       Host: ak2.mcdonaldshamburgergoodgoodgood.xyz
   servername: ak2.mcdonaldshamburgergoodgoodgood.xyz
-- name: 香港-5
+- name: 香港-3
   type: vless
   server: 104.18.39.123
   port: 443
@@ -72,21 +46,6 @@ proxies:
   servername: ak2.mcdonaldshamburgergoodgoodgood.xyz
 - name: 新加坡-1
   type: vless
-  server: aws-link7.lxyun.xyz
-  port: 443
-  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: ios
-  reality-opts:
-    public-key: w7AGIp_u4slcX3JotLyiuaT05lawuzU3f1eL88RI53c
-    short-id: 1d77a374
-  network: tcp
-  servername: fastcdn.hoyoverse.com
-- name: 新加坡-2
-  type: vless
   server: aws-link8.lxyun.xyz
   port: 443
   uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
@@ -98,6 +57,21 @@ proxies:
   reality-opts:
     public-key: vDrdqD70aoQOIU5P5UU-h2h9wCu_tEOD4pGu8NOGvzA
     short-id: 55c73a28
+  network: tcp
+  servername: iosapps.itunes.apple.com
+- name: 新加坡-2
+  type: vless
+  server: aws-link9.lxyun.xyz
+  port: 443
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: ios
+  reality-opts:
+    public-key: ncsES25G1Nj31aY0kdaNrooqQOqqqaHLk8zbF2b4BGw
+    short-id: bef8fff6
   network: tcp
   servername: iosapps.itunes.apple.com
 - name: 新加坡-3
@@ -213,6 +187,21 @@ proxies:
   obfs-password: OTA2ZjRiOGQ2MWYxNmQyZA==
 - name: 美国-4
   type: vless
+  server: us01.d168f27a-5efc-4699-891d-eda6ea40be1d.genshinimpact.cyou
+  port: 443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: eN-hpk_h3mbxeGOfINunn7Ij_nsfFkgja3w5breOygg
+    short-id: 296d5815
+  network: tcp
+  servername: download.windowsupdate.com
+- name: 美国-5
+  type: vless
   server: us02.4b214271-fd51-4e6b-9303-fe6e915f406d.genshinimpact.cyou
   port: 443
   uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
@@ -226,24 +215,9 @@ proxies:
     short-id: 157eb31c
   network: tcp
   servername: www.bing.com
-- name: 美国-5
-  type: vless
-  server: 8f075ed5.alidns-3.com
-  port: 443
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: us7.mcdonaldshamburgergoodgoodgood.xyz
-  servername: us7.mcdonaldshamburgergoodgoodgood.xyz
 - name: 美国-6
   type: vless
-  server: 104.18.39.123
+  server: 8f075ed5.alidns-3.com
   port: 443
   uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
   udp: true
@@ -258,6 +232,21 @@ proxies:
   servername: us7.mcdonaldshamburgergoodgoodgood.xyz
 - name: 美国-7
   type: vless
+  server: 104.18.39.123
+  port: 443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: us7.mcdonaldshamburgergoodgoodgood.xyz
+  servername: us7.mcdonaldshamburgergoodgoodgood.xyz
+- name: 美国-8
+  type: vless
   server: 8f075ed5.alidns-3.com
   port: 443
   uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
@@ -271,7 +260,7 @@ proxies:
     headers:
       Host: us8.mcdonaldshamburgergoodgoodgood.xyz
   servername: us8.mcdonaldshamburgergoodgoodgood.xyz
-- name: 美国-8
+- name: 美国-9
   type: vless
   server: 104.18.39.123
   port: 443
