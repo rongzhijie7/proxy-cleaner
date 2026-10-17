@@ -46,7 +46,7 @@ proxies:
 - name: JP备用01
   type: anytls
   server: 85.149.218.124
-  port: 44898
+  port: 59075
   password: a4adf959-f282-471e-aa6d-d02146171a74
   udp: true
   sni: cache-proxy.ahdohpiechei.com
@@ -54,7 +54,7 @@ proxies:
 - name: JP备用02
   type: anytls
   server: 85.149.218.124
-  port: 45382
+  port: 44898
   password: a4adf959-f282-471e-aa6d-d02146171a74
   udp: true
   sni: cache-proxy.ahdohpiechei.com
@@ -70,7 +70,7 @@ proxies:
 - name: US备用02
   type: anytls
   server: 85.149.218.124
-  port: 57224
+  port: 57339
   password: a4adf959-f282-471e-aa6d-d02146171a74
   udp: true
   sni: cache-proxy.ahdohpiechei.com
@@ -97,24 +97,11 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /3906f824-1308-5372-b18d-3c14d04a4278
+    path: /04b4499a-71aa-5388-9d19-31a6ba6a4952
     headers:
       Host: tms.dingtalk.com
   udp: true
 - name: JP中转01
-  type: vmess
-  server: 82.109.227.89
-  port: 8080
-  cipher: aes-128-gcm
-  uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
-  alterId: 0
-  network: ws
-  ws-opts:
-    path: /f2a1ea72-960b-50df-922f-f94db85815c5
-    headers:
-      Host: tms.dingtalk.com
-  udp: true
-- name: JP中转02
   type: vmess
   server: 120.232.202.14
   port: 8056
