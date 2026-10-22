@@ -8,8 +8,8 @@ proxies:
   plugin: obfs
   plugin-opts:
     mode: http
-    host: 8c65f2f39c.m.ctrip.com
-  udp: true
+    host: af1691488c.m.ctrip.com
+  udp: false
 - name: JP专线01
   server: 63182sh8-4d7b.aws-agent.net
   port: 10021
@@ -19,8 +19,8 @@ proxies:
   plugin: obfs
   plugin-opts:
     mode: http
-    host: 8c65f2f39c.m.ctrip.com
-  udp: true
+    host: af1691488c.m.ctrip.com
+  udp: false
 - name: SG专线01
   server: 7d0a2gz0-7a0c.aws-agent.net
   port: 10031
@@ -30,8 +30,8 @@ proxies:
   plugin: obfs
   plugin-opts:
     mode: http
-    host: 8c65f2f39c.m.ctrip.com
-  udp: true
+    host: af1691488c.m.ctrip.com
+  udp: false
 - name: US专线01
   server: 63182sh8-4d7b.aws-agent.net
   port: 10051
@@ -41,24 +41,152 @@ proxies:
   plugin: obfs
   plugin-opts:
     mode: http
-    host: 8c65f2f39c.m.ctrip.com
+    host: af1691488c.m.ctrip.com
+  udp: false
+- name: HK备用01
+  type: vless
+  server: 152.175.13.8
+  port: 8850
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
   udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: OZ_b_-5Y13dxWmoCt6O-e_LR1zFqQkoLQEPVu3LfBzg
+    short-id: a705f8454a183dd4
+  client-fingerprint: chrome
+  network: tcp
+  servername: gateway.icloud.com
+- name: HK备用02
+  type: vless
+  server: 152.175.13.8
+  port: 6736
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: eQl-SJK4p72OE9NDNbyaCb-9uURzKk3DNL9tF1qW02A
+    short-id: 68afe7c9144f83e8
+  client-fingerprint: chrome
+  network: tcp
+  servername: www.microsoft.com
+- name: JP备用01
+  type: vless
+  server: 85.149.218.28
+  port: 5226
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: SO7FOs2Fz3mmISk01G4seBNUWFPgfutqIqkJn5dX0GE
+    short-id: a5f7966b85165587
+  client-fingerprint: chrome
+  network: tcp
+  servername: download-porter.hoyoverse.com
+- name: JP备用02
+  type: vless
+  server: 85.149.218.28
+  port: 7397
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: alA-RnK0ssRMoKgDFmr4JndXCCojboQ-chXF5Xgvy0M
+    short-id: 1b1e8a3dccc86ccd
+  client-fingerprint: chrome
+  network: tcp
+  servername: www.apple.com
+- name: SG备用01
+  type: vless
+  server: 152.175.13.8
+  port: 7409
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: 6kw0oWDbY1Z-cd0yCa9QXB_ll1_f9NYISGlORtDU8Hw
+    short-id: 5705126b86857079
+  client-fingerprint: chrome
+  network: tcp
+  servername: www.microsoft.com
+- name: SG备用02
+  type: vless
+  server: 152.175.13.8
+  port: 9467
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: qtcBUnnONu0zgc3YCB3SBESQJvOUGMaK2jOmCuaiCRQ
+    short-id: 54598d3ec9d7f209
+  client-fingerprint: chrome
+  network: tcp
+  servername: www.cloudflare.com
 - name: US备用01
-  type: anytls
-  server: 85.149.218.124
-  port: 57339
-  password: a4adf959-f282-471e-aa6d-d02146171a74
+  type: vless
+  server: 216.23.82.107
+  port: 7587
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
   udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: eIoCcSuOiE-N7TjMtBADLOoWLh7Fqi67GE-uX1ARhyI
+    short-id: 21e534fa0bd78697
+  client-fingerprint: chrome
+  network: tcp
+  servername: www.apple.com
 - name: US备用02
-  type: anytls
-  server: 85.149.218.124
-  port: 57224
-  password: a4adf959-f282-471e-aa6d-d02146171a74
+  type: vless
+  server: 216.23.82.107
+  port: 7222
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
   udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: -y_sGlu-aD3MBve2LMP6ihYk7U3QUQn3ZUzxGOhu-RU
+    short-id: 1df922e6ef69fd9b
+  client-fingerprint: chrome
+  network: tcp
+  servername: www.microsoft.com
 - name: HK中转01
   type: vmess
   server: 82.109.227.64
@@ -68,7 +196,7 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /407a2d9d-fee4-5d45-a787-8158bc39b597
+    path: /c8462d65-0e61-5eff-bb73-4afd084f3e68
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -81,7 +209,7 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /c1b2dfe9-1c7d-51d5-8f7c-b3339272ddb4
+    path: /627491bf-5840-5255-8c29-d055299cb1bf
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -172,7 +300,7 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /8636cf92-d82b-5288-835a-acdba0d05889
+    path: /0776035a-8b25-5da2-abea-77f5d67c7a62
     headers:
       Host: tms.dingtalk.com
   udp: true
