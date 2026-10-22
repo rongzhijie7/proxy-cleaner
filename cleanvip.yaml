@@ -61,27 +61,27 @@ proxies:
   skip-cert-verify: true
 - name: HK中转01
   type: vmess
-  server: 82.109.227.64
+  server: 82.109.227.89
   port: 8080
   cipher: aes-128-gcm
   uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
   alterId: 0
   network: ws
   ws-opts:
-    path: /407a2d9d-fee4-5d45-a787-8158bc39b597
+    path: /3d2053af-b101-5710-8078-38128106081b
     headers:
       Host: tms.dingtalk.com
   udp: true
 - name: HK中转02
   type: vmess
-  server: 82.109.227.64
+  server: 82.109.227.89
   port: 8080
   cipher: aes-128-gcm
   uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
   alterId: 0
   network: ws
   ws-opts:
-    path: /7428a772-e915-5642-b1d1-9ba8d722cba0
+    path: /4e17a13d-8e93-59aa-9ac6-3d10b9fc45ef
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -133,7 +133,7 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /c1c592aa-575d-5830-aec5-6de129ba7f2c
+    path: /b17d3a59-0106-59a8-84a9-b715cd3cfc1d
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -146,20 +146,20 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /b17d3a59-0106-59a8-84a9-b715cd3cfc1d
+    path: /c1c592aa-575d-5830-aec5-6de129ba7f2c
     headers:
       Host: tms.dingtalk.com
   udp: true
 - name: US中转01
   type: vmess
-  server: 82.109.227.64
+  server: 82.109.227.89
   port: 8080
   cipher: aes-128-gcm
   uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
   alterId: 0
   network: ws
   ws-opts:
-    path: /8636cf92-d82b-5288-835a-acdba0d05889
+    path: /871605c2-5b56-52e0-8b15-c480f22d88c3
     headers:
       Host: tms.dingtalk.com
   udp: true
