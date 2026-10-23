@@ -46,24 +46,6 @@ proxies:
 - name: HK备用01
   type: vless
   server: 152.175.13.8
-  port: 8850
-  uuid: a4adf959-f282-471e-aa6d-d02146171a74
-  alterId: 0
-  cipher: auto
-  udp: true
-  flow: xtls-rprx-vision
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  reality-opts:
-    public-key: OZ_b_-5Y13dxWmoCt6O-e_LR1zFqQkoLQEPVu3LfBzg
-    short-id: a705f8454a183dd4
-  client-fingerprint: chrome
-  network: tcp
-  servername: gateway.icloud.com
-- name: HK备用02
-  type: vless
-  server: 152.175.13.8
   port: 6736
   uuid: a4adf959-f282-471e-aa6d-d02146171a74
   alterId: 0
@@ -79,6 +61,24 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: www.microsoft.com
+- name: HK备用02
+  type: vless
+  server: 152.175.13.8
+  port: 8850
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: OZ_b_-5Y13dxWmoCt6O-e_LR1zFqQkoLQEPVu3LfBzg
+    short-id: a705f8454a183dd4
+  client-fingerprint: chrome
+  network: tcp
+  servername: gateway.icloud.com
 - name: JP备用01
   type: vless
   server: 85.149.218.28
@@ -136,7 +136,7 @@ proxies:
 - name: SG备用02
   type: vless
   server: 152.175.13.8
-  port: 8606
+  port: 9467
   uuid: a4adf959-f282-471e-aa6d-d02146171a74
   alterId: 0
   cipher: auto
@@ -146,30 +146,12 @@ proxies:
   tls: true
   skip-cert-verify: false
   reality-opts:
-    public-key: 4dK1xO104hknltn7P8aBYjgag-sTCcboM9zCte8vJzc
-    short-id: e96c9e2cd094d338
+    public-key: qtcBUnnONu0zgc3YCB3SBESQJvOUGMaK2jOmCuaiCRQ
+    short-id: 54598d3ec9d7f209
   client-fingerprint: chrome
   network: tcp
-  servername: dl.google.com
+  servername: www.cloudflare.com
 - name: US备用01
-  type: vless
-  server: 216.23.82.107
-  port: 9559
-  uuid: a4adf959-f282-471e-aa6d-d02146171a74
-  alterId: 0
-  cipher: auto
-  udp: true
-  flow: xtls-rprx-vision
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  reality-opts:
-    public-key: CQaaERP19MvGGrGrGUFVPZyC-Yfx2XsnobpDmBgh3gw
-    short-id: da843aee6f5e26e6
-  client-fingerprint: chrome
-  network: tcp
-  servername: gateway.icloud.com
-- name: US备用02
   type: vless
   server: 216.23.82.107
   port: 7222
@@ -187,20 +169,25 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: www.microsoft.com
-- name: HK中转01
-  type: vmess
-  server: 82.109.227.89
-  port: 8080
-  cipher: aes-128-gcm
-  uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
+- name: US备用02
+  type: vless
+  server: 216.23.82.107
+  port: 9559
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
   alterId: 0
-  network: ws
-  ws-opts:
-    path: /4e17a13d-8e93-59aa-9ac6-3d10b9fc45ef
-    headers:
-      Host: tms.dingtalk.com
+  cipher: auto
   udp: true
-- name: HK中转02
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: CQaaERP19MvGGrGrGUFVPZyC-Yfx2XsnobpDmBgh3gw
+    short-id: da843aee6f5e26e6
+  client-fingerprint: chrome
+  network: tcp
+  servername: gateway.icloud.com
+- name: HK中转01
   type: vmess
   server: 82.109.227.89
   port: 8080
@@ -213,6 +200,19 @@ proxies:
     headers:
       Host: tms.dingtalk.com
   udp: true
+- name: HK中转02
+  type: vmess
+  server: 82.109.227.89
+  port: 8080
+  cipher: aes-128-gcm
+  uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
+  alterId: 0
+  network: ws
+  ws-opts:
+    path: /0b95429d-fb7b-5c42-b9d2-09e7d9538070
+    headers:
+      Host: tms.dingtalk.com
+  udp: true
 - name: JP中转01
   type: vmess
   server: 82.109.227.89
@@ -222,7 +222,7 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /f2a1ea72-960b-50df-922f-f94db85815c5
+    path: /fd968c3a-b965-579f-8c82-75670fd11eef
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -236,6 +236,19 @@ proxies:
   network: ws
   ws-opts:
     path: /48b27e9e-1e69-5cc0-998f-6f1d1138a029
+    headers:
+      Host: tms.dingtalk.com
+  udp: true
+- name: KR中转01
+  type: vmess
+  server: 82.109.227.89
+  port: 8080
+  cipher: aes-128-gcm
+  uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
+  alterId: 0
+  network: ws
+  ws-opts:
+    path: /274a7731-03a7-5585-8461-b34b7512a701
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -267,14 +280,14 @@ proxies:
   udp: true
 - name: US中转01
   type: vmess
-  server: 82.109.227.89
+  server: 82.109.227.64
   port: 8080
   cipher: aes-128-gcm
   uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
   alterId: 0
   network: ws
   ws-opts:
-    path: /871605c2-5b56-52e0-8b15-c480f22d88c3
+    path: /b95bfb5e-ea09-51e0-a8f6-dbd2a39288fb
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -287,7 +300,7 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /b95bfb5e-ea09-51e0-a8f6-dbd2a39288fb
+    path: /fd9ba1b8-fc82-52ff-b5fa-594377428617
     headers:
       Host: tms.dingtalk.com
   udp: true
