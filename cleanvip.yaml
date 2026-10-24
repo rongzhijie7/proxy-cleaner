@@ -64,7 +64,7 @@ proxies:
 - name: HK备用02
   type: vless
   server: 152.175.13.8
-  port: 6736
+  port: 9417
   uuid: a4adf959-f282-471e-aa6d-d02146171a74
   alterId: 0
   cipher: auto
@@ -74,11 +74,11 @@ proxies:
   tls: true
   skip-cert-verify: false
   reality-opts:
-    public-key: eQl-SJK4p72OE9NDNbyaCb-9uURzKk3DNL9tF1qW02A
-    short-id: 68afe7c9144f83e8
+    public-key: evMHV07qo64e9jr6BeoeY0Oved-zo0gG8Wpq5-klMgM
+    short-id: ad22ba9b52d7435d
   client-fingerprint: chrome
   network: tcp
-  servername: www.microsoft.com
+  servername: dl.google.com
 - name: JP备用01
   type: vless
   server: 85.149.218.28
@@ -100,7 +100,7 @@ proxies:
 - name: JP备用02
   type: vless
   server: 85.149.218.28
-  port: 7185
+  port: 7397
   uuid: a4adf959-f282-471e-aa6d-d02146171a74
   alterId: 0
   cipher: auto
@@ -110,11 +110,11 @@ proxies:
   tls: true
   skip-cert-verify: false
   reality-opts:
-    public-key: m0IRiI3EipRwvNHd1dJIm7iCxpz-ny-kaFNdPkTwtBI
-    short-id: 0dbf5cab8ac47793
+    public-key: alA-RnK0ssRMoKgDFmr4JndXCCojboQ-chXF5Xgvy0M
+    short-id: 1b1e8a3dccc86ccd
   client-fingerprint: chrome
   network: tcp
-  servername: swdist.apple.com
+  servername: www.apple.com
 - name: SG备用01
   type: vless
   server: 152.175.13.8
@@ -172,7 +172,7 @@ proxies:
 - name: US备用02
   type: vless
   server: 216.23.82.107
-  port: 7222
+  port: 7587
   uuid: a4adf959-f282-471e-aa6d-d02146171a74
   alterId: 0
   cipher: auto
@@ -182,21 +182,21 @@ proxies:
   tls: true
   skip-cert-verify: false
   reality-opts:
-    public-key: -y_sGlu-aD3MBve2LMP6ihYk7U3QUQn3ZUzxGOhu-RU
-    short-id: 1df922e6ef69fd9b
+    public-key: eIoCcSuOiE-N7TjMtBADLOoWLh7Fqi67GE-uX1ARhyI
+    short-id: 21e534fa0bd78697
   client-fingerprint: chrome
   network: tcp
-  servername: www.microsoft.com
+  servername: www.apple.com
 - name: HK中转01
   type: vmess
-  server: 82.109.227.89
+  server: 82.109.227.64
   port: 8080
   cipher: aes-128-gcm
   uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
   alterId: 0
   network: ws
   ws-opts:
-    path: /3906f824-1308-5372-b18d-3c14d04a4278
+    path: /407a2d9d-fee4-5d45-a787-8158bc39b597
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -209,7 +209,7 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /3d2053af-b101-5710-8078-38128106081b
+    path: /4e17a13d-8e93-59aa-9ac6-3d10b9fc45ef
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -222,7 +222,7 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /fd968c3a-b965-579f-8c82-75670fd11eef
+    path: /f2a1ea72-960b-50df-922f-f94db85815c5
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -261,7 +261,7 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /c1c592aa-575d-5830-aec5-6de129ba7f2c
+    path: /b17d3a59-0106-59a8-84a9-b715cd3cfc1d
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -274,7 +274,7 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /b17d3a59-0106-59a8-84a9-b715cd3cfc1d
+    path: /c1c592aa-575d-5830-aec5-6de129ba7f2c
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -287,7 +287,7 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /0776035a-8b25-5da2-abea-77f5d67c7a62
+    path: /b95bfb5e-ea09-51e0-a8f6-dbd2a39288fb
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -300,7 +300,7 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /961fec53-0864-5d90-9da9-8bc55e926e45
+    path: /fd9ba1b8-fc82-52ff-b5fa-594377428617
     headers:
       Host: tms.dingtalk.com
   udp: true
