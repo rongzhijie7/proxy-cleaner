@@ -84,6 +84,24 @@ proxies:
   password: d9cb6419-d18a-4375-b296-a38fffaf8fb1
   fingerprint: f39333d989d685541f08cb96cd8986f9854fed3674e5cc24c4bfbba81035dacf
 - name: 香港-7
+  server: aws-linkhy3.lxyun.xyz
+  port: 443
+  udp: true
+  skip-cert-verify: true
+  sni: www.apple.com
+  type: hysteria2
+  password: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  fingerprint: 24d0dd43ee022bb4b0fa0b1c75d276da6b6485038fb59804498f84b80f0689ca
+- name: 香港-8
+  server: aws-linkhy4.lxyun.xyz
+  port: 443
+  udp: true
+  skip-cert-verify: true
+  sni: iosapps.itunes.apple.com
+  type: hysteria2
+  password: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  fingerprint: ab4e4175bb4234fec92dec0977ec4c9933fe1e0b9f4fe98b8f7444c56360effd
+- name: 香港-9
   type: vless
   server: hk-10g.xn--9kqp42aims.top
   port: 443
@@ -99,37 +117,31 @@ proxies:
     support-x25519mlkem768: true
   network: tcp
   servername: osxapps.itunes.apple.com
-- name: 香港-8
-  type: vless
-  server: 8f075ed5.alidns-3.com
+- name: 台湾-1
+  server: aws-linkhy22.lxyun.xyz
   port: 443
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
   udp: true
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: safari
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ak5.mcdonaldshamburgergoodgoodgood.xyz
-  servername: ak5.mcdonaldshamburgergoodgoodgood.xyz
-- name: 香港-9
-  type: vless
-  server: 172.64.145.105
-  port: 443
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: safari
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ak5.mcdonaldshamburgergoodgoodgood.xyz
-  servername: ak5.mcdonaldshamburgergoodgoodgood.xyz
+  skip-cert-verify: true
+  sni: bilibili-tw.biliimg.com
+  type: hysteria2
+  password: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  fingerprint: 41bdd7599812d70f35e0fdafef794eb25b4f16d8735876038e414f9b8a29bf4c
 - name: 新加坡-1
+  type: vless
+  server: aws-link7.lxyun.xyz
+  port: 443
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: ios
+  reality-opts:
+    public-key: w7AGIp_u4slcX3JotLyiuaT05lawuzU3f1eL88RI53c
+    short-id: 1d77a374
+  network: tcp
+  servername: fastcdn.hoyoverse.com
+- name: 新加坡-2
   type: vless
   server: aws-link8.lxyun.xyz
   port: 443
@@ -144,7 +156,7 @@ proxies:
     short-id: 55c73a28
   network: tcp
   servername: iosapps.itunes.apple.com
-- name: 新加坡-2
+- name: 新加坡-3
   type: vless
   server: aws-link9.lxyun.xyz
   port: 443
@@ -159,7 +171,7 @@ proxies:
     short-id: bef8fff6
   network: tcp
   servername: iosapps.itunes.apple.com
-- name: 新加坡-3
+- name: 新加坡-4
   type: vless
   server: aws-link30.lxyun.xyz
   port: 443
@@ -174,7 +186,7 @@ proxies:
     short-id: fa6fb544
   network: tcp
   servername: www.lamer.com.hk
-- name: 新加坡-4
+- name: 新加坡-5
   type: vless
   server: aws-link31.lxyun.xyz
   port: 443
@@ -189,21 +201,6 @@ proxies:
     short-id: c7487aeb
   network: tcp
   servername: download-porter.hoyoverse.com
-- name: 新加坡-5
-  type: vless
-  server: cfyes.7770008.xyz
-  port: 443
-  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /liangxin/sg1
-    headers:
-      Host: lx-sg1.7770006.xyz
-  servername: lx-sg1.7770006.xyz
 - name: 新加坡-6
   type: vless
   server: cfyes.7770008.xyz
@@ -235,6 +232,21 @@ proxies:
       Host: lx-sg1.7770006.xyz
   servername: lx-sg1.7770006.xyz
 - name: 新加坡-8
+  type: vless
+  server: cfyes.7770008.xyz
+  port: 443
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /liangxin/sg1
+    headers:
+      Host: lx-sg1.7770006.xyz
+  servername: lx-sg1.7770006.xyz
+- name: 新加坡-9
   server: aws-linkhy9.lxyun.xyz
   port: 60000
   ports: 60000-65530
@@ -245,7 +257,7 @@ proxies:
   type: hysteria2
   password: d9cb6419-d18a-4375-b296-a38fffaf8fb1
   fingerprint: 2b6c9b75b2ef903fbe66ee91d1801941dea0ddb5429505ae3bce65e2fb17ad45
-- name: 新加坡-9
+- name: 新加坡-10
   server: aws-linkhy10.lxyun.xyz
   port: 60000
   ports: 60000-65530
@@ -256,7 +268,7 @@ proxies:
   type: hysteria2
   password: d9cb6419-d18a-4375-b296-a38fffaf8fb1
   fingerprint: 2b6c9b75b2ef903fbe66ee91d1801941dea0ddb5429505ae3bce65e2fb17ad45
-- name: 新加坡-10
+- name: 新加坡-11
   server: aws-linkhy11.lxyun.xyz
   port: 60000
   ports: 60000-65530
@@ -267,7 +279,7 @@ proxies:
   type: hysteria2
   password: d9cb6419-d18a-4375-b296-a38fffaf8fb1
   fingerprint: dd9dd03d942400ad4c1400879bda98f4fa097183aa9a91a1423cdd42a3e183d7
-- name: 新加坡-11
+- name: 新加坡-12
   server: aws-linkhy12.lxyun.xyz
   port: 60000
   ports: 60000-65530
@@ -278,7 +290,7 @@ proxies:
   type: hysteria2
   password: d9cb6419-d18a-4375-b296-a38fffaf8fb1
   fingerprint: 064255322ff7fa4fc225b44e72e5347fb9094fccc3bdd14ddb006118296b3fd3
-- name: 新加坡-12
+- name: 新加坡-13
   server: xjptt.xn--9kqp42aims.top
   port: 20000
   ports: 20000-55000
@@ -290,7 +302,7 @@ proxies:
   password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
   obfs: salamander
   obfs-password: OTA2ZjRiOGQ5MWYxNmQyZA==
-- name: 新加坡-13
+- name: 新加坡-14
   server: xjpyd.xn--9kqp42aims.top
   port: 65502
   udp: true
@@ -300,7 +312,7 @@ proxies:
   password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
   obfs: salamander
   obfs-password: OTA2ZjRiOGQ5MWYxNmQyZA==
-- name: 新加坡-14
+- name: 新加坡-15
   type: vless
   server: 5.180.78.85
   port: 443
@@ -348,6 +360,21 @@ proxies:
   servername: jp2-lx.7770006.xyz
 - name: 日本-3
   type: vless
+  server: aws-link20.lxyun.xyz
+  port: 443
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: ios
+  reality-opts:
+    public-key: QE5l0RUqs4OsH3j3u_xHm06-4NlILmQivZUJqiEx11o
+    short-id: 6314e825
+  network: tcp
+  servername: download-porter.hoyoverse.com
+- name: 日本-4
+  type: vless
   server: cfyes.7770006.xyz
   port: 443
   uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
@@ -357,33 +384,11 @@ proxies:
   client-fingerprint: chrome
   network: ws
   ws-opts:
-    path: /liangxin/download/jp
+    path: /liangxin/dash/jp
     headers:
-      Host: jp4-lx.7770006.xyz
-  servername: jp4-lx.7770006.xyz
-- name: 日本-4
-  server: aws-linkhy15.lxyun.xyz
-  port: 60000
-  ports: 60000-65530
-  mport: 60000-65530
-  udp: true
-  skip-cert-verify: true
-  sni: bilibili-jp.biliimg.com
-  type: hysteria2
-  password: d9cb6419-d18a-4375-b296-a38fffaf8fb1
-  fingerprint: 95b89cf256ca58006f8d2f090bc8a6ca89b385f424852e82b59f2af384b142d7
+      Host: jp3-lx.7770006.xyz
+  servername: jp3-lx.7770006.xyz
 - name: 日本-5
-  server: aws-linkhy17.lxyun.xyz
-  port: 60000
-  ports: 60000-65530
-  mport: 60000-65530
-  udp: true
-  skip-cert-verify: true
-  sni: bilibili-jp3.biliimg.com
-  type: hysteria2
-  password: d9cb6419-d18a-4375-b296-a38fffaf8fb1
-  fingerprint: a52eee8669d92360a913a3fc101157e2bdc182947a377831abbccc31928decce
-- name: 日本-6
   server: aws-linkhy18.lxyun.xyz
   port: 60000
   ports: 60000-65530
@@ -394,7 +399,7 @@ proxies:
   type: hysteria2
   password: d9cb6419-d18a-4375-b296-a38fffaf8fb1
   fingerprint: a52eee8669d92360a913a3fc101157e2bdc182947a377831abbccc31928decce
-- name: 日本-7
+- name: 日本-6
   server: jpyh.xn--9kqp42aims.top
   port: 20000
   ports: 20000-55000
@@ -406,6 +411,21 @@ proxies:
   password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
   obfs: salamander
   obfs-password: OTA7ZjRiOGQ5MWYxNmQyZA==
+- name: 日本-7
+  type: vless
+  server: jp03.73c01f37-d10a-4317-a43a-380fc51d0bc4.genshinimpact.cyou
+  port: 443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  reality-opts:
+    public-key: upIlaFG6DWfKE8wjn_qXYqb9ohDNavC3LRayjJ4Wp1o
+    short-id: 94d3f4df
+  network: tcp
+  servername: download-porter.hoyoverse.com
 - name: 日本-8
   type: vless
   server: jp01.5392a812-9a56-456f-b89a-9e5b4208168a.genshinimpact.cyou
