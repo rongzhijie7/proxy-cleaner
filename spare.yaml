@@ -1,17 +1,1 @@
-proxies:
-- type: vless
-  name: JP01
-  server: jp.890215.top
-  port: 443
-  uuid: b8d08c73-c3f8-4a8d-bb70-d675c4d38c6c
-  udp: true
-  tls: true
-  flow: xtls-rprx-vision
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  packet-encoding: xudp
-  reality-opts:
-    public-key: OXFtn8UIHQXSkaqpuwlYwdZecPNmN0BsTyfs5bu7LUU
-    short-id: d13e3890c5
-  network: tcp
-  servername: www.bing.com
+proxies: []
