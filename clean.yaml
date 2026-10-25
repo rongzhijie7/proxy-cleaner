@@ -75,15 +75,6 @@ proxies:
   network: tcp
   servername: fastcdn.hoyoverse.com
 - name: 香港-6
-  server: aws-linkhy1.lxyun.xyz
-  port: 443
-  udp: true
-  skip-cert-verify: true
-  sni: download-porter.hoyoverse.com
-  type: hysteria2
-  password: d9cb6419-d18a-4375-b296-a38fffaf8fb1
-  fingerprint: 5343bfcb1c5db62de169584dd7ae238dc9a8f2659283f1ee99b06d744c644806
-- name: 香港-7
   server: aws-linkhy2.lxyun.xyz
   port: 443
   udp: true
@@ -92,16 +83,7 @@ proxies:
   type: hysteria2
   password: d9cb6419-d18a-4375-b296-a38fffaf8fb1
   fingerprint: f39333d989d685541f08cb96cd8986f9854fed3674e5cc24c4bfbba81035dacf
-- name: 香港-8
-  server: aws-linkhy3.lxyun.xyz
-  port: 443
-  udp: true
-  skip-cert-verify: true
-  sni: www.apple.com
-  type: hysteria2
-  password: d9cb6419-d18a-4375-b296-a38fffaf8fb1
-  fingerprint: 24d0dd43ee022bb4b0fa0b1c75d276da6b6485038fb59804498f84b80f0689ca
-- name: 香港-9
+- name: 香港-7
   type: vless
   server: hk-10g.xn--9kqp42aims.top
   port: 443
@@ -117,7 +99,7 @@ proxies:
     support-x25519mlkem768: true
   network: tcp
   servername: osxapps.itunes.apple.com
-- name: 香港-10
+- name: 香港-8
   type: vless
   server: 8f075ed5.alidns-3.com
   port: 443
@@ -132,7 +114,7 @@ proxies:
     headers:
       Host: ak5.mcdonaldshamburgergoodgoodgood.xyz
   servername: ak5.mcdonaldshamburgergoodgoodgood.xyz
-- name: 香港-11
+- name: 香港-9
   type: vless
   server: 172.64.145.105
   port: 443
@@ -375,19 +357,19 @@ proxies:
   servername: jp1-lx.7770006.xyz
 - name: 日本-2
   type: vless
-  server: cfyes.7770006.xyz
+  server: aws-link13.lxyun.xyz
   port: 443
   uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
   udp: true
   tls: true
   skip-cert-verify: false
+  flow: xtls-rprx-vision
   client-fingerprint: safari
-  network: ws
-  ws-opts:
-    path: /liangxin/data
-    headers:
-      Host: jp2-lx.7770006.xyz
-  servername: jp2-lx.7770006.xyz
+  reality-opts:
+    public-key: AYnt6YQxdEGfpWjo25H9ZvgPp_WxRbGWSkaptwTZJ3M
+    short-id: 131baaed
+  network: tcp
+  servername: download-porter.hoyoverse.com
 - name: 日本-3
   type: vless
   server: aws-link19.lxyun.xyz
@@ -434,16 +416,20 @@ proxies:
       Host: jp4-lx.7770006.xyz
   servername: jp4-lx.7770006.xyz
 - name: 日本-6
-  server: aws-linkhy15.lxyun.xyz
-  port: 60000
-  ports: 60000-65530
-  mport: 60000-65530
+  type: vless
+  server: cfyes.7770006.xyz
+  port: 443
+  uuid: d9cb6419-d18a-4375-b296-a38fffaf8fb1
   udp: true
-  skip-cert-verify: true
-  sni: bilibili-jp.biliimg.com
-  type: hysteria2
-  password: d9cb6419-d18a-4375-b296-a38fffaf8fb1
-  fingerprint: 95b89cf256ca58006f8d2f090bc8a6ca89b385f424852e82b59f2af384b142d7
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /liangxin/download/jp
+    headers:
+      Host: jp4-lx.7770006.xyz
+  servername: jp4-lx.7770006.xyz
 - name: 日本-7
   server: aws-linkhy17.lxyun.xyz
   port: 60000
@@ -456,17 +442,6 @@ proxies:
   password: d9cb6419-d18a-4375-b296-a38fffaf8fb1
   fingerprint: a52eee8669d92360a913a3fc101157e2bdc182947a377831abbccc31928decce
 - name: 日本-8
-  server: aws-linkhy18.lxyun.xyz
-  port: 60000
-  ports: 60000-65530
-  mport: 60000-65530
-  udp: true
-  skip-cert-verify: true
-  sni: bilibili-jp4.biliimg.com
-  type: hysteria2
-  password: d9cb6419-d18a-4375-b296-a38fffaf8fb1
-  fingerprint: a52eee8669d92360a913a3fc101157e2bdc182947a377831abbccc31928decce
-- name: 日本-9
   server: jpyh.xn--9kqp42aims.top
   port: 20000
   ports: 20000-55000
@@ -478,7 +453,7 @@ proxies:
   password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
   obfs: salamander
   obfs-password: OTA7ZjRiOGQ5MWYxNmQyZA==
-- name: 日本-10
+- name: 日本-9
   type: vless
   server: jp03.73c01f37-d10a-4317-a43a-380fc51d0bc4.genshinimpact.cyou
   port: 443
@@ -493,7 +468,7 @@ proxies:
     short-id: 94d3f4df
   network: tcp
   servername: download-porter.hoyoverse.com
-- name: 日本-11
+- name: 日本-10
   type: vless
   server: jp01.5392a812-9a56-456f-b89a-9e5b4208168a.genshinimpact.cyou
   port: 8443
@@ -689,6 +664,21 @@ proxies:
   obfs-password: OTA2ZjRiOGQ5MWYxNmQyZA==
 - name: 美国-14
   type: vless
+  server: us01.d168f27a-5efc-4699-891d-eda6ea40be1d.genshinimpact.cyou
+  port: 443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: eN-hpk_h3mbxeGOfINunn7Ij_nsfFkgja3w5breOygg
+    short-id: 296d5815
+  network: tcp
+  servername: download.windowsupdate.com
+- name: 美国-15
+  type: vless
   server: us02.4b214271-fd51-4e6b-9303-fe6e915f406d.genshinimpact.cyou
   port: 443
   uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
@@ -702,24 +692,9 @@ proxies:
     short-id: 157eb31c
   network: tcp
   servername: www.bing.com
-- name: 美国-15
-  type: vless
-  server: cfyes.7770006.xyz
-  port: 443
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: safari
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: us7.mcdonaldshamburgergoodgoodgood.xyz
-  servername: us7.mcdonaldshamburgergoodgoodgood.xyz
 - name: 美国-16
   type: vless
-  server: 8f075ed5.alidns-3.com
+  server: cfyes.7770006.xyz
   port: 443
   uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
   udp: true
@@ -734,7 +709,7 @@ proxies:
   servername: us7.mcdonaldshamburgergoodgoodgood.xyz
 - name: 美国-17
   type: vless
-  server: 172.64.229.88
+  server: 8f075ed5.alidns-3.com
   port: 443
   uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
   udp: true
@@ -749,6 +724,21 @@ proxies:
   servername: us7.mcdonaldshamburgergoodgoodgood.xyz
 - name: 美国-18
   type: vless
+  server: 172.64.229.88
+  port: 443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: us7.mcdonaldshamburgergoodgoodgood.xyz
+  servername: us7.mcdonaldshamburgergoodgoodgood.xyz
+- name: 美国-19
+  type: vless
   server: cfyes.7770006.xyz
   port: 443
   uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
@@ -762,7 +752,7 @@ proxies:
     headers:
       Host: us9.mcdonaldshamburgergoodgoodgood.xyz
   servername: us9.mcdonaldshamburgergoodgoodgood.xyz
-- name: 美国-19
+- name: 美国-20
   type: vless
   server: 8f075ed5.alidns-3.com
   port: 443
@@ -777,7 +767,7 @@ proxies:
     headers:
       Host: us9.mcdonaldshamburgergoodgoodgood.xyz
   servername: us9.mcdonaldshamburgergoodgoodgood.xyz
-- name: 美国-20
+- name: 美国-21
   type: vless
   server: 172.64.229.88
   port: 443
