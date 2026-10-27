@@ -172,7 +172,7 @@ proxies:
 - name: SG备用02
   type: vless
   server: hk-sakura.private.nowhere-backend.xyz
-  port: 7409
+  port: 8606
   uuid: a4adf959-f282-471e-aa6d-d02146171a74
   alterId: 0
   cipher: auto
@@ -182,12 +182,30 @@ proxies:
   tls: true
   skip-cert-verify: false
   reality-opts:
-    public-key: 6kw0oWDbY1Z-cd0yCa9QXB_ll1_f9NYISGlORtDU8Hw
-    short-id: 5705126b86857079
+    public-key: 4dK1xO104hknltn7P8aBYjgag-sTCcboM9zCte8vJzc
+    short-id: e96c9e2cd094d338
+  client-fingerprint: chrome
+  network: tcp
+  servername: dl.google.com
+- name: US备用01
+  type: vless
+  server: jp-zouter.private.nowhere-backend.xyz
+  port: 7222
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: -y_sGlu-aD3MBve2LMP6ihYk7U3QUQn3ZUzxGOhu-RU
+    short-id: 1df922e6ef69fd9b
   client-fingerprint: chrome
   network: tcp
   servername: www.microsoft.com
-- name: US备用01
+- name: US备用02
   type: vless
   server: jp-zouter.private.nowhere-backend.xyz
   port: 9559
@@ -205,38 +223,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: gateway.icloud.com
-- name: US备用02
-  type: vless
-  server: jp-zouter.private.nowhere-backend.xyz
-  port: 7587
-  uuid: a4adf959-f282-471e-aa6d-d02146171a74
-  alterId: 0
-  cipher: auto
-  udp: true
-  flow: xtls-rprx-vision
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  reality-opts:
-    public-key: eIoCcSuOiE-N7TjMtBADLOoWLh7Fqi67GE-uX1ARhyI
-    short-id: 21e534fa0bd78697
-  client-fingerprint: chrome
-  network: tcp
-  servername: www.apple.com
 - name: HK中转01
-  type: vmess
-  server: 82.109.227.89
-  port: 8080
-  cipher: aes-128-gcm
-  uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
-  alterId: 0
-  network: ws
-  ws-opts:
-    path: /c1b2dfe9-1c7d-51d5-8f7c-b3339272ddb4
-    headers:
-      Host: tms.dingtalk.com
-  udp: true
-- name: HK中转02
   type: vmess
   server: 82.109.227.89
   port: 8080
@@ -249,6 +236,19 @@ proxies:
     headers:
       Host: tms.dingtalk.com
   udp: true
+- name: HK中转02
+  type: vmess
+  server: 82.109.227.89
+  port: 8080
+  cipher: aes-128-gcm
+  uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
+  alterId: 0
+  network: ws
+  ws-opts:
+    path: /04b4499a-71aa-5388-9d19-31a6ba6a4952
+    headers:
+      Host: tms.dingtalk.com
+  udp: true
 - name: JP中转01
   type: vmess
   server: 82.109.227.89
@@ -258,7 +258,7 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /fd968c3a-b965-579f-8c82-75670fd11eef
+    path: /f2a1ea72-960b-50df-922f-f94db85815c5
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -271,7 +271,20 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /f2a1ea72-960b-50df-922f-f94db85815c5
+    path: /fd968c3a-b965-579f-8c82-75670fd11eef
+    headers:
+      Host: tms.dingtalk.com
+  udp: true
+- name: KR中转01
+  type: vmess
+  server: 82.109.227.89
+  port: 8080
+  cipher: aes-128-gcm
+  uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
+  alterId: 0
+  network: ws
+  ws-opts:
+    path: /274a7731-03a7-5585-8461-b34b7512a701
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -316,6 +329,19 @@ proxies:
   udp: true
 - name: US中转02
   type: vmess
+  server: 82.109.227.89
+  port: 8080
+  cipher: aes-128-gcm
+  uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
+  alterId: 0
+  network: ws
+  ws-opts:
+    path: /871605c2-5b56-52e0-8b15-c480f22d88c3
+    headers:
+      Host: tms.dingtalk.com
+  udp: true
+- name: GB中转01
+  type: vmess
   server: 82.109.227.64
   port: 8080
   cipher: aes-128-gcm
@@ -323,11 +349,29 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /0776035a-8b25-5da2-abea-77f5d67c7a62
+    path: /78a5b4ff-0d73-5cdd-805e-c569b63e207a
     headers:
       Host: tms.dingtalk.com
   udp: true
 - name: 香港中转01
+  type: vless
+  server: jp-gcp.private.nowhere-backend.xyz
+  port: 50799
+  uuid: 52a4f902-bff2-407f-a12b-6d8ead71b45c
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: NePLkFDAIgWVgenS3Ow200MSr83vxEonRQmUuirgh28
+    short-id: 01e62f013f86
+  client-fingerprint: safari
+  network: tcp
+  servername: download-porter.hoyoverse.com
+- name: 香港中转02
   type: vless
   server: aws-sg-stable.domestic.nowhere-backend.xyz
   port: 62535
@@ -345,14 +389,6 @@ proxies:
   client-fingerprint: safari
   network: tcp
   servername: download-porter.hoyoverse.com
-- name: 香港中转02
-  type: anytls
-  server: sg-aws-stable.private.nowhere-backend.xyz
-  port: 20552
-  password: 52a4f902-bff2-407f-a12b-6d8ead71b45c
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
 - name: 台湾中转01
   type: anytls
   server: jp-aws-stable.private.nowhere-backend.xyz
@@ -362,9 +398,17 @@ proxies:
   sni: cache-proxy.ahdohpiechei.com
   skip-cert-verify: true
 - name: 台湾中转02
+  type: anytls
+  server: aws-sg-stable.domestic.nowhere-backend.xyz
+  port: 53133
+  password: 52a4f902-bff2-407f-a12b-6d8ead71b45c
+  udp: true
+  sni: cache-proxy.ahdohpiechei.com
+  skip-cert-verify: true
+- name: 日本中转01
   type: vless
   server: jp-gcp.private.nowhere-backend.xyz
-  port: 13600
+  port: 12859
   uuid: 52a4f902-bff2-407f-a12b-6d8ead71b45c
   alterId: 0
   cipher: auto
@@ -374,23 +418,15 @@ proxies:
   tls: true
   skip-cert-verify: false
   reality-opts:
-    public-key: OI7rBczX7Ku2Ee2a0vuDvYgWQ_X1HrfqifL6nkJt3hQ
-    short-id: '80'
+    public-key: lZULtsUUssATCAfdoYrVZ-9-54EjYXfDlm3_WRpjHSE
+    short-id: cc2c37989df591
   client-fingerprint: safari
   network: tcp
   servername: download-porter.hoyoverse.com
-- name: 日本中转01
-  type: anytls
-  server: jp-gcp.private.nowhere-backend.xyz
-  port: 40157
-  password: 52a4f902-bff2-407f-a12b-6d8ead71b45c
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
 - name: 日本中转02
   type: anytls
   server: jp-gcp.private.nowhere-backend.xyz
-  port: 44456
+  port: 40157
   password: 52a4f902-bff2-407f-a12b-6d8ead71b45c
   udp: true
   sni: cache-proxy.ahdohpiechei.com
@@ -404,21 +440,41 @@ proxies:
   sni: cache-proxy.ahdohpiechei.com
   skip-cert-verify: true
 - name: 新加坡中转02
-  type: anytls
-  server: jp-aws-stable.private.nowhere-backend.xyz
-  port: 14487
-  password: 52a4f902-bff2-407f-a12b-6d8ead71b45c
+  type: vless
+  server: jp-gcp.private.nowhere-backend.xyz
+  port: 48301
+  uuid: 52a4f902-bff2-407f-a12b-6d8ead71b45c
+  alterId: 0
+  cipher: auto
   udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: 5zT2Ga9n-Ks7qVZmNdbbHu8jZLtUG905GuGFSWs0JjE
+    short-id: f35114c3
+  client-fingerprint: safari
+  network: tcp
+  servername: download-porter.hoyoverse.com
 - name: 美国中转01
-  type: anytls
+  type: vless
   server: jp-aws-stable.private.nowhere-backend.xyz
-  port: 51855
-  password: 52a4f902-bff2-407f-a12b-6d8ead71b45c
+  port: 27333
+  uuid: 52a4f902-bff2-407f-a12b-6d8ead71b45c
+  alterId: 0
+  cipher: auto
   udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: oj4P46N7Aj8cVMjqzoMRntTxDG28KUcvYyfPycctYw8
+    short-id: d9c01b71ce3d
+  client-fingerprint: safari
+  network: tcp
+  servername: download-porter.hoyoverse.com
 - name: 美国中转02
   type: anytls
   server: jp-gcp.private.nowhere-backend.xyz
