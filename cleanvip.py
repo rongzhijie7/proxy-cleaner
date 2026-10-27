@@ -28,16 +28,21 @@ TEST_TIMEOUT = 5000
 # 每个地区最多保留
 MAX_BACKUP_PER_REGION = 2
 MAX_RELAY_PER_REGION = 2
+MAX_PING_PER_REGION = 2
 
 
 # ============================================================
 # 允许的地区
-# ISO 3166-1 alpha-2
 # ============================================================
 
 REGIONS = {
     "香港": "HK",
     "🇭🇰": "HK",
+
+    "台湾": "TW",
+    "臺灣": "TW",
+    "台灣": "TW",
+    "🇹🇼": "TW",
 
     "日本": "JP",
     "🇯🇵": "JP",
@@ -60,15 +65,27 @@ REGIONS = {
     "🇬🇧": "GB",
 }
 
-
+# 最终输出地区顺序
 REGION_ORDER = [
     "HK",
+    "TW",
     "JP",
     "KR",
     "SG",
     "US",
     "GB",
 ]
+
+# PING 节点使用中文地区名称
+REGION_NAMES = {
+    "HK": "香港",
+    "TW": "台湾",
+    "JP": "日本",
+    "KR": "韩国",
+    "SG": "新加坡",
+    "US": "美国",
+    "GB": "英国",
+}
 
 
 # ============================================================
@@ -84,16 +101,13 @@ def log(text):
 # ============================================================
 
 def get_vip():
-
     log("=" * 60)
     log("获取 VIP Gist")
     log("=" * 60)
 
     response = requests.get(
         GIST_URL,
-        headers={
-            "User-Agent": "Mozilla/5.0"
-        },
+        headers={"User-Agent": "Mozilla/5.0"},
         timeout=30,
     )
 
@@ -110,7 +124,6 @@ def get_vip():
 # ============================================================
 
 def parse_nodes(content):
-
     data = yaml.safe_load(content)
 
     if not isinstance(data, dict):
@@ -124,7 +137,6 @@ def parse_nodes(content):
     nodes = []
 
     for proxy in proxies:
-
         if not isinstance(proxy, dict):
             continue
 
@@ -143,17 +155,16 @@ def parse_nodes(content):
 # ============================================================
 
 def get_region(name):
-
     name_lower = str(name).lower()
 
+    # 优先匹配较长的地区关键词，避免短词误匹配
     keywords = sorted(
         REGIONS.items(),
-        key=lambda x: len(x[0]),
+        key=lambda item: len(item[0]),
         reverse=True,
     )
 
     for keyword, region in keywords:
-
         if keyword.lower() in name_lower:
             return region
 
@@ -166,22 +177,35 @@ def get_region(name):
 # 实验性 = 专线
 # 高级   = 备用
 # PR     = 中转
+# PING前缀 = 独立PING节点
 # ============================================================
 
-def get_node_type(name):
+def is_ping_node(name):
+    """
+    只识别名称以 PING 开头的节点。
+    例如：
+        PING香港
+        PING-台湾
+        PING 日本
+    """
 
+    return str(name).strip().upper().startswith("PING")
+
+
+def get_node_type(name):
     name = str(name)
     name_lower = name.lower()
+
+    if is_ping_node(name):
+        return "ping"
 
     # 实验性优先
     if "实验性" in name:
         return "dedicated"
 
-    # 高级
     if "高级" in name:
         return "backup"
 
-    # PR，不区分大小写
     if "pr" in name_lower:
         return "relay"
 
@@ -191,118 +215,72 @@ def get_node_type(name):
 # ============================================================
 # 分类节点
 #
-# IEPL 规则：
-#
+# IEPL规则：
 # 实验性 + IEPL → 保留，不测速
-# 高级 + IEPL   → 直接排除
-# PR + IEPL     → 直接排除
+# 高级 + IEPL   → 排除
+# PR + IEPL     → 排除
+#
+# PING节点单独分类，并参与测速。
 # ============================================================
 
 def filter_nodes(nodes):
-
     dedicated = defaultdict(list)
     backup = defaultdict(list)
     relay = defaultdict(list)
+    ping = defaultdict(list)
 
     ignored_region = 0
     ignored_keyword = 0
     ignored_iepl = 0
 
     for node in nodes:
-
         name = str(node.get("name", ""))
-
-        # ----------------------------------------------------
-        # 地区
-        # ----------------------------------------------------
 
         region = get_region(name)
 
         if not region:
-
             ignored_region += 1
             continue
-
-        # ----------------------------------------------------
-        # 类型
-        # ----------------------------------------------------
 
         node_type = get_node_type(name)
 
         if not node_type:
-
             ignored_keyword += 1
             continue
 
-        # ----------------------------------------------------
-        # IEPL
-        #
-        # 只有实验性可以保留
-        # 高级 / PR 直接排除
-        # ----------------------------------------------------
-
+        # 实验性 IEPL 保留；高级和 PR 的 IEPL 排除。
+        # PING 节点独立处理，仍需实际测速。
         if "iepl" in name.lower():
-
-            if node_type in (
-                "backup",
-                "relay",
-            ):
-
+            if node_type in ("backup", "relay"):
                 ignored_iepl += 1
                 continue
 
-        # ----------------------------------------------------
-        # 分类
-        # ----------------------------------------------------
-
         if node_type == "dedicated":
-
             dedicated[region].append(node)
 
         elif node_type == "backup":
-
             backup[region].append(node)
 
         elif node_type == "relay":
-
             relay[region].append(node)
+
+        elif node_type == "ping":
+            ping[region].append(node)
 
     log("")
     log("=" * 60)
     log("节点分类")
     log("=" * 60)
 
-    log(
-        f"实验性节点: "
-        f"{sum(len(v) for v in dedicated.values())}"
-    )
+    log(f"实验性节点: {sum(len(v) for v in dedicated.values())}")
+    log(f"高级节点:   {sum(len(v) for v in backup.values())}")
+    log(f"PR节点:     {sum(len(v) for v in relay.values())}")
+    log(f"PING节点:   {sum(len(v) for v in ping.values())}")
+    log(f"地区不匹配: {ignored_region}")
+    log(f"关键词不匹配: {ignored_keyword}")
+    log(f"IEPL排除:   {ignored_iepl}")
 
-    log(
-        f"高级节点:   "
-        f"{sum(len(v) for v in backup.values())}"
-    )
-
-    log(
-        f"PR节点:      "
-        f"{sum(len(v) for v in relay.values())}"
-    )
-
-    log(
-        f"地区不匹配:  "
-        f"{ignored_region}"
-    )
-
-    log(
-        f"关键词不匹配: "
-        f"{ignored_keyword}"
-    )
-
-    log(
-        f"IEPL排除:     "
-        f"{ignored_iepl}"
-    )
-
-    return dedicated, backup, relay
+    return dedicated, backup, relay, ping
 
 
 # ============================================================
@@ -313,7 +291,6 @@ def filter_nodes(nodes):
 # ============================================================
 
 def select_dedicated(dedicated):
-
     selected = []
 
     log("")
@@ -322,34 +299,20 @@ def select_dedicated(dedicated):
     log("=" * 60)
 
     for region in REGION_ORDER:
-
-        nodes = dedicated.get(
-            region,
-            []
-        )
+        nodes = dedicated.get(region, [])
 
         if not nodes:
-
-            log(
-                f"{region}: 无实验性节点"
-            )
-
+            log(f"{region}: 无实验性节点")
             continue
 
-        node = copy.deepcopy(
-            nodes[0]
-        )
+        node = copy.deepcopy(nodes[0])
 
         selected.append({
             "node": node,
             "region": region,
         })
 
-        log(
-            f"{region}: 保留 "
-            f"{node.get('name')} "
-            f"(不测速)"
-        )
+        log(f"{region}: 保留 {node.get('name')}（不测速）")
 
     return selected
 
@@ -359,15 +322,10 @@ def select_dedicated(dedicated):
 # ============================================================
 
 def download_mihomo():
-
     binary = "./mihomo"
 
     if os.path.exists(binary):
-
-        log(
-            "发现已有 Mihomo，直接使用"
-        )
-
+        log("发现已有 Mihomo，直接使用")
         return binary
 
     log("")
@@ -380,150 +338,75 @@ def download_mihomo():
         "MetaCubeX/mihomo/releases/latest"
     )
 
-    headers = {
-        "User-Agent": "proxy-cleaner"
-    }
+    headers = {"User-Agent": "proxy-cleaner"}
 
     response = requests.get(
         api_url,
         headers=headers,
         timeout=30,
     )
-
     response.raise_for_status()
 
     release = response.json()
-
-    version = release.get(
-        "tag_name"
-    )
+    version = release.get("tag_name")
 
     if not version:
+        raise RuntimeError("无法获取 Mihomo 最新版本")
 
-        raise RuntimeError(
-            "无法获取 Mihomo 最新版本"
-        )
+    log(f"最新版本: {version}")
 
-    log(
-        f"最新版本: {version}"
-    )
-
-    assets = release.get(
-        "assets",
-        []
-    )
-
+    assets = release.get("assets", [])
     target = None
 
-    # --------------------------------------------------------
     # 优先 Linux amd64 v3
-    # --------------------------------------------------------
-
     for asset in assets:
+        name = asset.get("name", "")
 
-        name = asset.get(
-            "name",
-            ""
-        )
-
-        if (
-            "linux-amd64-v3" in name
-            and name.endswith(".gz")
-        ):
-
+        if "linux-amd64-v3" in name and name.endswith(".gz"):
             target = asset
             break
 
-    # --------------------------------------------------------
-    # 如果没有 v3，寻找普通 amd64
-    # --------------------------------------------------------
-
+    # 没有 v3 时，使用普通 amd64
     if not target:
-
         for asset in assets:
+            name = asset.get("name", "")
 
-            name = asset.get(
-                "name",
-                ""
-            )
-
-            if (
-                "linux-amd64" in name
-                and name.endswith(".gz")
-            ):
-
+            if "linux-amd64" in name and name.endswith(".gz"):
                 target = asset
                 break
 
     if not target:
-
         raise RuntimeError(
-            "最新 Mihomo Release 中没有找到 "
-            "Linux amd64 gzip 文件"
+            "最新 Mihomo Release 中没有找到 Linux amd64 gzip 文件"
         )
 
-    download_url = target.get(
-        "browser_download_url"
-    )
+    download_url = target.get("browser_download_url")
+    filename = target.get("name")
 
-    filename = target.get(
-        "name"
-    )
-
-    log(
-        f"下载文件: {filename}"
-    )
+    log(f"下载文件: {filename}")
 
     response = requests.get(
         download_url,
         headers=headers,
         timeout=120,
     )
-
     response.raise_for_status()
 
     gz_file = "mihomo.gz"
 
-    with open(
-        gz_file,
-        "wb"
-    ) as f:
+    with open(gz_file, "wb") as f:
+        f.write(response.content)
 
-        f.write(
-            response.content
-        )
+    log("解压 Mihomo...")
 
-    log(
-        "解压 Mihomo..."
-    )
+    with gzip.open(gz_file, "rb") as src:
+        with open(binary, "wb") as dst:
+            shutil.copyfileobj(src, dst)
 
-    with gzip.open(
-        gz_file,
-        "rb"
-    ) as src:
+    os.chmod(binary, 0o755)
+    os.remove(gz_file)
 
-        with open(
-            binary,
-            "wb"
-        ) as dst:
-
-            shutil.copyfileobj(
-                src,
-                dst
-            )
-
-    os.chmod(
-        binary,
-        0o755
-    )
-
-    os.remove(
-        gz_file
-    )
-
-    log(
-        "Mihomo 下载完成"
-    )
+    log("Mihomo 下载完成")
 
     return binary
 
@@ -532,39 +415,20 @@ def download_mihomo():
 # 启动 Mihomo
 # ============================================================
 
-def start_mihomo(
-    binary,
-    nodes
-):
-
+def start_mihomo(binary, nodes):
     workdir = ".mihomo_test"
 
-    if os.path.exists(
-        workdir
-    ):
+    if os.path.exists(workdir):
+        shutil.rmtree(workdir)
 
-        shutil.rmtree(
-            workdir
-        )
+    os.makedirs(workdir)
 
-    os.makedirs(
-        workdir
-    )
+    config_file = os.path.join(workdir, "config.yaml")
 
-    config_file = os.path.join(
-        workdir,
-        "config.yaml"
-    )
-
-    proxies = []
-
-    for node in nodes:
-
-        proxies.append(
-            copy.deepcopy(
-                node
-            )
-        )
+    proxies = [
+        copy.deepcopy(node)
+        for node in nodes
+    ]
 
     proxy_names = [
         str(proxy["name"])
@@ -573,18 +437,11 @@ def start_mihomo(
 
     config = {
         "mixed-port": 7890,
-
         "allow-lan": False,
-
         "mode": "rule",
-
         "log-level": "error",
-
-        "external-controller":
-            "127.0.0.1:9090",
-
+        "external-controller": "127.0.0.1:9090",
         "proxies": proxies,
-
         "proxy-groups": [
             {
                 "name": "TEST",
@@ -592,18 +449,12 @@ def start_mihomo(
                 "proxies": proxy_names,
             }
         ],
-
         "rules": [
             "MATCH,TEST"
         ],
     }
 
-    with open(
-        config_file,
-        "w",
-        encoding="utf-8"
-    ) as f:
-
+    with open(config_file, "w", encoding="utf-8") as f:
         yaml.safe_dump(
             config,
             f,
@@ -611,9 +462,7 @@ def start_mihomo(
             sort_keys=False,
         )
 
-    log(
-        "启动 Mihomo..."
-    )
+    log("启动 Mihomo...")
 
     process = subprocess.Popen(
         [
@@ -629,38 +478,22 @@ def start_mihomo(
     )
 
     for _ in range(30):
-
         if process.poll() is not None:
+            stderr = process.stderr.read()
 
-            stderr = (
-                process.stderr.read()
-            )
+            log("Mihomo 启动失败:")
+            log(stderr[-3000:])
 
-            log(
-                "Mihomo 启动失败:"
-            )
-
-            log(
-                stderr[-3000:]
-            )
-
-            raise RuntimeError(
-                "Mihomo 启动失败"
-            )
+            raise RuntimeError("Mihomo 启动失败")
 
         try:
-
             response = requests.get(
                 "http://127.0.0.1:9090",
                 timeout=2,
             )
 
             if response.status_code == 200:
-
-                log(
-                    "Mihomo 已启动"
-                )
-
+                log("Mihomo 已启动")
                 return process
 
         except Exception:
@@ -670,9 +503,7 @@ def start_mihomo(
 
     process.terminate()
 
-    raise RuntimeError(
-        "Mihomo 启动超时"
-    )
+    raise RuntimeError("Mihomo 启动超时")
 
 
 # ============================================================
@@ -680,50 +511,34 @@ def start_mihomo(
 # ============================================================
 
 def stop_mihomo(process):
-
     if not process:
         return
 
     try:
-
         process.terminate()
-
-        process.wait(
-            timeout=5
-        )
+        process.wait(timeout=5)
 
     except Exception:
-
         try:
-
             process.kill()
-
         except Exception:
             pass
 
 
 # ============================================================
-# 测试节点
+# 测试单个节点
 # ============================================================
 
 def test_node(name):
-
-    encoded_name = (
-        requests.utils.quote(
-            name,
-            safe=""
-        )
-    )
+    encoded_name = requests.utils.quote(name, safe="")
 
     url = (
-        "http://127.0.0.1:9090/"
-        "proxies/"
+        "http://127.0.0.1:9090/proxies/"
         + encoded_name
         + "/delay"
     )
 
     try:
-
         response = requests.get(
             url,
             params={
@@ -734,228 +549,140 @@ def test_node(name):
         )
 
         if response.status_code != 200:
-
             return None
 
         data = response.json()
-
-        delay = data.get(
-            "delay"
-        )
+        delay = data.get("delay")
 
         if delay is None:
-
             return None
 
-        delay = int(
-            delay
-        )
+        delay = int(delay)
 
         if delay <= 0:
-
             return None
 
         return delay
 
     except Exception:
-
         return None
 
 
 # ============================================================
-# 测试高级 + PR
+# 测速高级 + PR + PING
+#
+# 只将测速成功的节点放入 passed
+# PING节点和其他节点使用相同测速机制
 # ============================================================
 
-def test_nodes(
-    backup,
-    relay
-):
-
+def test_nodes(backup, relay, ping):
     candidates = []
 
-    # --------------------------------------------------------
-    # 高级
-    # --------------------------------------------------------
-
+    # 高级备用节点
     for region, nodes in backup.items():
-
         for node in nodes:
-
             candidates.append({
-                "node":
-                    copy.deepcopy(node),
-
-                "region":
-                    region,
-
-                "type":
-                    "backup",
+                "node": copy.deepcopy(node),
+                "region": region,
+                "type": "backup",
             })
 
-    # --------------------------------------------------------
-    # PR
-    # --------------------------------------------------------
-
+    # PR中转节点
     for region, nodes in relay.items():
-
         for node in nodes:
-
             candidates.append({
-                "node":
-                    copy.deepcopy(node),
+                "node": copy.deepcopy(node),
+                "region": region,
+                "type": "relay",
+            })
 
-                "region":
-                    region,
-
-                "type":
-                    "relay",
+    # PING节点
+    for region, nodes in ping.items():
+        for node in nodes:
+            candidates.append({
+                "node": copy.deepcopy(node),
+                "region": region,
+                "type": "ping",
             })
 
     if not candidates:
-
         log("")
-        log(
-            "没有需要测速的高级/PR节点"
-        )
-
+        log("没有需要测速的高级、PR或PING节点")
         return []
 
     log("")
     log("=" * 60)
-    log("开始测试高级 + PR")
+    log("开始测试高级 + PR + PING")
     log("=" * 60)
 
     test_proxy_nodes = []
 
-    for index, item in enumerate(
-        candidates,
-        start=1,
-    ):
+    for index, item in enumerate(candidates, start=1):
+        original_name = item["node"]["name"]
+        test_name = f"__VIP_TEST_{index:04d}__"
 
-        original_name = (
-            item["node"]["name"]
-        )
+        item["original_name"] = original_name
+        item["test_name"] = test_name
 
-        test_name = (
-            f"__VIP_TEST_{index:04d}__"
-        )
-
-        item["original_name"] = (
-            original_name
-        )
-
-        item["test_name"] = (
-            test_name
-        )
-
-        item["node"]["name"] = (
-            test_name
-        )
-
-        test_proxy_nodes.append(
-            item["node"]
-        )
+        # 使用临时唯一名称，避免原始名称重复影响测试
+        item["node"]["name"] = test_name
+        test_proxy_nodes.append(item["node"])
 
     binary = download_mihomo()
-
     process = None
-
     passed = []
 
     try:
+        process = start_mihomo(binary, test_proxy_nodes)
 
-        process = start_mihomo(
-            binary,
-            test_proxy_nodes
-        )
-
-        for index, item in enumerate(
-            candidates,
-            start=1,
-        ):
-
+        for index, item in enumerate(candidates, start=1):
             region = item["region"]
+            node_type = item["type"]
+            original_name = item["original_name"]
+            test_name = item["test_name"]
 
-            node_type = (
-                item["type"]
-            )
+            delay = test_node(test_name)
 
-            original_name = (
-                item["original_name"]
-            )
-
-            test_name = (
-                item["test_name"]
-            )
-
-            delay = test_node(
-                test_name
-            )
-
-            type_text = (
-                "备用"
-                if node_type == "backup"
-                else "中转"
-            )
+            type_text = {
+                "backup": "备用",
+                "relay": "中转",
+                "ping": "PING",
+            }.get(node_type, node_type)
 
             if delay is not None:
-
-                item["delay"] = (
-                    delay
-                )
-
-                passed.append(
-                    item
-                )
+                item["delay"] = delay
+                passed.append(item)
 
                 log(
                     f"[通过] {index:02d} "
-                    f"{region} "
-                    f"{type_text} "
-                    f"{original_name} "
-                    f"{delay}ms"
+                    f"{region} {type_text} "
+                    f"{original_name} {delay}ms"
                 )
 
             else:
-
                 log(
                     f"[失败] {index:02d} "
-                    f"{region} "
-                    f"{type_text} "
+                    f"{region} {type_text} "
                     f"{original_name}"
                 )
 
     finally:
-
-        stop_mihomo(
-            process
-        )
+        stop_mihomo(process)
 
     return passed
 
 
 # ============================================================
 # 高级 → 备用
-# 每区最快 2 条
+# 每区保留测速成功且延迟最低的 2 条
 # ============================================================
 
-def select_backups(
-    passed
-):
-
-    grouped = defaultdict(
-        list
-    )
+def select_backups(passed):
+    grouped = defaultdict(list)
 
     for item in passed:
-
         if item["type"] == "backup":
-
-            grouped[
-                item["region"]
-            ].append(
-                item
-            )
+            grouped[item["region"]].append(item)
 
     selected = []
 
@@ -965,72 +692,37 @@ def select_backups(
     log("=" * 60)
 
     for region in REGION_ORDER:
+        nodes = grouped.get(region, [])
+        nodes.sort(key=lambda item: item["delay"])
+        nodes = nodes[:MAX_BACKUP_PER_REGION]
 
-        nodes = grouped.get(
-            region,
-            []
-        )
-
-        nodes.sort(
-            key=lambda x:
-                x["delay"]
-        )
-
-        nodes = nodes[
-            :MAX_BACKUP_PER_REGION
-        ]
-
-        selected.extend(
-            nodes
-        )
+        selected.extend(nodes)
 
         if nodes:
-
-            log(
-                f"{region}: "
-                f"保留 {len(nodes)} 条"
-            )
+            log(f"{region}: 保留 {len(nodes)} 条")
 
             for item in nodes:
-
                 log(
-                    f"  "
-                    f"{item['original_name']} "
+                    f"  {item['original_name']} "
                     f"{item['delay']}ms"
                 )
-
         else:
-
-            log(
-                f"{region}: "
-                f"没有可用备用节点"
-            )
+            log(f"{region}: 没有可用备用节点")
 
     return selected
 
 
 # ============================================================
 # PR → 中转
-# 每区最快 2 条
+# 每区保留测速成功且延迟最低的 2 条
 # ============================================================
 
-def select_relays(
-    passed
-):
-
-    grouped = defaultdict(
-        list
-    )
+def select_relays(passed):
+    grouped = defaultdict(list)
 
     for item in passed:
-
         if item["type"] == "relay":
-
-            grouped[
-                item["region"]
-            ].append(
-                item
-            )
+            grouped[item["region"]].append(item)
 
     selected = []
 
@@ -1040,147 +732,159 @@ def select_relays(
     log("=" * 60)
 
     for region in REGION_ORDER:
+        nodes = grouped.get(region, [])
+        nodes.sort(key=lambda item: item["delay"])
+        nodes = nodes[:MAX_RELAY_PER_REGION]
 
-        nodes = grouped.get(
-            region,
-            []
-        )
-
-        nodes.sort(
-            key=lambda x:
-                x["delay"]
-        )
-
-        nodes = nodes[
-            :MAX_RELAY_PER_REGION
-        ]
-
-        selected.extend(
-            nodes
-        )
+        selected.extend(nodes)
 
         if nodes:
-
-            log(
-                f"{region}: "
-                f"保留 {len(nodes)} 条"
-            )
+            log(f"{region}: 保留 {len(nodes)} 条")
 
             for item in nodes:
-
                 log(
-                    f"  "
-                    f"{item['original_name']} "
+                    f"  {item['original_name']} "
                     f"{item['delay']}ms"
                 )
-
         else:
+            log(f"{region}: 没有可用中转节点")
 
-            log(
-                f"{region}: "
-                f"没有可用中转节点"
-            )
+    return selected
+
+
+# ============================================================
+# PING → 中文地区中转
+#
+# 每个地区最多保留测速成功且延迟最低的 2 条
+# 地区顺序：香港、台湾、日本、韩国、新加坡、美国、英国
+# ============================================================
+
+def select_pings(passed):
+    grouped = defaultdict(list)
+
+    # passed 已经是测速成功的节点
+    for item in passed:
+        if item["type"] == "ping":
+            grouped[item["region"]].append(item)
+
+    selected = []
+
+    log("")
+    log("=" * 60)
+    log("PING → 中文地区中转（每区最多 2 条）")
+    log("=" * 60)
+
+    for region in REGION_ORDER:
+        nodes = grouped.get(region, [])
+
+        # 先按测速延迟升序排序，再截取每区前两条
+        nodes.sort(key=lambda item: item["delay"])
+        nodes = nodes[:MAX_PING_PER_REGION]
+
+        selected.extend(nodes)
+
+        if nodes:
+            log(f"{REGION_NAMES[region]}: 保留 {len(nodes)} 条")
+
+            for item in nodes:
+                log(
+                    f"  {item['original_name']} "
+                    f"{item['delay']}ms"
+                )
+        else:
+            log(f"{REGION_NAMES[region]}: 无可用 PING 节点")
+
+    log(f"PING 最终保留: {len(selected)} 条")
 
     return selected
 
 
 # ============================================================
 # 最终重命名
+#
+# 专线：HK专线01
+# 备用：HK备用01
+# PR： HK中转01
+# PING：香港中转01
 # ============================================================
 
-def rename_nodes(
-    dedicated,
-    backups,
-    relays
-):
-
+def rename_nodes(dedicated, backups, relays, pings):
     final_nodes = []
 
-    # --------------------------------------------------------
     # 专线
-    # --------------------------------------------------------
-
-    dedicated_count = defaultdict(
-        int
-    )
+    dedicated_count = defaultdict(int)
 
     for item in dedicated:
-
         region = item["region"]
+        dedicated_count[region] += 1
 
-        dedicated_count[
-            region
-        ] += 1
-
-        node = copy.deepcopy(
-            item["node"]
-        )
-
+        node = copy.deepcopy(item["node"])
         node["name"] = (
             f"{region}专线"
             f"{dedicated_count[region]:02d}"
         )
 
-        final_nodes.append(
-            node
-        )
+        final_nodes.append(node)
 
-    # --------------------------------------------------------
     # 备用
-    # --------------------------------------------------------
-
-    backup_count = defaultdict(
-        int
-    )
+    backup_count = defaultdict(int)
 
     for item in backups:
-
         region = item["region"]
+        backup_count[region] += 1
 
-        backup_count[
-            region
-        ] += 1
-
-        node = copy.deepcopy(
-            item["node"]
-        )
-
+        node = copy.deepcopy(item["node"])
         node["name"] = (
             f"{region}备用"
             f"{backup_count[region]:02d}"
         )
 
-        final_nodes.append(
-            node
-        )
+        final_nodes.append(node)
 
-    # --------------------------------------------------------
-    # 中转
-    # --------------------------------------------------------
-
-    relay_count = defaultdict(
-        int
-    )
+    # PR中转
+    relay_count = defaultdict(int)
 
     for item in relays:
-
         region = item["region"]
+        relay_count[region] += 1
 
-        relay_count[
-            region
-        ] += 1
-
-        node = copy.deepcopy(
-            item["node"]
-        )
-
+        node = copy.deepcopy(item["node"])
         node["name"] = (
             f"{region}中转"
             f"{relay_count[region]:02d}"
         )
 
-        final_nodes.append(
-            node
+        final_nodes.append(node)
+
+    # PING中转：使用中文地区名，每个地区独立从01编号
+    ping_count = defaultdict(int)
+
+    for item in pings:
+        region = item["region"]
+        ping_count[region] += 1
+
+        node = copy.deepcopy(item["node"])
+        node["name"] = (
+            f"{REGION_NAMES[region]}中转"
+            f"{ping_count[region]:02d}"
+        )
+
+        final_nodes.append(node)
+
+    # 检查最终名称是否重复
+    names = [str(node.get("name", "")) for node in final_nodes]
+    seen = set()
+    duplicates = set()
+
+    for name in names:
+        if name in seen:
+            duplicates.add(name)
+        seen.add(name)
+
+    if duplicates:
+        raise ValueError(
+            "最终节点名称重复: "
+            + ", ".join(sorted(duplicates))
         )
 
     return final_nodes
@@ -1191,17 +895,11 @@ def rename_nodes(
 # ============================================================
 
 def save_output(nodes):
-
     data = {
         "proxies": nodes
     }
 
-    with open(
-        OUTPUT_FILE,
-        "w",
-        encoding="utf-8"
-    ) as f:
-
+    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         yaml.safe_dump(
             data,
             f,
@@ -1213,16 +911,8 @@ def save_output(nodes):
     log("=" * 60)
     log("生成完成")
     log("=" * 60)
-
-    log(
-        f"最终节点数量: "
-        f"{len(nodes)}"
-    )
-
-    log(
-        f"输出文件: "
-        f"{OUTPUT_FILE}"
-    )
+    log(f"最终节点数量: {len(nodes)}")
+    log(f"输出文件: {OUTPUT_FILE}")
 
 
 # ============================================================
@@ -1230,58 +920,44 @@ def save_output(nodes):
 # ============================================================
 
 def main():
-
-    # 1. 获取 VIP
+    # 1. 获取 VIP Gist
     content = get_vip()
 
-    # 2. 解析
-    nodes = parse_nodes(
-        content
-    )
+    # 2. 解析节点
+    nodes = parse_nodes(content)
 
     # 3. 分类
-    dedicated, backup, relay = (
-        filter_nodes(nodes)
-    )
+    dedicated, backup, relay, ping = filter_nodes(nodes)
 
-    # 4. 实验性 → 专线
-    selected_dedicated = (
-        select_dedicated(
-            dedicated
-        )
-    )
+    # 4. 实验性 → 专线，不测速
+    selected_dedicated = select_dedicated(dedicated)
 
-    # 5. 高级 + PR → 测速
+    # 5. 高级 + PR + PING → 测速
     passed = test_nodes(
         backup,
-        relay
+        relay,
+        ping,
     )
 
-    # 6. 高级 → 备用
-    selected_backups = (
-        select_backups(
-            passed
-        )
-    )
+    # 6. 高级 → 备用，每区最多2条
+    selected_backups = select_backups(passed)
 
-    # 7. PR → 中转
-    selected_relays = (
-        select_relays(
-            passed
-        )
-    )
+    # 7. PR → 中转，每区最多2条
+    selected_relays = select_relays(passed)
 
-    # 8. 重命名
+    # 8. PING → 中文地区中转，每区最多2条
+    selected_pings = select_pings(passed)
+
+    # 9. 统一重命名
     final_nodes = rename_nodes(
         selected_dedicated,
         selected_backups,
-        selected_relays
+        selected_relays,
+        selected_pings,
     )
 
-    # 9. 输出
-    save_output(
-        final_nodes
-    )
+    # 10. 输出
+    save_output(final_nodes)
 
 
 if __name__ == "__main__":
