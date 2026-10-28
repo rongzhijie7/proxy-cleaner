@@ -15,36 +15,6 @@ proxies:
     support-x25519mlkem768: true
   network: tcp
   servername: osxapps.itunes.apple.com
-- name: 香港-2
-  type: vless
-  server: 8f075ed5.alidns-3.com
-  port: 443
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: safari
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ak5.mcdonaldshamburgergoodgoodgood.xyz
-  servername: ak5.mcdonaldshamburgergoodgoodgood.xyz
-- name: 香港-3
-  type: vless
-  server: 172.64.145.105
-  port: 443
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: safari
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ak5.mcdonaldshamburgergoodgoodgood.xyz
-  servername: ak5.mcdonaldshamburgergoodgoodgood.xyz
 - name: 新加坡-1
   server: xjptt.xn--9kqp42aims.top
   port: 20000
