@@ -232,7 +232,7 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /3d2053af-b101-5710-8078-38128106081b
+    path: /627491bf-5840-5255-8c29-d055299cb1bf
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -245,7 +245,20 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /0b95429d-fb7b-5c42-b9d2-09e7d9538070
+    path: /3906f824-1308-5372-b18d-3c14d04a4278
+    headers:
+      Host: tms.dingtalk.com
+  udp: true
+- name: TW中转01
+  type: vmess
+  server: 82.109.227.64
+  port: 8080
+  cipher: aes-128-gcm
+  uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
+  alterId: 0
+  network: ws
+  ws-opts:
+    path: /8fa09dd1-1631-5ed4-9de3-bd8faa585dbd
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -258,7 +271,7 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /48b27e9e-1e69-5cc0-998f-6f1d1138a029
+    path: /fd968c3a-b965-579f-8c82-75670fd11eef
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -271,7 +284,7 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /f2a1ea72-960b-50df-922f-f94db85815c5
+    path: /48b27e9e-1e69-5cc0-998f-6f1d1138a029
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -297,7 +310,7 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /b17d3a59-0106-59a8-84a9-b715cd3cfc1d
+    path: /c1c592aa-575d-5830-aec5-6de129ba7f2c
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -310,24 +323,11 @@ proxies:
   alterId: 0
   network: ws
   ws-opts:
-    path: /c1c592aa-575d-5830-aec5-6de129ba7f2c
+    path: /b17d3a59-0106-59a8-84a9-b715cd3cfc1d
     headers:
       Host: tms.dingtalk.com
   udp: true
 - name: US中转01
-  type: vmess
-  server: 82.109.227.64
-  port: 8080
-  cipher: aes-128-gcm
-  uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
-  alterId: 0
-  network: ws
-  ws-opts:
-    path: /8636cf92-d82b-5288-835a-acdba0d05889
-    headers:
-      Host: tms.dingtalk.com
-  udp: true
-- name: US中转02
   type: vmess
   server: 82.109.227.89
   port: 8080
@@ -340,16 +340,16 @@ proxies:
     headers:
       Host: tms.dingtalk.com
   udp: true
-- name: GB中转01
+- name: US中转02
   type: vmess
-  server: 82.109.227.64
+  server: 82.109.227.89
   port: 8080
   cipher: aes-128-gcm
   uuid: 08c97f35-8174-44f6-a2b9-ce248cf519eb
   alterId: 0
   network: ws
   ws-opts:
-    path: /78a5b4ff-0d73-5cdd-805e-c569b63e207a
+    path: /202a1bc7-f983-5392-9d2a-77cf7cc7d4e0
     headers:
       Host: tms.dingtalk.com
   udp: true
@@ -390,17 +390,27 @@ proxies:
   network: tcp
   servername: download-porter.hoyoverse.com
 - name: 台湾中转01
+  type: vless
+  server: aws-sg-stable.domestic.nowhere-backend.xyz
+  port: 36470
+  uuid: 52a4f902-bff2-407f-a12b-6d8ead71b45c
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: PwERE8HbLipzwNLpu2CEMr73UYwS3QWFFVOanm-fnl4
+    short-id: 00d26a26dcd6f59e
+  client-fingerprint: safari
+  network: tcp
+  servername: download-porter.hoyoverse.com
+- name: 台湾中转02
   type: anytls
   server: jp-aws-stable.private.nowhere-backend.xyz
   port: 19964
-  password: 52a4f902-bff2-407f-a12b-6d8ead71b45c
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: 台湾中转02
-  type: anytls
-  server: aws-sg-stable.domestic.nowhere-backend.xyz
-  port: 53133
   password: 52a4f902-bff2-407f-a12b-6d8ead71b45c
   udp: true
   sni: cache-proxy.ahdohpiechei.com
@@ -414,9 +424,25 @@ proxies:
   sni: cache-proxy.ahdohpiechei.com
   skip-cert-verify: true
 - name: 日本中转02
-  type: vless
+  type: anytls
   server: jp-gcp.private.nowhere-backend.xyz
-  port: 12859
+  port: 40157
+  password: 52a4f902-bff2-407f-a12b-6d8ead71b45c
+  udp: true
+  sni: cache-proxy.ahdohpiechei.com
+  skip-cert-verify: true
+- name: 新加坡中转01
+  type: anytls
+  server: jp-aws-stable.private.nowhere-backend.xyz
+  port: 14487
+  password: 52a4f902-bff2-407f-a12b-6d8ead71b45c
+  udp: true
+  sni: cache-proxy.ahdohpiechei.com
+  skip-cert-verify: true
+- name: 新加坡中转02
+  type: vless
+  server: aws-sg-stable.domestic.nowhere-backend.xyz
+  port: 29718
   uuid: 52a4f902-bff2-407f-a12b-6d8ead71b45c
   alterId: 0
   cipher: auto
@@ -426,27 +452,11 @@ proxies:
   tls: true
   skip-cert-verify: false
   reality-opts:
-    public-key: lZULtsUUssATCAfdoYrVZ-9-54EjYXfDlm3_WRpjHSE
-    short-id: cc2c37989df591
+    public-key: 5zT2Ga9n-Ks7qVZmNdbbHu8jZLtUG905GuGFSWs0JjE
+    short-id: f35114c3
   client-fingerprint: safari
   network: tcp
   servername: download-porter.hoyoverse.com
-- name: 新加坡中转01
-  type: anytls
-  server: jp-gcp.private.nowhere-backend.xyz
-  port: 38509
-  password: 52a4f902-bff2-407f-a12b-6d8ead71b45c
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
-- name: 新加坡中转02
-  type: anytls
-  server: aws-sg-stable.domestic.nowhere-backend.xyz
-  port: 27399
-  password: 52a4f902-bff2-407f-a12b-6d8ead71b45c
-  udp: true
-  sni: cache-proxy.ahdohpiechei.com
-  skip-cert-verify: true
 - name: 美国中转01
   type: anytls
   server: jp-gcp.private.nowhere-backend.xyz
@@ -457,8 +467,8 @@ proxies:
   skip-cert-verify: true
 - name: 美国中转02
   type: anytls
-  server: jp-aws-stable.private.nowhere-backend.xyz
-  port: 51855
+  server: jp-gcp.private.nowhere-backend.xyz
+  port: 13009
   password: 52a4f902-bff2-407f-a12b-6d8ead71b45c
   udp: true
   sni: cache-proxy.ahdohpiechei.com
