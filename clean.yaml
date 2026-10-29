@@ -46,18 +46,6 @@ proxies:
       Host: ak5.mcdonaldshamburgergoodgoodgood.xyz
   servername: ak5.mcdonaldshamburgergoodgoodgood.xyz
 - name: 新加坡-1
-  server: xjptt.xn--9kqp42aims.top
-  port: 20000
-  ports: 20000-55000
-  mport: 20000-55000
-  udp: true
-  skip-cert-verify: false
-  sni: xjptt.xn--9kqp42aims.top
-  type: hysteria2
-  password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
-  obfs: salamander
-  obfs-password: OTA2ZjRiOGQ5MWYxNmQyZA==
-- name: 新加坡-2
   server: xjpyd.xn--9kqp42aims.top
   port: 65502
   udp: true
@@ -67,7 +55,7 @@ proxies:
   password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
   obfs: salamander
   obfs-password: OTA2ZjRiOGQ5MWYxNmQyZA==
-- name: 新加坡-3
+- name: 新加坡-2
   type: vless
   server: 5.180.78.85
   port: 443
@@ -238,6 +226,22 @@ proxies:
       Host: us9.mcdonaldshamburgergoodgoodgood.xyz
   servername: us9.mcdonaldshamburgergoodgoodgood.xyz
 - name: 德国-1
+  type: vless
+  server: de-01.xn--9kqp42aims.top
+  port: 443
+  uuid: 7fe32c95-5838-42ca-bc0a-1608595a02ca
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: ios
+  reality-opts:
+    public-key: fyEP9fBnjiwjwBhzkqPvP9J8pwaOh_qK2hs_ddv7M14
+    short-id: 99dd20b2
+    support-x25519mlkem768: true
+  network: tcp
+  servername: osxapps.itunes.apple.com
+- name: 德国-2
   type: vless
   server: de-01.xn--9kqp42aims.top
   port: 443
