@@ -119,22 +119,22 @@ proxies:
   servername: download.windowsupdate.com
 - name: 美国-3
   type: vless
-  server: us02.4b214271-fd51-4e6b-9303-fe6e915f406d.genshinimpact.cyou
+  server: cfyes.7770006.xyz
   port: 443
   uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
   udp: true
   tls: true
   skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: chrome
-  reality-opts:
-    public-key: bKG1vbvrxm4NfSqBx-0Co84M_uLLEEftv2Ql8G7rjhM
-    short-id: 157eb31c
-  network: tcp
-  servername: www.bing.com
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: us7.mcdonaldshamburgergoodgoodgood.xyz
+  servername: us7.mcdonaldshamburgergoodgoodgood.xyz
 - name: 美国-4
   type: vless
-  server: cfyes.7770006.xyz
+  server: 8f075ed5.alidns-3.com
   port: 443
   uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
   udp: true
@@ -149,7 +149,7 @@ proxies:
   servername: us7.mcdonaldshamburgergoodgoodgood.xyz
 - name: 美国-5
   type: vless
-  server: 8f075ed5.alidns-3.com
+  server: 172.64.229.88
   port: 443
   uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
   udp: true
@@ -164,21 +164,6 @@ proxies:
   servername: us7.mcdonaldshamburgergoodgoodgood.xyz
 - name: 美国-6
   type: vless
-  server: 172.64.229.88
-  port: 443
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: safari
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: us7.mcdonaldshamburgergoodgoodgood.xyz
-  servername: us7.mcdonaldshamburgergoodgoodgood.xyz
-- name: 美国-7
-  type: vless
   server: cfyes.7770006.xyz
   port: 443
   uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
@@ -192,7 +177,7 @@ proxies:
     headers:
       Host: us9.mcdonaldshamburgergoodgoodgood.xyz
   servername: us9.mcdonaldshamburgergoodgoodgood.xyz
-- name: 美国-8
+- name: 美国-7
   type: vless
   server: 8f075ed5.alidns-3.com
   port: 443
@@ -207,7 +192,7 @@ proxies:
     headers:
       Host: us9.mcdonaldshamburgergoodgoodgood.xyz
   servername: us9.mcdonaldshamburgergoodgoodgood.xyz
-- name: 美国-9
+- name: 美国-8
   type: vless
   server: 172.64.229.88
   port: 443
