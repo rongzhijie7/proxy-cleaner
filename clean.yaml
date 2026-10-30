@@ -15,7 +15,407 @@ proxies:
     support-x25519mlkem768: true
   network: tcp
   servername: osxapps.itunes.apple.com
+- name: 香港-2
+  server: kr-01.xn--9kqp42aims.top
+  port: 65504
+  udp: true
+  skip-cert-verify: false
+  sni: hk-ak-mobile.xn--9kqp42aims.top
+  type: hysteria2
+  password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
+  obfs: salamander
+  obfs-password: OTA2ZjRiOGQ5MWYxNmQyZA==
+- name: 香港-3
+  server: kr-01.xn--9kqp42aims.top
+  port: 65504
+  udp: true
+  skip-cert-verify: false
+  sni: hk-ak-mobile.xn--9kqp42aims.top
+  type: hysteria2
+  password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
+  obfs: salamander
+  obfs-password: OTA2ZjRiOGQ5MWYxNmQyZA==
+- name: 香港-4
+  type: vless
+  server: 8f075ed5.alidns-3.com
+  port: 443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: ak5.mcdonaldshamburgergoodgoodgood.xyz
+  servername: ak5.mcdonaldshamburgergoodgoodgood.xyz
+- name: 香港-5
+  type: vless
+  server: 172.64.145.105
+  port: 443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: ak5.mcdonaldshamburgergoodgoodgood.xyz
+  servername: ak5.mcdonaldshamburgergoodgoodgood.xyz
+- name: 香港-6
+  type: vless
+  server: hk-sakura.private.nowhere-backend.xyz
+  port: 6736
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: eQl-SJK4p72OE9NDNbyaCb-9uURzKk3DNL9tF1qW02A
+    short-id: 68afe7c9144f83e8
+  client-fingerprint: chrome
+  network: tcp
+  servername: www.microsoft.com
+- name: 香港-7
+  type: vless
+  server: hk-sakura.private.nowhere-backend.xyz
+  port: 8850
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: OZ_b_-5Y13dxWmoCt6O-e_LR1zFqQkoLQEPVu3LfBzg
+    short-id: a705f8454a183dd4
+  client-fingerprint: chrome
+  network: tcp
+  servername: gateway.icloud.com
+- name: 香港-8
+  type: vless
+  server: hk-sakura.private.nowhere-backend.xyz
+  port: 9417
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: evMHV07qo64e9jr6BeoeY0Oved-zo0gG8Wpq5-klMgM
+    short-id: ad22ba9b52d7435d
+  client-fingerprint: chrome
+  network: tcp
+  servername: dl.google.com
+- name: 香港-9
+  type: vless
+  server: cf.yfjc.sbs
+  port: 443
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /upload
+    headers:
+      Host: 044womelv2yod8yu.nowhere-backend.xyz
+  servername: 044womelv2yod8yu.nowhere-backend.xyz
+- name: 香港-10
+  type: vless
+  server: cf.yfjc.sbs
+  port: 443
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /upload
+    headers:
+      Host: 40zysbfnkolb23le.nowhere-backend.xyz
+  servername: 40zysbfnkolb23le.nowhere-backend.xyz
+- name: 香港-11
+  type: vless
+  server: cf.yfjc.sbs
+  port: 443
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /upload
+    headers:
+      Host: 7llsuhyls9tt7pbu.nowhere-backend.xyz
+  servername: 7llsuhyls9tt7pbu.nowhere-backend.xyz
+- name: 香港-12
+  type: vless
+  server: aws-link1.lxyun.xyz
+  port: 443
+  uuid: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  reality-opts:
+    public-key: TF960L2RQcljFhnd6GKHRO82TGpefFLT25BY-KSuwxA
+    short-id: c8660f6e
+  network: tcp
+  servername: fastcdn.hoyoverse.com
+- name: 香港-13
+  type: vless
+  server: aws-link2.lxyun.xyz
+  port: 443
+  uuid: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  reality-opts:
+    public-key: ypy2n5s98wb2NQfVnOG_nvyXk329g_PAZCTerKcMi28
+    short-id: 6afd82c0
+  network: tcp
+  servername: fastcdn.hoyoverse.com
+- name: 香港-14
+  type: vless
+  server: aws-link4.lxyun.xyz
+  port: 443
+  uuid: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: ios
+  reality-opts:
+    public-key: wlh6mFICApoUIVqqQRBbS7o5X3sveqUJCRc54bH0XSg
+    short-id: a31b59fe
+  network: tcp
+  servername: www.lamer.com.hk
+- name: 香港-15
+  type: vless
+  server: aws-link5.lxyun.xyz
+  port: 443
+  uuid: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: ios
+  reality-opts:
+    public-key: HfZeg7YPEWJMQKBXctbNZBuBAk1CW98FoJ7AEyCEdQQ
+    short-id: a49232a7
+  network: tcp
+  servername: fastcdn.hoyoverse.com
+- name: 香港-16
+  server: aws-linkhy1.lxyun.xyz
+  port: 443
+  udp: true
+  skip-cert-verify: true
+  sni: download-porter.hoyoverse.com
+  type: hysteria2
+  password: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  fingerprint: 5343bfcb1c5db62de169584dd7ae238dc9a8f2659283f1ee99b06d744c644806
+- name: 香港-17
+  server: aws-linkhy2.lxyun.xyz
+  port: 443
+  udp: true
+  skip-cert-verify: true
+  sni: www.hoyoverse.com
+  type: hysteria2
+  password: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  fingerprint: f39333d989d685541f08cb96cd8986f9854fed3674e5cc24c4bfbba81035dacf
+- name: 香港-18
+  server: aws-linkhy4.lxyun.xyz
+  port: 443
+  udp: true
+  skip-cert-verify: true
+  sni: iosapps.itunes.apple.com
+  type: hysteria2
+  password: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  fingerprint: ab4e4175bb4234fec92dec0977ec4c9933fe1e0b9f4fe98b8f7444c56360effd
+- name: 台湾-1
+  type: vless
+  server: hk-sakura.private.nowhere-backend.xyz
+  port: 7856
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: ya4fpSGroJlHgUeblUoy6DSkHmJxNzKvCyvsUFLb5B0
+    short-id: 1f4fadae643e31de
+  client-fingerprint: chrome
+  network: tcp
+  servername: www.microsoft.com
+- name: 台湾-2
+  type: vless
+  server: hk-sakura.private.nowhere-backend.xyz
+  port: 6128
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: A_2BYwcaV6KJMA8uvwIovEOVNA_NGMalda4WYr2YokA
+    short-id: 14b589ce356132e3
+  client-fingerprint: chrome
+  network: tcp
+  servername: ajax.microsoft.com
+- name: 台湾-3
+  type: vless
+  server: hk-sakura.private.nowhere-backend.xyz
+  port: 5045
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: dXSlA1oCoZUnqTpBAhNTUsmL5_DlFtnF7DbCg9jYd3k
+    short-id: 26ee50ce4d072b89
+  client-fingerprint: chrome
+  network: tcp
+  servername: gateway.icloud.com
+- name: 台湾-4
+  type: vless
+  server: cf.yfjc.sbs
+  port: 443
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /upload
+    headers:
+      Host: gzma1my78hlm599x.nowhere-backend.xyz
+  servername: gzma1my78hlm599x.nowhere-backend.xyz
+- name: 台湾-5
+  type: vless
+  server: cf.yfjc.sbs
+  port: 443
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /upload
+    headers:
+      Host: hpr3pqs04nbtmevb.nowhere-backend.xyz
+  servername: hpr3pqs04nbtmevb.nowhere-backend.xyz
+- name: 台湾-6
+  type: vless
+  server: cf.yfjc.sbs
+  port: 443
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /upload
+    headers:
+      Host: kd0ex7qglm41pwlm.nowhere-backend.xyz
+  servername: kd0ex7qglm41pwlm.nowhere-backend.xyz
+- name: 台湾-7
+  type: vless
+  server: aws-link28.lxyun.xyz
+  port: 443
+  uuid: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  reality-opts:
+    public-key: I0KCN29MUCJ9CnUptlwBK4Nr-NZZUNh0bQj5aXxKrDY
+    short-id: 0b03cf9a
+  network: tcp
+  servername: download-porter.hoyoverse.com
 - name: 新加坡-1
+  type: vless
+  server: sg.xn--9kqp42aims.top
+  port: 443
+  uuid: 7fe32c95-5838-42ca-bc0a-1608595a02ca
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: ios
+  reality-opts:
+    public-key: cNhseFsrOhCthluudhz0djrt3MiBND6mG08PYFEoTw4
+    short-id: 0df4422e
+    support-x25519mlkem768: true
+  network: tcp
+  servername: osxapps.itunes.apple.com
+- name: 新加坡-2
+  type: vless
+  server: xjptt.xn--9kqp42aims.top
+  port: 443
+  uuid: 7fe32c95-5838-42ca-bc0a-1608595a02ca
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: ios
+  reality-opts:
+    public-key: RnA8CkY-1Hd-0UMa4WP4q34E73tfgEorYvWwy1ctz2Y
+    short-id: 22bed420
+    support-x25519mlkem768: true
+  network: tcp
+  servername: osxapps.itunes.apple.com
+- name: 新加坡-3
   server: xjpyd.xn--9kqp42aims.top
   port: 65502
   udp: true
@@ -25,7 +425,7 @@ proxies:
   password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
   obfs: salamander
   obfs-password: OTA2ZjRiOGQ5MWYxNmQyZA==
-- name: 新加坡-2
+- name: 新加坡-4
   type: vless
   server: 5.180.78.85
   port: 443
@@ -41,7 +441,290 @@ proxies:
     support-x25519mlkem768: true
   network: tcp
   servername: osxapps.itunes.apple.com
+- name: 新加坡-5
+  type: vless
+  server: hk-sakura.private.nowhere-backend.xyz
+  port: 9467
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: qtcBUnnONu0zgc3YCB3SBESQJvOUGMaK2jOmCuaiCRQ
+    short-id: 54598d3ec9d7f209
+  client-fingerprint: chrome
+  network: tcp
+  servername: www.cloudflare.com
+- name: 新加坡-6
+  type: vless
+  server: hk-sakura.private.nowhere-backend.xyz
+  port: 7409
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: 6kw0oWDbY1Z-cd0yCa9QXB_ll1_f9NYISGlORtDU8Hw
+    short-id: 5705126b86857079
+  client-fingerprint: chrome
+  network: tcp
+  servername: www.microsoft.com
+- name: 新加坡-7
+  type: vless
+  server: hk-sakura.private.nowhere-backend.xyz
+  port: 8606
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: 4dK1xO104hknltn7P8aBYjgag-sTCcboM9zCte8vJzc
+    short-id: e96c9e2cd094d338
+  client-fingerprint: chrome
+  network: tcp
+  servername: dl.google.com
+- name: 新加坡-8
+  type: vless
+  server: cf.yfjc.sbs
+  port: 443
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /upload
+    headers:
+      Host: lqe5g1ol7h4qy10e.nowhere-backend.xyz
+  servername: lqe5g1ol7h4qy10e.nowhere-backend.xyz
+- name: 新加坡-9
+  type: vless
+  server: cf.yfjc.sbs
+  port: 443
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /upload
+    headers:
+      Host: m5fq84d51hdnbr4b.nowhere-backend.xyz
+  servername: m5fq84d51hdnbr4b.nowhere-backend.xyz
+- name: 新加坡-10
+  type: vless
+  server: cf.yfjc.sbs
+  port: 443
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /upload
+    headers:
+      Host: tdrhji351pzoch35.nowhere-backend.xyz
+  servername: tdrhji351pzoch35.nowhere-backend.xyz
+- name: 新加坡-11
+  type: vless
+  server: aws-link7.lxyun.xyz
+  port: 443
+  uuid: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: ios
+  reality-opts:
+    public-key: w7AGIp_u4slcX3JotLyiuaT05lawuzU3f1eL88RI53c
+    short-id: 1d77a374
+  network: tcp
+  servername: fastcdn.hoyoverse.com
+- name: 新加坡-12
+  type: vless
+  server: aws-link8.lxyun.xyz
+  port: 443
+  uuid: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: ios
+  reality-opts:
+    public-key: vDrdqD70aoQOIU5P5UU-h2h9wCu_tEOD4pGu8NOGvzA
+    short-id: 55c73a28
+  network: tcp
+  servername: iosapps.itunes.apple.com
+- name: 新加坡-13
+  type: vless
+  server: aws-link31.lxyun.xyz
+  port: 443
+  uuid: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  reality-opts:
+    public-key: wXayfckurSM2zWeis7OAL_QVGm9wBLr0WYp2zFtJFAE
+    short-id: c7487aeb
+  network: tcp
+  servername: download-porter.hoyoverse.com
+- name: 新加坡-14
+  type: vless
+  server: cfyes.7770008.xyz
+  port: 443
+  uuid: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /liangxin/sg1
+    headers:
+      Host: lx-sg1.7770006.xyz
+  servername: lx-sg1.7770006.xyz
+- name: 新加坡-15
+  type: vless
+  server: cfyes.7770008.xyz
+  port: 443
+  uuid: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /liangxin/sg1
+    headers:
+      Host: lx-sg1.7770006.xyz
+  servername: lx-sg1.7770006.xyz
+- name: 新加坡-16
+  type: vless
+  server: cfyes.7770008.xyz
+  port: 443
+  uuid: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /liangxin/sg1
+    headers:
+      Host: lx-sg1.7770006.xyz
+  servername: lx-sg1.7770006.xyz
+- name: 新加坡-17
+  server: aws-linkhy9.lxyun.xyz
+  port: 60000
+  ports: 60000-65530
+  mport: 60000-65530
+  udp: true
+  skip-cert-verify: true
+  sni: iosapps.itunes.apple.com
+  type: hysteria2
+  password: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  fingerprint: 2b6c9b75b2ef903fbe66ee91d1801941dea0ddb5429505ae3bce65e2fb17ad45
+- name: 新加坡-18
+  server: aws-linkhy10.lxyun.xyz
+  port: 60000
+  ports: 60000-65530
+  mport: 60000-65530
+  udp: true
+  skip-cert-verify: true
+  sni: iosapps.itunes.apple.com
+  type: hysteria2
+  password: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  fingerprint: 2b6c9b75b2ef903fbe66ee91d1801941dea0ddb5429505ae3bce65e2fb17ad45
+- name: 新加坡-19
+  server: aws-linkhy12.lxyun.xyz
+  port: 60000
+  ports: 60000-65530
+  mport: 60000-65530
+  udp: true
+  skip-cert-verify: true
+  sni: iosapps.itunes.apple.com
+  type: hysteria2
+  password: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  fingerprint: 064255322ff7fa4fc225b44e72e5347fb9094fccc3bdd14ddb006118296b3fd3
 - name: 日本-1
+  server: kr-01.xn--9kqp42aims.top
+  port: 65502
+  udp: true
+  skip-cert-verify: false
+  sni: jp.xn--9kqp42aims.top
+  type: hysteria2
+  password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
+  obfs: salamander
+  obfs-password: OTA2ZjRiOGQ5MWYxNmQyZA==
+- name: 日本-2
+  server: kr-01.xn--9kqp42aims.top
+  port: 65502
+  udp: true
+  skip-cert-verify: false
+  sni: jp.xn--9kqp42aims.top
+  type: hysteria2
+  password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
+  obfs: salamander
+  obfs-password: OTA2ZjRiOGQ5MWYxNmQyZA==
+- name: 日本-3
+  type: vless
+  server: jpsb01.xn--9kqp42aims.top
+  port: 443
+  uuid: 7fe32c95-5838-42ca-bc0a-1608595a02ca
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: ios
+  reality-opts:
+    public-key: 31eALXuX1vjl8-4MDwAyrpuZx1wrTr_qBA1gG15IkE8
+    short-id: 7f2940ff
+    support-x25519mlkem768: true
+  network: tcp
+  servername: osxapps.itunes.apple.com
+- name: 日本-4
+  type: vless
+  server: jpsb03.xn--9kqp42aims.top
+  port: 443
+  uuid: 7fe32c95-5838-42ca-bc0a-1608595a02ca
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: ios
+  reality-opts:
+    public-key: nxRLsmUNVvP8Vzmt19f_w1PeJ-9_iG_pHecDWxW8DxU
+    short-id: 60eebf51
+    support-x25519mlkem768: true
+  network: tcp
+  servername: osxapps.itunes.apple.com
+- name: 日本-5
   server: jpyh.xn--9kqp42aims.top
   port: 20000
   ports: 20000-55000
@@ -53,7 +736,7 @@ proxies:
   password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
   obfs: salamander
   obfs-password: OTA7ZjRiOGQ5MWYxNmQyZA==
-- name: 日本-2
+- name: 日本-6
   type: vless
   server: jp03.73c01f37-d10a-4317-a43a-380fc51d0bc4.genshinimpact.cyou
   port: 443
@@ -68,7 +751,22 @@ proxies:
     short-id: 94d3f4df
   network: tcp
   servername: download-porter.hoyoverse.com
-- name: 日本-3
+- name: 日本-7
+  type: vless
+  server: 35.78.83.12
+  port: 443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  reality-opts:
+    public-key: upIlaFG6DWfKE8wjn_qXYqb9ohDNavC3LRayjJ4Wp1o
+    short-id: 94d3f4df
+  network: tcp
+  servername: download-porter.hoyoverse.com
+- name: 日本-8
   type: vless
   server: jp01.5392a812-9a56-456f-b89a-9e5b4208168a.genshinimpact.cyou
   port: 8443
@@ -80,61 +778,389 @@ proxies:
   client-fingerprint: safari
   network: tcp
   servername: cdn-jp01.download.pikoport.com
-- name: 美国-1
-  server: 173.0.0.34
-  port: 65504
+- name: 日本-9
+  type: vless
+  server: 43.206.97.136
+  port: 8443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
   udp: true
+  tls: true
   skip-cert-verify: false
-  sni: us-fhc.xn--9kqp42aims.top
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  network: tcp
+  servername: cdn-jp01.download.pikoport.com
+- name: 日本-10
+  type: vless
+  server: jp-zouter.private.nowhere-backend.xyz
+  port: 7397
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: alA-RnK0ssRMoKgDFmr4JndXCCojboQ-chXF5Xgvy0M
+    short-id: 1b1e8a3dccc86ccd
+  client-fingerprint: chrome
+  network: tcp
+  servername: www.apple.com
+- name: 日本-11
+  type: vless
+  server: jp-zouter.private.nowhere-backend.xyz
+  port: 7185
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: m0IRiI3EipRwvNHd1dJIm7iCxpz-ny-kaFNdPkTwtBI
+    short-id: 0dbf5cab8ac47793
+  client-fingerprint: chrome
+  network: tcp
+  servername: swdist.apple.com
+- name: 日本-12
+  type: vless
+  server: jp-zouter.private.nowhere-backend.xyz
+  port: 5226
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: SO7FOs2Fz3mmISk01G4seBNUWFPgfutqIqkJn5dX0GE
+    short-id: a5f7966b85165587
+  client-fingerprint: chrome
+  network: tcp
+  servername: download-porter.hoyoverse.com
+- name: 日本-13
+  type: vless
+  server: cf.yfjc.sbs
+  port: 443
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /upload
+    headers:
+      Host: 9o40re2xvjlbd8ql.nowhere-backend.xyz
+  servername: 9o40re2xvjlbd8ql.nowhere-backend.xyz
+- name: 日本-14
+  type: vless
+  server: cf.yfjc.sbs
+  port: 443
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /upload
+    headers:
+      Host: dxajlwmxtvpgtm19.nowhere-backend.xyz
+  servername: dxajlwmxtvpgtm19.nowhere-backend.xyz
+- name: 日本-15
+  type: vless
+  server: cf.yfjc.sbs
+  port: 443
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /upload
+    headers:
+      Host: eb5x29a5xcqow8ow.nowhere-backend.xyz
+  servername: eb5x29a5xcqow8ow.nowhere-backend.xyz
+- name: 日本-16
+  type: vless
+  server: cfyes.7770006.xyz
+  port: 443
+  uuid: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /liangxin/data
+    headers:
+      Host: jp2-lx.7770006.xyz
+  servername: jp2-lx.7770006.xyz
+- name: 日本-17
+  type: vless
+  server: aws-link13.lxyun.xyz
+  port: 443
+  uuid: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  reality-opts:
+    public-key: AYnt6YQxdEGfpWjo25H9ZvgPp_WxRbGWSkaptwTZJ3M
+    short-id: 131baaed
+  network: tcp
+  servername: download-porter.hoyoverse.com
+- name: 日本-18
+  type: vless
+  server: aws-link14.lxyun.xyz
+  port: 443
+  uuid: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: ios
+  reality-opts:
+    public-key: -nx1roqVG90gja9-412UcxR7tqdtdKqxuSHsSh03wm4
+    short-id: 93d482c0
+  network: tcp
+  servername: download-porter.hoyoverse.com
+- name: 日本-19
+  type: vless
+  server: aws-link19.lxyun.xyz
+  port: 443
+  uuid: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  reality-opts:
+    public-key: p6pNXigacmPazS1t76m66ia0DcFgAxOshOiPgzVvNGs
+    short-id: '44099498'
+  network: tcp
+  servername: download-porter.hoyoverse.com
+- name: 日本-20
+  type: vless
+  server: aws-link23.lxyun.xyz
+  port: 443
+  uuid: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  reality-opts:
+    public-key: dLmUAqcdy4Z7iucApd9zjOhkXTjl-xt_eHumShIYW0c
+    short-id: ba826a54
+  network: tcp
+  servername: download-porter.hoyoverse.com
+- name: 日本-21
+  type: vless
+  server: cfyes.7770006.xyz
+  port: 443
+  uuid: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /liangxin/dash/jp
+    headers:
+      Host: jp3-lx.7770006.xyz
+  servername: jp3-lx.7770006.xyz
+- name: 日本-22
+  type: vless
+  server: cfyes.7770006.xyz
+  port: 443
+  uuid: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /liangxin/dash/jp
+    headers:
+      Host: jp3-lx.7770006.xyz
+  servername: jp3-lx.7770006.xyz
+- name: 日本-23
+  type: vless
+  server: cfyes.7770006.xyz
+  port: 443
+  uuid: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /liangxin/download/jp
+    headers:
+      Host: jp4-lx.7770006.xyz
+  servername: jp4-lx.7770006.xyz
+- name: 日本-24
+  type: vless
+  server: cfyes.7770006.xyz
+  port: 443
+  uuid: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /liangxin/download/jp
+    headers:
+      Host: jp4-lx.7770006.xyz
+  servername: jp4-lx.7770006.xyz
+- name: 日本-25
+  server: aws-linkhy15.lxyun.xyz
+  port: 60000
+  ports: 60000-65530
+  mport: 60000-65530
+  udp: true
+  skip-cert-verify: true
+  sni: bilibili-jp.biliimg.com
+  type: hysteria2
+  password: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  fingerprint: 95b89cf256ca58006f8d2f090bc8a6ca89b385f424852e82b59f2af384b142d7
+- name: 日本-26
+  server: aws-linkhy16.lxyun.xyz
+  port: 60000
+  ports: 60000-65530
+  mport: 60000-65530
+  udp: true
+  skip-cert-verify: true
+  sni: bilibili-jp2.biliimg.com
+  type: hysteria2
+  password: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  fingerprint: 95b89cf256ca58006f8d2f090bc8a6ca89b385f424852e82b59f2af384b142d7
+- name: 日本-27
+  server: aws-linkhy17.lxyun.xyz
+  port: 60000
+  ports: 60000-65530
+  mport: 60000-65530
+  udp: true
+  skip-cert-verify: true
+  sni: bilibili-jp3.biliimg.com
+  type: hysteria2
+  password: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  fingerprint: a52eee8669d92360a913a3fc101157e2bdc182947a377831abbccc31928decce
+- name: 日本-28
+  server: aws-linkhy18.lxyun.xyz
+  port: 60000
+  ports: 60000-65530
+  mport: 60000-65530
+  udp: true
+  skip-cert-verify: true
+  sni: bilibili-jp4.biliimg.com
+  type: hysteria2
+  password: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  fingerprint: a52eee8669d92360a913a3fc101157e2bdc182947a377831abbccc31928decce
+- name: 韩国-1
+  type: vless
+  server: kr-01.xn--9kqp42aims.top
+  port: 443
+  uuid: 7fe32c95-5838-42ca-bc0a-1608595a02ca
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: ios
+  reality-opts:
+    public-key: SJUej_sFVlzAYsHxp4EtWXDV5Qau3AtaATmKC8INtAQ
+    short-id: c9e56780
+    support-x25519mlkem768: true
+  network: tcp
+  servername: osxapps.itunes.apple.com
+- name: 韩国-2
+  type: vless
+  server: kr-01.xn--9kqp42aims.top
+  port: 443
+  uuid: 7fe32c95-5838-42ca-bc0a-1608595a02ca
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: ios
+  reality-opts:
+    public-key: SJUej_sFVlzAYsHxp4EtWXDV5Qau3AtaATmKC8INtAQ
+    short-id: c9e56780
+    support-x25519mlkem768: true
+  network: tcp
+  servername: osxapps.itunes.apple.com
+- name: 美国-1
+  server: 107.172.252.201
+  port: 20000
+  ports: 20000-55000
+  mport: 20000-55000
+  udp: true
+  skip-cert-verify: true
+  sni: gw.alicdn.com
   type: hysteria2
   password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
   obfs: salamander
   obfs-password: OTA2ZjRiOGQ5MWYxNmQyZA==
 - name: 美国-2
-  type: vless
-  server: cfyes.7770006.xyz
-  port: 443
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  server: us-los01.xn--9kqp42aims.top
+  port: 20000
+  ports: 20000-55000
+  mport: 20000-55000
   udp: true
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: safari
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: us7.mcdonaldshamburgergoodgoodgood.xyz
-  servername: us7.mcdonaldshamburgergoodgoodgood.xyz
+  skip-cert-verify: true
+  sni: gw.alicdn.com
+  type: hysteria2
+  password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
 - name: 美国-3
   type: vless
-  server: 8f075ed5.alidns-3.com
+  server: us01.d168f27a-5efc-4699-891d-eda6ea40be1d.genshinimpact.cyou
   port: 443
   uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
   udp: true
   tls: true
   skip-cert-verify: false
-  client-fingerprint: safari
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: us7.mcdonaldshamburgergoodgoodgood.xyz
-  servername: us7.mcdonaldshamburgergoodgoodgood.xyz
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: eN-hpk_h3mbxeGOfINunn7Ij_nsfFkgja3w5breOygg
+    short-id: 296d5815
+  network: tcp
+  servername: download.windowsupdate.com
 - name: 美国-4
   type: vless
-  server: 172.64.229.88
+  server: us02.4b214271-fd51-4e6b-9303-fe6e915f406d.genshinimpact.cyou
   port: 443
   uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
   udp: true
   tls: true
   skip-cert-verify: false
-  client-fingerprint: safari
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: us7.mcdonaldshamburgergoodgoodgood.xyz
-  servername: us7.mcdonaldshamburgergoodgoodgood.xyz
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: bKG1vbvrxm4NfSqBx-0Co84M_uLLEEftv2Ql8G7rjhM
+    short-id: 157eb31c
+  network: tcp
+  servername: www.bing.com
 - name: 美国-5
   type: vless
   server: cfyes.7770006.xyz
@@ -148,9 +1174,54 @@ proxies:
   ws-opts:
     path: /
     headers:
+      Host: us7.mcdonaldshamburgergoodgoodgood.xyz
+  servername: us7.mcdonaldshamburgergoodgoodgood.xyz
+- name: 美国-6
+  type: vless
+  server: 8f075ed5.alidns-3.com
+  port: 443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: us7.mcdonaldshamburgergoodgoodgood.xyz
+  servername: us7.mcdonaldshamburgergoodgoodgood.xyz
+- name: 美国-7
+  type: vless
+  server: 172.64.229.88
+  port: 443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: us7.mcdonaldshamburgergoodgoodgood.xyz
+  servername: us7.mcdonaldshamburgergoodgoodgood.xyz
+- name: 美国-8
+  type: vless
+  server: cfyes.7770006.xyz
+  port: 443
+  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /
+    headers:
       Host: us9.mcdonaldshamburgergoodgoodgood.xyz
   servername: us9.mcdonaldshamburgergoodgoodgood.xyz
-- name: 美国-6
+- name: 美国-9
   type: vless
   server: 8f075ed5.alidns-3.com
   port: 443
@@ -165,7 +1236,7 @@ proxies:
     headers:
       Host: us9.mcdonaldshamburgergoodgoodgood.xyz
   servername: us9.mcdonaldshamburgergoodgoodgood.xyz
-- name: 美国-7
+- name: 美国-10
   type: vless
   server: 172.64.229.88
   port: 443
@@ -180,6 +1251,192 @@ proxies:
     headers:
       Host: us9.mcdonaldshamburgergoodgoodgood.xyz
   servername: us9.mcdonaldshamburgergoodgoodgood.xyz
+- name: 美国-11
+  type: vless
+  server: jp-zouter.private.nowhere-backend.xyz
+  port: 7222
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: -y_sGlu-aD3MBve2LMP6ihYk7U3QUQn3ZUzxGOhu-RU
+    short-id: 1df922e6ef69fd9b
+  client-fingerprint: chrome
+  network: tcp
+  servername: www.microsoft.com
+- name: 美国-12
+  type: vless
+  server: jp-zouter.private.nowhere-backend.xyz
+  port: 9559
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: CQaaERP19MvGGrGrGUFVPZyC-Yfx2XsnobpDmBgh3gw
+    short-id: da843aee6f5e26e6
+  client-fingerprint: chrome
+  network: tcp
+  servername: gateway.icloud.com
+- name: 美国-13
+  type: vless
+  server: jp-zouter.private.nowhere-backend.xyz
+  port: 7587
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: eIoCcSuOiE-N7TjMtBADLOoWLh7Fqi67GE-uX1ARhyI
+    short-id: 21e534fa0bd78697
+  client-fingerprint: chrome
+  network: tcp
+  servername: www.apple.com
+- name: 美国-14
+  type: vless
+  server: cf.yfjc.sbs
+  port: 443
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /upload
+    headers:
+      Host: uz73e594wezdnvjh.nowhere-backend.xyz
+  servername: uz73e594wezdnvjh.nowhere-backend.xyz
+- name: 美国-15
+  type: vless
+  server: cf.yfjc.sbs
+  port: 443
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /upload
+    headers:
+      Host: v74mzr5d4apv1zgv.nowhere-backend.xyz
+  servername: v74mzr5d4apv1zgv.nowhere-backend.xyz
+- name: 美国-16
+  type: vless
+  server: cf.yfjc.sbs
+  port: 443
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /upload
+    headers:
+      Host: xmaw6qo9m2amsi0l.nowhere-backend.xyz
+  servername: xmaw6qo9m2amsi0l.nowhere-backend.xyz
+- name: 美国-17
+  type: vless
+  server: cfyes.777078.xyz
+  port: 443
+  uuid: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /liangxin/us
+    headers:
+      Host: lx-us5.777096.xyz
+  servername: lx-us5.777096.xyz
+- name: 美国-18
+  server: 203.10.97.121
+  port: 60000
+  ports: 60000-65530
+  mport: 60000-65530
+  udp: true
+  skip-cert-verify: true
+  sni: www.apple.com
+  type: hysteria2
+  password: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  fingerprint: 7883472b634b93a7ec09a020fdbd4b1ac7b0accc7569028dfaeb54c6384677c1
+- name: 英国-1
+  type: vless
+  server: cfyes.777078.xyz
+  port: 443
+  uuid: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: ios
+  network: ws
+  ws-opts:
+    path: /liangxin/gb1
+    headers:
+      Host: gb-lx.777096.xyz
+  servername: gb-lx.777096.xyz
+- name: 英国-2
+  type: vless
+  server: 62.164.143.252
+  port: 443
+  uuid: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  reality-opts:
+    public-key: a9I2uA3NNZA6uBAe3Tui9vZ8CG5MrMaYOifWrAdc0zg
+    short-id: a8609be8
+  network: tcp
+  servername: download-porter.hoyoverse.com
+- name: 英国-3
+  server: 62.164.143.251
+  port: 60000
+  ports: 60000-65530
+  mport: 60000-65530
+  udp: true
+  skip-cert-verify: true
+  sni: bilibili-gb.biliimg.com
+  type: hysteria2
+  password: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  fingerprint: f7d837d9a8fd47ae4f18de5a72430fb02f7e4c6e37a8823db929a1e1b8792aa1
+- name: 英国-4
+  server: 62.164.143.251
+  port: 60000
+  ports: 60000-65530
+  mport: 60000-65530
+  udp: true
+  skip-cert-verify: true
+  sni: bilibili-gb.biliimg.com
+  type: hysteria2
+  password: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  fingerprint: f7d837d9a8fd47ae4f18de5a72430fb02f7e4c6e37a8823db929a1e1b8792aa1
 - name: 德国-1
   type: vless
   server: de-01.xn--9kqp42aims.top
@@ -212,3 +1469,21 @@ proxies:
     support-x25519mlkem768: true
   network: tcp
   servername: osxapps.itunes.apple.com
+- name: 印度-1
+  type: vless
+  server: jp-zouter.private.nowhere-backend.xyz
+  port: 25710
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: sfPxc9CUChT0xaHv0kWomIk8V1PoYAO9dH3stFx92h4
+    short-id: 626057a48ef896ed
+  client-fingerprint: chrome
+  network: tcp
+  servername: www.cloudflare.com
