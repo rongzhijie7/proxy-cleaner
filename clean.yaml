@@ -234,6 +234,21 @@ proxies:
   network: tcp
   servername: www.lamer.com.hk
 - name: 香港-16
+  type: vless
+  server: aws-link5.lxyun.xyz
+  port: 443
+  uuid: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: ios
+  reality-opts:
+    public-key: HfZeg7YPEWJMQKBXctbNZBuBAk1CW98FoJ7AEyCEdQQ
+    short-id: a49232a7
+  network: tcp
+  servername: fastcdn.hoyoverse.com
+- name: 香港-17
   server: aws-linkhy1.lxyun.xyz
   port: 443
   udp: true
@@ -242,7 +257,7 @@ proxies:
   type: hysteria2
   password: 9f966f65-85af-4aec-b63c-a8ea635579e6
   fingerprint: 5343bfcb1c5db62de169584dd7ae238dc9a8f2659283f1ee99b06d744c644806
-- name: 香港-17
+- name: 香港-18
   server: aws-linkhy2.lxyun.xyz
   port: 443
   udp: true
@@ -251,7 +266,7 @@ proxies:
   type: hysteria2
   password: 9f966f65-85af-4aec-b63c-a8ea635579e6
   fingerprint: f39333d989d685541f08cb96cd8986f9854fed3674e5cc24c4bfbba81035dacf
-- name: 香港-18
+- name: 香港-19
   server: aws-linkhy3.lxyun.xyz
   port: 443
   udp: true
@@ -260,7 +275,7 @@ proxies:
   type: hysteria2
   password: 9f966f65-85af-4aec-b63c-a8ea635579e6
   fingerprint: 24d0dd43ee022bb4b0fa0b1c75d276da6b6485038fb59804498f84b80f0689ca
-- name: 香港-19
+- name: 香港-20
   server: aws-linkhy4.lxyun.xyz
   port: 443
   udp: true
@@ -775,6 +790,22 @@ proxies:
   network: tcp
   servername: osxapps.itunes.apple.com
 - name: 日本-5
+  type: vless
+  server: jpsb03.xn--9kqp42aims.top
+  port: 443
+  uuid: 7fe32c95-5838-42ca-bc0a-1608595a02ca
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: ios
+  reality-opts:
+    public-key: nxRLsmUNVvP8Vzmt19f_w1PeJ-9_iG_pHecDWxW8DxU
+    short-id: 60eebf51
+    support-x25519mlkem768: true
+  network: tcp
+  servername: osxapps.itunes.apple.com
+- name: 日本-6
   server: jpyh.xn--9kqp42aims.top
   port: 20000
   ports: 20000-55000
@@ -786,7 +817,7 @@ proxies:
   password: 7fe32c95-5838-42ca-bc0a-1608595a02ca
   obfs: salamander
   obfs-password: OTA7ZjRiOGQ5MWYxNmQyZA==
-- name: 日本-6
+- name: 日本-7
   type: vless
   server: jp03.73c01f37-d10a-4317-a43a-380fc51d0bc4.genshinimpact.cyou
   port: 443
@@ -801,7 +832,7 @@ proxies:
     short-id: 94d3f4df
   network: tcp
   servername: download-porter.hoyoverse.com
-- name: 日本-7
+- name: 日本-8
   type: vless
   server: jp01.5392a812-9a56-456f-b89a-9e5b4208168a.genshinimpact.cyou
   port: 8443
@@ -813,7 +844,7 @@ proxies:
   client-fingerprint: safari
   network: tcp
   servername: cdn-jp01.download.pikoport.com
-- name: 日本-8
+- name: 日本-9
   type: vless
   server: 43.206.97.136
   port: 8443
@@ -825,7 +856,7 @@ proxies:
   client-fingerprint: safari
   network: tcp
   servername: cdn-jp01.download.pikoport.com
-- name: 日本-9
+- name: 日本-10
   type: vless
   server: jp-zouter.private.nowhere-backend.xyz
   port: 7397
@@ -843,7 +874,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: www.apple.com
-- name: 日本-10
+- name: 日本-11
   type: vless
   server: jp-zouter.private.nowhere-backend.xyz
   port: 7185
@@ -861,7 +892,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: swdist.apple.com
-- name: 日本-11
+- name: 日本-12
   type: vless
   server: jp-zouter.private.nowhere-backend.xyz
   port: 5226
@@ -879,7 +910,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: download-porter.hoyoverse.com
-- name: 日本-12
+- name: 日本-13
   type: vless
   server: cf.yfjc.sbs
   port: 443
@@ -897,7 +928,7 @@ proxies:
     headers:
       Host: 9o40re2xvjlbd8ql.nowhere-backend.xyz
   servername: 9o40re2xvjlbd8ql.nowhere-backend.xyz
-- name: 日本-13
+- name: 日本-14
   type: vless
   server: cf.yfjc.sbs
   port: 443
@@ -915,7 +946,7 @@ proxies:
     headers:
       Host: dxajlwmxtvpgtm19.nowhere-backend.xyz
   servername: dxajlwmxtvpgtm19.nowhere-backend.xyz
-- name: 日本-14
+- name: 日本-15
   type: vless
   server: cf.yfjc.sbs
   port: 443
@@ -933,7 +964,7 @@ proxies:
     headers:
       Host: eb5x29a5xcqow8ow.nowhere-backend.xyz
   servername: eb5x29a5xcqow8ow.nowhere-backend.xyz
-- name: 日本-15
+- name: 日本-16
   type: vless
   server: aws-link13.lxyun.xyz
   port: 443
@@ -948,7 +979,7 @@ proxies:
     short-id: 131baaed
   network: tcp
   servername: download-porter.hoyoverse.com
-- name: 日本-16
+- name: 日本-17
   type: vless
   server: aws-link14.lxyun.xyz
   port: 443
@@ -963,7 +994,7 @@ proxies:
     short-id: 93d482c0
   network: tcp
   servername: download-porter.hoyoverse.com
-- name: 日本-17
+- name: 日本-18
   type: vless
   server: aws-link19.lxyun.xyz
   port: 443
@@ -976,21 +1007,6 @@ proxies:
   reality-opts:
     public-key: p6pNXigacmPazS1t76m66ia0DcFgAxOshOiPgzVvNGs
     short-id: '44099498'
-  network: tcp
-  servername: download-porter.hoyoverse.com
-- name: 日本-18
-  type: vless
-  server: aws-link20.lxyun.xyz
-  port: 443
-  uuid: 9f966f65-85af-4aec-b63c-a8ea635579e6
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: ios
-  reality-opts:
-    public-key: QE5l0RUqs4OsH3j3u_xHm06-4NlILmQivZUJqiEx11o
-    short-id: 6314e825
   network: tcp
   servername: download-porter.hoyoverse.com
 - name: 日本-19
