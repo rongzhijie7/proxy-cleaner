@@ -237,6 +237,15 @@ proxies:
   password: 9f966f65-85af-4aec-b63c-a8ea635579e6
   fingerprint: f39333d989d685541f08cb96cd8986f9854fed3674e5cc24c4bfbba81035dacf
 - name: 香港-17
+  server: aws-linkhy3.lxyun.xyz
+  port: 443
+  udp: true
+  skip-cert-verify: true
+  sni: www.apple.com
+  type: hysteria2
+  password: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  fingerprint: 24d0dd43ee022bb4b0fa0b1c75d276da6b6485038fb59804498f84b80f0689ca
+- name: 香港-18
   server: aws-linkhy4.lxyun.xyz
   port: 443
   udp: true
@@ -283,6 +292,24 @@ proxies:
   servername: ajax.microsoft.com
 - name: 台湾-3
   type: vless
+  server: hk-sakura.private.nowhere-backend.xyz
+  port: 5045
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: dXSlA1oCoZUnqTpBAhNTUsmL5_DlFtnF7DbCg9jYd3k
+    short-id: 26ee50ce4d072b89
+  client-fingerprint: chrome
+  network: tcp
+  servername: gateway.icloud.com
+- name: 台湾-4
+  type: vless
   server: cf.yfjc.sbs
   port: 443
   uuid: a4adf959-f282-471e-aa6d-d02146171a74
@@ -299,7 +326,7 @@ proxies:
     headers:
       Host: gzma1my78hlm599x.nowhere-backend.xyz
   servername: gzma1my78hlm599x.nowhere-backend.xyz
-- name: 台湾-4
+- name: 台湾-5
   type: vless
   server: cf.yfjc.sbs
   port: 443
@@ -317,7 +344,25 @@ proxies:
     headers:
       Host: hpr3pqs04nbtmevb.nowhere-backend.xyz
   servername: hpr3pqs04nbtmevb.nowhere-backend.xyz
-- name: 台湾-5
+- name: 台湾-6
+  type: vless
+  server: cf.yfjc.sbs
+  port: 443
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /upload
+    headers:
+      Host: kd0ex7qglm41pwlm.nowhere-backend.xyz
+  servername: kd0ex7qglm41pwlm.nowhere-backend.xyz
+- name: 台湾-7
   type: vless
   server: aws-link28.lxyun.xyz
   port: 443
@@ -651,17 +696,6 @@ proxies:
   type: hysteria2
   password: 9f966f65-85af-4aec-b63c-a8ea635579e6
   fingerprint: dd9dd03d942400ad4c1400879bda98f4fa097183aa9a91a1423cdd42a3e183d7
-- name: 新加坡-22
-  server: aws-linkhy12.lxyun.xyz
-  port: 60000
-  ports: 60000-65530
-  mport: 60000-65530
-  udp: true
-  skip-cert-verify: true
-  sni: iosapps.itunes.apple.com
-  type: hysteria2
-  password: 9f966f65-85af-4aec-b63c-a8ea635579e6
-  fingerprint: 064255322ff7fa4fc225b44e72e5347fb9094fccc3bdd14ddb006118296b3fd3
 - name: 日本-1
   server: kr-01.xn--9kqp42aims.top
   port: 65502
@@ -958,6 +992,17 @@ proxies:
   type: hysteria2
   password: 9f966f65-85af-4aec-b63c-a8ea635579e6
   fingerprint: a52eee8669d92360a913a3fc101157e2bdc182947a377831abbccc31928decce
+- name: 日本-21
+  server: aws-linkhy18.lxyun.xyz
+  port: 60000
+  ports: 60000-65530
+  mport: 60000-65530
+  udp: true
+  skip-cert-verify: true
+  sni: bilibili-jp4.biliimg.com
+  type: hysteria2
+  password: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  fingerprint: a52eee8669d92360a913a3fc101157e2bdc182947a377831abbccc31928decce
 - name: 韩国-1
   type: vless
   server: kr-01.xn--9kqp42aims.top
@@ -1123,54 +1168,9 @@ proxies:
   ws-opts:
     path: /liangxin/us
     headers:
-      Host: lx-us1.777096.xyz
-  servername: lx-us1.777096.xyz
-- name: 美国-9
-  type: vless
-  server: cfyes.777078.xyz
-  port: 443
-  uuid: 9f966f65-85af-4aec-b63c-a8ea635579e6
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /liangxin/us
-    headers:
-      Host: lx-us2.777096.xyz
-  servername: lx-us2.777096.xyz
-- name: 美国-10
-  type: vless
-  server: cfyes.777078.xyz
-  port: 443
-  uuid: 9f966f65-85af-4aec-b63c-a8ea635579e6
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /liangxin/us
-    headers:
       Host: lx-us5.777096.xyz
   servername: lx-us5.777096.xyz
-- name: 美国-11
-  type: vless
-  server: lxyus1.777078.xyz
-  port: 443
-  uuid: 9f966f65-85af-4aec-b63c-a8ea635579e6
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: safari
-  reality-opts:
-    public-key: ulU6wfyain_FQnYt23NGunTAfBQNLhIBY49mvekiQB0
-    short-id: ca032f81
-  network: tcp
-  servername: iosapps.itunes.apple.com
-- name: 美国-12
+- name: 美国-9
   server: 203.10.97.121
   port: 60000
   ports: 60000-65530
