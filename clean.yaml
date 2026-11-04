@@ -319,24 +319,6 @@ proxies:
   servername: hpr3pqs04nbtmevb.nowhere-backend.xyz
 - name: 台湾-6
   type: vless
-  server: cf.yfjc.sbs
-  port: 443
-  uuid: a4adf959-f282-471e-aa6d-d02146171a74
-  alterId: 0
-  cipher: auto
-  udp: true
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: safari
-  network: ws
-  ws-opts:
-    path: /upload
-    headers:
-      Host: kd0ex7qglm41pwlm.nowhere-backend.xyz
-  servername: kd0ex7qglm41pwlm.nowhere-backend.xyz
-- name: 台湾-7
-  type: vless
   server: aws-link28.lxyun.xyz
   port: 443
   uuid: 9f966f65-85af-4aec-b63c-a8ea635579e6
@@ -888,21 +870,6 @@ proxies:
   servername: download-porter.hoyoverse.com
 - name: 日本-16
   type: vless
-  server: aws-link20.lxyun.xyz
-  port: 443
-  uuid: 9f966f65-85af-4aec-b63c-a8ea635579e6
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: ios
-  reality-opts:
-    public-key: QE5l0RUqs4OsH3j3u_xHm06-4NlILmQivZUJqiEx11o
-    short-id: 6314e825
-  network: tcp
-  servername: download-porter.hoyoverse.com
-- name: 日本-17
-  type: vless
   server: aws-link23.lxyun.xyz
   port: 443
   uuid: 9f966f65-85af-4aec-b63c-a8ea635579e6
@@ -916,6 +883,17 @@ proxies:
     short-id: ba826a54
   network: tcp
   servername: download-porter.hoyoverse.com
+- name: 日本-17
+  server: aws-linkhy15.lxyun.xyz
+  port: 60000
+  ports: 60000-65530
+  mport: 60000-65530
+  udp: true
+  skip-cert-verify: true
+  sni: bilibili-jp.biliimg.com
+  type: hysteria2
+  password: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  fingerprint: 95b89cf256ca58006f8d2f090bc8a6ca89b385f424852e82b59f2af384b142d7
 - name: 日本-18
   server: aws-linkhy16.lxyun.xyz
   port: 60000
