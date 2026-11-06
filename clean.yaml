@@ -219,15 +219,6 @@ proxies:
   network: tcp
   servername: fastcdn.hoyoverse.com
 - name: 香港-15
-  server: aws-linkhy1.lxyun.xyz
-  port: 443
-  udp: true
-  skip-cert-verify: true
-  sni: download-porter.hoyoverse.com
-  type: hysteria2
-  password: 9f966f65-85af-4aec-b63c-a8ea635579e6
-  fingerprint: 5343bfcb1c5db62de169584dd7ae238dc9a8f2659283f1ee99b06d744c644806
-- name: 香港-16
   server: aws-linkhy2.lxyun.xyz
   port: 443
   udp: true
@@ -274,59 +265,23 @@ proxies:
   servername: ajax.microsoft.com
 - name: 台湾-3
   type: vless
-  server: hk-sakura.private.nowhere-backend.xyz
-  port: 5045
+  server: cf.yfjc.sbs
+  port: 443
   uuid: a4adf959-f282-471e-aa6d-d02146171a74
   alterId: 0
   cipher: auto
   udp: true
-  flow: xtls-rprx-vision
   encryption: none
   tls: true
   skip-cert-verify: false
-  reality-opts:
-    public-key: dXSlA1oCoZUnqTpBAhNTUsmL5_DlFtnF7DbCg9jYd3k
-    short-id: 26ee50ce4d072b89
-  client-fingerprint: chrome
-  network: tcp
-  servername: gateway.icloud.com
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /upload
+    headers:
+      Host: hpr3pqs04nbtmevb.nowhere-backend.xyz
+  servername: hpr3pqs04nbtmevb.nowhere-backend.xyz
 - name: 台湾-4
-  type: vless
-  server: cf.yfjc.sbs
-  port: 443
-  uuid: a4adf959-f282-471e-aa6d-d02146171a74
-  alterId: 0
-  cipher: auto
-  udp: true
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: safari
-  network: ws
-  ws-opts:
-    path: /upload
-    headers:
-      Host: gzma1my78hlm599x.nowhere-backend.xyz
-  servername: gzma1my78hlm599x.nowhere-backend.xyz
-- name: 台湾-5
-  type: vless
-  server: cf.yfjc.sbs
-  port: 443
-  uuid: a4adf959-f282-471e-aa6d-d02146171a74
-  alterId: 0
-  cipher: auto
-  udp: true
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: safari
-  network: ws
-  ws-opts:
-    path: /upload
-    headers:
-      Host: kd0ex7qglm41pwlm.nowhere-backend.xyz
-  servername: kd0ex7qglm41pwlm.nowhere-backend.xyz
-- name: 台湾-6
   type: vless
   server: aws-link28.lxyun.xyz
   port: 443
@@ -908,6 +863,17 @@ proxies:
   network: tcp
   servername: download-porter.hoyoverse.com
 - name: 日本-18
+  server: aws-linkhy15.lxyun.xyz
+  port: 60000
+  ports: 60000-65530
+  mport: 60000-65530
+  udp: true
+  skip-cert-verify: true
+  sni: bilibili-jp.biliimg.com
+  type: hysteria2
+  password: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  fingerprint: 95b89cf256ca58006f8d2f090bc8a6ca89b385f424852e82b59f2af384b142d7
+- name: 日本-19
   server: aws-linkhy16.lxyun.xyz
   port: 60000
   ports: 60000-65530
@@ -918,7 +884,7 @@ proxies:
   type: hysteria2
   password: 9f966f65-85af-4aec-b63c-a8ea635579e6
   fingerprint: 95b89cf256ca58006f8d2f090bc8a6ca89b385f424852e82b59f2af384b142d7
-- name: 日本-19
+- name: 日本-20
   server: aws-linkhy17.lxyun.xyz
   port: 60000
   ports: 60000-65530
@@ -929,7 +895,7 @@ proxies:
   type: hysteria2
   password: 9f966f65-85af-4aec-b63c-a8ea635579e6
   fingerprint: a52eee8669d92360a913a3fc101157e2bdc182947a377831abbccc31928decce
-- name: 日本-20
+- name: 日本-21
   server: aws-linkhy18.lxyun.xyz
   port: 60000
   ports: 60000-65530
@@ -987,24 +953,6 @@ proxies:
 - name: 美国-2
   type: vless
   server: jp-zouter.private.nowhere-backend.xyz
-  port: 7222
-  uuid: a4adf959-f282-471e-aa6d-d02146171a74
-  alterId: 0
-  cipher: auto
-  udp: true
-  flow: xtls-rprx-vision
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  reality-opts:
-    public-key: -y_sGlu-aD3MBve2LMP6ihYk7U3QUQn3ZUzxGOhu-RU
-    short-id: 1df922e6ef69fd9b
-  client-fingerprint: chrome
-  network: tcp
-  servername: www.microsoft.com
-- name: 美国-3
-  type: vless
-  server: jp-zouter.private.nowhere-backend.xyz
   port: 9559
   uuid: a4adf959-f282-471e-aa6d-d02146171a74
   alterId: 0
@@ -1020,7 +968,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: gateway.icloud.com
-- name: 美国-4
+- name: 美国-3
   type: vless
   server: jp-zouter.private.nowhere-backend.xyz
   port: 7587
@@ -1038,7 +986,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: www.apple.com
-- name: 美国-5
+- name: 美国-4
   type: vless
   server: cf.yfjc.sbs
   port: 443
@@ -1056,7 +1004,7 @@ proxies:
     headers:
       Host: uz73e594wezdnvjh.nowhere-backend.xyz
   servername: uz73e594wezdnvjh.nowhere-backend.xyz
-- name: 美国-6
+- name: 美国-5
   type: vless
   server: cf.yfjc.sbs
   port: 443
@@ -1074,7 +1022,7 @@ proxies:
     headers:
       Host: v74mzr5d4apv1zgv.nowhere-backend.xyz
   servername: v74mzr5d4apv1zgv.nowhere-backend.xyz
-- name: 美国-7
+- name: 美国-6
   type: vless
   server: cf.yfjc.sbs
   port: 443
@@ -1092,7 +1040,7 @@ proxies:
     headers:
       Host: xmaw6qo9m2amsi0l.nowhere-backend.xyz
   servername: xmaw6qo9m2amsi0l.nowhere-backend.xyz
-- name: 美国-8
+- name: 美国-7
   type: vless
   server: cfyes.777078.xyz
   port: 443
@@ -1107,7 +1055,7 @@ proxies:
     headers:
       Host: lx-us5.777096.xyz
   servername: lx-us5.777096.xyz
-- name: 美国-9
+- name: 美国-8
   server: 203.10.97.121
   port: 60000
   ports: 60000-65530
