@@ -82,6 +82,24 @@ proxies:
 - name: TW备用01
   type: vless
   server: hk-sakura.private.nowhere-backend.xyz
+  port: 5045
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: dXSlA1oCoZUnqTpBAhNTUsmL5_DlFtnF7DbCg9jYd3k
+    short-id: 26ee50ce4d072b89
+  client-fingerprint: chrome
+  network: tcp
+  servername: gateway.icloud.com
+- name: TW备用02
+  type: vless
+  server: hk-sakura.private.nowhere-backend.xyz
   port: 6128
   uuid: a4adf959-f282-471e-aa6d-d02146171a74
   alterId: 0
@@ -136,7 +154,7 @@ proxies:
 - name: SG备用01
   type: vless
   server: hk-sakura.private.nowhere-backend.xyz
-  port: 9467
+  port: 7409
   uuid: a4adf959-f282-471e-aa6d-d02146171a74
   alterId: 0
   cipher: auto
@@ -146,11 +164,11 @@ proxies:
   tls: true
   skip-cert-verify: false
   reality-opts:
-    public-key: qtcBUnnONu0zgc3YCB3SBESQJvOUGMaK2jOmCuaiCRQ
-    short-id: 54598d3ec9d7f209
+    public-key: 6kw0oWDbY1Z-cd0yCa9QXB_ll1_f9NYISGlORtDU8Hw
+    short-id: 5705126b86857079
   client-fingerprint: chrome
   network: tcp
-  servername: www.cloudflare.com
+  servername: www.microsoft.com
 - name: SG备用02
   type: vless
   server: hk-sakura.private.nowhere-backend.xyz
