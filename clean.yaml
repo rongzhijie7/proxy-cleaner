@@ -249,6 +249,24 @@ proxies:
   servername: ajax.microsoft.com
 - name: 台湾-3
   type: vless
+  server: hk-sakura.private.nowhere-backend.xyz
+  port: 5045
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: dXSlA1oCoZUnqTpBAhNTUsmL5_DlFtnF7DbCg9jYd3k
+    short-id: 26ee50ce4d072b89
+  client-fingerprint: chrome
+  network: tcp
+  servername: gateway.icloud.com
+- name: 台湾-4
+  type: vless
   server: cf.yfjc.sbs
   port: 443
   uuid: a4adf959-f282-471e-aa6d-d02146171a74
@@ -265,7 +283,7 @@ proxies:
     headers:
       Host: gzma1my78hlm599x.nowhere-backend.xyz
   servername: gzma1my78hlm599x.nowhere-backend.xyz
-- name: 台湾-4
+- name: 台湾-5
   type: vless
   server: cf.yfjc.sbs
   port: 443
@@ -283,7 +301,7 @@ proxies:
     headers:
       Host: hpr3pqs04nbtmevb.nowhere-backend.xyz
   servername: hpr3pqs04nbtmevb.nowhere-backend.xyz
-- name: 台湾-5
+- name: 台湾-6
   type: vless
   server: aws-link28.lxyun.xyz
   port: 443
@@ -836,21 +854,6 @@ proxies:
   servername: download-porter.hoyoverse.com
 - name: 日本-16
   type: vless
-  server: aws-link20.lxyun.xyz
-  port: 443
-  uuid: 9f966f65-85af-4aec-b63c-a8ea635579e6
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: ios
-  reality-opts:
-    public-key: QE5l0RUqs4OsH3j3u_xHm06-4NlILmQivZUJqiEx11o
-    short-id: 6314e825
-  network: tcp
-  servername: download-porter.hoyoverse.com
-- name: 日本-17
-  type: vless
   server: aws-link23.lxyun.xyz
   port: 443
   uuid: 9f966f65-85af-4aec-b63c-a8ea635579e6
@@ -864,6 +867,17 @@ proxies:
     short-id: ba826a54
   network: tcp
   servername: download-porter.hoyoverse.com
+- name: 日本-17
+  server: aws-linkhy15.lxyun.xyz
+  port: 60000
+  ports: 60000-65530
+  mport: 60000-65530
+  udp: true
+  skip-cert-verify: true
+  sni: bilibili-jp.biliimg.com
+  type: hysteria2
+  password: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  fingerprint: 95b89cf256ca58006f8d2f090bc8a6ca89b385f424852e82b59f2af384b142d7
 - name: 日本-18
   server: aws-linkhy16.lxyun.xyz
   port: 60000
@@ -876,17 +890,6 @@ proxies:
   password: 9f966f65-85af-4aec-b63c-a8ea635579e6
   fingerprint: 95b89cf256ca58006f8d2f090bc8a6ca89b385f424852e82b59f2af384b142d7
 - name: 日本-19
-  server: aws-linkhy17.lxyun.xyz
-  port: 60000
-  ports: 60000-65530
-  mport: 60000-65530
-  udp: true
-  skip-cert-verify: true
-  sni: bilibili-jp3.biliimg.com
-  type: hysteria2
-  password: 9f966f65-85af-4aec-b63c-a8ea635579e6
-  fingerprint: a52eee8669d92360a913a3fc101157e2bdc182947a377831abbccc31928decce
-- name: 日本-20
   server: aws-linkhy18.lxyun.xyz
   port: 60000
   ports: 60000-65530
