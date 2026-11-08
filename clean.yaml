@@ -203,6 +203,15 @@ proxies:
   network: tcp
   servername: fastcdn.hoyoverse.com
 - name: 香港-14
+  server: aws-linkhy1.lxyun.xyz
+  port: 443
+  udp: true
+  skip-cert-verify: true
+  sni: download-porter.hoyoverse.com
+  type: hysteria2
+  password: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  fingerprint: 5343bfcb1c5db62de169584dd7ae238dc9a8f2659283f1ee99b06d744c644806
+- name: 香港-15
   server: aws-linkhy2.lxyun.xyz
   port: 443
   udp: true
@@ -302,6 +311,24 @@ proxies:
       Host: hpr3pqs04nbtmevb.nowhere-backend.xyz
   servername: hpr3pqs04nbtmevb.nowhere-backend.xyz
 - name: 台湾-6
+  type: vless
+  server: cf.yfjc.sbs
+  port: 443
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /upload
+    headers:
+      Host: kd0ex7qglm41pwlm.nowhere-backend.xyz
+  servername: kd0ex7qglm41pwlm.nowhere-backend.xyz
+- name: 台湾-7
   type: vless
   server: aws-link28.lxyun.xyz
   port: 443
@@ -890,6 +917,17 @@ proxies:
   password: 9f966f65-85af-4aec-b63c-a8ea635579e6
   fingerprint: 95b89cf256ca58006f8d2f090bc8a6ca89b385f424852e82b59f2af384b142d7
 - name: 日本-19
+  server: aws-linkhy17.lxyun.xyz
+  port: 60000
+  ports: 60000-65530
+  mport: 60000-65530
+  udp: true
+  skip-cert-verify: true
+  sni: bilibili-jp3.biliimg.com
+  type: hysteria2
+  password: 9f966f65-85af-4aec-b63c-a8ea635579e6
+  fingerprint: a52eee8669d92360a913a3fc101157e2bdc182947a377831abbccc31928decce
+- name: 日本-20
   server: aws-linkhy18.lxyun.xyz
   port: 60000
   ports: 60000-65530
