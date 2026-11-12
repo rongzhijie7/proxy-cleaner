@@ -82,24 +82,6 @@ proxies:
 - name: TW备用01
   type: vless
   server: hk-sakura.private.nowhere-backend.xyz
-  port: 6128
-  uuid: a4adf959-f282-471e-aa6d-d02146171a74
-  alterId: 0
-  cipher: auto
-  udp: true
-  flow: xtls-rprx-vision
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  reality-opts:
-    public-key: A_2BYwcaV6KJMA8uvwIovEOVNA_NGMalda4WYr2YokA
-    short-id: 14b589ce356132e3
-  client-fingerprint: chrome
-  network: tcp
-  servername: ajax.microsoft.com
-- name: TW备用02
-  type: vless
-  server: hk-sakura.private.nowhere-backend.xyz
   port: 7856
   uuid: a4adf959-f282-471e-aa6d-d02146171a74
   alterId: 0
@@ -115,10 +97,10 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: www.microsoft.com
-- name: JP备用01
+- name: TW备用02
   type: vless
-  server: jp-zouter.private.nowhere-backend.xyz
-  port: 7397
+  server: hk-sakura.private.nowhere-backend.xyz
+  port: 6128
   uuid: a4adf959-f282-471e-aa6d-d02146171a74
   alterId: 0
   cipher: auto
@@ -128,11 +110,29 @@ proxies:
   tls: true
   skip-cert-verify: false
   reality-opts:
-    public-key: alA-RnK0ssRMoKgDFmr4JndXCCojboQ-chXF5Xgvy0M
-    short-id: 1b1e8a3dccc86ccd
+    public-key: A_2BYwcaV6KJMA8uvwIovEOVNA_NGMalda4WYr2YokA
+    short-id: 14b589ce356132e3
   client-fingerprint: chrome
   network: tcp
-  servername: www.apple.com
+  servername: ajax.microsoft.com
+- name: JP备用01
+  type: vless
+  server: jp-zouter.private.nowhere-backend.xyz
+  port: 5226
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: SO7FOs2Fz3mmISk01G4seBNUWFPgfutqIqkJn5dX0GE
+    short-id: a5f7966b85165587
+  client-fingerprint: chrome
+  network: tcp
+  servername: download-porter.hoyoverse.com
 - name: JP备用02
   type: vless
   server: jp-zouter.private.nowhere-backend.xyz
@@ -190,24 +190,6 @@ proxies:
 - name: US备用01
   type: vless
   server: jp-zouter.private.nowhere-backend.xyz
-  port: 9559
-  uuid: a4adf959-f282-471e-aa6d-d02146171a74
-  alterId: 0
-  cipher: auto
-  udp: true
-  flow: xtls-rprx-vision
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  reality-opts:
-    public-key: CQaaERP19MvGGrGrGUFVPZyC-Yfx2XsnobpDmBgh3gw
-    short-id: da843aee6f5e26e6
-  client-fingerprint: chrome
-  network: tcp
-  servername: gateway.icloud.com
-- name: US备用02
-  type: vless
-  server: jp-zouter.private.nowhere-backend.xyz
   port: 7587
   uuid: a4adf959-f282-471e-aa6d-d02146171a74
   alterId: 0
@@ -223,3 +205,21 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: www.apple.com
+- name: US备用02
+  type: vless
+  server: jp-zouter.private.nowhere-backend.xyz
+  port: 9559
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: CQaaERP19MvGGrGrGUFVPZyC-Yfx2XsnobpDmBgh3gw
+    short-id: da843aee6f5e26e6
+  client-fingerprint: chrome
+  network: tcp
+  servername: gateway.icloud.com
