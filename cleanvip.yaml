@@ -64,7 +64,7 @@ proxies:
 - name: HK备用02
   type: vless
   server: hk-sakura.private.nowhere-backend.xyz
-  port: 9417
+  port: 6736
   uuid: a4adf959-f282-471e-aa6d-d02146171a74
   alterId: 0
   cipher: auto
@@ -74,30 +74,12 @@ proxies:
   tls: true
   skip-cert-verify: false
   reality-opts:
-    public-key: evMHV07qo64e9jr6BeoeY0Oved-zo0gG8Wpq5-klMgM
-    short-id: ad22ba9b52d7435d
-  client-fingerprint: chrome
-  network: tcp
-  servername: dl.google.com
-- name: TW备用01
-  type: vless
-  server: hk-sakura.private.nowhere-backend.xyz
-  port: 7856
-  uuid: a4adf959-f282-471e-aa6d-d02146171a74
-  alterId: 0
-  cipher: auto
-  udp: true
-  flow: xtls-rprx-vision
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  reality-opts:
-    public-key: ya4fpSGroJlHgUeblUoy6DSkHmJxNzKvCyvsUFLb5B0
-    short-id: 1f4fadae643e31de
+    public-key: eQl-SJK4p72OE9NDNbyaCb-9uURzKk3DNL9tF1qW02A
+    short-id: 68afe7c9144f83e8
   client-fingerprint: chrome
   network: tcp
   servername: www.microsoft.com
-- name: TW备用02
+- name: TW备用01
   type: vless
   server: hk-sakura.private.nowhere-backend.xyz
   port: 6128
@@ -115,10 +97,10 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: ajax.microsoft.com
-- name: JP备用01
+- name: TW备用02
   type: vless
-  server: jp-zouter.private.nowhere-backend.xyz
-  port: 5226
+  server: hk-sakura.private.nowhere-backend.xyz
+  port: 5045
   uuid: a4adf959-f282-471e-aa6d-d02146171a74
   alterId: 0
   cipher: auto
@@ -128,12 +110,12 @@ proxies:
   tls: true
   skip-cert-verify: false
   reality-opts:
-    public-key: SO7FOs2Fz3mmISk01G4seBNUWFPgfutqIqkJn5dX0GE
-    short-id: a5f7966b85165587
+    public-key: dXSlA1oCoZUnqTpBAhNTUsmL5_DlFtnF7DbCg9jYd3k
+    short-id: 26ee50ce4d072b89
   client-fingerprint: chrome
   network: tcp
-  servername: download-porter.hoyoverse.com
-- name: JP备用02
+  servername: gateway.icloud.com
+- name: JP备用01
   type: vless
   server: jp-zouter.private.nowhere-backend.xyz
   port: 7185
@@ -151,10 +133,10 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: swdist.apple.com
-- name: SG备用01
+- name: JP备用02
   type: vless
-  server: hk-sakura.private.nowhere-backend.xyz
-  port: 9467
+  server: jp-zouter.private.nowhere-backend.xyz
+  port: 5226
   uuid: a4adf959-f282-471e-aa6d-d02146171a74
   alterId: 0
   cipher: auto
@@ -164,11 +146,29 @@ proxies:
   tls: true
   skip-cert-verify: false
   reality-opts:
-    public-key: qtcBUnnONu0zgc3YCB3SBESQJvOUGMaK2jOmCuaiCRQ
-    short-id: 54598d3ec9d7f209
+    public-key: SO7FOs2Fz3mmISk01G4seBNUWFPgfutqIqkJn5dX0GE
+    short-id: a5f7966b85165587
   client-fingerprint: chrome
   network: tcp
-  servername: www.cloudflare.com
+  servername: download-porter.hoyoverse.com
+- name: SG备用01
+  type: vless
+  server: hk-sakura.private.nowhere-backend.xyz
+  port: 8606
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: 4dK1xO104hknltn7P8aBYjgag-sTCcboM9zCte8vJzc
+    short-id: e96c9e2cd094d338
+  client-fingerprint: chrome
+  network: tcp
+  servername: dl.google.com
 - name: SG备用02
   type: vless
   server: hk-sakura.private.nowhere-backend.xyz
@@ -190,7 +190,7 @@ proxies:
 - name: US备用01
   type: vless
   server: jp-zouter.private.nowhere-backend.xyz
-  port: 7587
+  port: 7222
   uuid: a4adf959-f282-471e-aa6d-d02146171a74
   alterId: 0
   cipher: auto
@@ -200,26 +200,8 @@ proxies:
   tls: true
   skip-cert-verify: false
   reality-opts:
-    public-key: eIoCcSuOiE-N7TjMtBADLOoWLh7Fqi67GE-uX1ARhyI
-    short-id: 21e534fa0bd78697
+    public-key: -y_sGlu-aD3MBve2LMP6ihYk7U3QUQn3ZUzxGOhu-RU
+    short-id: 1df922e6ef69fd9b
   client-fingerprint: chrome
   network: tcp
-  servername: www.apple.com
-- name: US备用02
-  type: vless
-  server: jp-zouter.private.nowhere-backend.xyz
-  port: 9559
-  uuid: a4adf959-f282-471e-aa6d-d02146171a74
-  alterId: 0
-  cipher: auto
-  udp: true
-  flow: xtls-rprx-vision
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  reality-opts:
-    public-key: CQaaERP19MvGGrGrGUFVPZyC-Yfx2XsnobpDmBgh3gw
-    short-id: da843aee6f5e26e6
-  client-fingerprint: chrome
-  network: tcp
-  servername: gateway.icloud.com
+  servername: www.microsoft.com
