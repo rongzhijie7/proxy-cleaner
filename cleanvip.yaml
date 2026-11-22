@@ -1,67 +1,5 @@
 proxies:
-- name: HK专线01
-  server: 7d0a2gz0-7a0c.aws-agent.net
-  port: 10011
-  type: ss
-  cipher: aes-128-gcm
-  password: Sj10bnYDe7w6V29E
-  plugin: obfs
-  plugin-opts:
-    mode: http
-    host: af1691488c.m.ctrip.com
-  udp: false
-- name: JP专线01
-  server: 63182sh8-4d7b.aws-agent.net
-  port: 10021
-  type: ss
-  cipher: aes-128-gcm
-  password: Sj10bnYDe7w6V29E
-  plugin: obfs
-  plugin-opts:
-    mode: http
-    host: af1691488c.m.ctrip.com
-  udp: false
-- name: SG专线01
-  server: 7d0a2gz0-7a0c.aws-agent.net
-  port: 10031
-  type: ss
-  cipher: aes-128-gcm
-  password: Sj10bnYDe7w6V29E
-  plugin: obfs
-  plugin-opts:
-    mode: http
-    host: af1691488c.m.ctrip.com
-  udp: false
-- name: US专线01
-  server: 63182sh8-4d7b.aws-agent.net
-  port: 10051
-  type: ss
-  cipher: aes-128-gcm
-  password: Sj10bnYDe7w6V29E
-  plugin: obfs
-  plugin-opts:
-    mode: http
-    host: af1691488c.m.ctrip.com
-  udp: false
 - name: HK备用01
-  type: vless
-  server: hk-sakura.private.nowhere-backend.xyz
-  port: 8850
-  uuid: a4adf959-f282-471e-aa6d-d02146171a74
-  alterId: 0
-  cipher: auto
-  udp: true
-  flow: xtls-rprx-vision
-  encryption: none
-  tls: true
-  skip-cert-verify: false
-  reality-opts:
-    public-key: OZ_b_-5Y13dxWmoCt6O-e_LR1zFqQkoLQEPVu3LfBzg
-    short-id: a705f8454a183dd4
-  client-fingerprint: chrome
-  network: tcp
-  servername: gateway.icloud.com
-- name: HK备用02
   type: vless
   server: hk-sakura.private.nowhere-backend.xyz
   port: 9417
@@ -79,10 +17,10 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: dl.google.com
-- name: TW备用01
+- name: HK备用02
   type: vless
   server: hk-sakura.private.nowhere-backend.xyz
-  port: 7856
+  port: 8850
   uuid: a4adf959-f282-471e-aa6d-d02146171a74
   alterId: 0
   cipher: auto
@@ -92,12 +30,12 @@ proxies:
   tls: true
   skip-cert-verify: false
   reality-opts:
-    public-key: ya4fpSGroJlHgUeblUoy6DSkHmJxNzKvCyvsUFLb5B0
-    short-id: 1f4fadae643e31de
+    public-key: OZ_b_-5Y13dxWmoCt6O-e_LR1zFqQkoLQEPVu3LfBzg
+    short-id: a705f8454a183dd4
   client-fingerprint: chrome
   network: tcp
-  servername: www.microsoft.com
-- name: TW备用02
+  servername: gateway.icloud.com
+- name: TW备用01
   type: vless
   server: hk-sakura.private.nowhere-backend.xyz
   port: 5045
