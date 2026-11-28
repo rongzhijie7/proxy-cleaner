@@ -47,35 +47,59 @@ proxies:
   obfs-password: OTA2ZjRiOGQ5MWYxNmQyZA==
 - name: 香港-5
   type: vless
-  server: 8f075ed5.alidns-3.com
-  port: 443
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  server: hk-sakura.private.nowhere-backend.xyz
+  port: 6736
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
   udp: true
+  flow: xtls-rprx-vision
+  encryption: none
   tls: true
   skip-cert-verify: false
-  client-fingerprint: safari
-  network: ws
-  ws-opts:
-    path: /e8686e70-8e5d-4005-b6f5-a75ea324e276
-    headers:
-      Host: ak4.chinapolice.lol
-  servername: ak4.chinapolice.lol
+  reality-opts:
+    public-key: eQl-SJK4p72OE9NDNbyaCb-9uURzKk3DNL9tF1qW02A
+    short-id: 68afe7c9144f83e8
+  client-fingerprint: chrome
+  network: tcp
+  servername: www.microsoft.com
 - name: 香港-6
   type: vless
-  server: 172.64.145.105
-  port: 443
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  server: hk-sakura.private.nowhere-backend.xyz
+  port: 8850
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
   udp: true
+  flow: xtls-rprx-vision
+  encryption: none
   tls: true
   skip-cert-verify: false
-  client-fingerprint: safari
-  network: ws
-  ws-opts:
-    path: /e8686e70-8e5d-4005-b6f5-a75ea324e276
-    headers:
-      Host: ak4.chinapolice.lol
-  servername: ak4.chinapolice.lol
+  reality-opts:
+    public-key: OZ_b_-5Y13dxWmoCt6O-e_LR1zFqQkoLQEPVu3LfBzg
+    short-id: a705f8454a183dd4
+  client-fingerprint: chrome
+  network: tcp
+  servername: gateway.icloud.com
 - name: 香港-7
+  type: vless
+  server: hk-sakura.private.nowhere-backend.xyz
+  port: 9417
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: evMHV07qo64e9jr6BeoeY0Oved-zo0gG8Wpq5-klMgM
+    short-id: ad22ba9b52d7435d
+  client-fingerprint: chrome
+  network: tcp
+  servername: dl.google.com
+- name: 香港-8
   type: vless
   server: cf.yfjc.sbs
   port: 443
@@ -93,7 +117,7 @@ proxies:
     headers:
       Host: 044womelv2yod8yu.nowhere-backend.xyz
   servername: 044womelv2yod8yu.nowhere-backend.xyz
-- name: 香港-8
+- name: 香港-9
   type: vless
   server: cf.yfjc.sbs
   port: 443
@@ -111,7 +135,7 @@ proxies:
     headers:
       Host: 40zysbfnkolb23le.nowhere-backend.xyz
   servername: 40zysbfnkolb23le.nowhere-backend.xyz
-- name: 香港-9
+- name: 香港-10
   type: vless
   server: cf.yfjc.sbs
   port: 443
@@ -439,29 +463,57 @@ proxies:
   servername: osxapps.itunes.apple.com
 - name: 日本-5
   type: vless
-  server: jp01.5392a812-9a56-456f-b89a-9e5b4208168a.genshinimpact.cyou
-  port: 8443
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  server: jpsb03.xn--9kqp42aims.top
+  port: 443
+  uuid: 7fe32c95-5838-42ca-bc0a-1608595a02ca
   udp: true
+  flow: xtls-rprx-vision
   tls: true
   skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: safari
+  client-fingerprint: ios
+  reality-opts:
+    public-key: nxRLsmUNVvP8Vzmt19f_w1PeJ-9_iG_pHecDWxW8DxU
+    short-id: 60eebf51
+    support-x25519mlkem768: true
   network: tcp
-  servername: cdn-jp01.download.pikoport.com
+  servername: osxapps.itunes.apple.com
 - name: 日本-6
   type: vless
-  server: 18.181.226.22
-  port: 8443
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
+  server: jp-zouter.private.nowhere-backend.xyz
+  port: 7397
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
   udp: true
+  flow: xtls-rprx-vision
+  encryption: none
   tls: true
   skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: safari
+  reality-opts:
+    public-key: alA-RnK0ssRMoKgDFmr4JndXCCojboQ-chXF5Xgvy0M
+    short-id: 1b1e8a3dccc86ccd
+  client-fingerprint: chrome
   network: tcp
-  servername: cdn-jp01.download.pikoport.com
+  servername: www.apple.com
 - name: 日本-7
+  type: vless
+  server: jp-zouter.private.nowhere-backend.xyz
+  port: 7185
+  uuid: a4adf959-f282-471e-aa6d-d02146171a74
+  alterId: 0
+  cipher: auto
+  udp: true
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  reality-opts:
+    public-key: m0IRiI3EipRwvNHd1dJIm7iCxpz-ny-kaFNdPkTwtBI
+    short-id: 0dbf5cab8ac47793
+  client-fingerprint: chrome
+  network: tcp
+  servername: swdist.apple.com
+- name: 日本-8
   type: vless
   server: jp-zouter.private.nowhere-backend.xyz
   port: 5226
@@ -479,7 +531,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: download-porter.hoyoverse.com
-- name: 日本-8
+- name: 日本-9
   type: vless
   server: cf.yfjc.sbs
   port: 443
@@ -497,7 +549,7 @@ proxies:
     headers:
       Host: 9o40re2xvjlbd8ql.nowhere-backend.xyz
   servername: 9o40re2xvjlbd8ql.nowhere-backend.xyz
-- name: 日本-9
+- name: 日本-10
   type: vless
   server: cf.yfjc.sbs
   port: 443
@@ -515,7 +567,7 @@ proxies:
     headers:
       Host: dxajlwmxtvpgtm19.nowhere-backend.xyz
   servername: dxajlwmxtvpgtm19.nowhere-backend.xyz
-- name: 日本-10
+- name: 日本-11
   type: vless
   server: cf.yfjc.sbs
   port: 443
@@ -591,155 +643,50 @@ proxies:
   servername: osxapps.itunes.apple.com
 - name: 美国-4
   type: vless
-  server: us02.4b214271-fd51-4e6b-9303-fe6e915f406d.genshinimpact.cyou
+  server: ctcu.alidns-1.com
   port: 443
   uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
   udp: true
   tls: true
   skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: chrome
-  reality-opts:
-    public-key: bKG1vbvrxm4NfSqBx-0Co84M_uLLEEftv2Ql8G7rjhM
-    short-id: 157eb31c
-  network: tcp
-  servername: www.bing.com
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /39321c28-b618-4e2e-ae9f-9509449bd612
+    headers:
+      Host: us5.chinapolice.lol
+  servername: us5.chinapolice.lol
 - name: 美国-5
   type: vless
-  server: 148.135.105.211
+  server: 8f075ed5.alidns-3.com
   port: 443
   uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
   udp: true
   tls: true
   skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: chrome
-  reality-opts:
-    public-key: bKG1vbvrxm4NfSqBx-0Co84M_uLLEEftv2Ql8G7rjhM
-    short-id: 157eb31c
-  network: tcp
-  servername: www.bing.com
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /39321c28-b618-4e2e-ae9f-9509449bd612
+    headers:
+      Host: us5.chinapolice.lol
+  servername: us5.chinapolice.lol
 - name: 美国-6
   type: vless
-  server: us03.e8cdce9e-40a0-4487-8a8d-de8de7d8f3c8.genshinimpact.cyou
+  server: 172.64.229.88
   port: 443
   uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
   udp: true
   tls: true
   skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: chrome
-  reality-opts:
-    public-key: TC-wWnqm1nHfUrk4q8JEdhHxAEoXngklzEoDd4-qnBA
-    short-id: 5633178b
-  network: tcp
-  servername: software.download.prss.microsoft.com
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /39321c28-b618-4e2e-ae9f-9509449bd612
+    headers:
+      Host: us5.chinapolice.lol
+  servername: us5.chinapolice.lol
 - name: 美国-7
-  type: vless
-  server: 148.135.105.212
-  port: 443
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: chrome
-  reality-opts:
-    public-key: TC-wWnqm1nHfUrk4q8JEdhHxAEoXngklzEoDd4-qnBA
-    short-id: 5633178b
-  network: tcp
-  servername: software.download.prss.microsoft.com
-- name: 美国-8
-  type: vless
-  server: ctcu.alidns-1.com
-  port: 443
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: safari
-  network: ws
-  ws-opts:
-    path: /dd73283c-c37a-43b1-b514-65a9861bdd6d
-    headers:
-      Host: us3.chinapolice.lol
-  servername: us3.chinapolice.lol
-- name: 美国-9
-  type: vless
-  server: 8f075ed5.alidns-3.com
-  port: 443
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: safari
-  network: ws
-  ws-opts:
-    path: /dd73283c-c37a-43b1-b514-65a9861bdd6d
-    headers:
-      Host: us3.chinapolice.lol
-  servername: us3.chinapolice.lol
-- name: 美国-10
-  type: vless
-  server: 172.64.229.88
-  port: 443
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: safari
-  network: ws
-  ws-opts:
-    path: /dd73283c-c37a-43b1-b514-65a9861bdd6d
-    headers:
-      Host: us3.chinapolice.lol
-  servername: us3.chinapolice.lol
-- name: 美国-11
-  type: vless
-  server: ctcu.alidns-1.com
-  port: 443
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: safari
-  network: ws
-  ws-opts:
-    path: /39321c28-b618-4e2e-ae9f-9509449bd612
-    headers:
-      Host: us5.chinapolice.lol
-  servername: us5.chinapolice.lol
-- name: 美国-12
-  type: vless
-  server: 8f075ed5.alidns-3.com
-  port: 443
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: safari
-  network: ws
-  ws-opts:
-    path: /39321c28-b618-4e2e-ae9f-9509449bd612
-    headers:
-      Host: us5.chinapolice.lol
-  servername: us5.chinapolice.lol
-- name: 美国-13
-  type: vless
-  server: 172.64.229.88
-  port: 443
-  uuid: 0ad8f7d9-85a2-45f3-9948-27903a20ec29
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: safari
-  network: ws
-  ws-opts:
-    path: /39321c28-b618-4e2e-ae9f-9509449bd612
-    headers:
-      Host: us5.chinapolice.lol
-  servername: us5.chinapolice.lol
-- name: 美国-14
   type: vless
   server: jp-zouter.private.nowhere-backend.xyz
   port: 7222
@@ -757,7 +704,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: www.microsoft.com
-- name: 美国-15
+- name: 美国-8
   type: vless
   server: jp-zouter.private.nowhere-backend.xyz
   port: 9559
@@ -775,7 +722,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: gateway.icloud.com
-- name: 美国-16
+- name: 美国-9
   type: vless
   server: jp-zouter.private.nowhere-backend.xyz
   port: 7587
@@ -793,7 +740,7 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   servername: www.apple.com
-- name: 美国-17
+- name: 美国-10
   type: vless
   server: cf.yfjc.sbs
   port: 443
@@ -811,7 +758,7 @@ proxies:
     headers:
       Host: uz73e594wezdnvjh.nowhere-backend.xyz
   servername: uz73e594wezdnvjh.nowhere-backend.xyz
-- name: 美国-18
+- name: 美国-11
   type: vless
   server: cf.yfjc.sbs
   port: 443
@@ -829,7 +776,7 @@ proxies:
     headers:
       Host: v74mzr5d4apv1zgv.nowhere-backend.xyz
   servername: v74mzr5d4apv1zgv.nowhere-backend.xyz
-- name: 美国-19
+- name: 美国-12
   type: vless
   server: cf.yfjc.sbs
   port: 443
